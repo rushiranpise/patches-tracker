@@ -263,6 +263,9 @@ dl_apkmirror() {
 	local all_dl_btns btn_url
 	all_dl_btns=$(echo "$resp" | $HTMLQ "a.downloadButton" --attribute href 2>/dev/null || true)
 	if [ -z "$all_dl_btns" ]; then
+		all_dl_btns=$(echo "$resp" | grep -oP "href=['\"]\K[^'\"]*/download/\?key=[^'\"]+" | sed 's/&amp;/\&/g' || true)
+	fi
+	if [ -z "$all_dl_btns" ]; then
 		epr "Could not find APKMirror download buttons"
 		return 1
 	fi
@@ -277,10 +280,13 @@ dl_apkmirror() {
 	btn_url=$(echo "$btn_url" | sed 's/&amp;/\&/g')
 	pr "APKMirror download button: $btn_url"
 
-	_fs_get "$base_url$btn_url" || return 1
+	local btn_full_url="$base_url$btn_url"
+	[[ "$btn_url" == http* ]] && btn_full_url="$btn_url"
+	_fs_get "$btn_full_url" || return 1
 	local final_url
 	final_url=$($HTMLQ "a#download-link" --attribute href <<<"$html" 2>/dev/null | head -1) || true
 	[ -z "$final_url" ] && final_url=$(echo "$html" | grep -oP 'id="download-link"[^>]*href="\K[^"]+' | head -1) || true
+	[ -z "$final_url" ] && final_url=$(echo "$html" | grep -oP "href=['\"]\K[^'\"]*download\.php[^'\"]+" | head -1) || true
 	if [ -z "$final_url" ]; then epr "Could not find final download link on APKMirror"; return 1; fi
 	final_url=$(echo "$final_url" | sed 's/&amp;/\&/g')
 	[[ "$final_url" != http* ]] && final_url="${base_url}${final_url}"
@@ -288,8 +294,7 @@ dl_apkmirror() {
 	pr "Downloading APK: $final_url"
 	local cookie_args=()
 	[ -n "${FS_COOKIES:-}" ] && cookie_args=(--header "Cookie: $FS_COOKIES")
-	local referer_url="$base_url$btn_url"
-	[[ "$btn_url" == http* ]] && referer_url="$btn_url"
+	local referer_url="$btn_full_url"
 
 	if [ "$is_bundle" = true ]; then
 		wget -nv -O "${output}.apkm" \

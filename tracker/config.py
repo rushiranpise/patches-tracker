@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
+import shlex
 import tomllib
 
 
@@ -19,6 +20,7 @@ class TrackerConfig:
     constants_path: str
     release_prefix: str = "tracker"
     work_dir: str = ".work"
+    target_branch: str = "dev"
 
 
 @dataclass(frozen=True)
@@ -66,14 +68,61 @@ class Config:
 
 def load_config(path: str | Path) -> Config:
     data = tomllib.loads(Path(path).read_text(encoding="utf-8"))
-    apps = []
-    for app in data.get("apps", []):
-        app = dict(app)
-        app["sources"] = [SourceConfig(**source) for source in app.get("sources", [])]
-        apps.append(AppConfig(**app))
+    apps = [_load_legacy_app(app) for app in data.get("apps", [])]
+    reserved_tables = {"tracker", "cli", "patches", "apps"}
+    for app_id, app in data.items():
+        if app_id in reserved_tables or not isinstance(app, dict):
+            continue
+        if app.get("enabled", True) is False:
+            continue
+        apps.append(_load_rvb_style_app(app_id, app))
     return Config(
         tracker=TrackerConfig(**data["tracker"]),
         cli=ToolConfig(**data["cli"]),
         patches=ToolConfig(**data["patches"]),
         apps=apps,
     )
+
+
+def _load_legacy_app(raw: dict) -> AppConfig:
+    app = _normalize_keys(raw)
+    app["sources"] = [SourceConfig(**_normalize_keys(source)) for source in app.get("sources", [])]
+    return AppConfig(**app)
+
+
+def _load_rvb_style_app(app_id: str, raw: dict) -> AppConfig:
+    app = _normalize_keys(raw)
+    sources = []
+    for source in ("direct", "github", "archive", "apkmirror", "uptodown", "apkpure", "apkcombo"):
+        url = app.pop(f"{source}_dlurl", "")
+        if url:
+            sources.append(SourceConfig(source, url, app.get("arch", "all"), app.get("dpi", "nodpi anydpi auto")))
+
+    return AppConfig(
+        id=app_id,
+        name=app.get("app_name") or app_id,
+        package_name=app["package_name"],
+        constant=app["constant"],
+        current_version=app["current_version"],
+        candidate_version=app.get("version") or app.get("candidate_version", "latest"),
+        arch=app.get("arch", "all"),
+        dpi=app.get("dpi", "nodpi anydpi auto"),
+        included_patches=_list_value(app.get("included_patches", [])),
+        excluded_patches=_list_value(app.get("excluded_patches", [])),
+        patcher_args=_list_value(app.get("patcher_args", [])),
+        sources=sources,
+    )
+
+
+def _normalize_keys(raw: dict) -> dict:
+    return {key.replace("-", "_"): value for key, value in raw.items()}
+
+
+def _list_value(value) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [str(item) for item in value]
+    if isinstance(value, str):
+        return shlex.split(value)
+    return [str(value)]

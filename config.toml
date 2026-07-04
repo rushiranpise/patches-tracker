@@ -3,6 +3,7 @@ patches_repo = "rushiranpise/morphe-patches"
 constants_path = "patches/src/main/kotlin/app/template/patches/shared/Constants.kt"
 release_prefix = "tracker"
 work_dir = ".work"
+target_branch = "dev"
 
 [cli]
 repo = "MorpheApp/morphe-cli"
@@ -14,25 +15,15 @@ repo = "rushiranpise/morphe-patches"
 asset_regex = ".*\\.(mpp|rvp|jar)$"
 prerelease = false
 
-[[apps]]
-id = "splitwise"
-name = "Splitwise"
-package_name = "com.Splitwise.SplitwiseMobile"
+[splitwise]
+enabled = true
+app-name = "Splitwise"
+package-name = "com.Splitwise.SplitwiseMobile"
 constant = "SPLITWISE_COMPATIBILITY"
-current_version = "26.5.5"
-candidate_version = "latest"
-included_patches = ["Unlock Pro"]
-excluded_patches = []
-patcher_args = []
-
-[[apps.sources]]
-source = "apkmirror"
-url = "https://www.apkmirror.com/apk/splitwise/splitwise"
+current-version = "26.5.5"
+version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-
-[[apps.sources]]
-source = "uptodown"
-url = "https://splitwise.en.uptodown.com/android"
-arch = "all"
-dpi = "nodpi anydpi auto"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/splitwise/splitwise"
+apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
+uptodown-dlurl = "https://splitwise.en.uptodown.com/android"

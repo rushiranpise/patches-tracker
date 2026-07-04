@@ -29,12 +29,12 @@ def git(args: list[str], cwd: Path, *, dry_run: bool = False) -> str:
     return completed.stdout.strip()
 
 
-def clone_patches_repo(repo: str, dest: Path, *, dry_run: bool = False) -> Path:
+def clone_patches_repo(repo: str, dest: Path, branch: str, *, dry_run: bool = False) -> Path:
     if dry_run:
         return dest
     if dest.exists():
         shutil.rmtree(dest)
-    subprocess.run(["gh", "repo", "clone", repo, str(dest), "--", "--depth", "1"], check=True)
+    subprocess.run(["gh", "repo", "clone", repo, str(dest), "--", "--branch", branch, "--depth", "1"], check=True)
     token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
     if token:
         subprocess.run(
@@ -104,7 +104,7 @@ def main() -> int:
     branch = ""
     constants_file = None
     if successful_results:
-        patches_repo_path = clone_patches_repo(cfg.tracker.patches_repo, work_dir / "morphe-patches")
+        patches_repo_path = clone_patches_repo(cfg.tracker.patches_repo, work_dir / "morphe-patches", cfg.tracker.target_branch)
         branch = f"tracker/update-working-versions-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
         git(["checkout", "-b", branch], patches_repo_path)
         constants_file = patches_repo_path / cfg.tracker.constants_path
@@ -118,12 +118,14 @@ def main() -> int:
                 changed.append(app)
             continue
 
+        target_repo = issue_repo_for_failure(cfg.tracker.patches_repo, result.failure_type)
         issue_title = f"tracker: {app.name} failed on {result.candidate_version}"
         body = (
             f"Automated tracker failed to patch `{app.name}` (`{app.package_name}`).\n\n"
             f"- Current known working: `{app.current_version}`\n"
             f"- Candidate tested: `{result.candidate_version}`\n"
             f"- Failure type: `{result.failure_type or 'unknown'}`\n"
+            f"- Issue repo: `{target_repo}`\n"
             f"- Workflow: {os.environ.get('GITHUB_SERVER_URL', '')}/{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}\n\n"
             "Last log excerpt:\n\n"
             "```text\n"
@@ -131,10 +133,10 @@ def main() -> int:
             "```"
         )
         create_or_update_failure_issue(
-            cfg.tracker.patches_repo,
+            target_repo,
             issue_title,
             body,
-            ["bug", "tracker", "patch-broken-after-update"],
+            issue_labels_for_failure(result.failure_type),
         )
 
     if changed:
@@ -154,6 +156,7 @@ def main() -> int:
                 patches_repo_path,
                 cfg.tracker.patches_repo,
                 branch,
+                cfg.tracker.target_branch,
                 "chore: update tracker verified app versions",
                 body,
             )
@@ -161,6 +164,18 @@ def main() -> int:
             print("warning: could not push/open PR for morphe-patches; check PATCHES_REPO_TOKEN contents write access", flush=True)
 
     return 0
+
+
+def issue_repo_for_failure(patches_repo: str, failure_type: str | None) -> str:
+    if failure_type in {"download", "version_resolve", "config"}:
+        return os.environ.get("GITHUB_REPOSITORY") or "rushiranpise/patches-tracker"
+    return patches_repo
+
+
+def issue_labels_for_failure(failure_type: str | None) -> list[str]:
+    if failure_type in {"download", "version_resolve", "config"}:
+        return ["bug", "tracker", "source-failure"]
+    return ["bug", "tracker", "patch-broken-after-update"]
 
 
 def render_status_table(results) -> str:

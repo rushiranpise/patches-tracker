@@ -45,5 +45,18 @@ def create_or_update_failure_issue(
         print(f"warning: could not create/comment issue: {error.stderr}", flush=True)
 
 
-def create_pull_request(repo_path: Path, repo: str, branch: str, title: str, body: str, *, dry_run: bool = False) -> None:
-    run_gh(["pr", "create", "--repo", repo, "--head", branch, "--title", title, "--body", body], cwd=repo_path, dry_run=dry_run)
+def create_pull_request(
+    repo_path: Path,
+    repo: str,
+    branch: str,
+    base: str,
+    title: str,
+    body: str,
+    *,
+    dry_run: bool = False,
+) -> None:
+    run_gh(
+        ["pr", "create", "--repo", repo, "--head", branch, "--base", base, "--title", title, "--body", body],
+        cwd=repo_path,
+        dry_run=dry_run,
+    )

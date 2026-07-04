@@ -1,0 +1,79 @@
+name: Track default patches via APKCombo
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 8 * * 1"
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  track-apkcombo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout tracker
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Install resolver tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq wget curl unzip zip aapt
+          curl -L --fail -o htmlq.tar.gz \
+            https://github.com/mgdm/htmlq/releases/latest/download/htmlq-x86_64-linux.tar.gz
+          sudo tar xf htmlq.tar.gz -C /usr/local/bin
+          sudo chmod +x /usr/local/bin/htmlq
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Clone patches repo
+        env:
+          GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+        run: gh repo clone rushiranpise/morphe-patches .work/morphe-patches -- --branch dev --depth 1
+
+      - name: Generate APKCombo tracker config
+        run: |
+          python scripts/generate-config-from-constants.py \
+            --constants .work/morphe-patches/patches/src/main/kotlin/app/template/patches/shared/Constants.kt \
+            --output config.generated.toml \
+            --patches-repo rushiranpise/morphe-patches \
+            --target-branch dev
+
+      - name: Run generated tracker
+        env:
+          GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+        run: python -m tracker.cli --config config.generated.toml
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apkcombo-tracker-logs
+          path: |
+            logs
+            status.json
+            STATUS.md
+            config.generated.toml
+
+      - name: Upload APK artifacts
+        if: hashFiles('artifacts/*') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: apkcombo-patched-apks
+          path: artifacts

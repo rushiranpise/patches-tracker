@@ -13,6 +13,7 @@ The goal is:
 ## Config
 
 Copy `config.example.toml` to `config.toml` and edit the apps you want to track.
+Apps use the same flat table style as `rvb`: add one `[app-id]` block and one or more `*-dlurl` entries.
 
 ```toml
 [tracker]
@@ -20,27 +21,22 @@ patches_repo = "rushiranpise/morphe-patches"
 constants_path = "patches/src/main/kotlin/app/template/patches/shared/Constants.kt"
 release_prefix = "tracker"
 
-[[apps]]
-id = "splitwise"
-name = "Splitwise"
-package_name = "com.Splitwise.SplitwiseMobile"
+[splitwise]
+enabled = true
+app-name = "Splitwise"
+package-name = "com.Splitwise.SplitwiseMobile"
 constant = "SPLITWISE_COMPATIBILITY"
-current_version = "26.5.5"
-candidate_version = "latest"
-included_patches = ["Unlock Pro"]
-
-[[apps.sources]]
-source = "apkmirror"
-url = "https://www.apkmirror.com/apk/splitwise/splitwise"
+current-version = "26.5.5"
+version = "latest"
+included-patches = "'Unlock Pro'"
 arch = "all"
 dpi = "nodpi anydpi auto"
-
-[[apps.sources]]
-source = "apkcombo"
-url = "https://apkcombo.com/splitwise/com.Splitwise.SplitwiseMobile"
-arch = "all"
-dpi = "nodpi anydpi auto"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/splitwise/splitwise"
+apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
+uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
 ```
+
+`included-patches` is only needed for patches that are disabled by default. Normal/default patches are applied automatically by the CLI.
 
 Supported app sources follow the `rvb` downloader model:
 
@@ -52,9 +48,27 @@ Supported app sources follow the `rvb` downloader model:
 - `apkpure`
 - `apkcombo`
 
-Use `candidate_version = "latest"` to let the tracker resolve the newest available version from the configured source.
+Use `version = "latest"` to let the tracker resolve the newest available version from the configured source.
 
-If an app has multiple `[[apps.sources]]`, they are tried in order. For example, APKMirror can be first and APKCombo can be the fallback. The older single-field format (`source` + `url`) still works for simple apps.
+If an app has multiple `*-dlurl` entries, they are tried in this order: `direct`, `github`, `archive`, `apkmirror`, `uptodown`, `apkpure`, `apkcombo`.
+The older `[[apps]]` / `[[apps.sources]]` format still works, but new apps should use the flat rvb-style format.
+
+## Generated APKCombo Config
+
+The `Track default patches via APKCombo` workflow can generate a config automatically from `Constants.kt`.
+It extracts each compatibility constant's app name, package name, current target version, and constant name, then creates entries like:
+
+```toml
+[splitwise]
+app-name = "Splitwise"
+package-name = "com.Splitwise.SplitwiseMobile"
+constant = "SPLITWISE_COMPATIBILITY"
+current-version = "26.5.5"
+version = "latest"
+apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
+```
+
+This is useful for broad default-patch checks. Keep `config.toml` for apps that need custom fallbacks such as APKMirror, Uptodown, direct URLs, or non-default patch includes.
 
 ## GitHub Secrets
 
