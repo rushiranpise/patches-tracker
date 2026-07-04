@@ -13,9 +13,37 @@ pr() { echo >&2 -e "[+] ${1}"; }
 epr() { echo >&2 -e "[-] ${1}"; }
 wpr() { echo >&2 -e "[!] ${1}"; }
 isoneof() { local i=$1; shift; for v; do [ "$v" = "$i" ] && return 0; done; return 1; }
-req() { local url=$1 output=$2; if [ "$output" = - ]; then curl -L --fail -sS "$url"; else curl -L --fail -sS "$url" -o "$output"; fi; }
-gh_req() { local url=$1 output=$2; local headers=(); [ -n "${GITHUB_TOKEN-}" ] && headers=(-H "Authorization: token ${GITHUB_TOKEN}"); if [ "$output" = - ]; then curl -L --fail -sS "${headers[@]}" -H 'Accept: application/vnd.github+json' "$url"; else curl -L --fail -sS "${headers[@]}" -H 'Accept: application/vnd.github+json' "$url" -o "$output"; fi; }
-gh_dl() { req "$2" "$1"; }
+GH_HEADER="${GH_HEADER:-}"
+if [ -z "$GH_HEADER" ] && [ -n "${GITHUB_TOKEN-}" ]; then GH_HEADER="Authorization: token ${GITHUB_TOKEN}"; fi
+
+_req() {
+	local ip="$1" op="$2"
+	shift 2
+	local dlp="$op"
+	if [ "$op" != - ]; then
+		if [ -f "$op" ]; then return; fi
+		dlp="$(dirname "$op")/tmp.$(basename "$op")"
+		if [ -f "$dlp" ]; then
+			while [ -f "$dlp" ]; do sleep 1; done
+			return
+		fi
+	fi
+	if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 10 --retry 1 --fail -s -S "$@" "$ip" -o "$dlp"; then
+		epr "Request failed: $ip"
+		return 1
+	fi
+	if [ "$dlp" != - ]; then
+		mv -f "$dlp" "$op"
+	fi
+}
+req() { _req "$1" "$2" -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0"; }
+gh_req() { _req "$1" "$2" -H "$GH_HEADER"; }
+gh_dl() {
+	if [ ! -f "$1" ]; then
+		pr "Getting '$1' from '$2'"
+		_req "$2" "$1" -H "$GH_HEADER" -H "Accept: application/octet-stream"
+	fi
+}
 
 ensure_htmlq() {
   if command -v "$HTMLQ" >/dev/null 2>&1; then return 0; fi
@@ -35,31 +63,33 @@ merge_splits() {
 }
 
 _fs_get() {
-  local url=$1 referer=${2:-}
-  local fs_url="${FLARESOLVERR_URL:-}"
-
-  if [ -n "$fs_url" ] && command -v jq >/dev/null 2>&1; then
-    local extra_headers="" response status
-    [ -n "$referer" ] && extra_headers=",\"headers\":{\"Referer\":\"$referer\"}"
-    response=$(curl -sS -X POST "${fs_url%/}/v1" \
-      -H 'Content-Type: application/json' \
-      -d "{\"cmd\":\"request.get\",\"url\":\"$url\",\"maxTimeout\":60000${extra_headers}}") || true
-    status=$(echo "$response" | jq -r '.status // empty' 2>/dev/null || true)
-    if [ "$status" = ok ]; then
-      html=$(echo "$response" | jq -r '.solution.response // empty')
-      FS_COOKIES=$(echo "$response" | jq -r '[.solution.cookies[]? | .name + "=" + .value] | join("; ")')
-      user_agent=$(echo "$response" | jq -r '.solution.userAgent // "Mozilla/5.0"')
-      export FS_COOKIES
-      return 0
-    fi
-    wpr "FlareSolverr failed for $url, falling back to curl"
-  fi
-
-  local headers=(-H "User-Agent: ${user_agent:-Mozilla/5.0}")
-  [ -n "$referer" ] && headers+=(-H "Referer: $referer")
-  html=$(curl -L --fail -sS "${headers[@]}" "$url") || return 1
-  user_agent="${user_agent:-Mozilla/5.0}"
-  FS_COOKIES=""
+	local url=$1 referer=${2:-}
+	local max_retries=5 attempt
+	local fs_url="${FLARESOLVERR_URL:-http://localhost:8191}/v1"
+	local extra_headers=""
+	[ -n "$referer" ] && extra_headers=",\"headers\":{\"Referer\":\"$referer\"}"
+	if command -v jq >/dev/null 2>&1; then
+		for attempt in $(seq 1 $max_retries); do
+			local response status
+			response=$(curl -s -X POST "$fs_url" \
+				-H 'Content-Type: application/json' \
+				-d "{\"cmd\":\"request.get\",\"url\":\"$url\",\"maxTimeout\":60000${extra_headers}}") || true
+			status=$(echo "$response" | jq -r '.status // empty')
+			if [[ "$status" == "ok" ]]; then
+				html=$(echo "$response" | jq -r '.solution.response // empty')
+				export FS_COOKIES
+				FS_COOKIES=$(echo "$response" | jq -r '[.solution.cookies[] | .name + "=" + .value] | join("; ")')
+				user_agent=$(echo "$response" | jq -r '.solution.userAgent // empty')
+				return 0
+			fi
+			wpr "FlareSolverr attempt $attempt/$max_retries failed for: $url"
+			sleep 10
+		done
+	fi
+	epr "FlareSolverr failed after $max_retries attempts: $url - falling back to plain request"
+	html=$(req "$url" -) || return 1
+	FS_COOKIES=""
+	user_agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0"
 }
 # -------------------- apkmirror --------------------
 get_apkmirror_resp() {
