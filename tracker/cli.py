@@ -20,7 +20,12 @@ def git(args: list[str], cwd: Path, *, dry_run: bool = False) -> str:
     if dry_run:
         print("+", " ".join(cmd))
         return ""
-    completed = subprocess.run(cmd, cwd=cwd, check=True, text=True, capture_output=True)
+    completed = subprocess.run(cmd, cwd=cwd, text=True, capture_output=True)
+    if completed.returncode != 0:
+        print(f"git command failed: {' '.join(cmd)}", flush=True)
+        print(completed.stdout, flush=True)
+        print(completed.stderr, flush=True)
+        completed.check_returncode()
     return completed.stdout.strip()
 
 
@@ -30,6 +35,13 @@ def clone_patches_repo(repo: str, dest: Path, *, dry_run: bool = False) -> Path:
     if dest.exists():
         shutil.rmtree(dest)
     subprocess.run(["gh", "repo", "clone", repo, str(dest), "--", "--depth", "1"], check=True)
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    if token:
+        subprocess.run(
+            ["git", "remote", "set-url", "origin", f"https://x-access-token:{token}@github.com/{repo}.git"],
+            cwd=dest,
+            check=True,
+        )
     return dest
 
 
