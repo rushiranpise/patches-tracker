@@ -28,15 +28,27 @@ def create_or_update_failure_issue(
     dry_run: bool = False,
 ) -> None:
     query = f'repo:{repo} is:issue is:open in:title "{title}"'
-    existing = run_gh(
-        ["issue", "list", "--repo", repo, "--search", query, "--json", "number", "--jq", ".[0].number // empty"],
-        dry_run=dry_run,
-    )
+    try:
+        existing = run_gh(
+            ["issue", "list", "--repo", repo, "--search", query, "--json", "number", "--jq", ".[0].number // empty"],
+            dry_run=dry_run,
+        )
+    except subprocess.CalledProcessError as error:
+        print(f"warning: could not search issues: {error.stderr}", flush=True)
+        existing = ""
     label_arg = ",".join(labels)
-    if existing:
-        run_gh(["issue", "comment", existing, "--repo", repo, "--body", body], dry_run=dry_run)
-        return
-    run_gh(["issue", "create", "--repo", repo, "--title", title, "--body", body, "--label", label_arg], dry_run=dry_run)
+    try:
+        if existing:
+            run_gh(["issue", "comment", existing, "--repo", repo, "--body", body], dry_run=dry_run)
+            return
+        run_gh(["issue", "create", "--repo", repo, "--title", title, "--body", body, "--label", label_arg], dry_run=dry_run)
+    except subprocess.CalledProcessError as error:
+        print(f"warning: could not create/comment issue with labels: {error.stderr}", flush=True)
+        if not existing:
+            try:
+                run_gh(["issue", "create", "--repo", repo, "--title", title, "--body", body], dry_run=dry_run)
+            except subprocess.CalledProcessError as fallback_error:
+                print(f"warning: could not create issue without labels: {fallback_error.stderr}", flush=True)
 
 
 def create_pull_request(repo_path: Path, repo: str, branch: str, title: str, body: str, *, dry_run: bool = False) -> None:

@@ -5,6 +5,8 @@ TEMP_DIR="${TEMP_DIR:-.work/resolver}"
 BIN_DIR="${BIN_DIR:-bin}"
 APKSIGNER="${APKSIGNER:-}"
 HTMLQ="${HTMLQ:-htmlq}"
+apkmirror_example_url="${apkmirror_example_url:-}"
+__AAV__="${__AAV__:-false}"
 mkdir -p "$TEMP_DIR"
 
 pr() { echo >&2 -e "[+] ${1}"; }
@@ -65,7 +67,7 @@ get_apkmirror_resp() {
 	_fs_get "${1}" || return 1
 	__APKMIRROR_RESP__="$html"
 	__APKMIRROR_CAT__="${1##*/}"
-	__APKMIRROR_EXAMPLE_URL__="${args[apkmirror_example_url]:-}"
+	__APKMIRROR_EXAMPLE_URL__="${apkmirror_example_url:-}"
 }
 
 get_apkmirror_vers() {
