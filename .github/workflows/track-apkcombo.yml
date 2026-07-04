@@ -1,4 +1,4 @@
-name: Track default patches via APKCombo
+name: Generate APKCombo tracker config
 
 on:
   workflow_dispatch:
@@ -7,13 +7,11 @@ on:
 
 permissions:
   contents: write
-  issues: write
-  pull-requests: write
 
 jobs:
-  track-apkcombo:
+  generate-apkcombo-config:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 15
     steps:
       - name: Checkout tracker
         uses: actions/checkout@v4
@@ -22,24 +20,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "21"
-
-      - name: Install resolver tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq wget curl unzip zip aapt
-          curl -L --fail -o htmlq.tar.gz \
-            https://github.com/mgdm/htmlq/releases/latest/download/htmlq-x86_64-linux.tar.gz
-          sudo tar xf htmlq.tar.gz -C /usr/local/bin
-          sudo chmod +x /usr/local/bin/htmlq
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
 
       - name: Clone patches repo
         env:
@@ -54,26 +34,14 @@ jobs:
             --patches-repo rushiranpise/morphe-patches \
             --target-branch dev
 
-      - name: Run generated tracker
-        env:
-          GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
-        run: python -m tracker.cli --config config.generated.toml
-
-      - name: Upload logs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: apkcombo-tracker-logs
-          path: |
-            logs
-            status.json
-            STATUS.md
-            config.generated.toml
-
-      - name: Upload APK artifacts
-        if: hashFiles('artifacts/*') != ''
-        uses: actions/upload-artifact@v4
-        with:
-          name: apkcombo-patched-apks
-          path: artifacts
+      - name: Commit generated config
+        run: |
+          git config user.name "patches-tracker"
+          git config user.email "patches-tracker@users.noreply.github.com"
+          git add config.generated.toml
+          if git diff --cached --quiet; then
+            echo "No generated config changes."
+          else
+            git commit -m "chore: update generated APKCombo config [skip ci]"
+            git push
+          fi
