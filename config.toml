@@ -32,12 +32,6 @@ arch = "all"
 dpi = "nodpi anydpi auto"
 
 [[apps.sources]]
-source = "apkcombo"
-url = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
-arch = "all"
-dpi = "nodpi anydpi auto"
-
-[[apps.sources]]
 source = "uptodown"
 url = "https://splitwise.en.uptodown.com/android"
 arch = "all"
