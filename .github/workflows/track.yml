@@ -1,0 +1,108 @@
+name: Track patches
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 7 * * 1"
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    services:
+      flaresolverr:
+        image: ghcr.io/flaresolverr/flaresolverr:latest
+        ports:
+          - 8191:8191
+        options: >-
+          --health-cmd "curl -f http://localhost:8191/ || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 6
+    steps:
+      - name: Checkout tracker
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Install resolver tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq wget curl unzip zip aapt
+          curl -L --fail -o htmlq.tar.gz \
+            https://github.com/mgdm/htmlq/releases/latest/download/htmlq-x86_64-linux.tar.gz
+          sudo tar xf htmlq.tar.gz -C /usr/local/bin
+          sudo chmod +x /usr/local/bin/htmlq
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tracker
+        env:
+          GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          FLARESOLVERR_URL: http://localhost:8191
+        run: python -m tracker.cli --config config.toml
+
+      - name: Commit tracker status
+        if: always()
+        run: |
+          git config user.name "patches-tracker"
+          git config user.email "patches-tracker@users.noreply.github.com"
+          mkdir -p /tmp/patches-tracker-status
+          [ -f STATUS.md ] && cp STATUS.md /tmp/patches-tracker-status/STATUS.md
+          [ -f status.json ] && cp status.json /tmp/patches-tracker-status/status.json
+          if git fetch origin tracker-status; then
+            git switch --force-create tracker-status origin/tracker-status
+          else
+            git switch --orphan tracker-status
+          fi
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -R /tmp/patches-tracker-status/. .
+          git add STATUS.md status.json 2>/dev/null || true
+          if git diff --cached --quiet && git diff --quiet HEAD --; then
+            echo "No tracker status changes."
+          else
+            git commit -m "chore: update tracker status [skip ci]"
+            git push --force-with-lease origin tracker-status
+          fi
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tracker-logs
+          path: |
+            logs
+            status.json
+            STATUS.md
+
+      - name: Upload APK artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: patched-apks
+          path: artifacts
+
+      - name: Release APKs
+        if: success()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: tracker-${{ github.run_number }}
+          name: Tracker build ${{ github.run_number }}
+          files: artifacts/*
+          body_path: STATUS.md

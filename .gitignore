@@ -1,0 +1,7 @@
+.work/
+artifacts/
+logs/
+__pycache__/
+*.pyc
+STATUS.md
+status.json
