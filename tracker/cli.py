@@ -42,6 +42,7 @@ def clone_patches_repo(repo: str, dest: Path, *, dry_run: bool = False) -> Path:
             cwd=dest,
             check=True,
         )
+        print(f"configured authenticated push remote for {repo}", flush=True)
     return dest
 
 
@@ -141,20 +142,23 @@ def main() -> int:
         git(["config", "user.email", "patches-tracker@users.noreply.github.com"], patches_repo_path)
         git(["add", cfg.tracker.constants_path], patches_repo_path)
         git(["commit", "-m", "chore: update tracker verified app versions"], patches_repo_path)
-        git(["push", "origin", branch], patches_repo_path)
         changed_by_id = {result.app.id: result for result in results}
         body = "\n".join(
             f"- `{app.name}`: `{app.current_version}` -> `{changed_by_id[app.id].candidate_version}`"
             + (f" (`versionCode {changed_by_id[app.id].version_code}`)" if changed_by_id[app.id].version_code else "")
             for app in changed
         )
-        create_pull_request(
-            patches_repo_path,
-            cfg.tracker.patches_repo,
-            branch,
-            "chore: update tracker verified app versions",
-            body,
-        )
+        try:
+            git(["push", "origin", branch], patches_repo_path)
+            create_pull_request(
+                patches_repo_path,
+                cfg.tracker.patches_repo,
+                branch,
+                "chore: update tracker verified app versions",
+                body,
+            )
+        except subprocess.CalledProcessError:
+            print("warning: could not push/open PR for morphe-patches; check PATCHES_REPO_TOKEN contents write access", flush=True)
 
     return 0
 

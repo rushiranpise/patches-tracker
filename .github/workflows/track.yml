@@ -58,6 +58,7 @@ jobs:
         run: |
           echo "PATCHES_REPO_TOKEN configured: ${HAS_PATCHES_REPO_TOKEN}"
           gh api repos/rushiranpise/morphe-patches --jq '.full_name' || true
+          gh api user --jq '"Authenticated as: " + .login' || true
           gh auth setup-git || true
 
       - name: Run tracker

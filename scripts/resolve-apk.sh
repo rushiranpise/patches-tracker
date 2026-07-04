@@ -261,7 +261,7 @@ dl_apkmirror() {
 	fi
 
 	local all_dl_btns btn_url
-	all_dl_btns=$(echo "$resp" | $HTMLQ "a.downloadButton" --attribute href)
+	all_dl_btns=$(echo "$resp" | $HTMLQ "a.downloadButton" --attribute href 2>/dev/null || true)
 	if [ -z "$all_dl_btns" ]; then
 		epr "Could not find APKMirror download buttons"
 		return 1
@@ -275,6 +275,7 @@ dl_apkmirror() {
 	fi
 	if [ -z "$btn_url" ]; then epr "Could not find download button on APKMirror"; return 1; fi
 	btn_url=$(echo "$btn_url" | sed 's/&amp;/\&/g')
+	pr "APKMirror download button: $btn_url"
 
 	_fs_get "$base_url$btn_url" || return 1
 	local final_url
