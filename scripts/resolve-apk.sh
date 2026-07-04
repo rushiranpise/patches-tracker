@@ -210,6 +210,7 @@ dl_apkmirror() {
 			return 1
 		fi
 	fi
+	pr "APKMirror release page: $release_url"
 
 	local node dlurl=""
 	node=$($HTMLQ "div.table-row.headerFont:nth-last-child(1)" -r "span:nth-child(n+3)" <<<"$resp")
@@ -220,13 +221,21 @@ dl_apkmirror() {
 				break
 			fi
 		done
-		if [ -z "$dlurl" ]; then return 1; fi
+		if [ -z "$dlurl" ]; then
+			epr "Could not find APKMirror variant for version=$version arch=$arch dpi=$dpi"
+			return 1
+		fi
+		pr "APKMirror variant page: $dlurl"
 		_fs_get "$dlurl" || return 1
 		resp="$html"
 	fi
 
 	local all_dl_btns btn_url
 	all_dl_btns=$(echo "$resp" | $HTMLQ "a.downloadButton" --attribute href)
+	if [ -z "$all_dl_btns" ]; then
+		epr "Could not find APKMirror download buttons"
+		return 1
+	fi
 	if [ "$is_bundle" = true ]; then
 		btn_url=$(echo "$all_dl_btns" | grep -v 'forcebaseapk' | head -1)
 		[ -z "$btn_url" ] && btn_url=$(echo "$all_dl_btns" | head -1)

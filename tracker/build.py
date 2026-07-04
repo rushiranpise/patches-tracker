@@ -45,6 +45,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     resolve_logs = []
     if candidate_version == "latest" and not dry_run:
         for source in sources:
+            print(f"[{app.id}] resolving latest via {source.source}: {source.url}", flush=True)
             latest = subprocess.run(
                 ["bash", str(resolver), "latest", source.source, source.url],
                 text=True,
@@ -53,8 +54,11 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
             if latest.returncode == 0 and latest.stdout.strip():
                 candidate_version = latest.stdout.strip().splitlines()[0]
                 source_used = source
+                print(f"[{app.id}] latest version from {source.source}: {candidate_version}", flush=True)
                 break
-            resolve_logs.append(f"[{source.source}] {latest.stdout}{latest.stderr}")
+            source_log = latest.stdout + latest.stderr
+            print(f"[{app.id}] latest resolve failed via {source.source}: {source_log[-1000:]}", flush=True)
+            resolve_logs.append(f"[{source.source}] {source_log}")
         if source_used is None:
             return BuildResult(app, False, None, "\n".join(resolve_logs), candidate_version, failure_type="version_resolve")
     elif sources:
@@ -73,6 +77,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     for source in download_sources:
         if source is None:
             continue
+        print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
         resolved = subprocess.run(
             [
                 "bash",
@@ -89,12 +94,16 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
         )
         if resolved.returncode == 0 and stock_apk.exists():
             source_used = source
+            print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}", flush=True)
             break
-        download_logs.append(f"[{source.source}] {resolved.stdout}{resolved.stderr}")
+        source_log = resolved.stdout + resolved.stderr
+        print(f"[{app.id}] download failed via {source.source}: {source_log[-1000:]}", flush=True)
+        download_logs.append(f"[{source.source}] {source_log}")
     if not stock_apk.exists():
         return BuildResult(app, False, None, "\n".join(download_logs), candidate_version, failure_type="download")
 
     version_code = read_version_code(stock_apk)
+    print(f"[{app.id}] versionCode: {version_code or 'unknown'}", flush=True)
 
     args = ["java", "-jar", str(cli_jar), "patch", str(stock_apk), "-o", str(output_apk), "--patches", str(patches_file)]
     for patch in app.included_patches:
@@ -106,7 +115,9 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     completed = subprocess.run(args, text=True, capture_output=True)
     log = completed.stdout + completed.stderr
     if completed.returncode != 0 or not output_apk.exists():
+        print(f"[{app.id}] patch failed: {log[-1000:]}", flush=True)
         return BuildResult(app, False, None, log, candidate_version, version_code, classify_failure(log, "patch"))
+    print(f"[{app.id}] patch succeeded: {output_apk}", flush=True)
     return BuildResult(app, True, output_apk, log, candidate_version, version_code)
 
 
