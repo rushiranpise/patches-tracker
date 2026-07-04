@@ -382,11 +382,18 @@ get_apkcombo_resp() {
 	__APKCOMBO_PKG__="${url##*/}"
 	__APKCOMBO_BASE_URL__="$url"
 	local html=""
-	_fs_get "https://apkcombo.com/search/${__APKCOMBO_PKG__}/download" || return 1
+	_fs_get "https://apkcombo.com/search/${__APKCOMBO_PKG__}/download" ||
+		_fs_get "${__APKCOMBO_BASE_URL__}/download" ||
+		_fs_get "${__APKCOMBO_BASE_URL__}" ||
+		return 1
 	__APKCOMBO_RESP__="$html"
 }
 get_apkcombo_vers() {
-	echo "$__APKCOMBO_RESP__" | grep -oP 'phone-\K[0-9][^-]+-apk' | sed 's/-apk$//' | head -1
+	{
+		echo "$__APKCOMBO_RESP__" | grep -oP 'phone-\K[0-9][^-]+-apk' | sed 's/-apk$//'
+		echo "$__APKCOMBO_RESP__" | grep -oP '"softwareVersion"\s*:\s*"\K[^"]+'
+		echo "$__APKCOMBO_RESP__" | grep -oP 'Version</[^>]+>\s*<[^>]+>\K[^<]+' || true
+	} | sed '/^$/d' | head -1
 }
 get_apkcombo_pkg_name() { echo "$__APKCOMBO_PKG__"; }
 dl_apkcombo() {
@@ -421,6 +428,28 @@ dl_apkcombo() {
 			break
 		fi
 	done
+
+	if [ -z "$dl_url" ]; then
+		for sfx in "${sfxs[@]}"; do
+			if [ -n "$version" ]; then
+				page_url="${__APKCOMBO_BASE_URL__}/download/phone-${version}-${sfx}"
+			else
+				page_url="${__APKCOMBO_BASE_URL__}/download/apk"
+			fi
+			_fs_get "$page_url" "$__APKCOMBO_BASE_URL__" || continue
+			page="$html"
+			compact_page=$(tr '\n' ' ' <<<"$page")
+			dl_url=$(echo "$page" | grep -oP '(?<=a href=")https://download\.apkcombo\.com/[^"]+' | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP '(?<=a href=")/r2[^"]+' | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"download_url"\s*:\s*"\K[^"]+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"url"\s*:\s*"\Khttps://download\.apkcombo\.com/[^"]+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://download\.apkcombo\.com/[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '/r2\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+			if [ -n "$dl_url" ]; then
+				break
+			fi
+		done
+	fi
 
 	[ -z "$dl_url" ] && { epr "Could not find APK link on APKCombo"; return 1; }
 	[[ "$dl_url" != http* ]] && dl_url="https://apkcombo.com${dl_url}"

@@ -85,15 +85,22 @@ def main() -> int:
         print(json.dumps(status, indent=2))
         return 0
 
-    patches_repo_path = clone_patches_repo(cfg.tracker.patches_repo, work_dir / "morphe-patches")
-    branch = f"tracker/update-working-versions-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
-    git(["checkout", "-b", branch], patches_repo_path)
-
     changed = []
-    constants_file = patches_repo_path / cfg.tracker.constants_path
+    successful_results = [result for result in results if result.ok]
+    patches_repo_path = None
+    branch = ""
+    constants_file = None
+    if successful_results:
+        patches_repo_path = clone_patches_repo(cfg.tracker.patches_repo, work_dir / "morphe-patches")
+        branch = f"tracker/update-working-versions-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
+        git(["checkout", "-b", branch], patches_repo_path)
+        constants_file = patches_repo_path / cfg.tracker.constants_path
+
     for result in results:
         app = result.app
         if result.ok:
+            if constants_file is None:
+                continue
             if update_app_target_version(constants_file, app.constant, result.candidate_version, result.version_code):
                 changed.append(app)
             continue
