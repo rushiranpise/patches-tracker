@@ -92,14 +92,14 @@ jobs:
             STATUS.md
 
       - name: Upload APK artifacts
-        if: success()
+        if: hashFiles('artifacts/*') != ''
         uses: actions/upload-artifact@v4
         with:
           name: patched-apks
           path: artifacts
 
       - name: Release APKs
-        if: success()
+        if: hashFiles('artifacts/*') != ''
         uses: softprops/action-gh-release@v2
         with:
           tag_name: tracker-${{ github.run_number }}

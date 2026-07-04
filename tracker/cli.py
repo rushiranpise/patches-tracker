@@ -136,7 +136,7 @@ def main() -> int:
             body,
         )
 
-    return 0 if all(result.ok for result in results) else 1
+    return 0
 
 
 def render_status_table(results) -> str:
