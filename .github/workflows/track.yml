@@ -51,6 +51,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Check target repo access
+        env:
+          GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          HAS_PATCHES_REPO_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN != '' }}
+        run: |
+          echo "PATCHES_REPO_TOKEN configured: ${HAS_PATCHES_REPO_TOKEN}"
+          gh api repos/rushiranpise/morphe-patches --jq '.full_name' || true
+
       - name: Run tracker
         env:
           GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}

@@ -72,6 +72,7 @@ def main() -> int:
                 "version_code": r.version_code,
                 "ok": r.ok,
                 "failure_type": r.failure_type,
+                "log_excerpt": r.log[-2000:] if not r.ok else "",
                 "artifact": str(r.output) if r.output else None,
             }
             for r in results
@@ -163,6 +164,19 @@ def render_status_table(results) -> str:
             )
             + " |"
         )
+        if not result.ok and result.log:
+            lines.extend(
+                [
+                    "",
+                    f"<details><summary>{result.app.name} log excerpt</summary>",
+                    "",
+                    "```text",
+                    result.log[-2000:],
+                    "```",
+                    "",
+                    "</details>",
+                ]
+            )
     lines.append("")
     return "\n".join(lines)
 

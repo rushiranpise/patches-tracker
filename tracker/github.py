@@ -38,9 +38,9 @@ def create_or_update_failure_issue(
         existing = ""
     try:
         if existing:
-            run_gh(["issue", "comment", existing, "--repo", repo, "--body", body], dry_run=dry_run)
+            run_gh(["api", f"repos/{repo}/issues/{existing}/comments", "-f", f"body={body}"], dry_run=dry_run)
             return
-        run_gh(["issue", "create", "--repo", repo, "--title", title, "--body", body], dry_run=dry_run)
+        run_gh(["api", f"repos/{repo}/issues", "-f", f"title={title}", "-f", f"body={body}"], dry_run=dry_run)
     except subprocess.CalledProcessError as error:
         print(f"warning: could not create/comment issue: {error.stderr}", flush=True)
 
