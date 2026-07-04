@@ -68,29 +68,6 @@ jobs:
           FLARESOLVERR_URL: http://localhost:8191
         run: python -m tracker.cli --config config.toml
 
-      - name: Commit tracker status
-        if: always()
-        run: |
-          git config user.name "patches-tracker"
-          git config user.email "patches-tracker@users.noreply.github.com"
-          mkdir -p /tmp/patches-tracker-status
-          [ -f STATUS.md ] && cp STATUS.md /tmp/patches-tracker-status/STATUS.md
-          [ -f status.json ] && cp status.json /tmp/patches-tracker-status/status.json
-          if git fetch origin tracker-status; then
-            git switch --force-create tracker-status origin/tracker-status
-          else
-            git switch --orphan tracker-status
-          fi
-          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
-          cp -R /tmp/patches-tracker-status/. .
-          git add STATUS.md status.json 2>/dev/null || true
-          if git diff --cached --quiet && git diff --quiet HEAD --; then
-            echo "No tracker status changes."
-          else
-            git commit -m "chore: update tracker status [skip ci]"
-            git push --force-with-lease origin tracker-status
-          fi
-
       - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
@@ -116,3 +93,26 @@ jobs:
           name: Tracker build ${{ github.run_number }}
           files: artifacts/*
           body_path: STATUS.md
+
+      - name: Commit tracker status
+        if: always()
+        run: |
+          git config user.name "patches-tracker"
+          git config user.email "patches-tracker@users.noreply.github.com"
+          mkdir -p /tmp/patches-tracker-status
+          [ -f STATUS.md ] && cp STATUS.md /tmp/patches-tracker-status/STATUS.md
+          [ -f status.json ] && cp status.json /tmp/patches-tracker-status/status.json
+          if git fetch origin tracker-status; then
+            git switch --force-create tracker-status origin/tracker-status
+          else
+            git switch --orphan tracker-status
+          fi
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -R /tmp/patches-tracker-status/. .
+          git add STATUS.md status.json 2>/dev/null || true
+          if git diff --cached --quiet && git diff --quiet HEAD --; then
+            echo "No tracker status changes."
+          else
+            git commit -m "chore: update tracker status [skip ci]"
+            git push --force-with-lease origin tracker-status
+          fi
