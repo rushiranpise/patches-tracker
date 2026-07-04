@@ -29,6 +29,7 @@ class SourceConfig:
     url: str
     arch: str = "all"
     dpi: str = "nodpi anydpi auto"
+    apk_types: list[str] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -44,6 +45,7 @@ class AppConfig:
     apk_url: str = ""
     arch: str = "all"
     dpi: str = "nodpi anydpi auto"
+    apk_types: list[str] = field(default_factory=list)
     included_patches: list[str] = field(default_factory=list)
     excluded_patches: list[str] = field(default_factory=list)
     patcher_args: list[str] = field(default_factory=list)
@@ -55,7 +57,7 @@ class AppConfig:
         source_url = self.apk_url or self.url
         if not source_url:
             return []
-        return [SourceConfig(self.source, source_url, self.arch, self.dpi)]
+        return [SourceConfig(self.source, source_url, self.arch, self.dpi, self.apk_types)]
 
 
 @dataclass(frozen=True)
@@ -86,17 +88,22 @@ def load_config(path: str | Path) -> Config:
 
 def _load_legacy_app(raw: dict) -> AppConfig:
     app = _normalize_keys(raw)
-    app["sources"] = [SourceConfig(**_normalize_keys(source)) for source in app.get("sources", [])]
+    app["apk_types"] = _list_value(app.get("apk_types", []))
+    app["sources"] = [
+        _load_source(source, app.get("arch", "all"), app.get("dpi", "nodpi anydpi auto"), app["apk_types"])
+        for source in app.get("sources", [])
+    ]
     return AppConfig(**app)
 
 
 def _load_rvb_style_app(app_id: str, raw: dict) -> AppConfig:
     app = _normalize_keys(raw)
+    apk_types = _list_value(app.get("apk_types", []))
     sources = []
     for source in ("direct", "github", "archive", "apkmirror", "uptodown", "apkpure", "apkcombo"):
         url = app.pop(f"{source}_dlurl", "")
         if url:
-            sources.append(SourceConfig(source, url, app.get("arch", "all"), app.get("dpi", "nodpi anydpi auto")))
+            sources.append(SourceConfig(source, url, app.get("arch", "all"), app.get("dpi", "nodpi anydpi auto"), apk_types))
 
     return AppConfig(
         id=app_id,
@@ -107,10 +114,22 @@ def _load_rvb_style_app(app_id: str, raw: dict) -> AppConfig:
         candidate_version=app.get("version") or app.get("candidate_version", "latest"),
         arch=app.get("arch", "all"),
         dpi=app.get("dpi", "nodpi anydpi auto"),
+        apk_types=apk_types,
         included_patches=_list_value(app.get("included_patches", [])),
         excluded_patches=_list_value(app.get("excluded_patches", [])),
         patcher_args=_list_value(app.get("patcher_args", [])),
         sources=sources,
+    )
+
+
+def _load_source(raw: dict, default_arch: str, default_dpi: str, default_apk_types: list[str]) -> SourceConfig:
+    source = _normalize_keys(raw)
+    return SourceConfig(
+        source=source["source"],
+        url=source["url"],
+        arch=source.get("arch", default_arch),
+        dpi=source.get("dpi", default_dpi),
+        apk_types=_list_value(source.get("apk_types", default_apk_types)),
     )
 
 

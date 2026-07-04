@@ -5,6 +5,9 @@ TEMP_DIR="${TEMP_DIR:-.work/resolver}"
 BIN_DIR="${BIN_DIR:-bin}"
 APKSIGNER="${APKSIGNER:-}"
 HTMLQ="${HTMLQ:-htmlq}"
+KEYSTORE="${KEYSTORE:-$TEMP_DIR/patches-tracker.keystore}"
+KEYSTORE_ALIAS="${KEYSTORE_ALIAS:-patches-tracker}"
+KEYSTORE_PASS="${KEYSTORE_PASS:-123456789}"
 apkmirror_example_url="${apkmirror_example_url:-}"
 __AAV__="${__AAV__:-false}"
 mkdir -p "$TEMP_DIR"
@@ -51,6 +54,93 @@ ensure_htmlq() {
   return 1
 }
 
+normalize_apk_types() {
+  local raw="${1:-apk apkm xapk apks}" type
+  raw="${raw//,/ }"
+  for type in $raw; do
+    case "${type,,}" in
+      apk|apkm|xapk|apks|bundle|split|splits|all)
+        echo "${type,,}"
+        ;;
+      *)
+        wpr "Ignoring unsupported apk type: $type"
+        ;;
+    esac
+  done | awk '!seen[$0]++'
+}
+
+apk_types_for_apkcombo() {
+  local raw="${1:-}"
+  if [ -z "$raw" ]; then
+    printf '%s\n' apk apkm xapk apks
+    return
+  fi
+  normalize_apk_types "$raw" | while read -r type; do
+    case "$type" in
+      all) printf '%s\n' apk apkm xapk apks ;;
+      bundle|split|splits) printf '%s\n' apkm xapk apks ;;
+      *) echo "$type" ;;
+    esac
+  done | awk '!seen[$0]++'
+}
+
+apk_types_for_apkmirror() {
+  local raw="${1:-}"
+  if [ -z "$raw" ]; then
+    printf '%s\n' APK BUNDLE
+    return
+  fi
+  normalize_apk_types "$raw" | while read -r type; do
+    case "$type" in
+      all) printf '%s\n' APK BUNDLE ;;
+      apk) echo APK ;;
+      apkm|xapk|apks|bundle|split|splits) echo BUNDLE ;;
+    esac
+  done | awk '!seen[$0]++'
+}
+
+ensure_apksigner() {
+  if [ -n "$APKSIGNER" ] && [ -x "$APKSIGNER" ]; then return 0; fi
+  if command -v apksigner >/dev/null 2>&1; then
+    APKSIGNER="$(command -v apksigner)"
+    return 0
+  fi
+  if [ -n "${ANDROID_HOME:-}" ] && [ -d "$ANDROID_HOME/build-tools" ]; then
+    APKSIGNER=$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)
+    [ -n "$APKSIGNER" ] && [ -x "$APKSIGNER" ] && return 0
+  fi
+  epr "apksigner is required to sign merged split APKs. Install Android build-tools or set APKSIGNER."
+  return 1
+}
+
+ensure_keystore() {
+  if [ -f "$KEYSTORE" ]; then return 0; fi
+  command -v keytool >/dev/null 2>&1 || { epr "keytool is required to create split APK keystore"; return 1; }
+  mkdir -p "$(dirname "$KEYSTORE")"
+  keytool -genkeypair \
+    -keystore "$KEYSTORE" \
+    -storepass "$KEYSTORE_PASS" \
+    -keypass "$KEYSTORE_PASS" \
+    -alias "$KEYSTORE_ALIAS" \
+    -keyalg RSA \
+    -keysize 2048 \
+    -validity 10000 \
+    -dname "CN=Patches Tracker,O=Patches Tracker,C=US" >/dev/null 2>&1
+}
+
+sign_apk() {
+  local input=$1 output=$2
+  ensure_apksigner || return 1
+  ensure_keystore || return 1
+  "$APKSIGNER" sign \
+    --ks "$KEYSTORE" \
+    --ks-pass "pass:$KEYSTORE_PASS" \
+    --key-pass "pass:$KEYSTORE_PASS" \
+    --ks-key-alias "$KEYSTORE_ALIAS" \
+    --out "$output" "$input"
+  rm "${output}.idsig" 2>/dev/null || :
+}
+
 merge_splits() {
   local bundle=$1 output=$2
   if unzip -l "$bundle" 2>/dev/null | grep -q '^[[:space:]]*[0-9].*AndroidManifest\.xml$'; then
@@ -59,7 +149,8 @@ merge_splits() {
   fi
   gh_dl "$TEMP_DIR/apkeditor.jar" "https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar" >/dev/null || return 1
   java -jar "$TEMP_DIR/apkeditor.jar" merge -i "$bundle" -o "${output}-unsigned" -clean-meta -f >/dev/null
-  mv -f "${output}-unsigned" "$output"
+  sign_apk "${output}-unsigned" "$output" || return 1
+  rm "${output}-unsigned" 2>/dev/null || :
 }
 
 _fs_get() {
@@ -174,7 +265,7 @@ apkmirror_search() {
 }
 
 dl_apkmirror() {
-	local url=$1 version=${2// /-} output=$3 arch=$4 dpi=$5 is_bundle=false
+	local url=$1 version=${2// /-} output=$3 arch=$4 dpi=$5 apk_types=${6:-} is_bundle=false
 	local base_url="https://www.apkmirror.com"
 	local html=""
 
@@ -245,12 +336,12 @@ dl_apkmirror() {
 	local node dlurl=""
 	node=$($HTMLQ "div.table-row.headerFont:nth-last-child(1)" -r "span:nth-child(n+3)" <<<"$resp")
 	if [ "$node" ]; then
-		for type in APK BUNDLE; do
+		while IFS= read -r type; do
 			if dlurl=$(apkmirror_search "$resp" "$dpi" "$arch" "$type"); then
 				[ "$type" = "BUNDLE" ] && is_bundle=true || is_bundle=false
 				break
 			fi
-		done
+		done < <(apk_types_for_apkmirror "$apk_types")
 		if [ -z "$dlurl" ]; then
 			epr "Could not find APKMirror variant for version=$version arch=$arch dpi=$dpi"
 			return 1
@@ -411,8 +502,7 @@ _apkpure_install_xapk() {
 			epr "APKEditor m error: $OP"
 			return 1
 		fi
-		if ! OP=$(java -jar "$APKSIGNER" sign --ks ks-p12.keystore --ks-pass pass:123456789 --key-pass pass:123456789 --ks-key-alias jhc \
-			--out "$output" "${output}-unsigned" 2>&1); then
+		if ! OP=$(sign_apk "${output}-unsigned" "$output" 2>&1); then
 			epr "apksigner error: $OP"
 			return 1
 		fi
@@ -442,13 +532,13 @@ get_apkcombo_vers() {
 }
 get_apkcombo_pkg_name() { echo "$__APKCOMBO_PKG__"; }
 dl_apkcombo() {
-	local _url=$1 version=$2 output=$3 _arch=$4 _dpi=$5
+	local _url=$1 version=$2 output=$3 _arch=$4 _dpi=$5 apk_types=${6:-}
 	local html="" dl_url final_url checkin page_url page compact_page
 
 	if [ -n "$version" ]; then
-		local sfxs=("apk" "xapk" "apks")
+		mapfile -t sfxs < <(apk_types_for_apkcombo "$apk_types")
 	else
-		local sfxs=("apk")
+		mapfile -t sfxs < <(apk_types_for_apkcombo "$apk_types" | grep -E '^apk$|^apkm$|^xapk$|^apks$')
 	fi
 
 	for sfx in "${sfxs[@]}"; do
@@ -541,7 +631,7 @@ PYC
 		epr "Downloaded file from APKCombo is not a valid zip"
 		return 1
 	fi
-	if echo "$final_url$dl_url" | grep -qi 'xapk\|\.apks'; then
+	if echo "$final_url$dl_url" | grep -qi 'xapk\|\.apks\|\.apkm'; then
 		_apkpure_install_xapk "$output" "${output}.extracted" || return 1
 		mv "${output}.extracted" "$output"
 	fi
@@ -734,7 +824,7 @@ dl_direct() {
 usage() {
 	cat >&2 <<'EOF'
 Usage:
-  resolve-apk.sh <source> <url> <version> <output.apk> <arch> <dpi>
+  resolve-apk.sh <source> <url> <version> <output.apk> <arch> <dpi> [apk-types]
   resolve-apk.sh latest <source> <url>
 
 Sources:
@@ -789,7 +879,7 @@ main() {
 	fi
 
 	if [ "$#" -lt 6 ]; then usage; exit 2; fi
-	local source=$1 url=$2 version=$3 output=$4 arch=$5 dpi=$6
+	local source=$1 url=$2 version=$3 output=$4 arch=$5 dpi=$6 apk_types=${7:-}
 	mkdir -p "$(dirname "$output")"
 
 	case "$source" in
@@ -808,7 +898,7 @@ main() {
 		apkmirror)
 			ensure_htmlq
 			get_apkmirror_resp "$url" || return 1
-			dl_apkmirror "$url" "$version" "$output" "$arch" "$dpi"
+			dl_apkmirror "$url" "$version" "$output" "$arch" "$dpi" "$apk_types"
 			;;
 		uptodown)
 			command -v jq >/dev/null || { epr "jq is required for uptodown source"; return 1; }
@@ -823,7 +913,7 @@ main() {
 			;;
 		apkcombo)
 			get_apkcombo_resp "$url" || return 1
-			dl_apkcombo "$url" "$version" "$output" "$arch" "$dpi"
+			dl_apkcombo "$url" "$version" "$output" "$arch" "$dpi" "$apk_types"
 			;;
 		*)
 			epr "Unsupported source: $source"

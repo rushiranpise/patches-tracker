@@ -26,6 +26,7 @@ current-version = "2.4.281"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.catalinagroup.callrecorder/"
 
 [unimote]
@@ -37,6 +38,7 @@ current-version = "1.8.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/sensustech.universal.tv.remote.control/"
 
 [citizen]
@@ -48,6 +50,7 @@ current-version = "0.1298.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/sp0n.citizen/"
 
 [case-tracker]
@@ -59,6 +62,7 @@ current-version = "5.5.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.saldous.casetracker/"
 
 [1-1-1-1]
@@ -70,6 +74,7 @@ current-version = "6.38.7"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.cloudflare.onedotonedotonedotone/"
 
 [crime-radar]
@@ -81,6 +86,7 @@ current-version = "26.23.2"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.newsbreak.crimeradar/"
 
 [splitwise]
@@ -92,6 +98,7 @@ current-version = "26.5.5"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
 
 [greenify]
@@ -103,6 +110,7 @@ current-version = "5.1.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.oasisfeng.greenify/"
 
 [pialytic]
@@ -114,6 +122,7 @@ current-version = "1.2.8"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/verbosus.pialytic/"
 
 [snipd]
@@ -125,6 +134,7 @@ current-version = "4.1.14"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/ai.topicfinder.podcastdiscovery/"
 
 [stargazing-hub]
@@ -136,6 +146,7 @@ current-version = "3.2.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.twtapp/"
 
 [photo-editor]
@@ -147,6 +158,7 @@ current-version = "13.3"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.iudesk.android.photo.editor/"
 
 [ml-manager]
@@ -158,6 +170,7 @@ current-version = "5.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.javiersantos.mlmanager/"
 
 [beta-maniac]
@@ -169,6 +182,7 @@ current-version = "0.9.4"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/it.mirko.beta/"
 
 [hibernator]
@@ -180,6 +194,7 @@ current-version = "2.56.10"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tafayor.hibernator/"
 
 [killapps]
@@ -191,6 +206,7 @@ current-version = "1.57.9"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tafayor.killall/"
 
 [rar]
@@ -202,6 +218,7 @@ current-version = "7.20.build131"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.rarlab.rar/"
 
 [m-indicator]
@@ -213,6 +230,7 @@ current-version = "18.0.352"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.mobond.mindicator/"
 
 [yatri]
@@ -224,6 +242,7 @@ current-version = "5.0.3"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.yatrirailways.yatri/"
 
 [proxyman]
@@ -235,6 +254,7 @@ current-version = "1.16.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.proxyman.proxymanandroid/"
 
 [shareit-premium]
@@ -246,6 +266,7 @@ current-version = "1.1.98"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/shareit.premium/"
 
 [netmonster]
@@ -257,6 +278,7 @@ current-version = "3.4.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/cz.mroczis.netmonster/"
 
 [terabox]
@@ -268,6 +290,7 @@ current-version = "4.20.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.dubox.drive/"
 
 [sai]
@@ -279,6 +302,7 @@ current-version = "2.2.8"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.mtv.sai/"
 
 [blockerhero]
@@ -290,6 +314,7 @@ current-version = "1.5.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.blockerhero/"
 
 [nzb360]
@@ -301,6 +326,7 @@ current-version = "23.5"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.kevinforeman.nzb360/"
 
 [canva]
@@ -312,6 +338,7 @@ current-version = "2.365.o"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.canva.editor/"
 
 [clickmate]
@@ -323,6 +350,7 @@ current-version = "7.1.4"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.inscode.autoclicker/"
 
 [netguard]
@@ -334,6 +362,7 @@ current-version = "2.335"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.faircode.netguard/"
 
 [adguard-nightly]
@@ -345,6 +374,7 @@ current-version = "4.14.68"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.adguard.android/"
 
 [aida64]
@@ -356,6 +386,7 @@ current-version = "2.21"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.finalwire.aida64/"
 
 [cpu-z]
@@ -367,6 +398,7 @@ current-version = "1.59"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.cpuid.cpu_z/"
 
 [http-sniffer]
@@ -378,6 +410,7 @@ current-version = "2.11.0-ad_mob"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.anetcapture.mock/"
 
 [permission-pilot]
@@ -389,6 +422,7 @@ current-version = "2.1.1-rc0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.darken.myperm/"
 
 [proton-vpn]
@@ -400,6 +434,7 @@ current-version = "5.18.84.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/ch.protonvpn.android/"
 
 [netshare]
@@ -411,6 +446,7 @@ current-version = "UI/link-274"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/kha.prog.mikrotik/"
 
 [app-permission-manager]
@@ -422,6 +458,7 @@ current-version = "3.4.6.2"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.shexa.permissionmanager/"
 
 [hola-vpn-proxy-plus]
@@ -433,6 +470,7 @@ current-version = "AARCH64_1.248.400"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/org.hola.play/"
 
 [psiphon-pro]
@@ -444,6 +482,7 @@ current-version = "476"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.psiphon3.subscription/"
 
 [speedtest]
@@ -455,6 +494,7 @@ current-version = "7.0.4"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/org.zwanoo.android.speedtest/"
 
 [social-gamebox]
@@ -466,6 +506,7 @@ current-version = "1.1.3"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.app.social_gamebox/"
 
 [flightradar24]
@@ -477,6 +518,7 @@ current-version = "11.6.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.flightradar24free/"
 
 [cashew]
@@ -488,6 +530,7 @@ current-version = "6.5.9"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.budget.tracker_app/"
 
 [rocket-money]
@@ -499,6 +542,7 @@ current-version = "13.15.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.truebill/"
 
 [waze]
@@ -510,6 +554,7 @@ current-version = "5.19.0.2"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.waze/"
 
 [accuweather]
@@ -521,6 +566,7 @@ current-version = "21.1.11-1-rc"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.accuweather.android/"
 
 [windscribe-vpn]
@@ -532,6 +578,7 @@ current-version = "4.1.2274"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.windscribe.vpn/"
 
 [moviebox-tv]
@@ -543,6 +590,7 @@ current-version = "3.0.15.0616.03"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.community.oneroom/"
 
 [the-weather-channel]
@@ -554,6 +602,7 @@ current-version = "16.10.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.weather.Weather/"
 
 [ninja-vpn]
@@ -565,6 +614,7 @@ current-version = "1.4.6"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/app.ninjavpn.android/"
 
 [1tap-cleaner]
@@ -576,6 +626,7 @@ current-version = "5.18"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.a0soft.gphone.acc.free/"
 
 [strength-training]
@@ -587,6 +638,7 @@ current-version = "3.5.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.strength.mobile/"
 
 [windy]
@@ -598,6 +650,7 @@ current-version = "50.1.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.windyty.android/"
 
 [tomtom-go]
@@ -609,6 +662,7 @@ current-version = "3.6.316-beta"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tomtom.gplay.navapp/"
 
 [posture]
@@ -620,6 +674,7 @@ current-version = "3.2.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.posture/"
 
 [kyphosis]
@@ -631,6 +686,7 @@ current-version = "1.4.9"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.kyphosis/"
 
 [workout]
@@ -642,6 +698,7 @@ current-version = "1.2.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.workout/"
 
 [yoga]
@@ -653,6 +710,7 @@ current-version = "3.2.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.yoga/"
 
 [anatomy]
@@ -664,6 +722,7 @@ current-version = "3.2.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.anatomy/"
 
 [citymapper]
@@ -675,6 +734,7 @@ current-version = "11.55.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.citymapper.app.release/"
 
 [moovit]
@@ -686,6 +746,7 @@ current-version = "5.195.0.1789"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tranzmate/"
 
 [transit]
@@ -697,6 +758,7 @@ current-version = "6.1.12"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.thetransitapp.droid/"
 
 [udisc]
@@ -708,6 +770,7 @@ current-version = "24.2.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.regasoftware.udisc/"
 
 [snow-forecast-com]
@@ -719,6 +782,7 @@ current-version = "8.0.6"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.snow_forecast.snowforecast/"
 
 [skinsort]
@@ -730,6 +794,7 @@ current-version = "1.15"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.skinsort/"
 
 [blurwall]
@@ -741,6 +806,7 @@ current-version = "2.9.2"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/apps.automan.blurwallpaper/"
 
 [carbon]
@@ -752,6 +818,7 @@ current-version = "2.76.5784"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.joincarbon.nutrition/"
 
 [scoopz]
@@ -763,6 +830,7 @@ current-version = "3.2.7.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.localaiapp.scoops/"
 
 [newsbreak]
@@ -774,6 +842,7 @@ current-version = "26.27.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.particlenews.newsbreak/"
 
 [inmigreat]
@@ -785,6 +854,7 @@ current-version = "2.2.83"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.changayaf.inmigreat/"
 
 [lawfully]
@@ -796,6 +866,7 @@ current-version = "6.6.2"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.lawfully.lawfully_ai_tracker/"
 
 [migraconnect]
@@ -807,6 +878,7 @@ current-version = "2.8.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tecso.MigraConnect/"
 
 [camscanner]
@@ -818,6 +890,7 @@ current-version = "7.20.0.2606230000"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.intsig.camscanner/"
 
 [image-video-date-fixer]
@@ -829,6 +902,7 @@ current-version = "3.7.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.duong.imagedatefixer/"
 
 [rename-organize]
@@ -840,6 +914,7 @@ current-version = "8.25.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.duong.picturemanager/"
 
 [inure-app-manager]
@@ -851,6 +926,7 @@ current-version = "build107.0.5"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/app.simple.inure.play/"
 
 [weawow-weather-widget]
@@ -862,6 +938,7 @@ current-version = "7.1.7"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.weawow/"
 
 [spin]
@@ -873,6 +950,7 @@ current-version = "70.3.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.nationaledtech.spinbrowser/"
 
 [tracked]
@@ -884,6 +962,7 @@ current-version = "7.0.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tracked.mobile/"
 
 [toxly]
@@ -895,4 +974,5 @@ current-version = "1.15.3"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk apkm xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/"
