@@ -14,8 +14,8 @@ import requests
 from .config import AppConfig
 
 
-RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "3"))
-RESOLVER_TIMEOUT_SECONDS = int(os.environ.get("RESOLVER_TIMEOUT_SECONDS", "420"))
+RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "1"))
+RESOLVER_TIMEOUT_SECONDS = int(os.environ.get("RESOLVER_TIMEOUT_SECONDS", "120"))
 PATCHER_TIMEOUT_SECONDS = int(os.environ.get("PATCHER_TIMEOUT_SECONDS", "900"))
 
 
