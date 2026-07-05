@@ -114,7 +114,7 @@ jobs:
           cp -R /tmp/patches-tracker-status/. .
           git add STATUS.md status.json 2>/dev/null || true
           if git diff --cached --quiet && git diff --quiet HEAD --; then
-            echo "No tracker status changes."
+            echo "Tracker status is already up to date."
           else
             git commit -m "chore: update tracker status [skip ci]"
             git push --force-with-lease origin tracker-status

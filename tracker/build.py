@@ -47,7 +47,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     candidate_version = app.candidate_version
     sources = app.resolved_sources()
     if not sources:
-        return BuildResult(app, False, None, "No app url configured", candidate_version, failure_type="config")
+        return BuildResult(app, False, None, "No download source is configured for this app", candidate_version, failure_type="config")
 
     resolver = Path("scripts") / "resolve-apk.sh"
     source_used = None
@@ -66,7 +66,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
                 print(f"[{app.id}] latest version from {source.source}: {candidate_version}", flush=True)
                 break
             source_log = latest.stdout + latest.stderr
-            print(f"[{app.id}] latest resolve failed via {source.source}", flush=True)
+            print(f"[{app.id}] could not get latest version from {source.source}", flush=True)
             resolve_logs.append(f"[{source.source}] {source_log}")
         if source_used is None:
             return BuildResult(app, False, None, "\n".join(resolve_logs), candidate_version, failure_type="version_resolve")
@@ -107,7 +107,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
             print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}", flush=True)
             break
         source_log = resolved.stdout + resolved.stderr
-        print(f"[{app.id}] download failed via {source.source}", flush=True)
+        print(f"[{app.id}] download did not work via {source.source}", flush=True)
         download_logs.append(f"[{source.source}] {source_log}")
     if not stock_apk.exists():
         return BuildResult(app, False, None, "\n".join(download_logs), candidate_version, failure_type="download")
@@ -127,9 +127,9 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     print(f"[{app.id}] patch return code: {completed.returncode}", flush=True)
     log = completed.stdout + completed.stderr
     if completed.returncode != 0 or not output_apk.exists():
-        print(f"[{app.id}] patch failed: {log[-1000:]}", flush=True)
+        print(f"[{app.id}] patch did not finish successfully: {log[-1000:]}", flush=True)
         return BuildResult(app, False, None, log, candidate_version, version_code, classify_failure(log, "patch"))
-    print(f"[{app.id}] patch succeeded: {output_apk}", flush=True)
+    print(f"[{app.id}] patched APK ready: {output_apk}", flush=True)
     return BuildResult(app, True, output_apk, log, candidate_version, version_code)
 
 

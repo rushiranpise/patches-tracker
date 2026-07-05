@@ -213,7 +213,7 @@ _fs_get() {
 			sleep 10
 		done
 	fi
-	epr "FlareSolverr failed after $max_retries attempts: $url - falling back to plain request"
+	epr "FlareSolverr could not fetch $url after $max_retries attempt(s); trying a plain request"
 	html=$(req "$url" -) || return 1
 	if looks_blocked_page "$html"; then
 		epr "Request returned blocked page for $url ($(page_hint "$html"))"
@@ -253,7 +253,7 @@ resolve_apkmirror_search() {
 	done
 	if [ "${#candidates[@]}" -gt 0 ]; then
 		page="https://www.apkmirror.com${candidates[0]}"
-		wpr "APKMirror search did not expose exact package match for ${package_name:-unknown}; using first result: $page"
+		wpr "APKMirror search did not show an exact package match for ${package_name:-unknown}; using first result: $page"
 		echo "$page"
 		return 0
 	fi
@@ -680,7 +680,7 @@ dl_apkcombo() {
 			break
 		fi
 
-		wpr "APKCombo attempt $attempt/$APKCOMBO_RETRIES did not expose a download link for ${__APKCOMBO_PKG__} ${version:-latest} ($(page_hint "${page:-}"))"
+		wpr "APKCombo attempt $attempt/$APKCOMBO_RETRIES did not show a download link for ${__APKCOMBO_PKG__} ${version:-latest} ($(page_hint "${page:-}"))"
 		sleep $((attempt * 10))
 	done
 
@@ -818,7 +818,7 @@ resolve_uptodown_search() {
 	done
 	if [ "${#candidates[@]}" -gt 0 ]; then
 		page="${candidates[0]}"
-		wpr "Uptodown search did not expose exact package match for ${package_name:-unknown}; using first result: $page"
+		wpr "Uptodown search did not show an exact package match for ${package_name:-unknown}; using first result: $page"
 		echo "$page"
 		return 0
 	fi
@@ -999,7 +999,7 @@ latest_version() {
 					echo "$version"
 					return 0
 				fi
-				wpr "APKCombo latest attempt $attempt/$APKCOMBO_RETRIES did not expose a version for $url ($(page_hint "${__APKCOMBO_RESP__:-}"))"
+				wpr "APKCombo latest attempt $attempt/$APKCOMBO_RETRIES did not show a version for $url ($(page_hint "${__APKCOMBO_RESP__:-}"))"
 				sleep $((attempt * 10))
 			done
 			return 1

@@ -44,7 +44,7 @@ def clone_patches_repo(repo: str, dest: Path, branch: str, *, dry_run: bool = Fa
             cwd=dest,
             check=True,
         )
-        print(f"configured authenticated push remote for {repo}", flush=True)
+        print(f"push access is configured for {repo}", flush=True)
     return dest
 
 
@@ -64,7 +64,7 @@ def main() -> int:
     all_apps = cfg.apps
     cfg_apps = [app for index, app in enumerate(all_apps) if index % args.shard_total == args.shard_index]
     print(
-        f"tracker shard {args.shard_index + 1}/{args.shard_total}: "
+        f"tracker batch {args.shard_index + 1}/{args.shard_total}: "
         f"{len(cfg_apps)} of {len(all_apps)} apps",
         flush=True,
     )
@@ -81,7 +81,7 @@ def main() -> int:
 
     results_by_index = {}
     parallel_jobs = max(1, cfg.tracker.parallel_jobs)
-    print(f"tracker parallel jobs: {parallel_jobs}", flush=True)
+    print(f"running {parallel_jobs} app check(s) at a time", flush=True)
     with ThreadPoolExecutor(max_workers=parallel_jobs) as executor:
         future_to_index = {
             executor.submit(build_app, app, cli_jar, patches_file, work_dir, dry_run=args.dry_run): index
@@ -147,8 +147,8 @@ def main() -> int:
                 continue
             if not is_newer_version(result.candidate_version, app.current_version):
                 print(
-                    f"[{app.id}] patched candidate {result.candidate_version} is not newer than "
-                    f"current {app.current_version}; skipping constants update",
+                    f"[{app.id}] tested version {result.candidate_version} is not newer than "
+                    f"current {app.current_version}; leaving constants unchanged",
                     flush=True,
                 )
                 continue
@@ -159,7 +159,7 @@ def main() -> int:
         target_repo = issue_repo_for_failure(cfg.tracker.patches_repo, result.failure_type)
         issue_title = f"tracker: {app.name} failed on {result.candidate_version}"
         body = (
-            f"Automated tracker failed to patch `{app.name}` (`{app.package_name}`).\n\n"
+            f"The tracker could not finish `{app.name}` (`{app.package_name}`).\n\n"
             f"- Current known working: `{app.current_version}`\n"
             f"- Candidate tested: `{result.candidate_version}`\n"
             f"- Failure type: `{result.failure_type or 'unknown'}`\n"
