@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-05T19:51:25.416237+00:00",
+  "checked_at": "2026-07-05T20:21:21.431174+00:00",
   "shard_index": 0,
   "shard_total": 1,
   "app_count": 80,
@@ -84,10 +84,10 @@
       "current_version": "26.5.5",
       "candidate_version": "26.6.3",
       "version_code": "945",
-      "ok": false,
-      "failure_type": "patch",
-      "log_excerpt": "INFO: Running in Headless environment, falling back to CLI mode. \nINFO: Morphe data root: /home/runner/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) \nINFO: Loading patches... \nINFO: Initializing patcher... \nINFO: Filtering patches for com.Splitwise.SplitwiseMobile v26.6.3... \nINFO: Skipping disabled: Provide Original app certificate (default) \nINFO: Skipping disabled: Spoof Widevine / DRM level (default) \nINFO: Skipping disabled: Fix Firebase after re-signing (default) \nINFO: Skipping disabled: GmsCore support (MicroG) (default) \nINFO: Skipping disabled: Spoof install source (default) \nINFO: Skipping disabled: Spoof app signature (default) \nWARNING: Skipping \"Unlock Pro\": incompatible with com.Splitwise.SplitwiseMobile 26.6.3 (supported: com.Splitwise.SplitwiseMobile 26.5.5) \nINFO: Applying 0 patches... \nINFO: Executing patches \nINFO: Compiling patched dex files (mode: NONE) \nINFO: Aligning APK \nINFO: Signing APK \nINFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/splitwise/splitwise-patched-26.6.3.apk \n",
-      "artifact": null
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
+      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/splitwise/splitwise-patched-26.6.3-candidate.apk"
     },
     {
       "id": "greenify",
@@ -564,10 +564,10 @@
       "current_version": "4.1.2274",
       "candidate_version": "4.1.2284",
       "version_code": "2284",
-      "ok": false,
-      "failure_type": "patch",
-      "log_excerpt": "INFO: Running in Headless environment, falling back to CLI mode. \nINFO: Morphe data root: /home/runner/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) \nINFO: Loading patches... \nINFO: Initializing patcher... \nINFO: Filtering patches for com.windscribe.vpn v4.1.2284... \nINFO: Skipping disabled: Provide Original app certificate (default) \nINFO: Skipping disabled: Spoof Widevine / DRM level (default) \nINFO: Skipping disabled: Fix Firebase after re-signing (default) \nINFO: Skipping disabled: GmsCore support (MicroG) (default) \nINFO: Skipping disabled: Spoof install source (default) \nINFO: Skipping disabled: Spoof app signature (default) \nWARNING: Skipping \"Unlock Premium\": incompatible with com.windscribe.vpn 4.1.2284 (supported: com.windscribe.vpn 4.1.2274) \nINFO: Applying 0 patches... \nINFO: Executing patches \nINFO: Compiling patched dex files (mode: NONE) \nINFO: Aligning APK \nINFO: Signing APK \nINFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/windscribe-vpn/windscribe-vpn-patched-4.1.2284.apk \n",
-      "artifact": null
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
+      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/windscribe-vpn/windscribe-vpn-patched-4.1.2284-candidate.apk"
     },
     {
       "id": "moviebox-tv",

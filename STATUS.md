@@ -2,8 +2,8 @@
 
 Shard: 1/1
 Checked apps: 80
-Successful: 76
-Failed: 4
+Successful: 78
+Failed: 2
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -13,7 +13,7 @@ Failed: 4
 | Case Tracker | `com.saldous.casetracker` | `5.5.2` | `5.5.2` |  | OK |  |
 | 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.7` | `6.38.7` |  | OK |  |
 | Crime Radar | `com.newsbreak.crimeradar` | `26.26.0` | `26.26.0` |  | OK |  |
-| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.5.5` | `26.6.3` | `945` | FAILED | patch |
+| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.5.5` | `26.6.3` | `945` | OK |  |
 | Greenify | `com.oasisfeng.greenify` | `5.1.1` | `5.1.1` |  | OK |  |
 | Pialytic | `verbosus.pialytic` | `1.3.0` | `1.3.0` |  | OK |  |
 | Snipd | `ai.topicfinder.podcastdiscovery` | `4.1.14` | `4.1.14` |  | OK |  |
@@ -53,7 +53,7 @@ Failed: 4
 | Rocket Money | `com.truebill` | `13.15.0` | `13.15.0` |  | OK |  |
 | Waze | `com.waze` | `5.21.0.0` | `5.21.0.0` |  | OK |  |
 | AccuWeather | `com.accuweather.android` | `21.1.12-2-rc` | `21.1.12-2-rc` |  | OK |  |
-| Windscribe VPN | `com.windscribe.vpn` | `4.1.2274` | `4.1.2284` | `2284` | FAILED | patch |
+| Windscribe VPN | `com.windscribe.vpn` | `4.1.2274` | `4.1.2284` | `2284` | OK |  |
 | MovieBox TV | `com.community.oneroom` | `3.0.16.0703.03` | `3.0.16.0703.03` |  | OK |  |
 | The Weather Channel | `com.weather.Weather` | `16.11.0` | `16.11.0` |  | OK |  |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.7` |  | OK |  |
@@ -90,32 +90,6 @@ Failed: 4
 
 ## Failure Logs
 
-<details><summary>Splitwise log excerpt</summary>
-
-````text
-INFO: Running in Headless environment, falling back to CLI mode. 
-INFO: Morphe data root: /home/runner/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) 
-INFO: Loading patches... 
-INFO: Initializing patcher... 
-INFO: Filtering patches for com.Splitwise.SplitwiseMobile v26.6.3... 
-INFO: Skipping disabled: Provide Original app certificate (default) 
-INFO: Skipping disabled: Spoof Widevine / DRM level (default) 
-INFO: Skipping disabled: Fix Firebase after re-signing (default) 
-INFO: Skipping disabled: GmsCore support (MicroG) (default) 
-INFO: Skipping disabled: Spoof install source (default) 
-INFO: Skipping disabled: Spoof app signature (default) 
-WARNING: Skipping "Unlock Pro": incompatible with com.Splitwise.SplitwiseMobile 26.6.3 (supported: com.Splitwise.SplitwiseMobile 26.5.5) 
-INFO: Applying 0 patches... 
-INFO: Executing patches 
-INFO: Compiling patched dex files (mode: NONE) 
-INFO: Aligning APK 
-INFO: Signing APK 
-INFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/splitwise/splitwise-patched-26.6.3.apk 
-
-````
-
-</details>
-
 <details><summary>Permission Pilot log excerpt</summary>
 
 ````text
@@ -129,32 +103,6 @@ INFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/splitwise
 [+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks (title=Download Permission Pilot APK - Latest Version 2024)
 [!] APKCombo attempt 1/1 did not show a download link for eu.darken.myperm 2.1.1 (title=Download Permission Pilot APK - Latest Version 2024)
 [-] Could not find APK link on APKCombo
-
-````
-
-</details>
-
-<details><summary>Windscribe VPN log excerpt</summary>
-
-````text
-INFO: Running in Headless environment, falling back to CLI mode. 
-INFO: Morphe data root: /home/runner/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) 
-INFO: Loading patches... 
-INFO: Initializing patcher... 
-INFO: Filtering patches for com.windscribe.vpn v4.1.2284... 
-INFO: Skipping disabled: Provide Original app certificate (default) 
-INFO: Skipping disabled: Spoof Widevine / DRM level (default) 
-INFO: Skipping disabled: Fix Firebase after re-signing (default) 
-INFO: Skipping disabled: GmsCore support (MicroG) (default) 
-INFO: Skipping disabled: Spoof install source (default) 
-INFO: Skipping disabled: Spoof app signature (default) 
-WARNING: Skipping "Unlock Premium": incompatible with com.windscribe.vpn 4.1.2284 (supported: com.windscribe.vpn 4.1.2274) 
-INFO: Applying 0 patches... 
-INFO: Executing patches 
-INFO: Compiling patched dex files (mode: NONE) 
-INFO: Aligning APK 
-INFO: Signing APK 
-INFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/windscribe-vpn/windscribe-vpn-patched-4.1.2284.apk 
 
 ````
 
