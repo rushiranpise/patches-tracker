@@ -8,6 +8,7 @@ HTMLQ="${HTMLQ:-htmlq}"
 KEYSTORE="${KEYSTORE:-$TEMP_DIR/patches-tracker.keystore}"
 KEYSTORE_ALIAS="${KEYSTORE_ALIAS:-patches-tracker}"
 KEYSTORE_PASS="${KEYSTORE_PASS:-123456789}"
+APKCOMBO_RETRIES="${APKCOMBO_RETRIES:-3}"
 apkmirror_example_url="${apkmirror_example_url:-}"
 __AAV__="${__AAV__:-false}"
 mkdir -p "$TEMP_DIR"
@@ -52,6 +53,22 @@ ensure_htmlq() {
   if command -v "$HTMLQ" >/dev/null 2>&1; then return 0; fi
   echo "htmlq is required. Install it or set HTMLQ to an htmlq binary." >&2
   return 1
+}
+
+looks_blocked_page() {
+  local page=$1
+  [ -z "$page" ] && return 0
+  grep -Eiq 'captcha|cf-chl|cloudflare|just a moment|attention required|checking your browser|access denied|forbidden|challenge-platform' <<<"$page"
+}
+
+page_hint() {
+  local page=$1 title
+  title=$(tr '\n' ' ' <<<"$page" | grep -oP '<title[^>]*>\K[^<]+' | head -1 | xargs) || true
+  if [ -n "$title" ]; then
+    echo "title=$title"
+  else
+    echo "bytes=${#page}"
+  fi
 }
 
 normalize_apk_types() {
@@ -171,7 +188,10 @@ _fs_get() {
 				export FS_COOKIES
 				FS_COOKIES=$(echo "$response" | jq -r '[.solution.cookies[] | .name + "=" + .value] | join("; ")')
 				user_agent=$(echo "$response" | jq -r '.solution.userAgent // empty')
-				return 0
+				if ! looks_blocked_page "$html"; then
+					return 0
+				fi
+				wpr "FlareSolverr returned blocked page for $url ($(page_hint "$html")); retrying"
 			fi
 			wpr "FlareSolverr attempt $attempt/$max_retries failed for: $url"
 			sleep 10
@@ -179,6 +199,10 @@ _fs_get() {
 	fi
 	epr "FlareSolverr failed after $max_retries attempts: $url - falling back to plain request"
 	html=$(req "$url" -) || return 1
+	if looks_blocked_page "$html"; then
+		epr "Request returned blocked page for $url ($(page_hint "$html"))"
+		return 1
+	fi
 	FS_COOKIES=""
 	user_agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0"
 }
@@ -533,7 +557,7 @@ get_apkcombo_vers() {
 get_apkcombo_pkg_name() { echo "$__APKCOMBO_PKG__"; }
 dl_apkcombo() {
 	local _url=$1 version=$2 output=$3 _arch=$4 _dpi=$5 apk_types=${6:-}
-	local html="" dl_url final_url checkin page_url page compact_page
+	local html="" dl_url final_url checkin page_url page compact_page attempt
 
 	if [ -n "$version" ]; then
 		mapfile -t sfxs < <(apk_types_for_apkcombo "$apk_types")
@@ -541,30 +565,34 @@ dl_apkcombo() {
 		mapfile -t sfxs < <(apk_types_for_apkcombo "$apk_types" | grep -E '^apk$|^apkm$|^xapk$|^apks$')
 	fi
 
-	for sfx in "${sfxs[@]}"; do
-		if [ -n "$version" ]; then
-			page_url="https://apkcombo.com/search/${__APKCOMBO_PKG__}/download/phone-${version}-${sfx}"
-		else
-			page_url="https://apkcombo.com/search/${__APKCOMBO_PKG__}/download/apk"
-		fi
+	for attempt in $(seq 1 "$APKCOMBO_RETRIES"); do
+		for sfx in "${sfxs[@]}"; do
+			if [ -n "$version" ]; then
+				page_url="https://apkcombo.com/search/${__APKCOMBO_PKG__}/download/phone-${version}-${sfx}"
+			else
+				page_url="https://apkcombo.com/search/${__APKCOMBO_PKG__}/download/apk"
+			fi
 
-		_fs_get "$page_url" "https://apkcombo.com/" || continue
-		page="$html"
-		compact_page=$(tr '\n' ' ' <<<"$page")
+			_fs_get "$page_url" "https://apkcombo.com/" || continue
+			page="$html"
+			compact_page=$(tr '\n' ' ' <<<"$page")
 
-		dl_url=$(echo "$page" | grep -oP '(?<=a href=")https://download\.apkcombo\.com/[^"]+' | head -1) || true
-		[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP '(?<=a href=")/r2[^"]+' | head -1) || true
-		[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"download_url"\s*:\s*"\K[^"]+' | head -1 | sed 's#\\/#/#g') || true
-		[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"url"\s*:\s*"\Khttps://download\.apkcombo\.com/[^"]+' | head -1 | sed 's#\\/#/#g') || true
-		[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://download\.apkcombo\.com/[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
-		[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '/r2\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+			dl_url=$(echo "$page" | grep -oP '(?<=a href=")https://download\.apkcombo\.com/[^"]+' | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP '(?<=a href=")/r2[^"]+' | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"download_url"\s*:\s*"\K[^"]+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"url"\s*:\s*"\Khttps://download\.apkcombo\.com/[^"]+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://download\.apkcombo\.com/[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '/r2\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+
+			if [ -n "$dl_url" ]; then
+				break
+			fi
+		done
 
 		if [ -n "$dl_url" ]; then
 			break
 		fi
-	done
 
-	if [ -z "$dl_url" ]; then
 		for sfx in "${sfxs[@]}"; do
 			if [ -n "$version" ]; then
 				page_url="${__APKCOMBO_BASE_URL__}/download/phone-${version}-${sfx}"
@@ -584,7 +612,14 @@ dl_apkcombo() {
 				break
 			fi
 		done
-	fi
+
+		if [ -n "$dl_url" ]; then
+			break
+		fi
+
+		wpr "APKCombo attempt $attempt/$APKCOMBO_RETRIES did not expose a download link for ${__APKCOMBO_PKG__} ${version:-latest} ($(page_hint "${page:-}"))"
+		sleep $((attempt * 10))
+	done
 
 	[ -z "$dl_url" ] && { epr "Could not find APK link on APKCombo"; return 1; }
 	[[ "$dl_url" != http* ]] && dl_url="https://apkcombo.com${dl_url}"
@@ -864,8 +899,19 @@ latest_version() {
 			get_apkpure_vers | head -n 1
 			;;
 		apkcombo)
-			get_apkcombo_resp "$url" || return 1
-			get_apkcombo_vers | head -n 1
+			local attempt version=""
+			for attempt in $(seq 1 "$APKCOMBO_RETRIES"); do
+				__APKCOMBO_RESP__=""
+				get_apkcombo_resp "$url" || true
+				version=$(get_apkcombo_vers | head -n 1)
+				if [ -n "$version" ]; then
+					echo "$version"
+					return 0
+				fi
+				wpr "APKCombo latest attempt $attempt/$APKCOMBO_RETRIES did not expose a version for $url ($(page_hint "${__APKCOMBO_RESP__:-}"))"
+				sleep $((attempt * 10))
+			done
+			return 1
 			;;
 		*) epr "Unsupported source: $source"; return 2 ;;
 	esac
