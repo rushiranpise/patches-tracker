@@ -1,26 +1,34 @@
 # patches-tracker
 
-Small CI tracker for Morphe patches.
+`patches-tracker` is a GitHub Actions based validation pipeline for Morphe patch compatibility. It resolves upstream APK versions, downloads stock APKs, runs the Morphe/ReVanced-style patcher, publishes successful patched APK artifacts, and reports failures to the correct repository.
 
-The goal is:
+The tracker is designed for two jobs:
 
-- test configured apps on a schedule or manually
-- build patched APKs without depending on `rvb`
-- create a GitHub release when builds succeed
-- open a pull request to `morphe-patches` when a newer app version works
-- open or update an issue when a newer app version fails
+- verify whether newer upstream app versions still patch successfully
+- update `morphe-patches` compatibility constants only after a real patched build succeeds
 
-## Config
+## Pipeline
 
-Copy `config.example.toml` to `config.toml` and edit the apps you want to track.
-Apps use the same flat table style as `rvb`: add one `[app-id]` block and one or more `*-dlurl` entries.
+The main workflow is `.github/workflows/track.yml`.
+
+1. Generate a shard matrix from `config.toml`.
+2. Run tracker shards sequentially, with up to 40 apps per shard.
+3. Resolve the latest app version from the configured download source.
+4. Download the stock APK, APKM, XAPK, or APKS.
+5. Merge split packages into a patchable APK when needed.
+6. Run the patcher with configured include/exclude arguments.
+7. Upload logs and patched APK artifacts.
+8. Create a release for successful artifacts.
+9. Open or update failure issues.
+10. Open a PR against `morphe-patches` when verified versions change.
+
+Each shard has a 59 minute timeout so the workflow stays under GitHub Actions job limits. Shards are generated dynamically with `scripts/generate-shard-matrix.py`; for example, 80 apps produce 2 shards, 120 apps produce 3 shards, and 160 apps produce 4 shards.
+
+## Configuration
+
+Apps are configured in rvb-style flat TOML tables:
 
 ```toml
-[tracker]
-patches_repo = "rushiranpise/morphe-patches"
-constants_path = "patches/src/main/kotlin/app/template/patches/shared/Constants.kt"
-release_prefix = "tracker"
-
 [splitwise]
 enabled = true
 app-name = "Splitwise"
@@ -28,58 +36,122 @@ package-name = "com.Splitwise.SplitwiseMobile"
 constant = "SPLITWISE_COMPATIBILITY"
 current-version = "26.5.5"
 version = "latest"
-included-patches = "'Unlock Pro'"
 arch = "all"
 dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/splitwise/splitwise"
 apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
 uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
 ```
 
-`included-patches` is only needed for patches that are disabled by default. Normal/default patches are applied automatically by the CLI.
+Default patches do not need to be listed. Use `included-patches` only for patches that are disabled by default, and `excluded-patches` for patches that should not be applied.
 
-Supported app sources follow the `rvb` downloader model:
+The legacy `[[apps]]` / `[[apps.sources]]` format is still accepted, but new entries should use flat tables.
 
-- `direct`
-- `github`
-- `archive`
-- `apkmirror`
-- `uptodown`
-- `apkpure`
-- `apkcombo`
+## Source Priority
 
-Use `version = "latest"` to let the tracker resolve the newest available version from the configured source.
+When more than one source URL is configured for an app, sources are tried in this order:
 
-If an app has multiple `*-dlurl` entries, they are tried in this order: `direct`, `github`, `archive`, `apkmirror`, `uptodown`, `apkpure`, `apkcombo`.
-The older `[[apps]]` / `[[apps.sources]]` format still works, but new apps should use the flat rvb-style format.
+```text
+direct -> github -> archive -> apkmirror -> uptodown -> apkpure -> apkcombo
+```
+
+The same source order is used for latest-version resolution. If latest resolution succeeds on one source but downloading from that source fails, the tracker falls through to the remaining configured sources.
+
+Supported package formats:
+
+- `apk`
+- `apkm`
+- `xapk`
+- `apks`
+
+APKCombo follows rvb behavior and tries `apk`, `xapk`, and `apks`. `apkm` is still supported for sources where it is a real file type, such as APKMirror, direct URLs, archives, and GitHub releases.
 
 ## Generated APKCombo Config
 
-The `Track default patches via APKCombo` workflow can generate a config automatically from `Constants.kt`.
-It extracts each compatibility constant's app name, package name, current target version, and constant name, then creates entries like:
+`.github/workflows/track-apkcombo.yml` updates `config.toml` from `Constants.kt`.
+
+The generator extracts:
+
+- app name
+- package name
+- compatibility constant
+- current target version
+
+It then writes an APKCombo default entry for each app. Manual per-app keys already present in `config.toml` are preserved, so custom fallback URLs and patch options survive regeneration:
 
 ```toml
-[splitwise]
-app-name = "Splitwise"
-package-name = "com.Splitwise.SplitwiseMobile"
-constant = "SPLITWISE_COMPATIBILITY"
-current-version = "26.5.5"
-version = "latest"
-apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
+apkmirror-dlurl = "..."
+uptodown-dlurl = "..."
+apkpure-dlurl = "..."
+included-patches = "'Some Patch'"
+excluded-patches = "'Other Patch'"
 ```
 
-This is useful for broad default-patch checks. Keep `config.toml` for apps that need custom fallbacks such as APKMirror, Uptodown, direct URLs, or non-default patch includes.
+Generated fields such as `app-name`, `package-name`, `constant`, `current-version`, `version`, `arch`, `dpi`, `apk-types`, and `apkcombo-dlurl` are refreshed from the generator.
 
-## GitHub Secrets
+## Failure Routing
 
-Required:
+Download, version resolution, and config failures are tracker/source failures. These issues are created in the tracker repository.
 
-- `PATCHES_REPO_TOKEN`: token with access to push branches and open PRs in `morphe-patches`
+Patch, fingerprint, signing, and patcher failures are patch compatibility failures. These issues are created in `morphe-patches`.
 
-## Local Smoke Test
+This keeps source breakage separate from actual patch breakage.
+
+## Runtime Controls
+
+The resolver is intentionally fail-fast by default so one blocked source does not consume the whole CI budget.
+
+Environment variables:
+
+```text
+RESOLVER_RETRIES=1
+RESOLVER_TIMEOUT_SECONDS=120
+FETCH_RETRIES=1
+APKCOMBO_RETRIES=1
+PATCHER_TIMEOUT_SECONDS=900
+```
+
+The tracker streams resolver and patcher stdout/stderr live in Actions logs, including command lines, return codes, FlareSolverr fetches, HTTP requests, and timeout kills.
+
+## Local Commands
+
+Dry-run the whole config without downloading or patching:
 
 ```bash
-python -m tracker.cli --config config.example.toml --dry-run
+python -m tracker.cli --config config.toml --dry-run
 ```
 
-The build command is isolated in `tracker/build.py`. Right now it supports Morphe/ReVanced-style CLI patching and direct APK URLs. If you want APKMirror/Uptodown discovery later, add it as a resolver before the build step instead of mixing it into the core tracker.
+Dry-run one shard:
+
+```bash
+python -m tracker.cli --config config.toml --dry-run --shard-index 0 --shard-total 2
+```
+
+Generate the dynamic shard matrix:
+
+```bash
+python scripts/generate-shard-matrix.py --config config.toml --max-apps-per-shard 40
+```
+
+Regenerate APKCombo defaults from constants:
+
+```bash
+python scripts/generate-config-from-constants.py \
+  --constants /path/to/morphe-patches/patches/src/main/kotlin/app/template/patches/shared/Constants.kt \
+  --output config.toml \
+  --patches-repo rushiranpise/morphe-patches \
+  --target-branch dev
+```
+
+## Required Secret
+
+`PATCHES_REPO_TOKEN` must have permission to push branches and open pull requests in `morphe-patches`.
+
+## Credits
+
+- Morphe patches and compatibility constants: `rushiranpise/morphe-patches`
+- Morphe/ReVanced-style patching tools and patch format: Morphe and ReVanced projects
+- Downloader behavior and rvb-style config conventions: `rvb` by j-hc and contributors
+- APK split merge support: REAndroid APKEditor
+- CI runtime: GitHub Actions, FlareSolverr, htmlq, jq, Android build tools
