@@ -46,3 +46,25 @@ def update_app_target_version(
     updated = text[: match.start(2)] + updated_body + text[match.end(2) :]
     constants_file.write_text(updated, encoding="utf-8")
     return True
+
+
+def is_newer_version(candidate: str, current: str) -> bool:
+    candidate_key = version_key(candidate)
+    current_key = version_key(current)
+    if candidate_key != current_key:
+        return candidate_key > current_key
+    return normalize_suffix(candidate) > normalize_suffix(current)
+
+
+def version_key(version: str) -> tuple[int, ...]:
+    parts = [int(part) for part in re.findall(r"\d+", version)]
+    while parts and parts[-1] == 0:
+        parts.pop()
+    return tuple(parts)
+
+
+def normalize_suffix(version: str) -> int:
+    lower = version.lower()
+    if any(marker in lower for marker in ("alpha", "beta", "rc", "preview")):
+        return -1
+    return 0

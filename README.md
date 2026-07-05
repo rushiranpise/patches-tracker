@@ -58,6 +58,8 @@ direct -> github -> archive -> apkmirror -> uptodown -> apkpure -> apkcombo
 
 The same source order is used for latest-version resolution. If latest resolution succeeds on one source but downloading from that source fails, the tracker falls through to the remaining configured sources.
 
+Successful builds only update `Constants.kt` when the tested candidate version is newer than `current-version`. If a fallback source reports an older latest version, the tracker may still test it, but it will not downgrade the compatibility constant or include it in the update PR.
+
 Supported package formats:
 
 - `apk`

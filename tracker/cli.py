@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 
 from .build import build_app
 from .config import load_config
-from .constants import update_app_target_version
+from .constants import is_newer_version, update_app_target_version
 from .github import create_or_update_failure_issue, create_pull_request
 from .releases import resolve_tool
 
@@ -143,6 +143,13 @@ def main() -> int:
         app = result.app
         if result.ok:
             if constants_file is None:
+                continue
+            if not is_newer_version(result.candidate_version, app.current_version):
+                print(
+                    f"[{app.id}] patched candidate {result.candidate_version} is not newer than "
+                    f"current {app.current_version}; skipping constants update",
+                    flush=True,
+                )
                 continue
             if update_app_target_version(constants_file, app.constant, result.candidate_version, result.version_code):
                 changed.append(app)
