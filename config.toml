@@ -601,6 +601,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkpure-dlurl = "https://apkpure.com/social-gamebox/com.app.social_gamebox"
 apkcombo-dlurl = "https://apkcombo.com/search/com.app.social_gamebox/"
 
 [flightradar24]
@@ -613,6 +614,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/flightradar24-ab/flightradar24-flight-tracker-2/"
+uptodown-dlurl = "https://flightradar24.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/flightradar24-flight-tracker-app/com.flightradar24free"
 apkcombo-dlurl = "https://apkcombo.com/search/com.flightradar24free/"
 
 [cashew]
@@ -625,6 +629,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/dapper-app-developer/cashew-expense-budget-tracker/"
+uptodown-dlurl = "https://cashew.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.budget.tracker_app/"
 
 [rocket-money]
@@ -637,6 +643,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/truebill/truebill/"
 apkcombo-dlurl = "https://apkcombo.com/search/com.truebill/"
 
 [waze]
@@ -649,6 +656,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/"
+uptodown-dlurl = "https://waze.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/waze-navigation-live-traffic/com.waze"
 apkcombo-dlurl = "https://apkcombo.com/search/com.waze/"
 
 [accuweather]
@@ -661,6 +671,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/accuweather/accuweather/"
+uptodown-dlurl = "https://accuweather.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/accuweather-weather-radar/com.accuweather.android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.accuweather.android/"
 
 [windscribe-vpn]
@@ -673,6 +686,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/windscribe/windscribe-vpn-android-tv/"
+uptodown-dlurl = "https://windscribe.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.windscribe.vpn/"
 
 [moviebox-tv]
@@ -685,6 +700,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://com-community-oneroom.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.community.oneroom/"
 
 [the-weather-channel]
@@ -697,6 +713,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/"
+uptodown-dlurl = "https://the-weather-channel.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/the-weather-channel-radar/com.weather.Weather"
 apkcombo-dlurl = "https://apkcombo.com/search/com.weather.Weather/"
 
 [ninja-vpn]
@@ -709,6 +728,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://ninja-vpn.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/ninja-vpn-fast-secure-vpn/app.ninjavpn.android"
 apkcombo-dlurl = "https://apkcombo.com/search/app.ninjavpn.android/"
 
 [1tap-cleaner]
@@ -721,6 +742,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/azsoft-technology-inc/1tap-cleaner-clear-cache-and-history-log/"
+uptodown-dlurl = "https://1tap-cleaner.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/1tap-cleaner-clear-cache/com.a0soft.gphone.acc.free"
 apkcombo-dlurl = "https://apkcombo.com/search/com.a0soft.gphone.acc.free/"
 
 [strength-training]
@@ -733,6 +757,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://strength-training.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/muscle-motion-strength/air.com.musclemotion.strength.mobile"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.strength.mobile/"
 
 [windy]
@@ -745,6 +771,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/windyty-se/windy-wind-waves-and-hurricanes-forecast/"
+uptodown-dlurl = "https://windy-wind-waves-and-hurricanes-forecast.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/windy-com-weather-forecast/com.windyty.android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.windyty.android/"
 
 [tomtom-go]
@@ -757,6 +786,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/"
+uptodown-dlurl = "https://tomtom-gps-navigation-traffic.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tomtom.gplay.navapp/"
 
 [posture]
@@ -769,6 +801,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://posture-by-muscle-and-motion.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/muscle-motion-posture/air.com.musclemotion.posture"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.posture/"
 
 [kyphosis]
@@ -781,6 +815,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://kyphosis.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/muscle-motion-kyphosis/air.com.musclemotion.kyphosis"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.kyphosis/"
 
 [workout]
@@ -793,6 +829,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkpure-dlurl = "https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.workout/"
 
 [yoga]
@@ -805,6 +842,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://yoga-by-muscle-and-motion.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/muscle-motion-yoga/air.com.musclemotion.yoga"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.yoga/"
 
 [anatomy]
@@ -817,6 +856,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkpure-dlurl = "https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.anatomy/"
 
 [citymapper]
@@ -829,6 +869,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/citymapper-limited/citymapper/"
+uptodown-dlurl = "https://citymapper.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/citymapper/com.citymapper.app.release"
 apkcombo-dlurl = "https://apkcombo.com/search/com.citymapper.app.release/"
 
 [moovit]
@@ -841,6 +884,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/moovit/moovit-bus-train-live-info/"
+uptodown-dlurl = "https://moovit.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/moovit-bus-train-schedules/com.tranzmate"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tranzmate/"
 
 [transit]
@@ -853,6 +899,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/transit-app-inc/transit-real-time-transit-app/"
+uptodown-dlurl = "https://transit.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/transit-subway-bus-times/com.thetransitapp.droid"
 apkcombo-dlurl = "https://apkcombo.com/search/com.thetransitapp.droid/"
 
 [udisc]
@@ -865,6 +914,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://udisc.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/udisc-disc-golf-app/com.regasoftware.udisc"
 apkcombo-dlurl = "https://apkcombo.com/search/com.regasoftware.udisc/"
 
 [snow-forecast-com]
@@ -877,6 +928,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/meteo365-ltd/snow-forecast-com/"
+apkpure-dlurl = "https://apkpure.com/snow-forecast-com-weather-maps/com.snow_forecast.snowforecast"
 apkcombo-dlurl = "https://apkcombo.com/search/com.snow_forecast.snowforecast/"
 
 [skinsort]
