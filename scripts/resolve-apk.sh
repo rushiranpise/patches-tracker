@@ -61,7 +61,7 @@ ensure_htmlq() {
 looks_blocked_page() {
   local page=$1
   [ -z "$page" ] && return 0
-  grep -Eiq 'captcha|cf-chl|cloudflare|just a moment|attention required|checking your browser|access denied|forbidden|challenge-platform' <<<"$page"
+  grep -Eiq 'captcha|cf-chl|cf-browser-verification|just a moment|attention required|checking your browser|access denied|error 1020|challenge-platform|turnstile' <<<"$page"
 }
 
 page_hint() {

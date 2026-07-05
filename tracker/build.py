@@ -222,18 +222,17 @@ def looks_transient_block(log: str) -> bool:
     lower = log.lower()
     markers = (
         "captcha",
-        "cloudflare",
         "cf-chl",
+        "cf-browser-verification",
         "just a moment",
         "attention required",
         "checking your browser",
         "access denied",
-        "forbidden",
+        "error 1020",
         "blocked page",
-        "could not find apk link",
-        "could not find download link",
-        "did not expose",
         "request failed",
+        "timed out after",
+        "turnstile",
     )
     return any(marker in lower for marker in markers)
 
