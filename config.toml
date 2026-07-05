@@ -1158,3 +1158,87 @@ dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
 apkpure-dlurl = "https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner"
 apkcombo-dlurl = "https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/"
+
+[all-reader]
+enabled = true
+app-name = "All Reader"
+package-name = "alldocumentreader.office.viewer.filereader.pdfviewer"
+constant = "ALLREADER_COMPATIBILITY"
+current-version = "3.2.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/"
+
+[genius-scan]
+enabled = true
+app-name = "Genius Scan"
+package-name = "com.thegrizzlylabs.geniusscan.free"
+constant = "GENIUSSCAN_COMPATIBILITY"
+current-version = "7.40.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.thegrizzlylabs.geniusscan.free/"
+
+[kinestop]
+enabled = true
+app-name = "KineStop"
+package-name = "com.urbandroid.kinestop"
+constant = "KINESTOP_COMPATIBILITY"
+current-version = "5.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.urbandroid.kinestop/"
+
+[pkge]
+enabled = true
+app-name = "pkge"
+package-name = "net.pkge.pkge"
+constant = "PKGE_COMPATIBILITY"
+current-version = "19.0.13"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/net.pkge.pkge/"
+
+[spotangels]
+enabled = true
+app-name = "SpotAngels"
+package-name = "com.spotangels.android"
+constant = "SPOTANGELS_COMPATIBILITY"
+current-version = "15.2.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.spotangels.android/"
+
+[turboscan]
+enabled = true
+app-name = "TurboScan"
+package-name = "com.piksoft.turboscan.free"
+constant = "TURBOSCAN_COMPATIBILITY"
+current-version = "1.7.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.piksoft.turboscan.free/"
+
+[wavve-boating]
+enabled = true
+app-name = "Wavve Boating"
+package-name = "com.wavve.boating.gps"
+constant = "WAVVE_BOATING_COMPATIBILITY"
+current-version = "5.6.9"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.wavve.boating.gps/"
