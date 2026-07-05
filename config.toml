@@ -157,6 +157,7 @@ arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
 uptodown-dlurl = "https://snipd.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/snipd-smart-podcast-player/ai.topicfinder.podcastdiscovery"
 apkcombo-dlurl = "https://apkcombo.com/search/ai.topicfinder.podcastdiscovery/"
 
 [stargazing-hub]
