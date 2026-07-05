@@ -7,8 +7,6 @@ on:
       - Sync config from constants
     types:
       - completed
-  schedule:
-    - cron: "41 8 * * 1"
 
 permissions:
   contents: write
