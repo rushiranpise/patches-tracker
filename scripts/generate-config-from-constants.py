@@ -4,9 +4,21 @@ from __future__ import annotations
 import argparse
 import re
 from pathlib import Path
+import tomllib
 
 
-SOURCE_ORDER = ("apkcombo",)
+GENERATED_APP_KEYS = {
+    "enabled",
+    "app-name",
+    "package-name",
+    "constant",
+    "current-version",
+    "version",
+    "arch",
+    "dpi",
+    "apk-types",
+    "apkcombo-dlurl",
+}
 
 
 def main() -> int:
@@ -19,7 +31,8 @@ def main() -> int:
     args = parser.parse_args()
 
     apps = parse_constants(args.constants.read_text(encoding="utf-8"))
-    args.output.write_text(render_config(apps, args), encoding="utf-8")
+    existing = read_existing_config(args.output)
+    args.output.write_text(render_config(apps, args, existing), encoding="utf-8")
     print(f"Wrote {len(apps)} apps to {args.output}")
     return 0
 
@@ -102,7 +115,14 @@ def quote(value: str) -> str:
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
-def render_config(apps: list[dict[str, str]], args: argparse.Namespace) -> str:
+def read_existing_config(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    return tomllib.loads(path.read_text(encoding="utf-8"))
+
+
+def render_config(apps: list[dict[str, str]], args: argparse.Namespace, existing: dict | None = None) -> str:
+    existing = existing or {}
     lines = [
         "# Generated from Constants.kt. Do not hand-edit this file.",
         "",
@@ -125,6 +145,7 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace) -> str:
     ]
 
     for app in apps:
+        preserved = preserved_app_items(existing.get(app["id"], {}))
         lines.extend(
             [
                 "",
@@ -141,7 +162,25 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace) -> str:
                 f"apkcombo-dlurl = {quote('https://apkcombo.com/search/' + app['package_name'] + '/')}",
             ]
         )
+        for key, value in preserved:
+            lines.append(f"{key} = {toml_value(value)}")
     return "\n".join(lines) + "\n"
+
+
+def preserved_app_items(existing_app: object) -> list[tuple[str, object]]:
+    if not isinstance(existing_app, dict):
+        return []
+    return [(key, value) for key, value in existing_app.items() if key not in GENERATED_APP_KEYS]
+
+
+def toml_value(value: object) -> str:
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, int | float):
+        return str(value)
+    if isinstance(value, list):
+        return "[" + ", ".join(toml_value(item) for item in value) + "]"
+    return quote(str(value))
 
 
 if __name__ == "__main__":
