@@ -232,6 +232,11 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
             }
         )
         for key, resolver in sources.items():
+            existing_url = existing.get(key, "")
+            if is_final_source_url(key, existing_url):
+                resolved[key] = str(existing_url)
+                print(f"[{app['id']}] kept existing {key}: {resolved[key]}")
+                continue
             try:
                 url = resolver(package_name, session, timeout)
             except requests.RequestException as error:
@@ -240,9 +245,6 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
             if url:
                 resolved[key] = url
                 print(f"[{app['id']}] resolved {key}: {url}")
-            elif is_final_source_url(key, existing.get(key, "")):
-                resolved[key] = str(existing[key])
-                print(f"[{app['id']}] kept existing {key}: {resolved[key]}")
             else:
                 print(f"[{app['id']}] no resolved {key}")
     return resolved
