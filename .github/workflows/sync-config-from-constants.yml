@@ -45,5 +45,6 @@ jobs:
             echo "Config is already in sync with Constants.kt."
           else
             git commit -m "chore: sync config from constants [skip ci]"
+            git pull --rebase origin main
             git push
           fi

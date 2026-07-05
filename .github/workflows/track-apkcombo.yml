@@ -65,5 +65,6 @@ jobs:
             echo "Config is already up to date."
           else
             git commit -m "chore: update tracker source config [skip ci]"
+            git pull --rebase origin main
             git push
           fi
