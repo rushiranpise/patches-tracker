@@ -42,7 +42,9 @@ def main() -> int:
 
     apps = parse_constants(args.constants.read_text(encoding="utf-8"))
     existing = read_existing_config(args.output)
-    if not args.no_resolve_source_urls:
+    if args.no_resolve_source_urls:
+        seed_existing_source_urls(apps, existing, final_only=False)
+    else:
         resolve_source_urls(apps, existing, args.source_workers, args.source_timeout, args.max_source_checks)
     args.output.write_text(render_config(apps, args, existing), encoding="utf-8")
     print(f"Wrote {len(apps)} apps to {args.output}")
@@ -177,7 +179,8 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace, existing
         for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl"):
             if app.get(key):
                 lines.append(f"{key} = {quote(app[key])}")
-        lines.append(f"apkcombo-dlurl = {quote('https://apkcombo.com/search/' + app['package_name'] + '/')}")
+        apkcombo_url = app.get("apkcombo-dlurl") or "https://apkcombo.com/search/" + app["package_name"] + "/"
+        lines.append(f"apkcombo-dlurl = {quote(apkcombo_url)}")
         for key, value in preserved:
             lines.append(f"{key} = {toml_value(value)}")
     return "\n".join(lines) + "\n"
@@ -219,14 +222,14 @@ def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int
                 print(f"[{app['id']}] source discovery failed: {error}")
 
 
-def seed_existing_source_urls(apps: list[dict[str, str]], existing: dict) -> None:
+def seed_existing_source_urls(apps: list[dict[str, str]], existing: dict, *, final_only: bool = True) -> None:
     for app in apps:
         existing_app = existing.get(app["id"], {})
         if not isinstance(existing_app, dict):
             continue
-        for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl"):
+        for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl", "apkcombo-dlurl"):
             existing_url = existing_app.get(key, "")
-            if is_final_source_url(key, existing_url):
+            if isinstance(existing_url, str) and existing_url and (not final_only or is_final_source_url(key, existing_url)):
                 app[key] = str(existing_url)
 
 
