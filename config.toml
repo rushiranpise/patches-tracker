@@ -28,9 +28,6 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/cube-systems/call-recorder-cube-acr/"
-uptodown-dlurl = "https://cube-acr.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/call-recorder-cube-acr/com.catalinagroup.callrecorder"
 apkcombo-dlurl = "https://apkcombo.com/search/com.catalinagroup.callrecorder/"
 
 [unimote]
@@ -43,8 +40,6 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
-uptodown-dlurl = "https://unimote.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/universal-tv-remote-control/sensustech.universal.tv.remote.control"
 apkcombo-dlurl = "https://apkcombo.com/search/sensustech.universal.tv.remote.control/"
 
 [citizen]
@@ -57,9 +52,6 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/sp0n-inc/citizen-safety-awareness/"
-uptodown-dlurl = "https://citizen.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/citizen-protect-the-world/sp0n.citizen"
 apkcombo-dlurl = "https://apkcombo.com/search/sp0n.citizen/"
 
 [case-tracker]
@@ -72,6 +64,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://case-tracker-for-uscis.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/case-tracker-for-uscis/com.saldous.casetracker"
 apkcombo-dlurl = "https://apkcombo.com/search/com.saldous.casetracker/"
 
 [1-1-1-1]
@@ -84,6 +78,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/cloudflare/1-1-1-1-faster-safer-internet/"
+uptodown-dlurl = "https://1-1-1-1.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.cloudflare.onedotonedotonedotone/"
 
 [crime-radar]
@@ -96,6 +92,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://crimeradar.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/crimeradar-dispatch-alerts/com.newsbreak.crimeradar"
 apkcombo-dlurl = "https://apkcombo.com/search/com.newsbreak.crimeradar/"
 
 [splitwise]
