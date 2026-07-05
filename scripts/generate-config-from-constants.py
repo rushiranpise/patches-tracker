@@ -203,6 +203,7 @@ def toml_value(value: object) -> str:
 
 def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int, timeout: int, max_checks: int) -> None:
     workers = max(1, workers)
+    seed_existing_source_urls(apps, existing)
     pending_checks = source_checks_to_run(apps, existing, max_checks)
     print(f"Source discovery checks this run: {len(pending_checks)}")
     if not pending_checks:
@@ -218,6 +219,17 @@ def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int
                 app.update(future.result())
             except Exception as error:
                 print(f"[{app['id']}] source discovery failed: {error}")
+
+
+def seed_existing_source_urls(apps: list[dict[str, str]], existing: dict) -> None:
+    for app in apps:
+        existing_app = existing.get(app["id"], {})
+        if not isinstance(existing_app, dict):
+            continue
+        for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl"):
+            existing_url = existing_app.get(key, "")
+            if is_final_source_url(key, existing_url):
+                app[key] = str(existing_url)
 
 
 def source_checks_to_run(apps: list[dict[str, str]], existing: dict, max_checks: int) -> list[tuple[dict[str, str], list[str]]]:
