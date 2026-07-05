@@ -2,9 +2,14 @@
 from __future__ import annotations
 
 import argparse
+import os
 import re
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from urllib.parse import quote as url_quote
 import tomllib
+
+import requests
 
 
 GENERATED_APP_KEYS = {
@@ -31,10 +36,15 @@ def main() -> int:
     parser.add_argument("--patches-repo", default="rushiranpise/morphe-patches")
     parser.add_argument("--constants-path", default="patches/src/main/kotlin/app/template/patches/shared/Constants.kt")
     parser.add_argument("--target-branch", default="dev")
+    parser.add_argument("--source-workers", type=int, default=8)
+    parser.add_argument("--source-timeout", type=int, default=20)
+    parser.add_argument("--no-resolve-source-urls", action="store_true")
     args = parser.parse_args()
 
     apps = parse_constants(args.constants.read_text(encoding="utf-8"))
     existing = read_existing_config(args.output)
+    if not args.no_resolve_source_urls:
+        resolve_source_urls(apps, existing, args.source_workers, args.source_timeout)
     args.output.write_text(render_config(apps, args, existing), encoding="utf-8")
     print(f"Wrote {len(apps)} apps to {args.output}")
     return 0
@@ -163,12 +173,12 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace, existing
                 'arch = "all"',
                 'dpi = "nodpi anydpi auto"',
                 'apk-types = "apk xapk apks"',
-                f"apkmirror-dlurl = {quote(apkmirror_url(app['package_name']))}",
-                f"uptodown-dlurl = {quote(uptodown_url(app['package_name']))}",
-                f"apkpure-dlurl = {quote(apkpure_url(app['package_name']))}",
-                f"apkcombo-dlurl = {quote('https://apkcombo.com/search/' + app['package_name'] + '/')}",
             ]
         )
+        for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl"):
+            if app.get(key):
+                lines.append(f"{key} = {quote(app[key])}")
+        lines.append(f"apkcombo-dlurl = {quote('https://apkcombo.com/search/' + app['package_name'] + '/')}")
         for key, value in preserved:
             lines.append(f"{key} = {toml_value(value)}")
     return "\n".join(lines) + "\n"
@@ -190,16 +200,192 @@ def toml_value(value: object) -> str:
     return quote(str(value))
 
 
-def apkmirror_url(package_name: str) -> str:
-    return "https://www.apkmirror.com/?post_type=app_release&searchtype=app&sortby=date&sort=desc&s=" + package_name
+def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int, timeout: int) -> None:
+    workers = max(1, workers)
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        future_to_app = {
+            executor.submit(resolve_app_source_urls, app, existing.get(app["id"], {}), timeout): app
+            for app in apps
+        }
+        for future in as_completed(future_to_app):
+            app = future_to_app[future]
+            try:
+                app.update(future.result())
+            except Exception as error:
+                print(f"[{app['id']}] source URL resolution failed: {error}")
 
 
-def uptodown_url(package_name: str) -> str:
-    return "https://en.uptodown.com/android/search?query=" + package_name
+def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: int) -> dict[str, str]:
+    package_name = app["package_name"]
+    existing = existing_app if isinstance(existing_app, dict) else {}
+    resolved = {}
+    sources = {
+        "apkmirror-dlurl": resolve_apkmirror_url,
+        "uptodown-dlurl": resolve_uptodown_url,
+        "apkpure-dlurl": resolve_apkpure_url,
+    }
+    with requests.Session() as session:
+        session.headers.update(
+            {
+                "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            }
+        )
+        for key, resolver in sources.items():
+            try:
+                url = resolver(package_name, session, timeout)
+            except requests.RequestException as error:
+                print(f"[{app['id']}] {key} resolution request failed: {error}")
+                url = ""
+            if url:
+                resolved[key] = url
+                print(f"[{app['id']}] resolved {key}: {url}")
+            elif is_final_source_url(key, existing.get(key, "")):
+                resolved[key] = str(existing[key])
+                print(f"[{app['id']}] kept existing {key}: {resolved[key]}")
+            else:
+                print(f"[{app['id']}] no resolved {key}")
+    return resolved
 
 
-def apkpure_url(package_name: str) -> str:
-    return "https://apkpure.com/apk-info/" + package_name
+def resolve_apkmirror_url(package_name: str, session: requests.Session, timeout: int) -> str:
+    search_url = apkmirror_search_url(package_name)
+    html = fetch_text(session, search_url, timeout)
+    for path in unique(re.findall(r'href=["\'](/apk/[^"\']+?/[^"\']+?/)', html)):
+        app_url = "https://www.apkmirror.com" + path
+        try:
+            app_html = fetch_text(session, app_url, timeout)
+        except requests.RequestException:
+            continue
+        found = re.search(r'id=([^"\s]+)" class="accent_color', app_html)
+        if found and found.group(1) == package_name:
+            return app_url
+    return ""
+
+
+def resolve_uptodown_url(package_name: str, session: requests.Session, timeout: int) -> str:
+    search_url = uptodown_search_url(package_name)
+    html = fetch_text(session, search_url, timeout)
+    for app_url in unique(re.findall(r'https://[a-z0-9-]+\.en\.uptodown\.com/android', html)):
+        try:
+            download_html = fetch_text(session, app_url.rstrip("/") + "/download", timeout)
+        except requests.RequestException:
+            continue
+        if re.search(rf">\s*{re.escape(package_name)}\s*<", download_html) or package_name in download_html:
+            return app_url.rstrip("/")
+    return ""
+
+
+def resolve_apkpure_url(package_name: str, session: requests.Session, timeout: int) -> str:
+    info_url = apkpure_info_url(package_name)
+    response = fetch_response(session, info_url, timeout)
+    final_url = response.url.rstrip("/")
+    if "/apk-info/" in final_url or package_name not in final_url:
+        final_url = apkpure_app_url_from_html(response.text, package_name) or final_url
+    if "/apk-info/" in final_url or package_name not in final_url:
+        return ""
+    return final_url
+
+
+def apkpure_app_url_from_html(html: str, package_name: str) -> str:
+    patterns = [
+        r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)',
+        rf'https://apkpure\.com/[^"\'<>\s]+/{re.escape(package_name)}',
+        rf'href=["\']([^"\']+/{re.escape(package_name)})["\']',
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, html)
+        if not match:
+            continue
+        url = match.group(1)
+        if url.startswith("/"):
+            url = "https://apkpure.com" + url
+        if "/apk-info/" not in url:
+            return url.rstrip("/")
+    return ""
+
+
+def fetch_response(session: requests.Session, url: str, timeout: int) -> requests.Response:
+    response = session.get(url, timeout=timeout, allow_redirects=True)
+    if response.status_code in {403, 429, 503}:
+        flaresolverr = fetch_with_flaresolverr(url, timeout)
+        if flaresolverr:
+            return StaticResponse(flaresolverr[0], flaresolverr[1])
+    response.raise_for_status()
+    return response
+
+
+def fetch_text(session: requests.Session, url: str, timeout: int) -> str:
+    return fetch_response(session, url, timeout).text
+
+
+def fetch_with_flaresolverr(url: str, timeout: int) -> tuple[str, str] | None:
+    flaresolverr_url = os.environ.get("FLARESOLVERR_URL")
+    if not flaresolverr_url:
+        return None
+    response = requests.post(
+        flaresolverr_url.rstrip("/") + "/v1",
+        json={"cmd": "request.get", "url": url, "maxTimeout": timeout * 1000},
+        timeout=timeout + 10,
+    )
+    response.raise_for_status()
+    payload = response.json()
+    if payload.get("status") != "ok":
+        return None
+    solution = payload.get("solution") or {}
+    html = solution.get("response") or ""
+    final_url = solution.get("url") or url
+    if looks_blocked_page(html):
+        return None
+    return final_url, html
+
+
+def looks_blocked_page(html: str) -> bool:
+    return bool(re.search(r"cf-chl|just a moment|checking your browser|access denied|error 1020", html, re.I))
+
+
+class StaticResponse:
+    def __init__(self, url: str, text: str) -> None:
+        self.url = url
+        self.text = text
+
+
+def unique(values: list[str]) -> list[str]:
+    seen = set()
+    result = []
+    for value in values:
+        if value in seen:
+            continue
+        seen.add(value)
+        result.append(value)
+    return result
+
+
+def is_final_source_url(key: str, url: object) -> bool:
+    if not isinstance(url, str) or not url:
+        return False
+    if key == "apkmirror-dlurl":
+        return "apkmirror.com/apk/" in url
+    if key == "uptodown-dlurl":
+        return ".en.uptodown.com/android" in url and "/search" not in url
+    if key == "apkpure-dlurl":
+        return "apkpure.com/" in url and "/apk-info/" not in url
+    return False
+
+
+def apkmirror_search_url(package_name: str) -> str:
+    return (
+        "https://www.apkmirror.com/?post_type=app_release&searchtype=app&sortby=date&sort=desc&s="
+        + url_quote(package_name)
+    )
+
+
+def uptodown_search_url(package_name: str) -> str:
+    return "https://en.uptodown.com/android/search?query=" + url_quote(package_name)
+
+
+def apkpure_info_url(package_name: str) -> str:
+    return "https://apkpure.com/apk-info/" + url_quote(package_name)
 
 
 if __name__ == "__main__":

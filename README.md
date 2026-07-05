@@ -81,7 +81,7 @@ The generator extracts:
 - compatibility constant
 - current target version
 
-It then writes default source entries for APKMirror, Uptodown, APKPure, and APKCombo from the package name. Manual per-app keys already present in `config.toml` are preserved, so custom fallback URLs and patch options survive regeneration:
+It then resolves default source entries from the package name and writes final app page URLs for APKMirror, Uptodown, and APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Manual per-app keys already present in `config.toml` are preserved, so custom patch options survive regeneration:
 
 ```toml
 included-patches = "'Some Patch'"
@@ -90,7 +90,7 @@ excluded-patches = "'Other Patch'"
 
 Generated fields such as `app-name`, `package-name`, `constant`, `current-version`, `version`, `arch`, `dpi`, `apk-types`, `apkmirror-dlurl`, `uptodown-dlurl`, `apkpure-dlurl`, and `apkcombo-dlurl` are refreshed from the generator.
 
-Generated source URL formats:
+Generated source discovery starts from these package-name URLs:
 
 ```toml
 apkmirror-dlurl = "https://www.apkmirror.com/?post_type=app_release&searchtype=app&sortby=date&sort=desc&s=com.whatsapp"
@@ -100,6 +100,15 @@ apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
 ```
 
 For APKMirror and Uptodown search pages, the resolver checks candidates and selects the app whose package name matches. APKPure uses the `apk-info/<package>` redirect target when present.
+
+The generated `config.toml` stores the resolved final URLs, for example:
+
+```toml
+apkmirror-dlurl = "https://www.apkmirror.com/apk/whatsapp-inc/whatsapp-messenger/"
+uptodown-dlurl = "https://whatsapp-messenger.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/whatsapp-android/com.whatsapp"
+apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
+```
 
 ## Failure Routing
 

@@ -11,7 +11,17 @@ permissions:
 jobs:
   generate-apkcombo-config:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
+    services:
+      flaresolverr:
+        image: ghcr.io/flaresolverr/flaresolverr:latest
+        ports:
+          - 8191:8191
+        options: >-
+          --health-cmd "curl -f http://localhost:8191/ || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 6
     steps:
       - name: Checkout tracker
         uses: actions/checkout@v4
@@ -21,12 +31,17 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
       - name: Clone patches repo
         env:
           GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
         run: gh repo clone rushiranpise/morphe-patches .work/morphe-patches -- --branch dev --depth 1
 
       - name: Generate APKCombo tracker config
+        env:
+          FLARESOLVERR_URL: http://localhost:8191
         run: |
           python scripts/generate-config-from-constants.py \
             --constants .work/morphe-patches/patches/src/main/kotlin/app/template/patches/shared/Constants.kt \
