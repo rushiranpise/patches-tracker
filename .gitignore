@@ -1,4 +1,5 @@
 .work/
+.tools/
 artifacts/
 logs/
 __pycache__/

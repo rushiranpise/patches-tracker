@@ -233,8 +233,7 @@ def seed_existing_source_urls(apps: list[dict[str, str]], existing: dict) -> Non
 
 
 def source_checks_to_run(apps: list[dict[str, str]], existing: dict, max_checks: int) -> list[tuple[dict[str, str], list[str]]]:
-    if max_checks <= 0:
-        return []
+    unlimited = max_checks <= 0
     pending = []
     remaining = max_checks
     for app in apps:
@@ -248,8 +247,11 @@ def source_checks_to_run(apps: list[dict[str, str]], existing: dict, max_checks:
         ]
         if not keys:
             continue
-        keys = keys[:remaining]
+        if not unlimited:
+            keys = keys[:remaining]
         pending.append((app, keys))
+        if unlimited:
+            continue
         remaining -= len(keys)
         if remaining <= 0:
             break

@@ -110,7 +110,7 @@ apkpure-dlurl = "https://apkpure.com/whatsapp-android/com.whatsapp"
 apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
 ```
 
-Source discovery runs gently because APKMirror and APKPure may need FlareSolverr. The workflow caps each run with `--max-source-checks 10`, so large config updates are incremental: it writes the links it found, and the next run continues from what is still missing.
+Source discovery runs gently because APKMirror and APKPure may need FlareSolverr. The workflow caps each run with `--max-source-checks 10`, so large config updates are incremental: it writes the links it found, and the next run continues from what is still missing. Set `--max-source-checks 0` to remove the cap after the config is mostly filled.
 
 ## Failure Routing
 

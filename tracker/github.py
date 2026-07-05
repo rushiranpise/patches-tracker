@@ -3,6 +3,22 @@ from __future__ import annotations
 import os
 import subprocess
 from pathlib import Path
+from urllib.parse import quote
+
+
+LABEL_COLORS = {
+    "bug": "d73a4a",
+    "tracker": "5319e7",
+    "source-failure": "fbca04",
+    "patch-broken-after-update": "d93f0b",
+}
+
+LABEL_DESCRIPTIONS = {
+    "bug": "Something is not working",
+    "tracker": "Created or updated by patches-tracker",
+    "source-failure": "APK source lookup or download problem",
+    "patch-broken-after-update": "A newer app version no longer patches cleanly",
+}
 
 
 def run_gh(
@@ -85,6 +101,7 @@ def add_issue_labels(
 ) -> None:
     if not labels:
         return
+    ensure_issue_labels(repo, labels, dry_run=dry_run, token=token)
     try:
         run_gh(
             ["issue", "edit", issue_number, "--repo", repo, "--add-label", ",".join(labels)],
@@ -93,6 +110,46 @@ def add_issue_labels(
         )
     except subprocess.CalledProcessError as error:
         print(f"warning: could not add labels to {repo}#{issue_number}: {error.stderr}", flush=True)
+
+
+def ensure_issue_labels(
+    repo: str,
+    labels: list[str],
+    *,
+    dry_run: bool = False,
+    token: str | None = None,
+) -> None:
+    for label in labels:
+        try:
+            run_gh(
+                [
+                    "api",
+                    f"repos/{repo}/labels/{quote(label, safe='')}",
+                ],
+                dry_run=dry_run,
+                token=token,
+            )
+            continue
+        except subprocess.CalledProcessError:
+            pass
+        try:
+            run_gh(
+                [
+                    "api",
+                    f"repos/{repo}/labels",
+                    "-f",
+                    f"name={label}",
+                    "-f",
+                    f"color={LABEL_COLORS.get(label, 'ededed')}",
+                    "-f",
+                    f"description={LABEL_DESCRIPTIONS.get(label, '')}",
+                ],
+                dry_run=dry_run,
+                token=token,
+            )
+            print(f"created issue label {repo}:{label}", flush=True)
+        except subprocess.CalledProcessError as error:
+            print(f"warning: could not create issue label {repo}:{label}: {error.stderr}", flush=True)
 
 
 def create_pull_request(

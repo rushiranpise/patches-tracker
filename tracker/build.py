@@ -108,6 +108,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
         candidates = [VersionCandidate(candidate_version, source, source_index) for source_index, source in enumerate(sources)]
 
     candidate_version = candidates[0].version
+    highest_candidate_version = candidate_version
 
     if dry_run:
         return BuildResult(app, True, None, "dry-run: build skipped", candidate_version)
@@ -145,7 +146,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
         print(f"[{app.id}] download did not work via {source.source}", flush=True)
         download_logs.append(f"[{source.source} {candidate_version}] {source_log}")
     if stock_apk is None or output_apk is None:
-        return BuildResult(app, False, None, "\n".join(download_logs), candidate_version, failure_type="download")
+        return BuildResult(app, False, None, "\n".join(download_logs), highest_candidate_version, failure_type="download")
 
     version_code = read_version_code(stock_apk)
     print(f"[{app.id}] versionCode: {version_code or 'unknown'}", flush=True)

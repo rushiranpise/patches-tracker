@@ -74,6 +74,10 @@ page_hint() {
   fi
 }
 
+page_title() {
+  tr '\n' ' ' <<<"$1" | grep -oP '<title[^>]*>\K[^<]+' | head -1 | xargs || true
+}
+
 query_param() {
   python - "$1" "$2" <<'PYC'
 import sys, urllib.parse
@@ -491,7 +495,22 @@ get_apkpure_resp() {
 	__APKPURE_PKG__=$(echo "$url" | grep -oP '[a-zA-Z][a-zA-Z0-9]*(\.[a-zA-Z][a-zA-Z0-9]*){1,}' | tail -1)
 	local html=""
 	_fs_get "${url}/downloading/" || return 1
+	if ! valid_apkpure_page "$html" "${url}/downloading/"; then return 1; fi
 	__APKPURE_RESP__="$html"
+}
+
+valid_apkpure_page() {
+	local page=$1 url=$2 title
+	title=$(page_title "$page")
+	if [ "$title" = "Error" ]; then
+		epr "APKPure returned an error page for $url"
+		return 1
+	fi
+	if grep -Fq "Oopps! The page can't be found" <<<"$page"; then
+		epr "APKPure page was not found: $url"
+		return 1
+	fi
+	return 0
 }
 
 resolve_apkpure_info() {
@@ -509,8 +528,8 @@ resolve_apkpure_info() {
 
 get_apkpure_vers() {
 	local ver
-	ver=$(echo "$__APKPURE_RESP__" | sed 's/<h2[^>]*>/\n__H2__/g' | grep '__H2__' | sed 's/__H2__//' | grep -oP '[0-9]+\.[0-9][0-9.]*' | head -1) || true
-	[ -z "$ver" ] && ver=$(echo "$__APKPURE_RESP__" | grep -oP '"softwareVersion":"\K[^"]+' | head -1) || true
+	ver=$(echo "$__APKPURE_RESP__" | grep -oP '"softwareVersion":"\K[^"]+' | head -1) || true
+	[ -z "$ver" ] && ver=$(echo "$__APKPURE_RESP__" | sed 's/<h2[^>]*>/\n__H2__/g' | grep '__H2__' | sed 's/__H2__//' | grep -oP '[0-9]+(\.[0-9]+)+(?:-[A-Za-z0-9._-]+)?' | head -1) || true
 	echo "$ver"
 }
 
@@ -528,10 +547,11 @@ dl_apkpure() {
 	fi
 
 	_fs_get "$dl_page_url" || return 1
+	if ! valid_apkpure_page "$html" "$dl_page_url"; then return 1; fi
 
 	if [ -z "$version" ]; then
-		version=$(echo "$html" | sed 's/<h2[^>]*>/\n__H2__/g' | grep '__H2__' | sed 's/__H2__//' | grep -oP '[0-9]+\.[0-9][0-9.]*' | head -1) || true
-		[ -z "$version" ] && version=$(echo "$html" | grep -oP '"softwareVersion":"\K[^"]+' | head -1) || true
+		version=$(echo "$html" | grep -oP '"softwareVersion":"\K[^"]+' | head -1) || true
+		[ -z "$version" ] && version=$(echo "$html" | sed 's/<h2[^>]*>/\n__H2__/g' | grep '__H2__' | sed 's/__H2__//' | grep -oP '[0-9]+(\.[0-9]+)+(?:-[A-Za-z0-9._-]+)?' | head -1) || true
 	fi
 
 	local download_url
@@ -542,7 +562,7 @@ dl_apkpure() {
 		download_url=$(echo "$html" | grep -oP 'id="download_link"[^>]*href="\Khttps://[^"]+' | head -1) || true
 
 	if [ -z "$download_url" ]; then
-		epr "Could not find download link on APKPure"
+		epr "Could not find download link on APKPure ($(page_hint "$html"))"
 		return 1
 	fi
 
@@ -641,7 +661,10 @@ dl_apkcombo() {
 			compact_page=$(tr '\n' ' ' <<<"$page")
 
 			dl_url=$(echo "$page" | grep -oP '(?<=a href=")https://download\.apkcombo\.com/[^"]+' | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP "(?<=a href=')https://download\.apkcombo\.com/[^']+" | head -1) || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP '(?<=a href=")/r2[^"]+' | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP "(?<=a href=')/r2[^']+" | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '(data-url|data-href|href)=["'\'']\K(https://download\.apkcombo\.com/|/r2\?)[^"'\'']+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"download_url"\s*:\s*"\K[^"]+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"url"\s*:\s*"\Khttps://download\.apkcombo\.com/[^"]+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://download\.apkcombo\.com/[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
@@ -666,7 +689,10 @@ dl_apkcombo() {
 			page="$html"
 			compact_page=$(tr '\n' ' ' <<<"$page")
 			dl_url=$(echo "$page" | grep -oP '(?<=a href=")https://download\.apkcombo\.com/[^"]+' | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP "(?<=a href=')https://download\.apkcombo\.com/[^']+" | head -1) || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP '(?<=a href=")/r2[^"]+' | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP "(?<=a href=')/r2[^']+" | head -1) || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '(data-url|data-href|href)=["'\'']\K(https://download\.apkcombo\.com/|/r2\?)[^"'\'']+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"download_url"\s*:\s*"\K[^"]+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"url"\s*:\s*"\Khttps://download\.apkcombo\.com/[^"]+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://download\.apkcombo\.com/[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
