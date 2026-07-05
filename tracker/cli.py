@@ -157,12 +157,12 @@ def main() -> int:
             continue
 
         target_repo = issue_repo_for_failure(cfg.tracker.patches_repo, result.failure_type)
-        issue_title = f"tracker: {app.name} failed on {result.candidate_version}"
+        issue_title = f"tracker: {app.name} needs attention for {result.candidate_version}"
         body = (
             f"The tracker could not finish `{app.name}` (`{app.package_name}`).\n\n"
             f"- Current known working: `{app.current_version}`\n"
-            f"- Candidate tested: `{result.candidate_version}`\n"
-            f"- Failure type: `{result.failure_type or 'unknown'}`\n"
+            f"- Version checked: `{result.candidate_version}`\n"
+            f"- Problem area: `{friendly_failure_type(result.failure_type)}`\n"
             f"- Issue repo: `{target_repo}`\n"
             f"- Workflow: {os.environ.get('GITHUB_SERVER_URL', '')}/{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}\n\n"
             "Last log excerpt:\n\n"
@@ -181,13 +181,14 @@ def main() -> int:
         git(["config", "user.name", "patches-tracker"], patches_repo_path)
         git(["config", "user.email", "patches-tracker@users.noreply.github.com"], patches_repo_path)
         git(["add", cfg.tracker.constants_path], patches_repo_path)
-        git(["commit", "-m", "chore: update tracker verified app versions"], patches_repo_path)
+        git(["commit", "-m", "chore: update verified app versions"], patches_repo_path)
         changed_by_id = {result.app.id: result for result in results}
         body = "\n".join(
             f"- `{app.name}`: `{app.current_version}` -> `{changed_by_id[app.id].candidate_version}`"
             + (f" (`versionCode {changed_by_id[app.id].version_code}`)" if changed_by_id[app.id].version_code else "")
             for app in changed
         )
+        pr_title = "chore: update verified app versions"
         try:
             git(["push", "origin", branch], patches_repo_path)
             create_pull_request(
@@ -195,11 +196,11 @@ def main() -> int:
                 cfg.tracker.patches_repo,
                 branch,
                 cfg.tracker.target_branch,
-                "chore: update tracker verified app versions",
+                pr_title,
                 body,
             )
         except subprocess.CalledProcessError:
-            print("warning: could not push/open PR for morphe-patches; check PATCHES_REPO_TOKEN contents write access", flush=True)
+            print("warning: could not push or open the morphe-patches PR; check PATCHES_REPO_TOKEN contents write access", flush=True)
 
     return 0
 
@@ -214,6 +215,17 @@ def issue_labels_for_failure(failure_type: str | None) -> list[str]:
     if failure_type in {"download", "version_resolve", "config"}:
         return ["bug", "tracker", "source-failure"]
     return ["bug", "tracker", "patch-broken-after-update"]
+
+
+def friendly_failure_type(failure_type: str | None) -> str:
+    return {
+        "config": "tracker config",
+        "version_resolve": "latest version lookup",
+        "download": "APK download",
+        "fingerprint": "patch fingerprint",
+        "signing": "APK signing",
+        "patch": "patching",
+    }.get(failure_type or "", failure_type or "unknown")
 
 
 def render_status_table(results, shard_index: int = 0, shard_total: int = 1) -> str:

@@ -45,11 +45,11 @@ def create_or_update_failure_issue(
             token=token,
         )
     except subprocess.CalledProcessError as error:
-        print(f"warning: could not search issues: {error.stderr}", flush=True)
+        print(f"warning: could not look for existing issues: {error.stderr}", flush=True)
         existing = ""
     try:
         if existing:
-            print(f"updating failure issue {repo}#{existing}: {title}", flush=True)
+            print(f"adding an update to issue {repo}#{existing}: {title}", flush=True)
             run_gh(
                 ["api", f"repos/{repo}/issues/{existing}/comments", "-f", f"body={body}"],
                 dry_run=dry_run,
@@ -57,7 +57,7 @@ def create_or_update_failure_issue(
             )
             add_issue_labels(repo, existing, labels, dry_run=dry_run, token=token)
             return
-        print(f"creating failure issue in {repo}: {title}", flush=True)
+        print(f"opening issue in {repo}: {title}", flush=True)
         created = run_gh(
             ["api", f"repos/{repo}/issues", "-f", f"title={title}", "-f", f"body={body}", "--jq", ".number"],
             dry_run=dry_run,
@@ -66,7 +66,7 @@ def create_or_update_failure_issue(
         if created:
             add_issue_labels(repo, created, labels, dry_run=dry_run, token=token)
     except subprocess.CalledProcessError as error:
-        print(f"warning: could not create/comment issue: {error.stderr}", flush=True)
+        print(f"warning: could not open or update the issue: {error.stderr}", flush=True)
 
 
 def token_for_repo(repo: str) -> str | None:
