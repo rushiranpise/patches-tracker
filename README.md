@@ -72,7 +72,9 @@ APKCombo follows rvb behavior and tries `apk`, `xapk`, and `apks`. `apkm` is sti
 
 ## Generated Source Config
 
-`.github/workflows/track-apkcombo.yml` updates `config.toml` from `Constants.kt`.
+`.github/workflows/sync-config-from-constants.yml` updates `config.toml` from `Constants.kt` without resolving APK source links. Use it when Morphe constants changed and the tracker config only needs the current app versions refreshed.
+
+`.github/workflows/track-apkcombo.yml` does the heavier source discovery pass for missing APKMirror, Uptodown, and APKPure links.
 
 The generator extracts:
 

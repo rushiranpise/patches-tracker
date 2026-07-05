@@ -1,0 +1,48 @@
+name: Sync config from constants
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "12 7 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync-config:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout tracker
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Clone patches repo
+        env:
+          GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+        run: gh repo clone rushiranpise/morphe-patches .work/morphe-patches -- --branch dev --depth 1
+
+      - name: Sync config from Constants.kt
+        run: |
+          python scripts/generate-config-from-constants.py \
+            --constants .work/morphe-patches/patches/src/main/kotlin/app/template/patches/shared/Constants.kt \
+            --output config.toml \
+            --patches-repo rushiranpise/morphe-patches \
+            --target-branch dev \
+            --no-resolve-source-urls
+
+      - name: Commit config
+        run: |
+          git config user.name "patches-tracker"
+          git config user.email "patches-tracker@users.noreply.github.com"
+          git add config.toml
+          if git diff --cached --quiet; then
+            echo "Config is already in sync with Constants.kt."
+          else
+            git commit -m "chore: sync config from constants [skip ci]"
+            git push
+          fi
