@@ -157,19 +157,8 @@ def main() -> int:
             continue
 
         target_repo = issue_repo_for_failure(cfg.tracker.patches_repo, result.failure_type)
-        issue_title = f"tracker: {app.name} needs attention for {result.candidate_version}"
-        body = (
-            f"The tracker could not finish `{app.name}` (`{app.package_name}`).\n\n"
-            f"- Current known working: `{app.current_version}`\n"
-            f"- Version checked: `{result.candidate_version}`\n"
-            f"- Problem area: `{friendly_failure_type(result.failure_type)}`\n"
-            f"- Issue repo: `{target_repo}`\n"
-            f"- Workflow: {os.environ.get('GITHUB_SERVER_URL', '')}/{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}\n\n"
-            "Last log excerpt:\n\n"
-            "```text\n"
-            f"{result.log[-6000:]}\n"
-            "```"
-        )
+        issue_title = issue_title_for_failure(app, result, cfg.tracker.patches_repo)
+        body = issue_body_for_failure(app, result, target_repo, cfg.tracker.patches_repo, cfg.cli.repo, cfg.patches.repo)
         create_or_update_failure_issue(
             target_repo,
             issue_title,
@@ -214,7 +203,78 @@ def issue_repo_for_failure(patches_repo: str, failure_type: str | None) -> str:
 def issue_labels_for_failure(failure_type: str | None) -> list[str]:
     if failure_type in {"download", "version_resolve", "config"}:
         return ["bug", "tracker", "source-failure"]
-    return ["bug", "tracker", "patch-broken-after-update"]
+    return ["bug"]
+
+
+def issue_title_for_failure(app, result, patches_repo: str) -> str:
+    if issue_repo_for_failure(patches_repo, result.failure_type) == patches_repo:
+        return f"bug: patch broken after app update - {app.name}"
+    return f"tracker: {app.name} needs attention for {result.candidate_version}"
+
+
+def issue_body_for_failure(app, result, target_repo: str, patches_repo: str, cli_repo: str, patches_release_repo: str) -> str:
+    workflow_url = (
+        f"{os.environ.get('GITHUB_SERVER_URL', '')}/"
+        f"{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}"
+    )
+    if target_repo == patches_repo:
+        broken_patches = "\n".join(f"- {patch}" for patch in skipped_patch_names(result.log)) or "- Unknown; see logs."
+        return (
+            "### App name\n\n"
+            f"{app.name} (`{app.package_name}`)\n\n"
+            "### Broken app version\n\n"
+            f"{result.candidate_version}"
+            + (f" (`versionCode {result.version_code}`)" if result.version_code else "")
+            + "\n\n"
+            "### Last working app version\n\n"
+            f"{app.current_version}\n\n"
+            "### Patch source release\n\n"
+            f"Automated tracker run using `{patches_release_repo}` release asset for `{patches_repo}`.\n\n"
+            "### Manager or CLI version\n\n"
+            f"Morphe CLI resolved by patches-tracker from `{cli_repo}`.\n\n"
+            "### APK source and type\n\n"
+            f"{apk_source_summary(result.log)}\n\n"
+            "### Broken patch or patches\n\n"
+            f"{broken_patches}\n\n"
+            "### Error logs\n\n"
+            "```shell\n"
+            f"{result.log[-6000:]}\n"
+            "```\n\n"
+            "### Additional context\n\n"
+            f"Automated report from patches-tracker: {workflow_url}\n\n"
+            "### Acknowledgements\n\n"
+            "- [x] I have checked all open and closed bug reports and this is not a duplicate.\n"
+            "- [x] I followed the README log capture instructions and included the relevant logs.\n"
+            "- [x] All requested information has been provided properly.\n"
+        )
+    return (
+        f"The tracker could not finish `{app.name}` (`{app.package_name}`).\n\n"
+        f"- Current known working: `{app.current_version}`\n"
+        f"- Version checked: `{result.candidate_version}`\n"
+        f"- Problem area: `{friendly_failure_type(result.failure_type)}`\n"
+        f"- Issue repo: `{target_repo}`\n"
+        f"- Workflow: {workflow_url}\n\n"
+        "Last log excerpt:\n\n"
+        "```text\n"
+        f"{result.log[-6000:]}\n"
+        "```"
+    )
+
+
+def skipped_patch_names(log: str) -> list[str]:
+    import re
+
+    return sorted(set(re.findall(r'WARNING: Skipping "([^"]+)"', log)))
+
+
+def apk_source_summary(log: str) -> str:
+    for line in log.splitlines():
+        if line.startswith("APK source and type: "):
+            return line.removeprefix("APK source and type: ")
+    for line in log.splitlines():
+        if line.startswith("Downloaded APK via "):
+            return line
+    return "Unknown; see logs."
 
 
 def friendly_failure_type(failure_type: str | None) -> str:

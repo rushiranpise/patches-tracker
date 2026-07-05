@@ -162,12 +162,17 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     completed = run_streamed_process(app.id, "patch", args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
     print(f"[{app.id}] patch return code: {completed.returncode}", flush=True)
     log = completed.stdout + completed.stderr
+    patch_context = (
+        f"Downloaded APK via {source.source}: {stock_apk}\n"
+        f"APK source URL: {source.url}\n"
+        f"APK source and type: {source.source} arch={source.arch} dpi={source.dpi} apk-types={' '.join(source.apk_types)}\n\n"
+    )
     if patcher_skipped_incompatible_patch(log):
         print(f"[{app.id}] patch skipped incompatible patches; treating as patch failure: {log[-1000:]}", flush=True)
-        return BuildResult(app, False, None, log, candidate_version, version_code, "patch")
+        return BuildResult(app, False, None, patch_context + log, candidate_version, version_code, "patch")
     if completed.returncode != 0 or not output_apk.exists():
         print(f"[{app.id}] patch did not finish successfully: {log[-1000:]}", flush=True)
-        return BuildResult(app, False, None, log, candidate_version, version_code, classify_failure(log, "patch"))
+        return BuildResult(app, False, None, patch_context + log, candidate_version, version_code, classify_failure(log, "patch"))
     print(f"[{app.id}] patched APK ready: {output_apk}", flush=True)
     return BuildResult(app, True, output_apk, log, candidate_version, version_code)
 
