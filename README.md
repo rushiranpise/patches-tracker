@@ -1,8 +1,8 @@
 # patches-tracker
 
-`patches-tracker` is a GitHub Actions based validation pipeline for Morphe patch compatibility. It resolves upstream APK versions, downloads stock APKs, runs the Morphe/ReVanced-style patcher, publishes successful patched APK artifacts, and reports failures to the correct repository.
+`patches-tracker` is a GitHub Actions workflow for checking Morphe patch compatibility. It finds newer upstream APKs, downloads the stock app, runs the Morphe/ReVanced-style patcher, publishes successful builds, and reports failures in the right place.
 
-The tracker is designed for two jobs:
+It has two main jobs:
 
 - verify whether newer upstream app versions still patch successfully
 - update `morphe-patches` compatibility constants only after a real patched build succeeds
@@ -11,12 +11,12 @@ The tracker is designed for two jobs:
 
 The main workflow is `.github/workflows/track.yml`.
 
-1. Load apps from `config.toml`.
+1. Read apps from `config.toml`.
 2. Run app checks concurrently using `parallel_jobs`.
-3. Resolve the latest app version from the configured download source.
+3. Find the latest app version from the configured sources.
 4. Download the stock APK, APKM, XAPK, or APKS.
 5. Merge split packages into a patchable APK when needed.
-6. Run the patcher with configured include/exclude arguments.
+6. Run the patcher with any configured include/exclude patch options.
 7. Upload logs and patched APK artifacts.
 8. Create a release for successful artifacts.
 9. Open or update failure issues.
@@ -26,7 +26,7 @@ The workflow runs as one GitHub Actions job. App checks run inside that job with
 
 ## Configuration
 
-Apps are configured in rvb-style flat TOML tables:
+Apps use rvb-style flat TOML tables:
 
 ```toml
 [splitwise]
@@ -45,21 +45,21 @@ uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/apk-info/com.Splitwise.SplitwiseMobile"
 ```
 
-Default patches do not need to be listed. Use `included-patches` only for patches that are disabled by default, and `excluded-patches` for patches that should not be applied.
+Default patches do not need to be listed. Use `included-patches` only for patches that are off by default, and `excluded-patches` for patches you want to skip.
 
 The legacy `[[apps]]` / `[[apps.sources]]` format is still accepted, but new entries should use flat tables.
 
 ## Source Priority
 
-When more than one source URL is configured for an app, sources are tried in this order:
+When an app has more than one source, the tracker tries them in this order:
 
 ```text
 direct -> github -> archive -> apkmirror -> uptodown -> apkpure -> apkcombo
 ```
 
-The same source order is used for latest-version resolution. If latest resolution succeeds on one source but downloading from that source fails, the tracker falls through to the remaining configured sources.
+The same order is used when checking the latest version. If one source reports a version but the download fails, the tracker moves on to the next configured source.
 
-Successful builds only update `Constants.kt` when the tested candidate version is newer than `current-version`. If a fallback source reports an older latest version, the tracker may still test it, but it will not downgrade the compatibility constant or include it in the update PR.
+Successful builds only update `Constants.kt` when the tested version is newer than `current-version`. If a fallback source reports an older version, the tracker may still test it, but it will not downgrade the compatibility constant or include it in the update PR.
 
 Supported package formats:
 
@@ -81,7 +81,7 @@ The generator extracts:
 - compatibility constant
 - current target version
 
-It then resolves default source entries from the package name and writes final app page URLs for APKMirror, Uptodown, and APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Manual per-app keys already present in `config.toml` are preserved, so custom patch options survive regeneration:
+It uses the package name to discover source links, then writes final app page URLs for APKMirror, Uptodown, and APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Existing final source URLs are kept, so repeat runs only look for missing links. Manual patch options also survive regeneration:
 
 ```toml
 included-patches = "'Some Patch'"
@@ -99,7 +99,7 @@ apkpure-dlurl = "https://apkpure.com/apk-info/com.whatsapp"
 apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
 ```
 
-For APKMirror and Uptodown search pages, the resolver checks candidates and selects the app whose package name matches. APKPure uses the `apk-info/<package>` redirect target when present.
+For APKMirror and Uptodown, discovery checks the search results and keeps the app whose package name matches. APKPure uses the `apk-info/<package>` redirect when the app exists there.
 
 The generated `config.toml` stores the resolved final URLs, for example:
 
@@ -110,19 +110,19 @@ apkpure-dlurl = "https://apkpure.com/whatsapp-android/com.whatsapp"
 apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
 ```
 
-Source discovery runs at low concurrency because APKMirror and APKPure may require FlareSolverr. The workflow uses `--source-workers 2 --source-timeout 45` to avoid overloading the local FlareSolverr service.
+Source discovery runs gently because APKMirror and APKPure may need FlareSolverr. The workflow uses `--source-workers 2 --source-timeout 45` so the local FlareSolverr service does not get overloaded.
 
 ## Failure Routing
 
-Download, version resolution, and config failures are tracker/source failures. These issues are created in the tracker repository.
+Download, version lookup, and config failures are tracker/source problems. These issues are created in the tracker repository.
 
-Patch, fingerprint, signing, and patcher failures are patch compatibility failures. These issues are created in `morphe-patches`.
+Patch, fingerprint, signing, and patcher failures are patch compatibility problems. These issues are created in `morphe-patches`.
 
-This keeps source breakage separate from actual patch breakage.
+That keeps source-site breakage separate from real patch breakage.
 
 ## Runtime Controls
 
-The resolver is intentionally fail-fast by default so one blocked source does not consume the whole CI budget.
+The resolver is intentionally fail-fast by default so one blocked source does not eat the whole CI budget.
 
 Environment variables:
 

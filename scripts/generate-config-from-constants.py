@@ -212,7 +212,7 @@ def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int
             try:
                 app.update(future.result())
             except Exception as error:
-                print(f"[{app['id']}] source URL resolution failed: {error}")
+                print(f"[{app['id']}] source discovery failed: {error}")
 
 
 def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: int) -> dict[str, str]:
@@ -240,13 +240,13 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
             try:
                 url = resolver(package_name, session, timeout)
             except requests.RequestException as error:
-                print(f"[{app['id']}] {key} resolution request failed: {error}")
+                print(f"[{app['id']}] could not check {key}: {error}")
                 url = ""
             if url:
                 resolved[key] = url
-                print(f"[{app['id']}] resolved {key}: {url}")
+                print(f"[{app['id']}] found {key}: {url}")
             else:
-                print(f"[{app['id']}] no resolved {key}")
+                print(f"[{app['id']}] no usable {key} found")
     return resolved
 
 
