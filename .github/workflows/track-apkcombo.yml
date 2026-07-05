@@ -50,7 +50,7 @@ jobs:
             --target-branch dev \
             --source-workers 2 \
             --source-timeout 25 \
-            --max-source-checks 0
+            --max-source-checks 100
 
       - name: Commit generated config
         run: |
