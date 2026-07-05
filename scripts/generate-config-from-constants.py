@@ -59,6 +59,7 @@ def parse_constants(text: str) -> list[dict[str, str]]:
         name = read_string_arg(body, "name")
         package_name = read_string_arg(body, "packageName")
         version = read_target_version(body)
+        apk_types = apk_types_from_apk_file_type(read_apk_file_type(body))
         if not name or not package_name or not version:
             continue
         apps.append(
@@ -68,6 +69,7 @@ def parse_constants(text: str) -> list[dict[str, str]]:
                 "package_name": package_name,
                 "constant": constant,
                 "current_version": version,
+                "apk_types": apk_types,
             }
         )
     return dedupe_ids(apps)
@@ -106,6 +108,23 @@ def read_string_arg(body: str, key: str) -> str:
 def read_target_version(body: str) -> str:
     match = re.search(r"AppTarget\s*\([^)]*\bversion\s*=\s*\"([^\"]+)\"", body, re.DOTALL)
     return match.group(1) if match else ""
+
+
+def read_apk_file_type(body: str) -> str:
+    match = re.search(r"apkFileType\s*=\s*ApkFileType\.([A-Za-z0-9_]+)", body)
+    return match.group(1).upper() if match else ""
+
+
+def apk_types_from_apk_file_type(apk_file_type: str) -> str:
+    return {
+        "APK": "apk",
+        "XAPK": "xapk",
+        "APKS": "apks",
+        "APKM": "apkm",
+        "BUNDLE": "xapk apks apkm",
+        "SPLIT": "xapk apks apkm",
+        "SPLITS": "xapk apks apkm",
+    }.get(apk_file_type, "")
 
 
 def slugify(name: str, package_name: str) -> str:
@@ -173,7 +192,7 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace, existing
                 'version = "latest"',
                 'arch = "all"',
                 'dpi = "nodpi anydpi auto"',
-                'apk-types = "apk xapk apks"',
+                f"apk-types = {quote(app.get('apk_types') or 'apk xapk apks')}",
             ]
         )
         for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl"):
@@ -247,7 +266,14 @@ def source_checks_to_run(apps: list[dict[str, str]], existing: dict, max_checks:
             if not is_final_source_url(key, existing_app.get(key, ""))
         ]
         if not keys:
-            continue
+            if not app.get("apk_types") and not has_specific_apk_types(existing_app.get("apk-types", "")):
+                keys = [
+                    key
+                    for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl")
+                    if is_final_source_url(key, existing_app.get(key, ""))
+                ][:1]
+            if not keys:
+                continue
         if not unlimited:
             keys = keys[:remaining]
         pending.append((app, keys))
@@ -282,22 +308,29 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
             existing_url = existing.get(key, "")
             if is_final_source_url(key, existing_url):
                 resolved[key] = str(existing_url)
+                if not app.get("apk_types") and not has_specific_apk_types(existing.get("apk-types", "")):
+                    apk_types = infer_existing_source_apk_types(key, str(existing_url), session, timeout)
+                    if apk_types:
+                        resolved["apk_types"] = apk_types
                 print(f"[{app['id']}] kept existing {key}: {resolved[key]}")
                 continue
             try:
-                url = resolver(package_name, session, timeout)
+                url, apk_types = resolver(package_name, session, timeout)
             except requests.RequestException as error:
                 print(f"[{app['id']}] could not check {key}: {error}")
                 url = ""
+                apk_types = ""
             if url:
                 resolved[key] = url
+                if apk_types and not app.get("apk_types"):
+                    resolved["apk_types"] = apk_types
                 print(f"[{app['id']}] found {key}: {url}")
             else:
                 print(f"[{app['id']}] no usable {key} found")
     return resolved
 
 
-def resolve_apkmirror_url(package_name: str, session, timeout: int) -> str:
+def resolve_apkmirror_url(package_name: str, session, timeout: int) -> tuple[str, str]:
     import requests
 
     search_url = apkmirror_search_url(package_name)
@@ -310,11 +343,11 @@ def resolve_apkmirror_url(package_name: str, session, timeout: int) -> str:
             continue
         found = re.search(r'id=([^"\s]+)" class="accent_color', app_html)
         if found and found.group(1) == package_name:
-            return app_url
-    return ""
+            return app_url, infer_apkmirror_apk_types(app_html)
+    return "", ""
 
 
-def resolve_uptodown_url(package_name: str, session, timeout: int) -> str:
+def resolve_uptodown_url(package_name: str, session, timeout: int) -> tuple[str, str]:
     import requests
 
     search_url = uptodown_search_url(package_name)
@@ -325,19 +358,65 @@ def resolve_uptodown_url(package_name: str, session, timeout: int) -> str:
         except requests.RequestException:
             continue
         if re.search(rf">\s*{re.escape(package_name)}\s*<", download_html) or package_name in download_html:
-            return app_url.rstrip("/")
-    return ""
+            return app_url.rstrip("/"), infer_uptodown_apk_types(download_html)
+    return "", ""
 
 
-def resolve_apkpure_url(package_name: str, session, timeout: int) -> str:
+def resolve_apkpure_url(package_name: str, session, timeout: int) -> tuple[str, str]:
     info_url = apkpure_info_url(package_name)
     response = fetch_response(session, info_url, timeout)
     final_url = response.url.rstrip("/")
     if "/apk-info/" in final_url or package_name not in final_url:
         final_url = apkpure_app_url_from_html(response.text, package_name) or final_url
     if "/apk-info/" in final_url or package_name not in final_url:
+        return "", ""
+    return final_url, infer_apkpure_apk_types(response.text)
+
+
+def infer_existing_source_apk_types(key: str, url: str, session, timeout: int) -> str:
+    try:
+        html = fetch_text(session, url.rstrip("/") + "/download" if key == "uptodown-dlurl" else url, timeout)
+    except Exception as error:
+        print(f"Could not infer apk type from {url}: {error}")
         return ""
-    return final_url
+    if key == "apkmirror-dlurl":
+        return infer_apkmirror_apk_types(html)
+    if key == "uptodown-dlurl":
+        return infer_uptodown_apk_types(html)
+    if key == "apkpure-dlurl":
+        return infer_apkpure_apk_types(html)
+    return ""
+
+
+def has_specific_apk_types(value: object) -> bool:
+    if not isinstance(value, str):
+        return False
+    normalized = " ".join(value.split()).lower()
+    return bool(normalized and normalized != "apk xapk apks")
+
+
+def infer_apkmirror_apk_types(html: str) -> str:
+    if re.search(r"\bAPK\s+BUNDLE\b|\bBUNDLE\b", html, re.I):
+        return "xapk apks apkm"
+    if re.search(r">\s*APK\s*<|\bAPK\b", html, re.I):
+        return "apk"
+    return ""
+
+
+def infer_uptodown_apk_types(html: str) -> str:
+    if re.search(r"\bxapk\b", html, re.I):
+        return "xapk"
+    if re.search(r"\bapk\b", html, re.I):
+        return "apk"
+    return ""
+
+
+def infer_apkpure_apk_types(html: str) -> str:
+    if re.search(r"\bxapk\b", html, re.I):
+        return "xapk"
+    if re.search(r"\bapk\b", html, re.I):
+        return "apk"
+    return ""
 
 
 def apkpure_app_url_from_html(html: str, package_name: str) -> str:
