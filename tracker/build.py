@@ -3,8 +3,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 import os
 from pathlib import Path
+import queue
 import shutil
 import subprocess
+import threading
 import time
 
 import requests
@@ -13,6 +15,8 @@ from .config import AppConfig
 
 
 RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "3"))
+RESOLVER_TIMEOUT_SECONDS = int(os.environ.get("RESOLVER_TIMEOUT_SECONDS", "420"))
+PATCHER_TIMEOUT_SECONDS = int(os.environ.get("PATCHER_TIMEOUT_SECONDS", "900"))
 
 
 @dataclass
@@ -119,10 +123,9 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     args.extend(app.patcher_args)
 
     print(f"[{app.id}] patch command: {shell_join(args)}", flush=True)
-    completed = subprocess.run(args, text=True, capture_output=True)
+    completed = run_streamed_process(app.id, "patch", args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
     print(f"[{app.id}] patch return code: {completed.returncode}", flush=True)
     log = completed.stdout + completed.stderr
-    print_process_log(app.id, "patch", completed.stdout, completed.stderr)
     if completed.returncode != 0 or not output_apk.exists():
         print(f"[{app.id}] patch failed: {log[-1000:]}", flush=True)
         return BuildResult(app, False, None, log, candidate_version, version_code, classify_failure(log, "patch"))
@@ -135,8 +138,7 @@ def run_resolver(app_id: str, phase: str, args: list[str]) -> subprocess.Complet
     last = subprocess.CompletedProcess(args, 1, "", "")
     for attempt in range(1, attempts + 1):
         print(f"[{app_id}] {phase} attempt {attempt}/{attempts}: {shell_join(args)}", flush=True)
-        completed = subprocess.run(args, text=True, capture_output=True)
-        print_process_log(app_id, f"{phase} attempt {attempt}", completed.stdout, completed.stderr)
+        completed = run_streamed_process(app_id, f"{phase} attempt {attempt}", args, timeout_seconds=RESOLVER_TIMEOUT_SECONDS)
         if completed.returncode == 0:
             return completed
         last = completed
@@ -149,11 +151,71 @@ def run_resolver(app_id: str, phase: str, args: list[str]) -> subprocess.Complet
     return last
 
 
-def print_process_log(app_id: str, phase: str, stdout: str, stderr: str) -> None:
-    if stdout:
-        print(f"[{app_id}] {phase} stdout:\n{stdout.rstrip()}", flush=True)
-    if stderr:
-        print(f"[{app_id}] {phase} stderr:\n{stderr.rstrip()}", flush=True)
+def run_streamed_process(
+    app_id: str,
+    phase: str,
+    args: list[str],
+    *,
+    timeout_seconds: int,
+) -> subprocess.CompletedProcess[str]:
+    process = subprocess.Popen(
+        args,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        bufsize=1,
+    )
+    output_queue: queue.Queue[tuple[str, str | None]] = queue.Queue()
+    stdout_lines: list[str] = []
+    stderr_lines: list[str] = []
+
+    def reader(stream, name: str) -> None:
+        try:
+            for line in iter(stream.readline, ""):
+                output_queue.put((name, line))
+        finally:
+            stream.close()
+            output_queue.put((name, None))
+
+    threads = [
+        threading.Thread(target=reader, args=(process.stdout, "stdout"), daemon=True),
+        threading.Thread(target=reader, args=(process.stderr, "stderr"), daemon=True),
+    ]
+    for thread in threads:
+        thread.start()
+
+    deadline = time.monotonic() + timeout_seconds
+    open_streams = {"stdout", "stderr"}
+    timed_out = False
+    while open_streams:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            timed_out = True
+            print(f"[{app_id}] {phase} timed out after {timeout_seconds}s; killing process", flush=True)
+            process.kill()
+            break
+        try:
+            name, line = output_queue.get(timeout=min(1.0, remaining))
+        except queue.Empty:
+            continue
+        if line is None:
+            open_streams.discard(name)
+            continue
+        if name == "stdout":
+            stdout_lines.append(line)
+        else:
+            stderr_lines.append(line)
+        print(f"[{app_id}] {phase} {name}: {line.rstrip()}", flush=True)
+
+    return_code = process.wait(timeout=10)
+    for thread in threads:
+        thread.join(timeout=1)
+    stdout = "".join(stdout_lines)
+    stderr = "".join(stderr_lines)
+    if timed_out:
+        stderr += f"\nTimed out after {timeout_seconds}s\n"
+        return_code = return_code if return_code != 0 else 124
+    return subprocess.CompletedProcess(args, return_code, stdout, stderr)
 
 
 def looks_transient_block(log: str) -> bool:
