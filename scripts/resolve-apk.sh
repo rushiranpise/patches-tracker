@@ -79,11 +79,19 @@ page_title() {
 }
 
 query_param() {
-  python - "$1" "$2" <<'PYC'
+  py - "$1" "$2" <<'PYC'
 import sys, urllib.parse
 url, key = sys.argv[1], sys.argv[2]
 print(urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get(key, [""])[0])
 PYC
+}
+
+py() {
+  if command -v python >/dev/null 2>&1; then
+    python "$@"
+  else
+    python3 "$@"
+  fi
 }
 
 normalize_apk_types() {
@@ -634,9 +642,10 @@ get_apkcombo_resp() {
 }
 get_apkcombo_vers() {
 	{
-		echo "$__APKCOMBO_RESP__" | grep -oP 'phone-\K[0-9][^-]+-apk' | sed 's/-apk$//'
 		echo "$__APKCOMBO_RESP__" | grep -oP '"softwareVersion"\s*:\s*"\K[^"]+'
+		echo "$__APKCOMBO_RESP__" | grep -oP 'Version:\s*\K.*?(?=\s+-\s+[A-Za-z0-9_.]+)' | sed 's/[[:space:]]*$//'
 		echo "$__APKCOMBO_RESP__" | grep -oP 'Version</[^>]+>\s*<[^>]+>\K[^<]+' || true
+		echo "$__APKCOMBO_RESP__" | grep -oP 'phone-\K[0-9][^-]+-apk' | sed 's/-apk$//'
 	} | sed '/^$/d' | head -1
 }
 get_apkcombo_pkg_name() { echo "$__APKCOMBO_PKG__"; }
@@ -667,10 +676,12 @@ dl_apkcombo() {
 			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP "(?<=a href=')https://download\.apkcombo\.com/[^']+" | head -1) || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP '(?<=a href=")/r2[^"]+' | head -1) || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP "(?<=a href=')/r2[^']+" | head -1) || true
-			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '(data-url|data-href|href)=["'\'']\K(https://download\.apkcombo\.com/|/r2\?)[^"'\'']+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '(data-url|data-href|href)=["'\'']\K(https://download\.apkcombo\.com/|https://apkcombo\.com/d\?u=|/d\?u=|/r2\?)[^"'\'']+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"download_url"\s*:\s*"\K[^"]+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"url"\s*:\s*"\Khttps://download\.apkcombo\.com/[^"]+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://download\.apkcombo\.com/[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://apkcombo\.com/d\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '/d\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
 			[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '/r2\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
 
 			if [ -n "$dl_url" ]; then
@@ -696,10 +707,12 @@ dl_apkcombo() {
 				[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP "(?<=a href=')https://download\.apkcombo\.com/[^']+" | head -1) || true
 				[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP '(?<=a href=")/r2[^"]+' | head -1) || true
 				[ -z "$dl_url" ] && dl_url=$(echo "$page" | grep -oP "(?<=a href=')/r2[^']+" | head -1) || true
-				[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '(data-url|data-href|href)=["'\'']\K(https://download\.apkcombo\.com/|/r2\?)[^"'\'']+' | head -1 | sed 's#\\/#/#g') || true
+				[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '(data-url|data-href|href)=["'\'']\K(https://download\.apkcombo\.com/|https://apkcombo\.com/d\?u=|/d\?u=|/r2\?)[^"'\'']+' | head -1 | sed 's#\\/#/#g') || true
 				[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"download_url"\s*:\s*"\K[^"]+' | head -1 | sed 's#\\/#/#g') || true
 				[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '"url"\s*:\s*"\Khttps://download\.apkcombo\.com/[^"]+' | head -1 | sed 's#\\/#/#g') || true
 				[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://download\.apkcombo\.com/[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+				[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP 'https://apkcombo\.com/d\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
+				[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '/d\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
 				[ -z "$dl_url" ] && dl_url=$(echo "$compact_page" | grep -oP '/r2\?u=[^"'"'"' <>]+' | head -1 | sed 's#\\/#/#g') || true
 				if [ -n "$dl_url" ]; then
 					break
@@ -719,8 +732,16 @@ dl_apkcombo() {
 	[[ "$dl_url" != http* ]] && dl_url="https://apkcombo.com${dl_url}"
 	dl_url=$(echo "$dl_url" | sed 's/\\u0026/\&/g; s/&amp;/\&/g')
 
-	if [[ "$dl_url" == https://apkcombo.com/r2\?u=* ]]; then
-		final_url=$(python - <<'PYC' "$dl_url"
+	if [[ "$dl_url" == https://apkcombo.com/d\?u=* ]]; then
+		checkin=$(req "https://apkcombo.com/checkin" -) || true
+		if [ -n "$checkin" ]; then
+			dl_url="${dl_url}&${checkin}&package_name=${__APKCOMBO_PKG__}&lang=en"
+		fi
+		final_url=$(curl -s -o /dev/null -w "%{url_effective}" -L --max-redirs 10 \
+			-H "User-Agent: ${user_agent:-Mozilla/5.0}" \
+			-H "Referer: $page_url" "$dl_url") || return 1
+	elif [[ "$dl_url" == https://apkcombo.com/r2\?u=* ]]; then
+		final_url=$(py - <<'PYC' "$dl_url"
 import sys, urllib.parse
 u=sys.argv[1]
 q=urllib.parse.urlparse(u).query
@@ -780,7 +801,7 @@ dl_uptodown() {
 	local uptodown_dlurl=$1 version=$2 output=$3 arch=$4 _dpi=$5
 	if [ "$arch" = "arm-v7a" ]; then arch="armeabi-v7a"; fi
 
-	local apparch=('arm64-v8a, armeabi-v7a, x86_64' 'arm64-v8a, armeabi-v7a, x86, x86_64' 'arm64-v8a, armeabi-v7a')
+	local apparch=('arm64-v8a, armeabi-v7a, x86_64' 'arm64-v8a, armeabi-v7a, x86, x86_64' 'arm64-v8a, armeabi-v7a' 'arm64-v8a' 'armeabi-v7a' 'x86_64' 'x86')
 	if [ "$arch" != all ]; then
 		apparch+=("$arch")
 	fi
@@ -795,10 +816,10 @@ dl_uptodown() {
 			continue
 		fi
 		if [ "$(jq -e -r ".kindFile" <<<"$op")" = "xapk" ]; then is_bundle=true; fi
-		if versionURL=$(jq -e -r '.versionURL' <<<"$op"); then break; else return 1; fi
+		if versionURL=$(jq -e -r '.versionURL' <<<"$op" | tr -d '\r'); then break; else return 1; fi
 	done
 	if [ -z "$versionURL" ]; then return 1; fi
-	versionURL=$(jq -e -r '.url + "/" + .extraURL + "/" + (.versionID | tostring)' <<<"$versionURL")
+	versionURL=$(jq -e -r '.url + "/" + .extraURL + "/" + (.versionID | tostring)' <<<"$versionURL" | tr -d '\r')
 	resp=$(req "$versionURL" -) || return 1
 
 	local data_version files node_arch="" data_file_id node_class
@@ -811,12 +832,13 @@ dl_uptodown() {
 				node_arch=$($HTMLQ -w -t ".content > :nth-child($n)" <<<"$files" | xargs) || return 1
 				continue
 			fi
-			if [ -z "$node_arch" ]; then return 1; fi
+			if [ -z "$node_arch" ]; then continue; fi
 			if ! isoneof "$node_arch" "${apparch[@]}"; then continue; fi
 
 			file_type=$($HTMLQ -w -t ".content > :nth-child($n) > .v-file > span" <<<"$files") || return 1
 			if [ "$file_type" = "xapk" ]; then is_bundle=true; else is_bundle=false; fi
 			data_file_id=$($HTMLQ ".content > :nth-child($n) > .v-report" --attribute data-file-id <<<"$files") || return 1
+			data_file_id=$(tr -d '\r' <<<"$data_file_id")
 			resp=$(req "${uptodown_dlurl}/download/${data_file_id}-x" -)
 			break
 		done
