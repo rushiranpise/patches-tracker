@@ -13,7 +13,13 @@ permissions:
 jobs:
   track:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 59
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        shard_index: [0, 1]
+        shard_total: [2]
     services:
       flaresolverr:
         image: ghcr.io/flaresolverr/flaresolverr:latest
@@ -66,13 +72,17 @@ jobs:
           GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
           FLARESOLVERR_URL: http://localhost:8191
-        run: python -m tracker.cli --config config.toml
+        run: >-
+          python -m tracker.cli
+          --config config.toml
+          --shard-index ${{ matrix.shard_index }}
+          --shard-total ${{ matrix.shard_total }}
 
       - name: Upload logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: tracker-logs
+          name: tracker-logs-part-${{ matrix.shard_index }}
           path: |
             logs
             status.json
@@ -82,15 +92,15 @@ jobs:
         if: hashFiles('artifacts/*') != ''
         uses: actions/upload-artifact@v4
         with:
-          name: patched-apks
+          name: patched-apks-part-${{ matrix.shard_index }}
           path: artifacts
 
       - name: Release APKs
         if: hashFiles('artifacts/*') != ''
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: tracker-${{ github.run_number }}
-          name: Tracker build ${{ github.run_number }}
+          tag_name: tracker-${{ github.run_number }}-part-${{ matrix.shard_index }}
+          name: Tracker build ${{ github.run_number }} part ${{ matrix.shard_index }}
           files: artifacts/*
           body_path: STATUS.md
 
@@ -102,10 +112,11 @@ jobs:
           mkdir -p /tmp/patches-tracker-status
           [ -f STATUS.md ] && cp STATUS.md /tmp/patches-tracker-status/STATUS.md
           [ -f status.json ] && cp status.json /tmp/patches-tracker-status/status.json
-          if git fetch origin tracker-status; then
-            git switch --force-create tracker-status origin/tracker-status
+          STATUS_BRANCH="tracker-status-part-${{ matrix.shard_index }}"
+          if git fetch origin "$STATUS_BRANCH"; then
+            git switch --force-create "$STATUS_BRANCH" "origin/$STATUS_BRANCH"
           else
-            git switch --orphan tracker-status
+            git switch --orphan "$STATUS_BRANCH"
           fi
           find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -R /tmp/patches-tracker-status/. .
@@ -114,5 +125,5 @@ jobs:
             echo "No tracker status changes."
           else
             git commit -m "chore: update tracker status [skip ci]"
-            git push --force-with-lease origin tracker-status
+            git push --force-with-lease origin "$STATUS_BRANCH"
           fi

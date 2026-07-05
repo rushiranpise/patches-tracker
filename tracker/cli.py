@@ -50,9 +50,22 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="config.toml")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--shard-index", type=int, default=0)
+    parser.add_argument("--shard-total", type=int, default=1)
     args = parser.parse_args()
+    if args.shard_total < 1:
+        parser.error("--shard-total must be at least 1")
+    if args.shard_index < 0 or args.shard_index >= args.shard_total:
+        parser.error("--shard-index must be between 0 and --shard-total - 1")
 
     cfg = load_config(args.config)
+    all_apps = cfg.apps
+    cfg_apps = [app for index, app in enumerate(all_apps) if index % args.shard_total == args.shard_index]
+    print(
+        f"tracker shard {args.shard_index + 1}/{args.shard_total}: "
+        f"{len(cfg_apps)} of {len(all_apps)} apps",
+        flush=True,
+    )
     root = Path.cwd()
     work_dir = root / cfg.tracker.work_dir
     artifacts_dir = root / "artifacts"
@@ -65,7 +78,7 @@ def main() -> int:
     patches_file = resolve_tool(cfg.patches, work_dir / "tools" / "patches.mpp", dry_run=args.dry_run)
 
     results = []
-    for app in cfg.apps:
+    for app in cfg_apps:
         result = build_app(app, cli_jar, patches_file, work_dir, dry_run=args.dry_run)
         log_path = logs_dir / f"{app.id}.log"
         log_path.write_text(result.log, encoding="utf-8")
@@ -75,6 +88,10 @@ def main() -> int:
 
     status = {
         "checked_at": datetime.now(timezone.utc).isoformat(),
+        "shard_index": args.shard_index,
+        "shard_total": args.shard_total,
+        "app_count": len(cfg_apps),
+        "total_app_count": len(all_apps),
         "results": [
             {
                 "id": r.app.id,
@@ -92,7 +109,7 @@ def main() -> int:
         ],
     }
     (root / "status.json").write_text(json.dumps(status, indent=2) + "\n", encoding="utf-8")
-    (root / "STATUS.md").write_text(render_status_table(results), encoding="utf-8")
+    (root / "STATUS.md").write_text(render_status_table(results, args.shard_index, args.shard_total), encoding="utf-8")
 
     if args.dry_run:
         print(json.dumps(status, indent=2))
@@ -178,9 +195,11 @@ def issue_labels_for_failure(failure_type: str | None) -> list[str]:
     return ["bug", "tracker", "patch-broken-after-update"]
 
 
-def render_status_table(results) -> str:
+def render_status_table(results, shard_index: int = 0, shard_total: int = 1) -> str:
     lines = [
         "# Patch Tracker Status",
+        "",
+        f"Shard: {shard_index + 1}/{shard_total}",
         "",
         "| App | Package | Known working | Tested | Version code | Status | Failure |",
         "| --- | --- | --- | --- | --- | --- | --- |",
