@@ -92,13 +92,14 @@ normalize_apk_types() {
 apk_types_for_apkcombo() {
   local raw="${1:-}"
   if [ -z "$raw" ]; then
-    printf '%s\n' apk apkm xapk apks
+    printf '%s\n' apk xapk apks
     return
   fi
   normalize_apk_types "$raw" | while read -r type; do
     case "$type" in
-      all) printf '%s\n' apk apkm xapk apks ;;
-      bundle|split|splits) printf '%s\n' apkm xapk apks ;;
+      all) printf '%s\n' apk xapk apks ;;
+      bundle|split|splits) printf '%s\n' xapk apks ;;
+      apkm) ;;
       *) echo "$type" ;;
     esac
   done | awk '!seen[$0]++'

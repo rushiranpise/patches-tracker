@@ -137,7 +137,7 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace) -> str:
                 'version = "latest"',
                 'arch = "all"',
                 'dpi = "nodpi anydpi auto"',
-                'apk-types = "apk apkm xapk apks"',
+                'apk-types = "apk xapk apks"',
                 f"apkcombo-dlurl = {quote('https://apkcombo.com/search/' + app['package_name'] + '/')}",
             ]
         )
