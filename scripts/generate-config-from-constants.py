@@ -9,8 +9,6 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import quote as url_quote
 import tomllib
 
-import requests
-
 
 GENERATED_APP_KEYS = {
     "enabled",
@@ -259,6 +257,8 @@ def source_checks_to_run(apps: list[dict[str, str]], existing: dict, max_checks:
 
 
 def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: int, source_keys: list[str]) -> dict[str, str]:
+    import requests
+
     package_name = app["package_name"]
     existing = existing_app if isinstance(existing_app, dict) else {}
     resolved = {}
@@ -294,7 +294,9 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
     return resolved
 
 
-def resolve_apkmirror_url(package_name: str, session: requests.Session, timeout: int) -> str:
+def resolve_apkmirror_url(package_name: str, session, timeout: int) -> str:
+    import requests
+
     search_url = apkmirror_search_url(package_name)
     html = fetch_text(session, search_url, timeout)
     for path in unique(re.findall(r'href=["\'](/apk/[^"\']+?/[^"\']+?/)', html)):
@@ -309,7 +311,9 @@ def resolve_apkmirror_url(package_name: str, session: requests.Session, timeout:
     return ""
 
 
-def resolve_uptodown_url(package_name: str, session: requests.Session, timeout: int) -> str:
+def resolve_uptodown_url(package_name: str, session, timeout: int) -> str:
+    import requests
+
     search_url = uptodown_search_url(package_name)
     html = fetch_text(session, search_url, timeout)
     for app_url in unique(re.findall(r'https://[a-z0-9-]+\.en\.uptodown\.com/android', html)):
@@ -322,7 +326,7 @@ def resolve_uptodown_url(package_name: str, session: requests.Session, timeout: 
     return ""
 
 
-def resolve_apkpure_url(package_name: str, session: requests.Session, timeout: int) -> str:
+def resolve_apkpure_url(package_name: str, session, timeout: int) -> str:
     info_url = apkpure_info_url(package_name)
     response = fetch_response(session, info_url, timeout)
     final_url = response.url.rstrip("/")
@@ -351,7 +355,7 @@ def apkpure_app_url_from_html(html: str, package_name: str) -> str:
     return ""
 
 
-def fetch_response(session: requests.Session, url: str, timeout: int) -> requests.Response:
+def fetch_response(session, url: str, timeout: int):
     response = session.get(url, timeout=timeout, allow_redirects=True)
     if response.status_code in {403, 429, 503}:
         flaresolverr = fetch_with_flaresolverr(url, timeout)
@@ -361,11 +365,13 @@ def fetch_response(session: requests.Session, url: str, timeout: int) -> request
     return response
 
 
-def fetch_text(session: requests.Session, url: str, timeout: int) -> str:
+def fetch_text(session, url: str, timeout: int) -> str:
     return fetch_response(session, url, timeout).text
 
 
 def fetch_with_flaresolverr(url: str, timeout: int) -> tuple[str, str] | None:
+    import requests
+
     flaresolverr_url = os.environ.get("FLARESOLVERR_URL")
     if not flaresolverr_url:
         return None
