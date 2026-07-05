@@ -36,8 +36,8 @@ def main() -> int:
     parser.add_argument("--patches-repo", default="rushiranpise/morphe-patches")
     parser.add_argument("--constants-path", default="patches/src/main/kotlin/app/template/patches/shared/Constants.kt")
     parser.add_argument("--target-branch", default="dev")
-    parser.add_argument("--source-workers", type=int, default=8)
-    parser.add_argument("--source-timeout", type=int, default=20)
+    parser.add_argument("--source-workers", type=int, default=2)
+    parser.add_argument("--source-timeout", type=int, default=45)
     parser.add_argument("--no-resolve-source-urls", action="store_true")
     args = parser.parse_args()
 
@@ -323,21 +323,28 @@ def fetch_with_flaresolverr(url: str, timeout: int) -> tuple[str, str] | None:
     flaresolverr_url = os.environ.get("FLARESOLVERR_URL")
     if not flaresolverr_url:
         return None
-    response = requests.post(
-        flaresolverr_url.rstrip("/") + "/v1",
-        json={"cmd": "request.get", "url": url, "maxTimeout": timeout * 1000},
-        timeout=timeout + 10,
-    )
-    response.raise_for_status()
-    payload = response.json()
-    if payload.get("status") != "ok":
-        return None
-    solution = payload.get("solution") or {}
-    html = solution.get("response") or ""
-    final_url = solution.get("url") or url
-    if looks_blocked_page(html):
-        return None
-    return final_url, html
+    for attempt in range(1, 3):
+        try:
+            response = requests.post(
+                flaresolverr_url.rstrip("/") + "/v1",
+                json={"cmd": "request.get", "url": url, "maxTimeout": timeout * 1000},
+                timeout=timeout + 15,
+            )
+            response.raise_for_status()
+            payload = response.json()
+            if payload.get("status") != "ok":
+                print(f"FlareSolverr returned status {payload.get('status')!r} for {url} on attempt {attempt}/2")
+                continue
+            solution = payload.get("solution") or {}
+            html = solution.get("response") or ""
+            final_url = solution.get("url") or url
+            if looks_blocked_page(html):
+                print(f"FlareSolverr returned blocked page for {url} on attempt {attempt}/2")
+                continue
+            return final_url, html
+        except requests.RequestException as error:
+            print(f"FlareSolverr request failed for {url} on attempt {attempt}/2: {error}")
+    return None
 
 
 def looks_blocked_page(html: str) -> bool:

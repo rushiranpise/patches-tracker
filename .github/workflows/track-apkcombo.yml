@@ -47,7 +47,9 @@ jobs:
             --constants .work/morphe-patches/patches/src/main/kotlin/app/template/patches/shared/Constants.kt \
             --output config.toml \
             --patches-repo rushiranpise/morphe-patches \
-            --target-branch dev
+            --target-branch dev \
+            --source-workers 2 \
+            --source-timeout 45
 
       - name: Commit generated config
         run: |

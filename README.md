@@ -110,6 +110,8 @@ apkpure-dlurl = "https://apkpure.com/whatsapp-android/com.whatsapp"
 apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
 ```
 
+Source discovery runs at low concurrency because APKMirror and APKPure may require FlareSolverr. The workflow uses `--source-workers 2 --source-timeout 45` to avoid overloading the local FlareSolverr service.
+
 ## Failure Routing
 
 Download, version resolution, and config failures are tracker/source failures. These issues are created in the tracker repository.
