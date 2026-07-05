@@ -136,9 +136,17 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
 def run_resolver(app_id: str, phase: str, args: list[str]) -> subprocess.CompletedProcess[str]:
     attempts = max(1, RESOLVER_RETRIES)
     last = subprocess.CompletedProcess(args, 1, "", "")
+    env = os.environ.copy()
+    env["TEMP_DIR"] = str(Path(".work") / "resolver" / app_id)
     for attempt in range(1, attempts + 1):
         print(f"[{app_id}] {phase} attempt {attempt}/{attempts}: {shell_join(args)}", flush=True)
-        completed = run_streamed_process(app_id, f"{phase} attempt {attempt}", args, timeout_seconds=RESOLVER_TIMEOUT_SECONDS)
+        completed = run_streamed_process(
+            app_id,
+            f"{phase} attempt {attempt}",
+            args,
+            timeout_seconds=RESOLVER_TIMEOUT_SECONDS,
+            env=env,
+        )
         if completed.returncode == 0:
             return completed
         last = completed
@@ -157,6 +165,7 @@ def run_streamed_process(
     args: list[str],
     *,
     timeout_seconds: int,
+    env: dict[str, str] | None = None,
 ) -> subprocess.CompletedProcess[str]:
     process = subprocess.Popen(
         args,
@@ -164,6 +173,7 @@ def run_streamed_process(
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         bufsize=1,
+        env=env,
     )
     output_queue: queue.Queue[tuple[str, str | None]] = queue.Queue()
     stdout_lines: list[str] = []

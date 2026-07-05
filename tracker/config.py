@@ -21,6 +21,7 @@ class TrackerConfig:
     release_prefix: str = "tracker"
     work_dir: str = ".work"
     target_branch: str = "dev"
+    parallel_jobs: int = 4
 
 
 @dataclass(frozen=True)

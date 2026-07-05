@@ -132,6 +132,7 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace, existing
         'release_prefix = "tracker"',
         'work_dir = ".work"',
         f"target_branch = {quote(args.target_branch)}",
+        "parallel_jobs = 4",
         "",
         "[cli]",
         'repo = "MorpheApp/morphe-cli"',

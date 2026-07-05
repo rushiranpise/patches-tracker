@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 
 from .build import build_app
@@ -77,9 +78,21 @@ def main() -> int:
     cli_jar = resolve_tool(cfg.cli, work_dir / "tools" / "cli.jar", dry_run=args.dry_run)
     patches_file = resolve_tool(cfg.patches, work_dir / "tools" / "patches.mpp", dry_run=args.dry_run)
 
+    results_by_index = {}
+    parallel_jobs = max(1, cfg.tracker.parallel_jobs)
+    print(f"tracker parallel jobs: {parallel_jobs}", flush=True)
+    with ThreadPoolExecutor(max_workers=parallel_jobs) as executor:
+        future_to_index = {
+            executor.submit(build_app, app, cli_jar, patches_file, work_dir, dry_run=args.dry_run): index
+            for index, app in enumerate(cfg_apps)
+        }
+        for future in as_completed(future_to_index):
+            index = future_to_index[future]
+            results_by_index[index] = future.result()
+
     results = []
-    for app in cfg_apps:
-        result = build_app(app, cli_jar, patches_file, work_dir, dry_run=args.dry_run)
+    for index, app in enumerate(cfg_apps):
+        result = results_by_index[index]
         log_path = logs_dir / f"{app.id}.log"
         log_path.write_text(result.log, encoding="utf-8")
         if result.output:

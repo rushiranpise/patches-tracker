@@ -11,8 +11,8 @@ The tracker is designed for two jobs:
 
 The main workflow is `.github/workflows/track.yml`.
 
-1. Generate a shard matrix from `config.toml`.
-2. Run tracker shards sequentially, with up to 40 apps per shard.
+1. Load apps from `config.toml`.
+2. Run app checks concurrently using `parallel_jobs`.
 3. Resolve the latest app version from the configured download source.
 4. Download the stock APK, APKM, XAPK, or APKS.
 5. Merge split packages into a patchable APK when needed.
@@ -22,7 +22,7 @@ The main workflow is `.github/workflows/track.yml`.
 9. Open or update failure issues.
 10. Open a PR against `morphe-patches` when verified versions change.
 
-Each shard has a 59 minute timeout so the workflow stays under GitHub Actions job limits. Shards are generated dynamically with `scripts/generate-shard-matrix.py`; for example, 80 apps produce 2 shards, 120 apps produce 3 shards, and 160 apps produce 4 shards.
+The workflow runs as one GitHub Actions job. App checks run inside that job with `parallel_jobs = 4`, which keeps one status branch, one release, and one PR while reducing total wall-clock time.
 
 ## Configuration
 
@@ -122,16 +122,10 @@ Dry-run the whole config without downloading or patching:
 python -m tracker.cli --config config.toml --dry-run
 ```
 
-Dry-run one shard:
+Dry-run one shard manually:
 
 ```bash
 python -m tracker.cli --config config.toml --dry-run --shard-index 0 --shard-total 2
-```
-
-Generate the dynamic shard matrix:
-
-```bash
-python scripts/generate-shard-matrix.py --config config.toml --max-apps-per-shard 40
 ```
 
 Regenerate APKCombo defaults from constants:

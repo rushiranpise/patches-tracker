@@ -6,6 +6,7 @@ constants_path = "patches/src/main/kotlin/app/template/patches/shared/Constants.
 release_prefix = "tracker"
 work_dir = ".work"
 target_branch = "dev"
+parallel_jobs = 4
 
 [cli]
 repo = "MorpheApp/morphe-cli"
