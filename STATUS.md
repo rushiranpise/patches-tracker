@@ -2,8 +2,8 @@
 
 Shard: 1/1
 Checked apps: 80
-Successful: 76
-Failed: 4
+Successful: 77
+Failed: 3
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -13,11 +13,11 @@ Failed: 4
 | Case Tracker | `com.saldous.casetracker` | `5.5.1` | `5.5.2` | `1036` | OK |  |
 | 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.7` | `6.38.7` |  | OK |  |
 | Crime Radar | `com.newsbreak.crimeradar` | `26.23.2` | `26.26.0` | `26260005` | OK |  |
-| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.5.5` | `26.6.3` | `945` | OK |  |
+| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.5.5` | `26.6.3` |  | FAILED | download |
 | Greenify | `com.oasisfeng.greenify` | `5.1.1` | `5.1.1` |  | OK |  |
 | Pialytic | `verbosus.pialytic` | `1.2.8` | `1.3.0` | `21` | OK |  |
 | Snipd | `ai.topicfinder.podcastdiscovery` | `4.1.14` | `4.1.14` |  | OK |  |
-| Stargazing Hub | `com.twtapp` | `3.2.1` | `3.2.2` |  | FAILED | download |
+| Stargazing Hub | `com.twtapp` | `3.2.1` | `3.3.1` | `3030100` | OK |  |
 | Photo Editor | `com.iudesk.android.photo.editor` | `13.3` | `13.3.1` | `2026060800` | OK |  |
 | ML Manager | `com.javiersantos.mlmanager` | `5.0` | `5.0` |  | OK |  |
 | Beta Maniac | `it.mirko.beta` | `0.9.4` | `0.9.4` |  | OK |  |
@@ -39,7 +39,7 @@ Failed: 4
 | AdGuard Nightly | `com.adguard.android` | `4.14.68` | `4.14.68` |  | OK |  |
 | AIDA64 | `com.finalwire.aida64` | `2.21` | `2.21` |  | OK |  |
 | CPU-Z | `com.cpuid.cpu_z` | `1.59` | `1.59` |  | OK |  |
-| HTTP Sniffer | `com.anetcapture.mock` | `2.11.0-ad_mob` | `2.11.1` |  | FAILED | download |
+| HTTP Sniffer | `com.anetcapture.mock` | `2.11.0-ad_mob` | `2.11.1-ad_mob` | `133` | OK |  |
 | Permission Pilot | `eu.darken.myperm` | `2.1.1-rc0` | `2.1.1` |  | FAILED | download |
 | Proton VPN | `ch.protonvpn.android` | `5.18.84.0` | `5.19.16.0` | `605191600` | OK |  |
 | NetShare | `kha.prog.mikrotik` | `UI/link-274` | `276` | `276` | OK |  |
@@ -53,14 +53,14 @@ Failed: 4
 | Rocket Money | `com.truebill` | `13.15.0` | `13.15.0` |  | OK |  |
 | Waze | `com.waze` | `5.19.0.2` | `5.21.0.0` | `1030711` | OK |  |
 | AccuWeather | `com.accuweather.android` | `21.1.11-1-rc` | `21.1.12-2-rc` | `210112002` | OK |  |
-| Windscribe VPN | `com.windscribe.vpn` | `4.1.2274` | `4.1.2284` | `2284` | OK |  |
+| Windscribe VPN | `com.windscribe.vpn` | `4.1.2274` | `4.2.2286` |  | FAILED | download |
 | MovieBox TV | `com.community.oneroom` | `3.0.15.0616.03` | `3.0.16.0703.03` | `50020113` | OK |  |
 | The Weather Channel | `com.weather.Weather` | `16.10.1` | `16.11.0` | `1080013045` | OK |  |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.6` | `1.4.7` | `44` | OK |  |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.18` | `5.19` |  | OK |  |
 | Strength Training | `air.com.musclemotion.strength.mobile` | `3.5.0` | `3.5.0` |  | OK |  |
 | Windy | `com.windyty.android` | `50.1.1` | `50.1.1` |  | OK |  |
-| TomTom GO | `com.tomtom.gplay.navapp` | `3.6.316-beta` | `4.5` |  | FAILED | download |
+| TomTom GO | `com.tomtom.gplay.navapp` | `3.6.316-beta` | `3.6.316-beta` |  | OK |  |
 | Posture | `air.com.musclemotion.posture` | `3.2.0` | `3.2.0` |  | OK |  |
 | Kyphosis | `air.com.musclemotion.kyphosis` | `1.4.9` | `1.4.9` |  | OK |  |
 | Workout | `air.com.musclemotion.workout` | `1.2.0` | `1.2.0` |  | OK |  |
@@ -90,51 +90,17 @@ Failed: 4
 
 ## Failure Logs
 
-<details><summary>Stargazing Hub log excerpt</summary>
+<details><summary>Splitwise log excerpt</summary>
 
 ````text
-s://apkpure.com/tian-wen-tong/com.twtapp/downloading/3.3.1
-
-[apkcombo 3.2.2] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download (title=Stargazing Hub - Sky Live APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks
-[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks
-[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
-[!] APKCombo attempt 1/1 did not show a download link for com.twtapp 3.2.2 (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
-[-] Could not find APK link on APKCombo
-
-````
-
-</details>
-
-<details><summary>HTTP Sniffer log excerpt</summary>
-
-````text
-[apkcombo 2.11.1] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download (title=HTTP Sniffer APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apk (title=Download HTTP Sniffer APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-xapk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-xapk (title=Download HTTP Sniffer APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apks
-[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apks (title=Download HTTP Sniffer APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apk (title=Download HTTP Sniffer APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-xapk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-xapk (title=Download HTTP Sniffer APK - Latest Version 2024)
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apks
-[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apks (title=Download HTTP Sniffer APK - Latest Version 2024)
-[!] APKCombo attempt 1/1 did not show a download link for com.anetcapture.mock 2.11.1 (title=Download HTTP Sniffer APK - Latest Version 2024)
-[-] Could not find APK link on APKCombo
+[apkmirror 26.6.3] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/
+[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/ (title=Download Splitwise APKs for Android - APKMirror)
+[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/
+[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/ (title=Splitwise 26.6.3 APK Download by Splitwise - APKMirror)
+[+] APKMirror release page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/
+[+] APKMirror variant page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/
+[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/
+[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/ (title=Splitwise 26.6.3 (Android 9.0+) APK Download by Splitwise - APKMirror)
 
 ````
 
@@ -143,8 +109,6 @@ s://apkpure.com/tian-wen-tong/com.twtapp/downloading/3.3.1
 <details><summary>Permission Pilot log excerpt</summary>
 
 ````text
- Could not find download link on APKPure
-
 [apkcombo 2.1.1] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download
 [+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)
 [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk
@@ -166,14 +130,24 @@ s://apkpure.com/tian-wen-tong/com.twtapp/downloading/3.3.1
 
 </details>
 
-<details><summary>TomTom GO log excerpt</summary>
+<details><summary>Windscribe VPN log excerpt</summary>
 
 ````text
-[apkpure 4.5] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/
-[+] FlareSolverr OK: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/ (title=Error)
-[+] FlareSolverr GET attempt 1/1: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/4.5
-[+] FlareSolverr OK: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/4.5 (title=Error)
-[-] Could not find download link on APKPure
+dscribe.vpn/download (title=Windscribe: Fast &amp; Secure VPN APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks
+[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks
+[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)
+[!] APKCombo attempt 1/1 did not show a download link for com.windscribe.vpn 4.1.2284 (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)
+[-] Could not find APK link on APKCombo
 
 ````
 

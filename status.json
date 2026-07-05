@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-05T17:38:32.600965+00:00",
+  "checked_at": "2026-07-05T19:07:14.691912+00:00",
   "shard_index": 0,
   "shard_total": 1,
   "app_count": 80,
@@ -83,11 +83,11 @@
       "package_name": "com.Splitwise.SplitwiseMobile",
       "current_version": "26.5.5",
       "candidate_version": "26.6.3",
-      "version_code": "945",
-      "ok": true,
-      "failure_type": null,
-      "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/splitwise/splitwise-patched-26.6.3.apk"
+      "version_code": null,
+      "ok": false,
+      "failure_type": "download",
+      "log_excerpt": "[apkmirror 26.6.3] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/ (title=Download Splitwise APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/ (title=Splitwise 26.6.3 APK Download by Splitwise - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/\n[+] APKMirror variant page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/ (title=Splitwise 26.6.3 (Android 9.0+) APK Download by Splitwise - APKMirror)\n",
+      "artifact": null
     },
     {
       "id": "greenify",
@@ -130,12 +130,12 @@
       "name": "Stargazing Hub",
       "package_name": "com.twtapp",
       "current_version": "3.2.1",
-      "candidate_version": "3.2.2",
-      "version_code": null,
-      "ok": false,
-      "failure_type": "download",
-      "log_excerpt": "s://apkpure.com/tian-wen-tong/com.twtapp/downloading/3.3.1\n\n[apkcombo 3.2.2] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download (title=Stargazing Hub - Sky Live APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for com.twtapp 3.2.2 (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
-      "artifact": null
+      "candidate_version": "3.3.1",
+      "version_code": "3030100",
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
+      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/stargazing-hub/stargazing-hub-patched-3.3.1.apk"
     },
     {
       "id": "photo-editor",
@@ -394,12 +394,12 @@
       "name": "HTTP Sniffer",
       "package_name": "com.anetcapture.mock",
       "current_version": "2.11.0-ad_mob",
-      "candidate_version": "2.11.1",
-      "version_code": null,
-      "ok": false,
-      "failure_type": "download",
-      "log_excerpt": "[apkcombo 2.11.1] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download\n[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download (title=HTTP Sniffer APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apk (title=Download HTTP Sniffer APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-xapk (title=Download HTTP Sniffer APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apks (title=Download HTTP Sniffer APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apk (title=Download HTTP Sniffer APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-xapk (title=Download HTTP Sniffer APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.anetcapture.mock/download/phone-2.11.1-apks (title=Download HTTP Sniffer APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for com.anetcapture.mock 2.11.1 (title=Download HTTP Sniffer APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
-      "artifact": null
+      "candidate_version": "2.11.1-ad_mob",
+      "version_code": "133",
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
+      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/http-sniffer/http-sniffer-patched-2.11.1-ad_mob.apk"
     },
     {
       "id": "permission-pilot",
@@ -410,7 +410,7 @@
       "version_code": null,
       "ok": false,
       "failure_type": "download",
-      "log_excerpt": " Could not find download link on APKPure\n\n[apkcombo 2.1.1] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks (title=Download Permission Pilot APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for eu.darken.myperm 2.1.1 (title=Download Permission Pilot APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
+      "log_excerpt": "[apkcombo 2.1.1] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks (title=Download Permission Pilot APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for eu.darken.myperm 2.1.1 (title=Download Permission Pilot APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
       "artifact": null
     },
     {
@@ -562,12 +562,12 @@
       "name": "Windscribe VPN",
       "package_name": "com.windscribe.vpn",
       "current_version": "4.1.2274",
-      "candidate_version": "4.1.2284",
-      "version_code": "2284",
-      "ok": true,
-      "failure_type": null,
-      "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/windscribe-vpn/windscribe-vpn-patched-4.1.2284.apk"
+      "candidate_version": "4.2.2286",
+      "version_code": null,
+      "ok": false,
+      "failure_type": "download",
+      "log_excerpt": "dscribe.vpn/download (title=Windscribe: Fast &amp; Secure VPN APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for com.windscribe.vpn 4.1.2284 (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
+      "artifact": null
     },
     {
       "id": "moviebox-tv",
@@ -646,11 +646,11 @@
       "name": "TomTom GO",
       "package_name": "com.tomtom.gplay.navapp",
       "current_version": "3.6.316-beta",
-      "candidate_version": "4.5",
+      "candidate_version": "3.6.316-beta",
       "version_code": null,
-      "ok": false,
-      "failure_type": "download",
-      "log_excerpt": "[apkpure 4.5] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/\n[+] FlareSolverr OK: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/ (title=Error)\n[+] FlareSolverr GET attempt 1/1: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/4.5\n[+] FlareSolverr OK: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/4.5 (title=Error)\n[-] Could not find download link on APKPure\n",
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
       "artifact": null
     },
     {
