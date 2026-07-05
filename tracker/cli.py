@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 from pathlib import Path
@@ -216,46 +217,60 @@ def issue_labels_for_failure(failure_type: str | None) -> list[str]:
 
 
 def render_status_table(results, shard_index: int = 0, shard_total: int = 1) -> str:
+    ok_count = sum(1 for result in results if result.ok)
+    failed_count = len(results) - ok_count
     lines = [
         "# Patch Tracker Status",
         "",
         f"Shard: {shard_index + 1}/{shard_total}",
+        f"Checked apps: {len(results)}",
+        f"Successful: {ok_count}",
+        f"Failed: {failed_count}",
         "",
         "| App | Package | Known working | Tested | Version code | Status | Failure |",
         "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     for result in results:
-        status = "ok" if result.ok else "failed"
+        status = "OK" if result.ok else "FAILED"
         lines.append(
             "| "
             + " | ".join(
                 [
-                    result.app.name,
-                    f"`{result.app.package_name}`",
-                    f"`{result.app.current_version}`",
-                    f"`{result.candidate_version}`",
-                    f"`{result.version_code}`" if result.version_code else "",
-                    status,
-                    result.failure_type or "",
+                    md_table_cell(result.app.name),
+                    md_table_cell(f"`{result.app.package_name}`"),
+                    md_table_cell(f"`{result.app.current_version}`"),
+                    md_table_cell(f"`{result.candidate_version}`"),
+                    md_table_cell(f"`{result.version_code}`" if result.version_code else ""),
+                    md_table_cell(status),
+                    md_table_cell(result.failure_type or ""),
                 ]
             )
             + " |"
         )
-        if not result.ok and result.log:
-            lines.extend(
-                [
-                    "",
-                    f"<details><summary>{result.app.name} log excerpt</summary>",
-                    "",
-                    "```text",
-                    result.log[-2000:],
-                    "```",
-                    "",
-                    "</details>",
-                ]
-            )
+
+    failed_results = [result for result in results if not result.ok and result.log]
+    if failed_results:
+        lines.extend(["", "## Failure Logs"])
+    for result in failed_results:
+        summary = html.escape(f"{result.app.name} log excerpt", quote=False)
+        lines.extend(
+            [
+                "",
+                f"<details><summary>{summary}</summary>",
+                "",
+                "````text",
+                result.log[-2000:],
+                "````",
+                "",
+                "</details>",
+            ]
+        )
     lines.append("")
     return "\n".join(lines)
+
+
+def md_table_cell(value: str) -> str:
+    return value.replace("\r", "").replace("\n", "<br>").replace("|", "\\|")
 
 
 if __name__ == "__main__":

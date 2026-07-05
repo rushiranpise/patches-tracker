@@ -5,12 +5,21 @@ import subprocess
 from pathlib import Path
 
 
-def run_gh(args: list[str], *, cwd: Path | None = None, dry_run: bool = False) -> str:
+def run_gh(
+    args: list[str],
+    *,
+    cwd: Path | None = None,
+    dry_run: bool = False,
+    token: str | None = None,
+) -> str:
     cmd = ["gh", *args]
     if dry_run:
         print("+", " ".join(cmd))
         return ""
-    completed = subprocess.run(cmd, cwd=cwd, check=True, text=True, capture_output=True)
+    env = os.environ.copy()
+    if token:
+        env["GH_TOKEN"] = token
+    completed = subprocess.run(cmd, cwd=cwd, env=env, check=True, text=True, capture_output=True)
     return completed.stdout.strip()
 
 
@@ -27,22 +36,63 @@ def create_or_update_failure_issue(
     *,
     dry_run: bool = False,
 ) -> None:
+    token = token_for_repo(repo)
     query = f'repo:{repo} is:issue is:open in:title "{title}"'
     try:
         existing = run_gh(
             ["issue", "list", "--repo", repo, "--search", query, "--json", "number", "--jq", ".[0].number // empty"],
             dry_run=dry_run,
+            token=token,
         )
     except subprocess.CalledProcessError as error:
         print(f"warning: could not search issues: {error.stderr}", flush=True)
         existing = ""
     try:
         if existing:
-            run_gh(["api", f"repos/{repo}/issues/{existing}/comments", "-f", f"body={body}"], dry_run=dry_run)
+            print(f"updating failure issue {repo}#{existing}: {title}", flush=True)
+            run_gh(
+                ["api", f"repos/{repo}/issues/{existing}/comments", "-f", f"body={body}"],
+                dry_run=dry_run,
+                token=token,
+            )
+            add_issue_labels(repo, existing, labels, dry_run=dry_run, token=token)
             return
-        run_gh(["api", f"repos/{repo}/issues", "-f", f"title={title}", "-f", f"body={body}"], dry_run=dry_run)
+        print(f"creating failure issue in {repo}: {title}", flush=True)
+        created = run_gh(
+            ["api", f"repos/{repo}/issues", "-f", f"title={title}", "-f", f"body={body}", "--jq", ".number"],
+            dry_run=dry_run,
+            token=token,
+        )
+        if created:
+            add_issue_labels(repo, created, labels, dry_run=dry_run, token=token)
     except subprocess.CalledProcessError as error:
         print(f"warning: could not create/comment issue: {error.stderr}", flush=True)
+
+
+def token_for_repo(repo: str) -> str | None:
+    if repo == os.environ.get("GITHUB_REPOSITORY"):
+        return os.environ.get("TRACKER_REPO_TOKEN") or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    return os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+
+
+def add_issue_labels(
+    repo: str,
+    issue_number: str,
+    labels: list[str],
+    *,
+    dry_run: bool = False,
+    token: str | None = None,
+) -> None:
+    if not labels:
+        return
+    try:
+        run_gh(
+            ["issue", "edit", issue_number, "--repo", repo, "--add-label", ",".join(labels)],
+            dry_run=dry_run,
+            token=token,
+        )
+    except subprocess.CalledProcessError as error:
+        print(f"warning: could not add labels to {repo}#{issue_number}: {error.stderr}", flush=True)
 
 
 def create_pull_request(
