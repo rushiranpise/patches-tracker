@@ -11,15 +11,34 @@ permissions:
   pull-requests: write
 
 jobs:
+  prepare-shards:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - name: Checkout tracker
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate shard matrix
+        id: matrix
+        run: |
+          MATRIX=$(python scripts/generate-shard-matrix.py --config config.toml --max-apps-per-shard 40)
+          echo "matrix=${MATRIX}" >> "$GITHUB_OUTPUT"
+          echo "${MATRIX}"
+
   track:
+    needs: prepare-shards
     runs-on: ubuntu-latest
     timeout-minutes: 59
     strategy:
       max-parallel: 1
       fail-fast: false
-      matrix:
-        shard_index: [0, 1]
-        shard_total: [2]
+      matrix: ${{ fromJson(needs.prepare-shards.outputs.matrix) }}
     services:
       flaresolverr:
         image: ghcr.io/flaresolverr/flaresolverr:latest
