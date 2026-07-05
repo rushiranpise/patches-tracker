@@ -84,7 +84,17 @@ def main() -> int:
     print(f"running {parallel_jobs} app check(s) at a time", flush=True)
     with ThreadPoolExecutor(max_workers=parallel_jobs) as executor:
         future_to_index = {
-            executor.submit(build_app, app, cli_jar, patches_file, work_dir, dry_run=args.dry_run): index
+            executor.submit(
+                build_app,
+                app,
+                cli_jar,
+                patches_file,
+                work_dir,
+                patches_repo=cfg.tracker.patches_repo,
+                target_branch=cfg.tracker.target_branch,
+                constants_path=cfg.tracker.constants_path,
+                dry_run=args.dry_run,
+            ): index
             for index, app in enumerate(cfg_apps)
         }
         for future in as_completed(future_to_index):

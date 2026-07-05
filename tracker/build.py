@@ -12,7 +12,7 @@ import time
 import requests
 
 from .config import AppConfig, SourceConfig
-from .constants import is_newer_version, normalize_suffix, version_key
+from .constants import is_newer_version, normalize_suffix, update_app_target_version, version_key
 
 
 RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "1"))
@@ -53,7 +53,17 @@ def download(url: str, dest: Path) -> Path:
     return dest
 
 
-def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path, *, dry_run: bool = False) -> BuildResult:
+def build_app(
+    app: AppConfig,
+    cli_jar: Path,
+    patches_file: Path,
+    work_dir: Path,
+    *,
+    patches_repo: str,
+    target_branch: str,
+    constants_path: str,
+    dry_run: bool = False,
+) -> BuildResult:
     app_dir = work_dir / app.id
     app_dir.mkdir(parents=True, exist_ok=True)
     candidate_version = app.candidate_version
@@ -168,8 +178,35 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
         f"APK source and type: {source.source} arch={source.arch} dpi={source.dpi} apk-types={' '.join(source.apk_types)}\n\n"
     )
     if patcher_skipped_incompatible_patch(log):
-        print(f"[{app.id}] patch skipped incompatible patches; treating as patch failure: {log[-1000:]}", flush=True)
-        return BuildResult(app, False, None, patch_context + log, candidate_version, version_code, "patch")
+        print(f"[{app.id}] released patch bundle skipped incompatible patches; rebuilding with {candidate_version}", flush=True)
+        candidate_patches_file, rebuild_log = build_candidate_patches_bundle(
+            app,
+            candidate_version,
+            version_code,
+            work_dir,
+            patches_repo=patches_repo,
+            target_branch=target_branch,
+            constants_path=constants_path,
+        )
+        if candidate_patches_file is None:
+            return BuildResult(app, False, None, patch_context + log + "\n\n" + rebuild_log, candidate_version, version_code, "patch")
+        candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}-candidate.apk"
+        retry_args = ["java", "-jar", str(cli_jar), "patch", str(stock_apk), "-o", str(candidate_output_apk), "--patches", str(candidate_patches_file)]
+        for patch in app.included_patches:
+            retry_args.extend(["-e", patch])
+        for patch in app.excluded_patches:
+            retry_args.extend(["-d", patch])
+        retry_args.extend(app.patcher_args)
+        print(f"[{app.id}] retry patch command: {shell_join(retry_args)}", flush=True)
+        retry = run_streamed_process(app.id, "patch retry", retry_args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
+        print(f"[{app.id}] patch retry return code: {retry.returncode}", flush=True)
+        retry_log = retry.stdout + retry.stderr
+        combined_log = patch_context + log + "\n\nCandidate patch bundle rebuild:\n" + rebuild_log + "\n\nPatch retry:\n" + retry_log
+        if retry.returncode != 0 or not candidate_output_apk.exists() or patcher_skipped_incompatible_patch(retry_log):
+            print(f"[{app.id}] candidate-version patch did not finish successfully: {retry_log[-1000:]}", flush=True)
+            return BuildResult(app, False, None, combined_log, candidate_version, version_code, classify_failure(retry_log, "patch"))
+        print(f"[{app.id}] patched APK ready: {candidate_output_apk}", flush=True)
+        return BuildResult(app, True, candidate_output_apk, combined_log, candidate_version, version_code)
     if completed.returncode != 0 or not output_apk.exists():
         print(f"[{app.id}] patch did not finish successfully: {log[-1000:]}", flush=True)
         return BuildResult(app, False, None, patch_context + log, candidate_version, version_code, classify_failure(log, "patch"))
@@ -270,6 +307,69 @@ def run_streamed_process(
         stderr += f"\nTimed out after {timeout_seconds}s\n"
         return_code = return_code if return_code != 0 else 124
     return subprocess.CompletedProcess(args, return_code, stdout, stderr)
+
+
+def build_candidate_patches_bundle(
+    app: AppConfig,
+    candidate_version: str,
+    version_code: str | None,
+    work_dir: Path,
+    *,
+    patches_repo: str,
+    target_branch: str,
+    constants_path: str,
+) -> tuple[Path | None, str]:
+    repo_dir = work_dir / "candidate-patches" / app.id
+    if repo_dir.exists():
+        shutil.rmtree(repo_dir)
+    clone_url = f"https://github.com/{patches_repo}.git"
+    clone = run_plain_process(
+        ["git", "clone", "--depth", "1", "--branch", target_branch, clone_url, str(repo_dir)],
+        timeout_seconds=300,
+    )
+    log = "Clone candidate patches repo:\n" + clone.stdout + clone.stderr
+    if clone.returncode != 0:
+        return None, log
+
+    constants_file = repo_dir / constants_path
+    if not update_app_target_version(constants_file, app.constant, candidate_version, version_code):
+        return None, log + f"\nCould not update {app.constant} to {candidate_version} in {constants_path}\n"
+
+    gradlew = repo_dir / "gradlew"
+    try:
+        gradlew.chmod(gradlew.stat().st_mode | 0o111)
+    except OSError:
+        pass
+    build = run_plain_process(
+        [str(gradlew), ":patches:build", "--no-daemon"],
+        cwd=repo_dir,
+        timeout_seconds=900,
+    )
+    log += "\nBuild candidate patches bundle:\n" + build.stdout + build.stderr
+    if build.returncode != 0:
+        return None, log
+    candidates = [
+        path
+        for path in (repo_dir / "patches" / "build" / "libs").glob("*.mpp")
+        if "-sources" not in path.name and "-javadoc" not in path.name
+    ]
+    if not candidates:
+        return None, log + "\nCould not find built .mpp in patches/build/libs\n"
+    return max(candidates, key=lambda path: path.stat().st_mtime), log
+
+
+def run_plain_process(
+    args: list[str],
+    *,
+    cwd: Path | None = None,
+    timeout_seconds: int,
+) -> subprocess.CompletedProcess[str]:
+    try:
+        return subprocess.run(args, cwd=cwd, text=True, capture_output=True, timeout=timeout_seconds)
+    except subprocess.TimeoutExpired as error:
+        stdout = error.stdout if isinstance(error.stdout, str) else (error.stdout or b"").decode(errors="replace")
+        stderr = error.stderr if isinstance(error.stderr, str) else (error.stderr or b"").decode(errors="replace")
+        return subprocess.CompletedProcess(args, 124, stdout, stderr + f"\nTimed out after {timeout_seconds}s\n")
 
 
 def looks_transient_block(log: str) -> bool:
