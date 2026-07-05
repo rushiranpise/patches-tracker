@@ -143,6 +143,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkpure-dlurl = "https://apkpure.com/pialytic-julia-editor/verbosus.pialytic"
 apkcombo-dlurl = "https://apkcombo.com/search/verbosus.pialytic/"
 
 [snipd]
@@ -155,6 +156,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://snipd.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/ai.topicfinder.podcastdiscovery/"
 
 [stargazing-hub]
