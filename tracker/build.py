@@ -73,7 +73,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
                 "latest resolve",
                 ["bash", str(resolver), "latest", source.source, source.url],
             )
-            if latest.returncode == 0 and latest.stdout.strip():
+            if latest.stdout.strip() and (latest.returncode == 0 or looks_stdout_with_noisy_exit_usable(latest.stdout, latest.stderr)):
                 resolved_latest_count += 1
                 latest_version = latest.stdout.strip().splitlines()[0]
                 print(f"[{app.id}] latest version from {source.source}: {latest_version}", flush=True)
@@ -162,6 +162,9 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     completed = run_streamed_process(app.id, "patch", args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
     print(f"[{app.id}] patch return code: {completed.returncode}", flush=True)
     log = completed.stdout + completed.stderr
+    if patcher_skipped_incompatible_patch(log):
+        print(f"[{app.id}] patch skipped incompatible patches; treating as patch failure: {log[-1000:]}", flush=True)
+        return BuildResult(app, False, None, log, candidate_version, version_code, "patch")
     if completed.returncode != 0 or not output_apk.exists():
         print(f"[{app.id}] patch did not finish successfully: {log[-1000:]}", flush=True)
         return BuildResult(app, False, None, log, candidate_version, version_code, classify_failure(log, "patch"))
@@ -281,6 +284,20 @@ def looks_transient_block(log: str) -> bool:
         "turnstile",
     )
     return any(marker in lower for marker in markers)
+
+
+def looks_stdout_with_noisy_exit_usable(stdout: str, stderr: str) -> bool:
+    """Some HTML tools print the value, then exit nonzero when a pipe closes early."""
+    first_line = stdout.strip().splitlines()[0] if stdout.strip() else ""
+    if not first_line:
+        return False
+    lower_stderr = stderr.lower()
+    return ("broken pipe" in lower_stderr or "brokenpipe" in lower_stderr) and not looks_transient_block(stderr)
+
+
+def patcher_skipped_incompatible_patch(log: str) -> bool:
+    lower = log.lower()
+    return "warning: skipping" in lower and "incompatible with" in lower
 
 
 def shell_join(args: list[str]) -> str:
