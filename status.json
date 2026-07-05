@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-05T11:58:35.957498+00:00",
+  "checked_at": "2026-07-05T17:38:32.600965+00:00",
   "shard_index": 0,
   "shard_total": 1,
   "app_count": 80,
@@ -83,11 +83,11 @@
       "package_name": "com.Splitwise.SplitwiseMobile",
       "current_version": "26.5.5",
       "candidate_version": "26.6.3",
-      "version_code": null,
-      "ok": false,
-      "failure_type": "download",
-      "log_excerpt": "[apkmirror 26.6.3] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/ (title=Download Splitwise APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/ (title=Splitwise 26.6.3 APK Download by Splitwise - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/\n[+] APKMirror variant page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/ (title=Splitwise 26.6.3 (Android 9.0+) APK Download by Splitwise - APKMirror)\n",
-      "artifact": null
+      "version_code": "945",
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
+      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/splitwise/splitwise-patched-26.6.3.apk"
     },
     {
       "id": "greenify",
@@ -130,12 +130,12 @@
       "name": "Stargazing Hub",
       "package_name": "com.twtapp",
       "current_version": "3.2.1",
-      "candidate_version": "3.3.1",
-      "version_code": "3030100",
-      "ok": true,
-      "failure_type": null,
-      "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/stargazing-hub/stargazing-hub-patched-3.3.1.apk"
+      "candidate_version": "3.2.2",
+      "version_code": null,
+      "ok": false,
+      "failure_type": "download",
+      "log_excerpt": "s://apkpure.com/tian-wen-tong/com.twtapp/downloading/3.3.1\n\n[apkcombo 3.2.2] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download (title=Stargazing Hub - Sky Live APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for com.twtapp 3.2.2 (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
+      "artifact": null
     },
     {
       "id": "photo-editor",
@@ -574,12 +574,12 @@
       "name": "MovieBox TV",
       "package_name": "com.community.oneroom",
       "current_version": "3.0.15.0616.03",
-      "candidate_version": "latest",
-      "version_code": null,
-      "ok": false,
-      "failure_type": "version_resolve",
-      "log_excerpt": "[uptodown] 3.0.16.0703.03\n[+] HTTP GET: https://com-community-oneroom.en.uptodown.com/android/versions -> -\n[+] HTTP GET: https://com-community-oneroom.en.uptodown.com/android/download -> -\nError: Os { code: 32, kind: BrokenPipe, message: \"Broken pipe\" }\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.oneroom/download\nxargs: unmatched single quote; by default quotes are special to xargs unless you use the -0 option\n[+] FlareSolverr OK: https://apkcombo.com/search/com.community.oneroom/download (title=Whoops, 404 \u2013 Sorry, this page)\nxargs: unmatched single quote; by default quotes are special to xargs unless you use the -0 option\n[!] APKCombo latest attempt 1/1 did not show a version for https://apkcombo.com/search/com.community.oneroom/ (title=Whoops, 404 \u2013 Sorry, this page)\n",
-      "artifact": null
+      "candidate_version": "3.0.16.0703.03",
+      "version_code": "50020113",
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
+      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0703.03.apk"
     },
     {
       "id": "the-weather-channel",
@@ -874,11 +874,11 @@
       "name": "CamScanner",
       "package_name": "com.intsig.camscanner",
       "current_version": "7.20.0.2606230000",
-      "candidate_version": "7.20.5.2606260000",
+      "candidate_version": "7.20.0.2606230000",
       "version_code": null,
-      "ok": false,
-      "failure_type": "download",
-      "log_excerpt": "[uptodown 7.20.5.2606260000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/apps/26217/versions/1 -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1184865498 -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/app/26217/version/13500772/files -> -\n",
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
       "artifact": null
     },
     {

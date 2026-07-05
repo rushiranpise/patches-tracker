@@ -2,8 +2,8 @@
 
 Shard: 1/1
 Checked apps: 80
-Successful: 74
-Failed: 6
+Successful: 76
+Failed: 4
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -13,11 +13,11 @@ Failed: 6
 | Case Tracker | `com.saldous.casetracker` | `5.5.1` | `5.5.2` | `1036` | OK |  |
 | 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.7` | `6.38.7` |  | OK |  |
 | Crime Radar | `com.newsbreak.crimeradar` | `26.23.2` | `26.26.0` | `26260005` | OK |  |
-| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.5.5` | `26.6.3` |  | FAILED | download |
+| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.5.5` | `26.6.3` | `945` | OK |  |
 | Greenify | `com.oasisfeng.greenify` | `5.1.1` | `5.1.1` |  | OK |  |
 | Pialytic | `verbosus.pialytic` | `1.2.8` | `1.3.0` | `21` | OK |  |
 | Snipd | `ai.topicfinder.podcastdiscovery` | `4.1.14` | `4.1.14` |  | OK |  |
-| Stargazing Hub | `com.twtapp` | `3.2.1` | `3.3.1` | `3030100` | OK |  |
+| Stargazing Hub | `com.twtapp` | `3.2.1` | `3.2.2` |  | FAILED | download |
 | Photo Editor | `com.iudesk.android.photo.editor` | `13.3` | `13.3.1` | `2026060800` | OK |  |
 | ML Manager | `com.javiersantos.mlmanager` | `5.0` | `5.0` |  | OK |  |
 | Beta Maniac | `it.mirko.beta` | `0.9.4` | `0.9.4` |  | OK |  |
@@ -54,7 +54,7 @@ Failed: 6
 | Waze | `com.waze` | `5.19.0.2` | `5.21.0.0` | `1030711` | OK |  |
 | AccuWeather | `com.accuweather.android` | `21.1.11-1-rc` | `21.1.12-2-rc` | `210112002` | OK |  |
 | Windscribe VPN | `com.windscribe.vpn` | `4.1.2274` | `4.1.2284` | `2284` | OK |  |
-| MovieBox TV | `com.community.oneroom` | `3.0.15.0616.03` | `latest` |  | FAILED | version_resolve |
+| MovieBox TV | `com.community.oneroom` | `3.0.15.0616.03` | `3.0.16.0703.03` | `50020113` | OK |  |
 | The Weather Channel | `com.weather.Weather` | `16.10.1` | `16.11.0` | `1080013045` | OK |  |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.6` | `1.4.7` | `44` | OK |  |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.18` | `5.19` |  | OK |  |
@@ -79,7 +79,7 @@ Failed: 6
 | Inmigreat | `com.changayaf.inmigreat` | `2.2.83` | `2.2.83` |  | OK |  |
 | Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.6.2` | `6.6.2` |  | OK |  |
 | MigraConnect | `com.tecso.MigraConnect` | `2.8.1` | `2.8.1` |  | OK |  |
-| CamScanner | `com.intsig.camscanner` | `7.20.0.2606230000` | `7.20.5.2606260000` |  | FAILED | download |
+| CamScanner | `com.intsig.camscanner` | `7.20.0.2606230000` | `7.20.0.2606230000` |  | OK |  |
 | Image & Video Date Fixer | `eu.duong.imagedatefixer` | `3.7.1` | `3.7.1` |  | OK |  |
 | Rename & Organize | `eu.duong.picturemanager` | `8.25.1` | `8.25.1` |  | OK |  |
 | Inure App Manager | `app.simple.inure.play` | `build107.0.5` | `build107.0.5` |  | OK |  |
@@ -90,17 +90,27 @@ Failed: 6
 
 ## Failure Logs
 
-<details><summary>Splitwise log excerpt</summary>
+<details><summary>Stargazing Hub log excerpt</summary>
 
 ````text
-[apkmirror 26.6.3] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/ (title=Download Splitwise APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/ (title=Splitwise 26.6.3 APK Download by Splitwise - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/
-[+] APKMirror variant page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/
-[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/ (title=Splitwise 26.6.3 (Android 9.0+) APK Download by Splitwise - APKMirror)
+s://apkpure.com/tian-wen-tong/com.twtapp/downloading/3.3.1
+
+[apkcombo 3.2.2] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download
+[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download (title=Stargazing Hub - Sky Live APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks
+[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-xapk (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks
+[+] FlareSolverr OK: https://apkcombo.com/search/com.twtapp/download/phone-3.2.2-apks (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
+[!] APKCombo attempt 1/1 did not show a download link for com.twtapp 3.2.2 (title=Download Stargazing Hub - Sky Live APK - Latest Version 2024)
+[-] Could not find APK link on APKCombo
 
 ````
 
@@ -156,24 +166,6 @@ Failed: 6
 
 </details>
 
-<details><summary>MovieBox TV log excerpt</summary>
-
-````text
-[uptodown] 3.0.16.0703.03
-[+] HTTP GET: https://com-community-oneroom.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://com-community-oneroom.en.uptodown.com/android/download -> -
-Error: Os { code: 32, kind: BrokenPipe, message: "Broken pipe" }
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.oneroom/download
-xargs: unmatched single quote; by default quotes are special to xargs unless you use the -0 option
-[+] FlareSolverr OK: https://apkcombo.com/search/com.community.oneroom/download (title=Whoops, 404 – Sorry, this page)
-xargs: unmatched single quote; by default quotes are special to xargs unless you use the -0 option
-[!] APKCombo latest attempt 1/1 did not show a version for https://apkcombo.com/search/com.community.oneroom/ (title=Whoops, 404 – Sorry, this page)
-
-````
-
-</details>
-
 <details><summary>TomTom GO log excerpt</summary>
 
 ````text
@@ -182,19 +174,6 @@ xargs: unmatched single quote; by default quotes are special to xargs unless you
 [+] FlareSolverr GET attempt 1/1: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/4.5
 [+] FlareSolverr OK: https://apkpure.com/tomtom-go-navigation/com.tomtom.gplay.navapp/downloading/4.5 (title=Error)
 [-] Could not find download link on APKPure
-
-````
-
-</details>
-
-<details><summary>CamScanner log excerpt</summary>
-
-````text
-[uptodown 7.20.5.2606260000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/apps/26217/versions/1 -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1184865498 -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/app/26217/version/13500772/files -> -
 
 ````
 
