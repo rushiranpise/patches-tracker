@@ -130,7 +130,7 @@ def main() -> int:
         return 0
 
     changed = []
-    successful_results = [result for result in results if result.ok]
+    successful_results = [result for result in results if result.ok and result.output]
     patches_repo_path = None
     branch = ""
     constants_file = None

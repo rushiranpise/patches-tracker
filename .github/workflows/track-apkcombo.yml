@@ -49,7 +49,8 @@ jobs:
             --patches-repo rushiranpise/morphe-patches \
             --target-branch dev \
             --source-workers 2 \
-            --source-timeout 45
+            --source-timeout 25 \
+            --max-source-checks 10
 
       - name: Commit generated config
         run: |

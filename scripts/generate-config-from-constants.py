@@ -38,13 +38,14 @@ def main() -> int:
     parser.add_argument("--target-branch", default="dev")
     parser.add_argument("--source-workers", type=int, default=2)
     parser.add_argument("--source-timeout", type=int, default=45)
+    parser.add_argument("--max-source-checks", type=int, default=30)
     parser.add_argument("--no-resolve-source-urls", action="store_true")
     args = parser.parse_args()
 
     apps = parse_constants(args.constants.read_text(encoding="utf-8"))
     existing = read_existing_config(args.output)
     if not args.no_resolve_source_urls:
-        resolve_source_urls(apps, existing, args.source_workers, args.source_timeout)
+        resolve_source_urls(apps, existing, args.source_workers, args.source_timeout, args.max_source_checks)
     args.output.write_text(render_config(apps, args, existing), encoding="utf-8")
     print(f"Wrote {len(apps)} apps to {args.output}")
     return 0
@@ -200,12 +201,16 @@ def toml_value(value: object) -> str:
     return quote(str(value))
 
 
-def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int, timeout: int) -> None:
+def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int, timeout: int, max_checks: int) -> None:
     workers = max(1, workers)
+    pending_checks = source_checks_to_run(apps, existing, max_checks)
+    print(f"Source discovery checks this run: {len(pending_checks)}")
+    if not pending_checks:
+        return
     with ThreadPoolExecutor(max_workers=workers) as executor:
         future_to_app = {
-            executor.submit(resolve_app_source_urls, app, existing.get(app["id"], {}), timeout): app
-            for app in apps
+            executor.submit(resolve_app_source_urls, app, existing.get(app["id"], {}), timeout, keys): app
+            for app, keys in pending_checks
         }
         for future in as_completed(future_to_app):
             app = future_to_app[future]
@@ -215,7 +220,31 @@ def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int
                 print(f"[{app['id']}] source discovery failed: {error}")
 
 
-def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: int) -> dict[str, str]:
+def source_checks_to_run(apps: list[dict[str, str]], existing: dict, max_checks: int) -> list[tuple[dict[str, str], list[str]]]:
+    if max_checks <= 0:
+        return []
+    pending = []
+    remaining = max_checks
+    for app in apps:
+        existing_app = existing.get(app["id"], {})
+        if not isinstance(existing_app, dict):
+            existing_app = {}
+        keys = [
+            key
+            for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl")
+            if not is_final_source_url(key, existing_app.get(key, ""))
+        ]
+        if not keys:
+            continue
+        keys = keys[:remaining]
+        pending.append((app, keys))
+        remaining -= len(keys)
+        if remaining <= 0:
+            break
+    return pending
+
+
+def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: int, source_keys: list[str]) -> dict[str, str]:
     package_name = app["package_name"]
     existing = existing_app if isinstance(existing_app, dict) else {}
     resolved = {}
@@ -231,7 +260,8 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             }
         )
-        for key, resolver in sources.items():
+        for key in source_keys:
+            resolver = sources[key]
             existing_url = existing.get(key, "")
             if is_final_source_url(key, existing_url):
                 resolved[key] = str(existing_url)
