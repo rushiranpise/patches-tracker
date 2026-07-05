@@ -2,6 +2,9 @@ name: Sync config from constants
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - sync-config-from-constants
   schedule:
     - cron: "12 7 * * *"
 
