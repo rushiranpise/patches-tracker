@@ -74,7 +74,7 @@ APKCombo follows rvb behavior and tries `apk`, `xapk`, and `apks`. `apkm` is sti
 
 `.github/workflows/sync-config-from-constants.yml` updates `config.toml` from `Constants.kt` without resolving APK source links. Use it when Morphe constants changed and the tracker config only needs the current app versions refreshed.
 
-`.github/workflows/track-apkcombo.yml` does the heavier source discovery pass for missing APKMirror, Uptodown, and APKPure links.
+`.github/workflows/generate-source-config.yml` does the heavier source discovery pass for APKMirror, Uptodown, and APKPure links. It also runs automatically after a successful constants sync.
 
 The generator extracts:
 
@@ -82,8 +82,9 @@ The generator extracts:
 - package name
 - compatibility constant
 - current target version
+- preferred APK file type from `apkFileType`, when present
 
-It uses the package name to discover source links, then writes final app page URLs for APKMirror, Uptodown, and APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Existing final source URLs are kept, so repeat runs only look for missing links. Manual patch options also survive regeneration:
+It uses the package name to discover source links, then writes final app page URLs for APKMirror, Uptodown, and APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Existing final source URLs are kept, so repeat runs only look for missing links. If constants do not declare `apkFileType`, source discovery can infer a narrower `apk-types` value from the resolved source page. Manual patch options also survive regeneration:
 
 ```toml
 included-patches = "'Some Patch'"
@@ -112,7 +113,7 @@ apkpure-dlurl = "https://apkpure.com/whatsapp-android/com.whatsapp"
 apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
 ```
 
-Source discovery runs gently because APKMirror and APKPure may need FlareSolverr. The workflow caps each run with `--max-source-checks 10`, so large config updates are incremental: it writes the links it found, and the next run continues from what is still missing. Set `--max-source-checks 0` to remove the cap after the config is mostly filled.
+Source discovery runs gently because APKMirror and APKPure may need FlareSolverr. The workflow currently uses `--max-source-checks 0`, which means no source-check cap. Raise `--source-workers` carefully if the source sites become stable enough for more concurrency.
 
 ## Failure Routing
 

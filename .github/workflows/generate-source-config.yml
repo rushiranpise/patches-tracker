@@ -1,4 +1,4 @@
-name: Generate tracker source config
+name: Generate source config
 
 on:
   workflow_dispatch:
@@ -43,7 +43,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
         run: gh repo clone rushiranpise/morphe-patches .work/morphe-patches -- --branch dev --depth 1
 
-      - name: Generate tracker source config
+      - name: Generate source config
         env:
           FLARESOLVERR_URL: http://localhost:8191
         run: |
