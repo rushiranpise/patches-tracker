@@ -942,6 +942,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkpure-dlurl = "https://apkpure.com/skinsort-skincare-scanner/com.skinsort"
 apkcombo-dlurl = "https://apkcombo.com/search/com.skinsort/"
 
 [blurwall]
@@ -954,6 +955,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://blurwall.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/blurwall-blur-wallpaper/apps.automan.blurwallpaper"
 apkcombo-dlurl = "https://apkcombo.com/search/apps.automan.blurwallpaper/"
 
 [carbon]
@@ -966,6 +969,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/reform-llc/carbon-smart-diet-coach/"
+uptodown-dlurl = "https://carbon-macro-coach-and-tracker.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/carbon-smart-diet-coach/com.joincarbon.nutrition"
 apkcombo-dlurl = "https://apkcombo.com/search/com.joincarbon.nutrition/"
 
 [scoopz]
@@ -978,6 +984,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/local-ai-inc/scoopz-real-life-real-video/"
+uptodown-dlurl = "https://scoopz.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/scoopz-real-life-real-videos/com.localaiapp.scoops"
 apkcombo-dlurl = "https://apkcombo.com/search/com.localaiapp.scoops/"
 
 [newsbreak]
@@ -990,6 +999,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/"
+uptodown-dlurl = "https://news-break.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/newsbreak-local-news-alerts/com.particlenews.newsbreak"
 apkcombo-dlurl = "https://apkcombo.com/search/com.particlenews.newsbreak/"
 
 [inmigreat]
@@ -1002,6 +1014,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://inmigreat-case-tracker.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/inmigreat-uscis-case-tracker/com.changayaf.inmigreat"
 apkcombo-dlurl = "https://apkcombo.com/search/com.changayaf.inmigreat/"
 
 [lawfully]
@@ -1014,6 +1028,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://lawfully-case-tracker-usa.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/lawfully-uscis-case-tracker/com.lawfully.lawfully_ai_tracker"
 apkcombo-dlurl = "https://apkcombo.com/search/com.lawfully.lawfully_ai_tracker/"
 
 [migraconnect]
@@ -1026,6 +1042,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://migraconnect.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/migraconnect-case-tracker/com.tecso.MigraConnect"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tecso.MigraConnect/"
 
 [camscanner]
@@ -1038,6 +1056,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/intsig-pte/camscanner-phone-pdf-creator/"
+uptodown-dlurl = "https://camscanner-pdf-creator.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/camscanner-scanner-pdf-maker/com.intsig.camscanner"
 apkcombo-dlurl = "https://apkcombo.com/search/com.intsig.camscanner/"
 
 [image-video-date-fixer]
@@ -1050,6 +1071,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/jd-android-apps/image-and-video-date-fixer/"
+uptodown-dlurl = "https://image-and-video-date-fixer.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/image-video-date-fixer/eu.duong.imagedatefixer"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.duong.imagedatefixer/"
 
 [rename-organize]
@@ -1062,6 +1086,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/jd-android-apps/picture-manager-rename-and-organize-with-exif/"
+apkpure-dlurl = "https://apkpure.com/batch-rename-and-organize/eu.duong.picturemanager"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.duong.picturemanager/"
 
 [inure-app-manager]
@@ -1074,6 +1100,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+uptodown-dlurl = "https://inure.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/inure-app-manager/app.simple.inure.play"
 apkcombo-dlurl = "https://apkcombo.com/search/app.simple.inure.play/"
 
 [weawow-weather-widget]
@@ -1086,6 +1114,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/weawow-weather-app/weather-widget-weawow/"
+uptodown-dlurl = "https://weather-and-widget-weawow.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/weather-widget-weawow/com.weawow"
 apkcombo-dlurl = "https://apkcombo.com/search/com.weawow/"
 
 [spin]
@@ -1098,6 +1129,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/national-education-technologies-inc/spin-safe-browser-web-filter/"
+apkpure-dlurl = "https://apkpure.com/spin-safe-browser-web-filter/com.nationaledtech.spinbrowser"
 apkcombo-dlurl = "https://apkcombo.com/search/com.nationaledtech.spinbrowser/"
 
 [tracked]
@@ -1110,6 +1143,7 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkpure-dlurl = "https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tracked.mobile/"
 
 [toxly]
@@ -1122,4 +1156,5 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkpure-dlurl = "https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner"
 apkcombo-dlurl = "https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/"
