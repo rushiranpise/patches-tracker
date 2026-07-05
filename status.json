@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-05T19:07:14.691912+00:00",
+  "checked_at": "2026-07-05T19:51:25.416237+00:00",
   "shard_index": 0,
   "shard_total": 1,
   "app_count": 80,
@@ -45,13 +45,13 @@
       "id": "case-tracker",
       "name": "Case Tracker",
       "package_name": "com.saldous.casetracker",
-      "current_version": "5.5.1",
+      "current_version": "5.5.2",
       "candidate_version": "5.5.2",
-      "version_code": "1036",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/case-tracker/case-tracker-patched-5.5.2.apk"
+      "artifact": null
     },
     {
       "id": "1-1-1-1",
@@ -69,13 +69,13 @@
       "id": "crime-radar",
       "name": "Crime Radar",
       "package_name": "com.newsbreak.crimeradar",
-      "current_version": "26.23.2",
+      "current_version": "26.26.0",
       "candidate_version": "26.26.0",
-      "version_code": "26260005",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/crime-radar/crime-radar-patched-26.26.0.apk"
+      "artifact": null
     },
     {
       "id": "splitwise",
@@ -83,10 +83,10 @@
       "package_name": "com.Splitwise.SplitwiseMobile",
       "current_version": "26.5.5",
       "candidate_version": "26.6.3",
-      "version_code": null,
+      "version_code": "945",
       "ok": false,
-      "failure_type": "download",
-      "log_excerpt": "[apkmirror 26.6.3] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/ (title=Download Splitwise APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/ (title=Splitwise 26.6.3 APK Download by Splitwise - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/\n[+] APKMirror variant page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-6-3-release/splitwise-26-6-3-android-apk-download/ (title=Splitwise 26.6.3 (Android 9.0+) APK Download by Splitwise - APKMirror)\n",
+      "failure_type": "patch",
+      "log_excerpt": "INFO: Running in Headless environment, falling back to CLI mode. \nINFO: Morphe data root: /home/runner/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) \nINFO: Loading patches... \nINFO: Initializing patcher... \nINFO: Filtering patches for com.Splitwise.SplitwiseMobile v26.6.3... \nINFO: Skipping disabled: Provide Original app certificate (default) \nINFO: Skipping disabled: Spoof Widevine / DRM level (default) \nINFO: Skipping disabled: Fix Firebase after re-signing (default) \nINFO: Skipping disabled: GmsCore support (MicroG) (default) \nINFO: Skipping disabled: Spoof install source (default) \nINFO: Skipping disabled: Spoof app signature (default) \nWARNING: Skipping \"Unlock Pro\": incompatible with com.Splitwise.SplitwiseMobile 26.6.3 (supported: com.Splitwise.SplitwiseMobile 26.5.5) \nINFO: Applying 0 patches... \nINFO: Executing patches \nINFO: Compiling patched dex files (mode: NONE) \nINFO: Aligning APK \nINFO: Signing APK \nINFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/splitwise/splitwise-patched-26.6.3.apk \n",
       "artifact": null
     },
     {
@@ -105,13 +105,13 @@
       "id": "pialytic",
       "name": "Pialytic",
       "package_name": "verbosus.pialytic",
-      "current_version": "1.2.8",
+      "current_version": "1.3.0",
       "candidate_version": "1.3.0",
-      "version_code": "21",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/pialytic/pialytic-patched-1.3.0.apk"
+      "artifact": null
     },
     {
       "id": "snipd",
@@ -129,25 +129,25 @@
       "id": "stargazing-hub",
       "name": "Stargazing Hub",
       "package_name": "com.twtapp",
-      "current_version": "3.2.1",
+      "current_version": "3.3.1",
       "candidate_version": "3.3.1",
-      "version_code": "3030100",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/stargazing-hub/stargazing-hub-patched-3.3.1.apk"
+      "artifact": null
     },
     {
       "id": "photo-editor",
       "name": "Photo Editor",
       "package_name": "com.iudesk.android.photo.editor",
-      "current_version": "13.3",
+      "current_version": "13.3.1",
       "candidate_version": "13.3.1",
-      "version_code": "2026060800",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/photo-editor/photo-editor-patched-13.3.1.apk"
+      "artifact": null
     },
     {
       "id": "ml-manager",
@@ -201,49 +201,49 @@
       "id": "rar",
       "name": "RAR",
       "package_name": "com.rarlab.rar",
-      "current_version": "7.20.build131",
+      "current_version": "7.23.build133",
       "candidate_version": "7.23.build133",
-      "version_code": "133",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/rar/rar-patched-7.23.build133.apk"
+      "artifact": null
     },
     {
       "id": "m-indicator",
       "name": "m-Indicator",
       "package_name": "com.mobond.mindicator",
-      "current_version": "18.0.352",
+      "current_version": "18.0.356",
       "candidate_version": "18.0.356",
-      "version_code": "356",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/m-indicator/m-indicator-patched-18.0.356.apk"
+      "artifact": null
     },
     {
       "id": "yatri",
       "name": "Yatri",
       "package_name": "com.yatrirailways.yatri",
-      "current_version": "5.0.3",
+      "current_version": "5.0.4",
       "candidate_version": "5.0.4",
-      "version_code": "317",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/yatri/yatri-patched-5.0.4.apk"
+      "artifact": null
     },
     {
       "id": "proxyman",
       "name": "Proxyman",
       "package_name": "com.proxyman.proxymanandroid",
-      "current_version": "1.16.0",
+      "current_version": "1.18.0",
       "candidate_version": "1.18.0",
-      "version_code": "45",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/proxyman/proxyman-patched-1.18.0.apk"
+      "artifact": null
     },
     {
       "id": "shareit-premium",
@@ -321,13 +321,13 @@
       "id": "canva",
       "name": "Canva",
       "package_name": "com.canva.editor",
-      "current_version": "2.365.o",
+      "current_version": "2.367.0",
       "candidate_version": "2.367.0",
-      "version_code": "29613027",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/canva/canva-patched-2.367.0.apk"
+      "artifact": null
     },
     {
       "id": "clickmate",
@@ -393,13 +393,13 @@
       "id": "http-sniffer",
       "name": "HTTP Sniffer",
       "package_name": "com.anetcapture.mock",
-      "current_version": "2.11.0-ad_mob",
+      "current_version": "2.11.1-ad_mob",
       "candidate_version": "2.11.1-ad_mob",
-      "version_code": "133",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/http-sniffer/http-sniffer-patched-2.11.1-ad_mob.apk"
+      "artifact": null
     },
     {
       "id": "permission-pilot",
@@ -410,32 +410,32 @@
       "version_code": null,
       "ok": false,
       "failure_type": "download",
-      "log_excerpt": "[apkcombo 2.1.1] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks (title=Download Permission Pilot APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for eu.darken.myperm 2.1.1 (title=Download Permission Pilot APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
+      "log_excerpt": "[apkcombo 2.1.1] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-xapk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.1.1-apks (title=Download Permission Pilot APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for eu.darken.myperm 2.1.1 (title=Download Permission Pilot APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
       "artifact": null
     },
     {
       "id": "proton-vpn",
       "name": "Proton VPN",
       "package_name": "ch.protonvpn.android",
-      "current_version": "5.18.84.0",
+      "current_version": "5.19.16.0",
       "candidate_version": "5.19.16.0",
-      "version_code": "605191600",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/proton-vpn/proton-vpn-patched-5.19.16.0.apk"
+      "artifact": null
     },
     {
       "id": "netshare",
       "name": "NetShare",
       "package_name": "kha.prog.mikrotik",
-      "current_version": "UI/link-274",
+      "current_version": "276",
       "candidate_version": "276",
-      "version_code": "276",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/netshare/netshare-patched-276.apk"
+      "artifact": null
     },
     {
       "id": "app-permission-manager",
@@ -465,25 +465,25 @@
       "id": "psiphon-pro",
       "name": "Psiphon Pro",
       "package_name": "com.psiphon3.subscription",
-      "current_version": "476",
+      "current_version": "479",
       "candidate_version": "479",
-      "version_code": "479",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/psiphon-pro/psiphon-pro-patched-479.apk"
+      "artifact": null
     },
     {
       "id": "speedtest",
       "name": "Speedtest",
       "package_name": "org.zwanoo.android.speedtest",
-      "current_version": "7.0.4",
+      "current_version": "7.0.6",
       "candidate_version": "7.0.6",
-      "version_code": "257594",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/speedtest/speedtest-patched-7.0.6.apk"
+      "artifact": null
     },
     {
       "id": "social-gamebox",
@@ -537,85 +537,85 @@
       "id": "waze",
       "name": "Waze",
       "package_name": "com.waze",
-      "current_version": "5.19.0.2",
+      "current_version": "5.21.0.0",
       "candidate_version": "5.21.0.0",
-      "version_code": "1030711",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/waze/waze-patched-5.21.0.0.apk"
+      "artifact": null
     },
     {
       "id": "accuweather",
       "name": "AccuWeather",
       "package_name": "com.accuweather.android",
-      "current_version": "21.1.11-1-rc",
+      "current_version": "21.1.12-2-rc",
       "candidate_version": "21.1.12-2-rc",
-      "version_code": "210112002",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/accuweather/accuweather-patched-21.1.12-2-rc.apk"
+      "artifact": null
     },
     {
       "id": "windscribe-vpn",
       "name": "Windscribe VPN",
       "package_name": "com.windscribe.vpn",
       "current_version": "4.1.2274",
-      "candidate_version": "4.2.2286",
-      "version_code": null,
+      "candidate_version": "4.1.2284",
+      "version_code": "2284",
       "ok": false,
-      "failure_type": "download",
-      "log_excerpt": "dscribe.vpn/download (title=Windscribe: Fast &amp; Secure VPN APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-xapk (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks\n[+] FlareSolverr OK: https://apkcombo.com/search/com.windscribe.vpn/download/phone-4.1.2284-apks (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[!] APKCombo attempt 1/1 did not show a download link for com.windscribe.vpn 4.1.2284 (title=Download Windscribe: Fast &amp; Secure VPN APK - Latest Version 2024)\n[-] Could not find APK link on APKCombo\n",
+      "failure_type": "patch",
+      "log_excerpt": "INFO: Running in Headless environment, falling back to CLI mode. \nINFO: Morphe data root: /home/runner/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) \nINFO: Loading patches... \nINFO: Initializing patcher... \nINFO: Filtering patches for com.windscribe.vpn v4.1.2284... \nINFO: Skipping disabled: Provide Original app certificate (default) \nINFO: Skipping disabled: Spoof Widevine / DRM level (default) \nINFO: Skipping disabled: Fix Firebase after re-signing (default) \nINFO: Skipping disabled: GmsCore support (MicroG) (default) \nINFO: Skipping disabled: Spoof install source (default) \nINFO: Skipping disabled: Spoof app signature (default) \nWARNING: Skipping \"Unlock Premium\": incompatible with com.windscribe.vpn 4.1.2284 (supported: com.windscribe.vpn 4.1.2274) \nINFO: Applying 0 patches... \nINFO: Executing patches \nINFO: Compiling patched dex files (mode: NONE) \nINFO: Aligning APK \nINFO: Signing APK \nINFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/windscribe-vpn/windscribe-vpn-patched-4.1.2284.apk \n",
       "artifact": null
     },
     {
       "id": "moviebox-tv",
       "name": "MovieBox TV",
       "package_name": "com.community.oneroom",
-      "current_version": "3.0.15.0616.03",
+      "current_version": "3.0.16.0703.03",
       "candidate_version": "3.0.16.0703.03",
-      "version_code": "50020113",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0703.03.apk"
+      "artifact": null
     },
     {
       "id": "the-weather-channel",
       "name": "The Weather Channel",
       "package_name": "com.weather.Weather",
-      "current_version": "16.10.1",
+      "current_version": "16.11.0",
       "candidate_version": "16.11.0",
-      "version_code": "1080013045",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/the-weather-channel/the-weather-channel-patched-16.11.0.apk"
+      "artifact": null
     },
     {
       "id": "ninja-vpn",
       "name": "Ninja VPN",
       "package_name": "app.ninjavpn.android",
-      "current_version": "1.4.6",
+      "current_version": "1.4.7",
       "candidate_version": "1.4.7",
-      "version_code": "44",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/ninja-vpn/ninja-vpn-patched-1.4.7.apk"
+      "artifact": null
     },
     {
       "id": "1tap-cleaner",
       "name": "1Tap Cleaner",
       "package_name": "com.a0soft.gphone.acc.free",
-      "current_version": "5.18",
+      "current_version": "5.19",
       "candidate_version": "5.19",
       "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/1tap-cleaner/1tap-cleaner-patched-5.19.apk"
+      "artifact": null
     },
     {
       "id": "strength-training",
@@ -777,13 +777,13 @@
       "id": "skinsort",
       "name": "SkinSort",
       "package_name": "com.skinsort",
-      "current_version": "1.15",
+      "current_version": "1.19",
       "candidate_version": "1.19",
-      "version_code": "30",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/skinsort/skinsort-patched-1.19.apk"
+      "artifact": null
     },
     {
       "id": "blurwall",
@@ -813,13 +813,13 @@
       "id": "scoopz",
       "name": "Scoopz",
       "package_name": "com.localaiapp.scoops",
-      "current_version": "3.2.7.0",
+      "current_version": "3.27.0",
       "candidate_version": "3.27.0",
-      "version_code": "3270002",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/scoopz/scoopz-patched-3.27.0.apk"
+      "artifact": null
     },
     {
       "id": "newsbreak",
@@ -874,11 +874,11 @@
       "name": "CamScanner",
       "package_name": "com.intsig.camscanner",
       "current_version": "7.20.0.2606230000",
-      "candidate_version": "7.20.0.2606230000",
+      "candidate_version": "7.20.5.2606260000",
       "version_code": null,
-      "ok": true,
-      "failure_type": null,
-      "log_excerpt": "",
+      "ok": false,
+      "failure_type": "download",
+      "log_excerpt": "[uptodown 7.20.5.2606260000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/apps/26217/versions/1 -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1184865498 -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/app/26217/version/13500772/files -> -\n",
       "artifact": null
     },
     {
@@ -957,13 +957,13 @@
       "id": "toxly",
       "name": "Toxly",
       "package_name": "com.mindful.code.studio.toxly.scanner",
-      "current_version": "1.15.3",
+      "current_version": "1.16.2",
       "candidate_version": "1.16.2",
-      "version_code": "57",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/toxly/toxly-patched-1.16.2.apk"
+      "artifact": null
     }
   ]
 }
