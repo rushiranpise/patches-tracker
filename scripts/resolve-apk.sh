@@ -61,7 +61,7 @@ ensure_htmlq() {
 looks_blocked_page() {
   local page=$1
   [ -z "$page" ] && return 0
-  grep -Eiq 'captcha|cf-chl|cf-browser-verification|just a moment|attention required|checking your browser|access denied|error 1020|challenge-platform|turnstile' <<<"$page"
+  grep -Eiq 'cf-chl|cf-browser-verification|just a moment|attention required|checking your browser|access denied|error 1020' <<<"$page"
 }
 
 page_hint() {
@@ -565,7 +565,7 @@ get_apkcombo_vers() {
 get_apkcombo_pkg_name() { echo "$__APKCOMBO_PKG__"; }
 dl_apkcombo() {
 	local _url=$1 version=$2 output=$3 _arch=$4 _dpi=$5 apk_types=${6:-}
-	local html="" dl_url final_url checkin page_url page compact_page attempt
+	local html="" dl_url="" final_url checkin page_url page compact_page attempt
 
 	if [ -n "$version" ]; then
 		mapfile -t sfxs < <(apk_types_for_apkcombo "$apk_types")
@@ -574,6 +574,7 @@ dl_apkcombo() {
 	fi
 
 	for attempt in $(seq 1 "$APKCOMBO_RETRIES"); do
+		dl_url=""
 		for sfx in "${sfxs[@]}"; do
 			if [ -n "$version" ]; then
 				page_url="https://apkcombo.com/search/${__APKCOMBO_PKG__}/download/phone-${version}-${sfx}"
