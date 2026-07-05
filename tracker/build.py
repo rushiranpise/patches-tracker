@@ -118,7 +118,9 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
         args.extend(["-d", patch])
     args.extend(app.patcher_args)
 
+    print(f"[{app.id}] patch command: {shell_join(args)}", flush=True)
     completed = subprocess.run(args, text=True, capture_output=True)
+    print(f"[{app.id}] patch return code: {completed.returncode}", flush=True)
     log = completed.stdout + completed.stderr
     print_process_log(app.id, "patch", completed.stdout, completed.stderr)
     if completed.returncode != 0 or not output_apk.exists():
