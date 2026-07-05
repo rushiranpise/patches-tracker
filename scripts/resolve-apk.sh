@@ -9,6 +9,7 @@ KEYSTORE="${KEYSTORE:-$TEMP_DIR/patches-tracker.keystore}"
 KEYSTORE_ALIAS="${KEYSTORE_ALIAS:-patches-tracker}"
 KEYSTORE_PASS="${KEYSTORE_PASS:-123456789}"
 APKCOMBO_RETRIES="${APKCOMBO_RETRIES:-3}"
+FETCH_RETRIES="${FETCH_RETRIES:-5}"
 apkmirror_example_url="${apkmirror_example_url:-}"
 __AAV__="${__AAV__:-false}"
 mkdir -p "$TEMP_DIR"
@@ -24,6 +25,7 @@ _req() {
 	local ip="$1" op="$2"
 	shift 2
 	local dlp="$op"
+	pr "HTTP GET: $ip -> $op"
 	if [ "$op" != - ]; then
 		if [ -f "$op" ]; then return; fi
 		dlp="$(dirname "$op")/tmp.$(basename "$op")"
@@ -32,12 +34,13 @@ _req() {
 			return
 		fi
 	fi
-	if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 10 --retry 1 --fail -s -S "$@" "$ip" -o "$dlp"; then
+	if ! curl -L -c "$TEMP_DIR/cookie.txt" -b "$TEMP_DIR/cookie.txt" --connect-timeout 10 --retry 3 --retry-delay 5 --retry-connrefused --fail -s -S "$@" "$ip" -o "$dlp"; then
 		epr "Request failed: $ip"
 		return 1
 	fi
 	if [ "$dlp" != - ]; then
 		mv -f "$dlp" "$op"
+		pr "Saved response: $op ($(wc -c <"$op" | xargs) bytes)"
 	fi
 }
 req() { _req "$1" "$2" -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0"; }
@@ -172,13 +175,14 @@ merge_splits() {
 
 _fs_get() {
 	local url=$1 referer=${2:-}
-	local max_retries=5 attempt
+	local max_retries=$FETCH_RETRIES attempt
 	local fs_url="${FLARESOLVERR_URL:-http://localhost:8191}/v1"
 	local extra_headers=""
 	[ -n "$referer" ] && extra_headers=",\"headers\":{\"Referer\":\"$referer\"}"
 	if command -v jq >/dev/null 2>&1; then
 		for attempt in $(seq 1 $max_retries); do
 			local response status
+			pr "FlareSolverr GET attempt $attempt/$max_retries: $url"
 			response=$(curl -s -X POST "$fs_url" \
 				-H 'Content-Type: application/json' \
 				-d "{\"cmd\":\"request.get\",\"url\":\"$url\",\"maxTimeout\":60000${extra_headers}}") || true
@@ -189,9 +193,12 @@ _fs_get() {
 				FS_COOKIES=$(echo "$response" | jq -r '[.solution.cookies[] | .name + "=" + .value] | join("; ")')
 				user_agent=$(echo "$response" | jq -r '.solution.userAgent // empty')
 				if ! looks_blocked_page "$html"; then
+					pr "FlareSolverr OK: $url ($(page_hint "$html"))"
 					return 0
 				fi
 				wpr "FlareSolverr returned blocked page for $url ($(page_hint "$html")); retrying"
+			else
+				wpr "FlareSolverr status '$status' for $url"
 			fi
 			wpr "FlareSolverr attempt $attempt/$max_retries failed for: $url"
 			sleep 10

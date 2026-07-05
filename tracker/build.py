@@ -1,13 +1,18 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import os
 from pathlib import Path
 import shutil
 import subprocess
+import time
 
 import requests
 
 from .config import AppConfig
+
+
+RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "3"))
 
 
 @dataclass
@@ -46,10 +51,10 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
     if candidate_version == "latest" and not dry_run:
         for source in sources:
             print(f"[{app.id}] resolving latest via {source.source}: {source.url}", flush=True)
-            latest = subprocess.run(
+            latest = run_resolver(
+                app.id,
+                "latest resolve",
                 ["bash", str(resolver), "latest", source.source, source.url],
-                text=True,
-                capture_output=True,
             )
             if latest.returncode == 0 and latest.stdout.strip():
                 candidate_version = latest.stdout.strip().splitlines()[0]
@@ -57,7 +62,7 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
                 print(f"[{app.id}] latest version from {source.source}: {candidate_version}", flush=True)
                 break
             source_log = latest.stdout + latest.stderr
-            print(f"[{app.id}] latest resolve failed via {source.source}: {source_log[-1000:]}", flush=True)
+            print(f"[{app.id}] latest resolve failed via {source.source}", flush=True)
             resolve_logs.append(f"[{source.source}] {source_log}")
         if source_used is None:
             return BuildResult(app, False, None, "\n".join(resolve_logs), candidate_version, failure_type="version_resolve")
@@ -78,7 +83,9 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
         if source is None:
             continue
         print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
-        resolved = subprocess.run(
+        resolved = run_resolver(
+            app.id,
+            "download",
             [
                 "bash",
                 str(resolver),
@@ -90,15 +97,13 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
                 source.dpi,
                 " ".join(source.apk_types),
             ],
-            text=True,
-            capture_output=True,
         )
         if resolved.returncode == 0 and stock_apk.exists():
             source_used = source
             print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}", flush=True)
             break
         source_log = resolved.stdout + resolved.stderr
-        print(f"[{app.id}] download failed via {source.source}: {source_log[-1000:]}", flush=True)
+        print(f"[{app.id}] download failed via {source.source}", flush=True)
         download_logs.append(f"[{source.source}] {source_log}")
     if not stock_apk.exists():
         return BuildResult(app, False, None, "\n".join(download_logs), candidate_version, failure_type="download")
@@ -115,11 +120,62 @@ def build_app(app: AppConfig, cli_jar: Path, patches_file: Path, work_dir: Path,
 
     completed = subprocess.run(args, text=True, capture_output=True)
     log = completed.stdout + completed.stderr
+    print_process_log(app.id, "patch", completed.stdout, completed.stderr)
     if completed.returncode != 0 or not output_apk.exists():
         print(f"[{app.id}] patch failed: {log[-1000:]}", flush=True)
         return BuildResult(app, False, None, log, candidate_version, version_code, classify_failure(log, "patch"))
     print(f"[{app.id}] patch succeeded: {output_apk}", flush=True)
     return BuildResult(app, True, output_apk, log, candidate_version, version_code)
+
+
+def run_resolver(app_id: str, phase: str, args: list[str]) -> subprocess.CompletedProcess[str]:
+    attempts = max(1, RESOLVER_RETRIES)
+    last = subprocess.CompletedProcess(args, 1, "", "")
+    for attempt in range(1, attempts + 1):
+        print(f"[{app_id}] {phase} attempt {attempt}/{attempts}: {shell_join(args)}", flush=True)
+        completed = subprocess.run(args, text=True, capture_output=True)
+        print_process_log(app_id, f"{phase} attempt {attempt}", completed.stdout, completed.stderr)
+        if completed.returncode == 0:
+            return completed
+        last = completed
+        if attempt < attempts and looks_transient_block(completed.stdout + completed.stderr):
+            wait_seconds = attempt * 15
+            print(f"[{app_id}] {phase} looks blocked/transient; retrying in {wait_seconds}s", flush=True)
+            time.sleep(wait_seconds)
+            continue
+        return completed
+    return last
+
+
+def print_process_log(app_id: str, phase: str, stdout: str, stderr: str) -> None:
+    if stdout:
+        print(f"[{app_id}] {phase} stdout:\n{stdout.rstrip()}", flush=True)
+    if stderr:
+        print(f"[{app_id}] {phase} stderr:\n{stderr.rstrip()}", flush=True)
+
+
+def looks_transient_block(log: str) -> bool:
+    lower = log.lower()
+    markers = (
+        "captcha",
+        "cloudflare",
+        "cf-chl",
+        "just a moment",
+        "attention required",
+        "checking your browser",
+        "access denied",
+        "forbidden",
+        "blocked page",
+        "could not find apk link",
+        "could not find download link",
+        "did not expose",
+        "request failed",
+    )
+    return any(marker in lower for marker in markers)
+
+
+def shell_join(args: list[str]) -> str:
+    return " ".join(subprocess.list2cmdline([arg]) for arg in args)
 
 
 def prepare_tool(url: str, path: Path, *, dry_run: bool = False) -> Path:
