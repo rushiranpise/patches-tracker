@@ -114,6 +114,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/splitwise/splitwise/"
+uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
 
 [greenify]
@@ -126,6 +128,9 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/oasis-feng/greenify/"
+uptodown-dlurl = "https://greenify.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/greenify/com.oasisfeng.greenify"
 apkcombo-dlurl = "https://apkcombo.com/search/com.oasisfeng.greenify/"
 
 [pialytic]
