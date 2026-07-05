@@ -17,6 +17,9 @@ GENERATED_APP_KEYS = {
     "arch",
     "dpi",
     "apk-types",
+    "apkmirror-dlurl",
+    "uptodown-dlurl",
+    "apkpure-dlurl",
     "apkcombo-dlurl",
 }
 
@@ -160,6 +163,9 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace, existing
                 'arch = "all"',
                 'dpi = "nodpi anydpi auto"',
                 'apk-types = "apk xapk apks"',
+                f"apkmirror-dlurl = {quote(apkmirror_url(app['package_name']))}",
+                f"uptodown-dlurl = {quote(uptodown_url(app['package_name']))}",
+                f"apkpure-dlurl = {quote(apkpure_url(app['package_name']))}",
                 f"apkcombo-dlurl = {quote('https://apkcombo.com/search/' + app['package_name'] + '/')}",
             ]
         )
@@ -182,6 +188,18 @@ def toml_value(value: object) -> str:
     if isinstance(value, list):
         return "[" + ", ".join(toml_value(item) for item in value) + "]"
     return quote(str(value))
+
+
+def apkmirror_url(package_name: str) -> str:
+    return "https://www.apkmirror.com/?post_type=app_release&searchtype=app&sortby=date&sort=desc&s=" + package_name
+
+
+def uptodown_url(package_name: str) -> str:
+    return "https://en.uptodown.com/android/search?query=" + package_name
+
+
+def apkpure_url(package_name: str) -> str:
+    return "https://apkpure.com/apk-info/" + package_name
 
 
 if __name__ == "__main__":

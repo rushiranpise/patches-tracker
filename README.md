@@ -42,6 +42,7 @@ apk-types = "apk xapk apks"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/splitwise/splitwise"
 apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
 uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/apk-info/com.Splitwise.SplitwiseMobile"
 ```
 
 Default patches do not need to be listed. Use `included-patches` only for patches that are disabled by default, and `excluded-patches` for patches that should not be applied.
@@ -69,7 +70,7 @@ Supported package formats:
 
 APKCombo follows rvb behavior and tries `apk`, `xapk`, and `apks`. `apkm` is still supported for sources where it is a real file type, such as APKMirror, direct URLs, archives, and GitHub releases.
 
-## Generated APKCombo Config
+## Generated Source Config
 
 `.github/workflows/track-apkcombo.yml` updates `config.toml` from `Constants.kt`.
 
@@ -80,17 +81,25 @@ The generator extracts:
 - compatibility constant
 - current target version
 
-It then writes an APKCombo default entry for each app. Manual per-app keys already present in `config.toml` are preserved, so custom fallback URLs and patch options survive regeneration:
+It then writes default source entries for APKMirror, Uptodown, APKPure, and APKCombo from the package name. Manual per-app keys already present in `config.toml` are preserved, so custom fallback URLs and patch options survive regeneration:
 
 ```toml
-apkmirror-dlurl = "..."
-uptodown-dlurl = "..."
-apkpure-dlurl = "..."
 included-patches = "'Some Patch'"
 excluded-patches = "'Other Patch'"
 ```
 
-Generated fields such as `app-name`, `package-name`, `constant`, `current-version`, `version`, `arch`, `dpi`, `apk-types`, and `apkcombo-dlurl` are refreshed from the generator.
+Generated fields such as `app-name`, `package-name`, `constant`, `current-version`, `version`, `arch`, `dpi`, `apk-types`, `apkmirror-dlurl`, `uptodown-dlurl`, `apkpure-dlurl`, and `apkcombo-dlurl` are refreshed from the generator.
+
+Generated source URL formats:
+
+```toml
+apkmirror-dlurl = "https://www.apkmirror.com/?post_type=app_release&searchtype=app&sortby=date&sort=desc&s=com.whatsapp"
+uptodown-dlurl = "https://en.uptodown.com/android/search?query=com.whatsapp"
+apkpure-dlurl = "https://apkpure.com/apk-info/com.whatsapp"
+apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
+```
+
+For APKMirror and Uptodown search pages, the resolver checks candidates and selects the app whose package name matches. APKPure uses the `apk-info/<package>` redirect target when present.
 
 ## Failure Routing
 
@@ -130,7 +139,7 @@ Dry-run one shard manually:
 python -m tracker.cli --config config.toml --dry-run --shard-index 0 --shard-total 2
 ```
 
-Regenerate APKCombo defaults from constants:
+Regenerate source defaults from constants:
 
 ```bash
 python scripts/generate-config-from-constants.py \

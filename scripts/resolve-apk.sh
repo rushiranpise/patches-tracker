@@ -74,6 +74,14 @@ page_hint() {
   fi
 }
 
+query_param() {
+  python - "$1" "$2" <<'PYC'
+import sys, urllib.parse
+url, key = sys.argv[1], sys.argv[2]
+print(urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get(key, [""])[0])
+PYC
+}
+
 normalize_apk_types() {
   local raw="${1:-apk apkm xapk apks}" type
   raw="${raw//,/ }"
@@ -216,11 +224,41 @@ _fs_get() {
 }
 # -------------------- apkmirror --------------------
 get_apkmirror_resp() {
-	local html=""
-	_fs_get "${1}" || return 1
+	local url="$1" html=""
+	if [[ "$url" == *"searchtype=app"* || "$url" == *"post_type=app_release"* ]]; then
+		url=$(resolve_apkmirror_search "$url") || return 1
+	fi
+	_fs_get "$url" || return 1
 	__APKMIRROR_RESP__="$html"
-	__APKMIRROR_CAT__="${1##*/}"
+	__APKMIRROR_CAT__="${url%/}"
+	__APKMIRROR_CAT__="${__APKMIRROR_CAT__##*/}"
 	__APKMIRROR_EXAMPLE_URL__="${apkmirror_example_url:-}"
+}
+
+resolve_apkmirror_search() {
+	local search_url="$1" package_name candidate page candidate_html pkg
+	package_name=$(query_param "$search_url" s)
+	_fs_get "$search_url" || return 1
+	mapfile -t candidates < <(echo "$html" | grep -oP 'href="\K/apk/[^"/]+/[^"/]+/' | awk '!seen[$0]++' | head -20)
+	for candidate in "${candidates[@]}"; do
+		page="https://www.apkmirror.com${candidate}"
+		_fs_get "$page" || continue
+		candidate_html="$html"
+		pkg=$(sed -n 's;.*id=\(.*\)" class="accent_color.*;\1;p' <<<"$candidate_html" | head -1)
+		if [ -n "$package_name" ] && [ "$pkg" = "$package_name" ]; then
+			pr "APKMirror search matched $package_name: $page"
+			echo "$page"
+			return 0
+		fi
+	done
+	if [ "${#candidates[@]}" -gt 0 ]; then
+		page="https://www.apkmirror.com${candidates[0]}"
+		wpr "APKMirror search did not expose exact package match for ${package_name:-unknown}; using first result: $page"
+		echo "$page"
+		return 0
+	fi
+	epr "APKMirror search did not find app candidates for ${package_name:-$search_url}"
+	return 1
 }
 
 get_apkmirror_vers() {
@@ -446,11 +484,27 @@ get_apkpure_resp() {
 	local url=$1
 	url="${url%/downloading*}"
 	url="${url%/}"
+	if [[ "$url" == */apk-info/* ]]; then
+		url=$(resolve_apkpure_info "$url") || return 1
+	fi
 	__APKPURE_BASE_URL__="$url"
 	__APKPURE_PKG__=$(echo "$url" | grep -oP '[a-zA-Z][a-zA-Z0-9]*(\.[a-zA-Z][a-zA-Z0-9]*){1,}' | tail -1)
 	local html=""
 	_fs_get "${url}/downloading/" || return 1
 	__APKPURE_RESP__="$html"
+}
+
+resolve_apkpure_info() {
+	local info_url="$1" html="" canonical=""
+	_fs_get "$info_url" || return 1
+	canonical=$(echo "$html" | grep -oP '<link[^>]+rel=["'\'']canonical["'\''][^>]+href=["'\'']\Khttps://apkpure\.com/[^"'\'']+' | head -1) || true
+	[ -z "$canonical" ] && canonical=$(echo "$html" | grep -oP 'https://apkpure\.com/[^"'"'"' <>]+/[a-zA-Z][a-zA-Z0-9]*(\.[a-zA-Z][a-zA-Z0-9]*){1,}' | head -1) || true
+	if [ -z "$canonical" ] || [[ "$canonical" == *"/apk-info/"* ]]; then
+		epr "APKPure apk-info did not redirect to an app page: $info_url"
+		return 1
+	fi
+	pr "APKPure apk-info matched app page: $canonical"
+	echo "${canonical%/}"
 }
 
 get_apkpure_vers() {
@@ -683,8 +737,12 @@ PYC
 
 # -------------------- uptodown --------------------
 get_uptodown_resp() {
-	__UPTODOWN_RESP__=$(req "${1}/versions" -) || return 1
-	__UPTODOWN_RESP_PKG__=$(req "${1}/download" -) || return 1
+	local url="$1"
+	if [[ "$url" == *"/android/search"* ]]; then
+		url=$(resolve_uptodown_search "$url") || return 1
+	fi
+	__UPTODOWN_RESP__=$(req "${url%/}/versions" -) || return 1
+	__UPTODOWN_RESP_PKG__=$(req "${url%/}/download" -) || return 1
 }
 get_uptodown_vers() { $HTMLQ --text ".version" <<<"$__UPTODOWN_RESP__"; }
 dl_uptodown() {
@@ -743,6 +801,30 @@ dl_uptodown() {
 	fi
 }
 get_uptodown_pkg_name() { $HTMLQ --text "tr.full:nth-child(1) > td:nth-child(3)" <<<"$__UPTODOWN_RESP_PKG__"; }
+
+resolve_uptodown_search() {
+	local search_url="$1" package_name search_html candidate page pkg dl_html
+	package_name=$(query_param "$search_url" query)
+	search_html=$(req "$search_url" -) || return 1
+	mapfile -t candidates < <(echo "$search_html" | grep -oP 'https://[a-z0-9-]+\.en\.uptodown\.com/android' | awk '!seen[$0]++' | head -20)
+	for candidate in "${candidates[@]}"; do
+		dl_html=$(req "${candidate%/}/download" -) || continue
+		pkg=$($HTMLQ --text "tr.full:nth-child(1) > td:nth-child(3)" <<<"$dl_html" | xargs) || true
+		if [ -n "$package_name" ] && [ "$pkg" = "$package_name" ]; then
+			pr "Uptodown search matched $package_name: $candidate"
+			echo "$candidate"
+			return 0
+		fi
+	done
+	if [ "${#candidates[@]}" -gt 0 ]; then
+		page="${candidates[0]}"
+		wpr "Uptodown search did not expose exact package match for ${package_name:-unknown}; using first result: $page"
+		echo "$page"
+		return 0
+	fi
+	epr "Uptodown search did not find app candidates for ${package_name:-$search_url}"
+	return 1
+}
 
 # -------------------- archive --------------------
 dl_archive() {
