@@ -1257,3 +1257,27 @@ apk-types = "apk xapk apks"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/"
 apkpure-dlurl = "https://apkpure.com/wavve-boating-easy-marine-gps/com.wavve.boating.gps"
 apkcombo-dlurl = "https://apkcombo.com/search/com.wavve.boating.gps/"
+
+[picturethis-plant-identifier]
+enabled = true
+app-name = "PictureThis - Plant Identifier"
+package-name = "cn.danatech.xingseus"
+constant = "PICTURETHIS_COMPATIBILITY"
+current-version = "5.29.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/cn.danatech.xingseus/"
+
+[picture-mushroom-mushroom-id]
+enabled = true
+app-name = "Picture Mushroom - Mushroom ID"
+package-name = "com.glority.picturemushroom"
+constant = "PICTUREMUSHROOM_COMPATIBILITY"
+current-version = "2.9.31"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.glority.picturemushroom/"
