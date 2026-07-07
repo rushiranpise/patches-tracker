@@ -6,6 +6,10 @@ on:
     types:
       - sync-config-from-constants
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
