@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "23 7 * * 0"
+  workflow_run:
+    workflows:
+      - Generate source config
+    types:
+      - completed
 
 permissions:
   contents: write
