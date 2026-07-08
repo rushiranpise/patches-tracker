@@ -43,7 +43,7 @@ def main() -> int:
     apps = parse_constants(args.constants.read_text(encoding="utf-8"))
     existing = read_existing_config(args.output)
     if args.no_resolve_source_urls:
-        seed_existing_source_urls(apps, existing, final_only=False)
+        seed_existing_source_urls(apps, existing)
     else:
         resolve_source_urls(apps, existing, args.source_workers, args.source_timeout, args.max_source_checks)
     args.output.write_text(render_config(apps, args, existing), encoding="utf-8")
@@ -248,7 +248,7 @@ def seed_existing_source_urls(apps: list[dict[str, str]], existing: dict, *, fin
             continue
         for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl", "apkcombo-dlurl"):
             existing_url = existing_app.get(key, "")
-            if isinstance(existing_url, str) and existing_url and (not final_only or is_final_source_url(key, existing_url)):
+            if isinstance(existing_url, str) and existing_url and (not final_only or is_final_source_url(key, existing_url, app.get("package_name", ""))):
                 app[key] = str(existing_url)
 
 
@@ -263,14 +263,14 @@ def source_checks_to_run(apps: list[dict[str, str]], existing: dict, max_checks:
         keys = [
             key
             for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl")
-            if not is_final_source_url(key, existing_app.get(key, ""))
+            if not is_final_source_url(key, existing_app.get(key, ""), app.get("package_name", ""))
         ]
         if not keys:
             if not app.get("apk_types") and not has_specific_apk_types(existing_app.get("apk-types", "")):
                 keys = [
                     key
                     for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl")
-                    if is_final_source_url(key, existing_app.get(key, ""))
+                    if is_final_source_url(key, existing_app.get(key, ""), app.get("package_name", ""))
                 ][:1]
             if not keys:
                 continue
@@ -306,14 +306,17 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
         for key in source_keys:
             resolver = sources[key]
             existing_url = existing.get(key, "")
-            if is_final_source_url(key, existing_url):
-                resolved[key] = str(existing_url)
-                if not app.get("apk_types") and not has_specific_apk_types(existing.get("apk-types", "")):
-                    apk_types = infer_existing_source_apk_types(key, str(existing_url), session, timeout)
-                    if apk_types:
+            if is_final_source_url(key, existing_url, package_name):
+                valid, apk_types = validate_existing_source_url(key, str(existing_url), package_name, session, timeout)
+                if valid:
+                    resolved[key] = str(existing_url)
+                    if apk_types and not app.get("apk_types") and not has_specific_apk_types(existing.get("apk-types", "")):
                         resolved["apk_types"] = apk_types
-                print(f"[{app['id']}] kept existing {key}: {resolved[key]}")
-                continue
+                    print(f"[{app['id']}] kept existing {key}: {resolved[key]}")
+                    continue
+                print(f"[{app['id']}] existing {key} did not match package {package_name}; resolving again: {existing_url}")
+            elif isinstance(existing_url, str) and existing_url:
+                print(f"[{app['id']}] dropping non-final {key}: {existing_url}")
             try:
                 url, apk_types = resolver(package_name, session, timeout)
             except requests.RequestException as error:
@@ -373,19 +376,24 @@ def resolve_apkpure_url(package_name: str, session, timeout: int) -> tuple[str, 
     return final_url, infer_apkpure_apk_types(response.text)
 
 
-def infer_existing_source_apk_types(key: str, url: str, session, timeout: int) -> str:
+def validate_existing_source_url(key: str, url: str, package_name: str, session, timeout: int) -> tuple[bool, str]:
     try:
         html = fetch_text(session, url.rstrip("/") + "/download" if key == "uptodown-dlurl" else url, timeout)
     except Exception as error:
-        print(f"Could not infer apk type from {url}: {error}")
-        return ""
+        print(f"Could not validate {url}: {error}")
+        return True, ""
     if key == "apkmirror-dlurl":
-        return infer_apkmirror_apk_types(html)
+        return apkmirror_page_matches_package(html, package_name), infer_apkmirror_apk_types(html)
     if key == "uptodown-dlurl":
-        return infer_uptodown_apk_types(html)
+        return package_name in html, infer_uptodown_apk_types(html)
     if key == "apkpure-dlurl":
-        return infer_apkpure_apk_types(html)
-    return ""
+        return apkpure_url_matches_package(url, package_name) or package_name in html, infer_apkpure_apk_types(html)
+    return True, ""
+
+
+def apkmirror_page_matches_package(html: str, package_name: str) -> bool:
+    found = re.search(r'id=([^"\s]+)" class="accent_color', html)
+    return bool(found and found.group(1) == package_name)
 
 
 def has_specific_apk_types(value: object) -> bool:
@@ -502,16 +510,22 @@ def unique(values: list[str]) -> list[str]:
     return result
 
 
-def is_final_source_url(key: str, url: object) -> bool:
+def is_final_source_url(key: str, url: object, package_name: str = "") -> bool:
     if not isinstance(url, str) or not url:
         return False
     if key == "apkmirror-dlurl":
-        return "apkmirror.com/apk/" in url
+        return "apkmirror.com/apk/" in url and "?" not in url
     if key == "uptodown-dlurl":
         return ".en.uptodown.com/android" in url and "/search" not in url
     if key == "apkpure-dlurl":
-        return "apkpure.com/" in url and "/apk-info/" not in url
+        return "apkpure.com/" in url and "/apk-info/" not in url and apkpure_url_matches_package(url, package_name)
     return False
+
+
+def apkpure_url_matches_package(url: str, package_name: str) -> bool:
+    if not package_name:
+        return True
+    return url.rstrip("/").endswith("/" + package_name)
 
 
 def apkmirror_search_url(package_name: str) -> str:
