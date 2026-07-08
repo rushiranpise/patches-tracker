@@ -16,7 +16,7 @@ permissions:
 jobs:
   sync-config:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 180
     steps:
       - name: Checkout tracker
         uses: actions/checkout@v4

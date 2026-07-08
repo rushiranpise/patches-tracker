@@ -19,7 +19,7 @@ jobs:
   generate-source-config:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 180
     services:
       flaresolverr:
         image: ghcr.io/flaresolverr/flaresolverr:latest
