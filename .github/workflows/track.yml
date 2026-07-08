@@ -22,7 +22,7 @@ permissions:
 jobs:
   track:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 180
     services:
       flaresolverr:
         image: ghcr.io/flaresolverr/flaresolverr:latest
