@@ -338,6 +338,9 @@ def resolve_apkmirror_url(package_name: str, session, timeout: int) -> tuple[str
 
     search_url = apkmirror_search_url(package_name)
     html = fetch_text(session, search_url, timeout)
+    results = re.search(r'"arch_results":"(\d+)"', html)
+    if results and results.group(1) == "0":
+        return "", ""
     for path in unique(re.findall(r'href=["\'](/apk/[^"\']+?/[^"\']+?/)', html)):
         app_url = "https://www.apkmirror.com" + path
         try:
