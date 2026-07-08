@@ -1046,6 +1046,18 @@ uptodown-dlurl = "https://migraconnect.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/migraconnect-case-tracker/com.tecso.MigraConnect"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tecso.MigraConnect/"
 
+[police-scanner]
+enabled = true
+app-name = "Police Scanner"
+package-name = "police.scanner.radio.broadcastify.citizen"
+constant = "POLICESCANNER_COMPATIBILITY"
+current-version = "1.29.0-260420093"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/"
+
 [camscanner]
 enabled = true
 app-name = "CamScanner"
@@ -1308,7 +1320,7 @@ current-version = "7.2"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apks"
+apk-types = "apk xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.androholic.amoledpix/"
 
 [apkmirror-installer]
@@ -1356,7 +1368,7 @@ current-version = "8.14"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apks"
+apk-types = "apk xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/au.com.shiftyjelly.pocketcasts/"
 
 [sticker-maker]
@@ -1368,7 +1380,7 @@ current-version = "1.0.10-5"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apks"
+apk-types = "apk xapk apks"
 apkcombo-dlurl = "https://apkcombo.com/search/com.marsvard.stickermakerforwhatsapp/"
 
 [subway-now]
