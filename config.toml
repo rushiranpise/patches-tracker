@@ -178,7 +178,7 @@ enabled = true
 app-name = "Photo Editor"
 package-name = "com.iudesk.android.photo.editor"
 constant = "PHOTOEDITOR_COMPATIBILITY"
-current-version = "13.3.1"
+current-version = "13.4"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -296,7 +296,7 @@ enabled = true
 app-name = "Proxyman"
 package-name = "com.proxyman.proxymanandroid"
 constant = "PROXYMAN_COMPATIBILITY"
-current-version = "1.16.0"
+current-version = "1.18.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -609,7 +609,7 @@ enabled = true
 app-name = "Flightradar24"
 package-name = "com.flightradar24free"
 constant = "FLIGHTRADAR_COMPATIBILITY"
-current-version = "11.6.1"
+current-version = "11.7.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -690,18 +690,30 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/windscribe/windscribe-vpn/"
 uptodown-dlurl = "https://windscribe.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.windscribe.vpn/"
 
+[moviebox]
+enabled = true
+app-name = "MovieBox"
+package-name = "com.community.oneroom"
+constant = "MOVIEBOX_COMPATIBILITY"
+current-version = "3.0.16.0703.03"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.community.oneroom/"
+
 [moviebox-tv]
 enabled = true
 app-name = "MovieBox TV"
-package-name = "com.community.oneroom"
+package-name = "com.community.mbox.tv"
 constant = "MOVIEBOXTV_COMPATIBILITY"
-current-version = "3.0.15.0616.03"
+current-version = "1.1.1.0702.03"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
 uptodown-dlurl = "https://com-community-oneroom.en.uptodown.com/android"
-apkcombo-dlurl = "https://apkcombo.com/search/com.community.oneroom/"
+apkcombo-dlurl = "https://apkcombo.com/search/com.community.mbox.tv/"
 
 [the-weather-channel]
 enabled = true
@@ -723,7 +735,7 @@ enabled = true
 app-name = "Ninja VPN"
 package-name = "app.ninjavpn.android"
 constant = "NINJVAPN_COMPATIBILITY"
-current-version = "1.4.6"
+current-version = "1.4.7"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -746,20 +758,6 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/azsoft-technology-inc/1tap-clea
 uptodown-dlurl = "https://1tap-cleaner.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/1tap-cleaner-clear-cache/com.a0soft.gphone.acc.free"
 apkcombo-dlurl = "https://apkcombo.com/search/com.a0soft.gphone.acc.free/"
-
-[strength-training]
-enabled = true
-app-name = "Strength Training"
-package-name = "air.com.musclemotion.strength.mobile"
-constant = "STRENGTHTRAINING_COMPATIBILITY"
-current-version = "3.5.0"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "apk xapk apks"
-uptodown-dlurl = "https://strength-training.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/muscle-motion-strength/air.com.musclemotion.strength.mobile"
-apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.strength.mobile/"
 
 [windy]
 enabled = true
@@ -796,7 +794,7 @@ enabled = true
 app-name = "Posture"
 package-name = "air.com.musclemotion.posture"
 constant = "POSTURE_COMPATIBILITY"
-current-version = "3.2.0"
+current-version = "3.2.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -851,13 +849,27 @@ enabled = true
 app-name = "Anatomy"
 package-name = "air.com.musclemotion.anatomy"
 constant = "ANATOMY_COMPATIBILITY"
-current-version = "3.2.0"
+current-version = "3.2.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
 apkpure-dlurl = "https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.anatomy/"
+
+[strength-training]
+enabled = true
+app-name = "Strength Training"
+package-name = "air.com.musclemotion.strength.mobile"
+constant = "STRENGTHTRAINING_COMPATIBILITY"
+current-version = "3.5.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+uptodown-dlurl = "https://strength-training.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/muscle-motion-strength/air.com.musclemotion.strength.mobile"
+apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.strength.mobile/"
 
 [citymapper]
 enabled = true
@@ -879,7 +891,7 @@ enabled = true
 app-name = "Moovit"
 package-name = "com.tranzmate"
 constant = "TRANZMATE_COMPATIBILITY"
-current-version = "5.195.0.1789"
+current-version = "5.195.2.1792"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -1063,7 +1075,7 @@ enabled = true
 app-name = "CamScanner"
 package-name = "com.intsig.camscanner"
 constant = "CAMSCANNER_COMPATIBILITY"
-current-version = "7.20.0.2606230000"
+current-version = "7.20.5.2606250000"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -1163,7 +1175,7 @@ enabled = true
 app-name = "Toxly"
 package-name = "com.mindful.code.studio.toxly.scanner"
 constant = "TOXLY_COMPATIBILITY"
-current-version = "1.15.3"
+current-version = "1.16.6"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -1312,6 +1324,18 @@ apk-types = "apk xapk apks"
 uptodown-dlurl = "https://amazon-shopping.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.amazon.mShop.android.shopping/"
 
+[amazon-india]
+enabled = true
+app-name = "Amazon India"
+package-name = "in.amazon.mShop.android.shopping"
+constant = "AMAZON_IN_COMPATIBILITY"
+current-version = "32.12.4.300"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/in.amazon.mShop.android.shopping/"
+
 [amoledpix]
 enabled = true
 app-name = "AmoledPix"
@@ -1451,3 +1475,231 @@ dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
 uptodown-dlurl = "https://viz-manga.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.vizmanga.android/"
+
+[excel]
+enabled = true
+app-name = "Excel"
+package-name = "com.microsoft.office.excel"
+constant = "EXCEL_COMPATIBILITY"
+current-version = "16.0.20131.20080"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.microsoft.office.excel/"
+
+[word]
+enabled = true
+app-name = "Word"
+package-name = "com.microsoft.office.word"
+constant = "WORD_COMPATIBILITY"
+current-version = "16.0.20131.20080"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.microsoft.office.word/"
+
+[aiscore]
+enabled = true
+app-name = "AiScore"
+package-name = "com.onesports.score"
+constant = "AISCORE_COMPATIBILITY"
+current-version = "4.2.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.onesports.score/"
+
+[amboss]
+enabled = true
+app-name = "AMBOSS"
+package-name = "com.amboss.medical.knowledge"
+constant = "AMBOSS_COMPATIBILITY"
+current-version = "2.115.1.4408"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.amboss.medical.knowledge/"
+
+[blurams]
+enabled = true
+app-name = "Blurams"
+package-name = "com.blurams.ipc"
+constant = "BLURAMS_COMPATIBILITY"
+current-version = "5.1049.4.908"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.blurams.ipc/"
+
+[carousell]
+enabled = true
+app-name = "Carousell"
+package-name = "com.thecarousell.Carousell"
+constant = "CAROUSELL_COMPATIBILITY"
+current-version = "2.461.8"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.thecarousell.Carousell/"
+
+[duolingo]
+enabled = true
+app-name = "Duolingo"
+package-name = "com.duolingo"
+constant = "DUOLINGO_COMPATIBILITY"
+current-version = "6.87.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.duolingo/"
+
+[flightsky]
+enabled = true
+app-name = "Flightsky"
+package-name = "com.live.flight.tracker"
+constant = "FLIGHTSKY_COMPATIBILITY"
+current-version = "1.7.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.live.flight.tracker/"
+
+[flightaware]
+enabled = true
+app-name = "FlightAware"
+package-name = "com.flightaware.android.liveFlightTracker"
+constant = "FLIGHTAWARE_COMPATIBILITY"
+current-version = "5.15.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/"
+
+[historical-calendar]
+enabled = true
+app-name = "Historical Calendar"
+package-name = "com.alexandrucene.dayhistory"
+constant = "HISTORICALCALENDAR_COMPATIBILITY"
+current-version = "7.5.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.alexandrucene.dayhistory/"
+
+[jefit]
+enabled = true
+app-name = "JEFIT"
+package-name = "je.fit"
+constant = "JEFIT_COMPATIBILITY"
+current-version = "17.1.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/je.fit/"
+
+[livescore]
+enabled = true
+app-name = "LiveScore"
+package-name = "com.livescore"
+constant = "LIVESCORE_COMPATIBILITY"
+current-version = "9.7.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.livescore/"
+
+[myradar]
+enabled = true
+app-name = "MyRadar"
+package-name = "com.acmeaom.android.myradar"
+constant = "MYRADAR_COMPATIBILITY"
+current-version = "8.71.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.acmeaom.android.myradar/"
+
+[pocket-prep]
+enabled = true
+app-name = "Pocket Prep"
+package-name = "com.pocketprep.android.itcybersecurity"
+constant = "POCKETPREP_COMPATIBILITY"
+current-version = "3.27.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.itcybersecurity/"
+
+[recipebro]
+enabled = true
+app-name = "RecipeBro"
+package-name = "com.recipebro.cookingbuddy"
+constant = "RECIPEBRO_COMPATIBILITY"
+current-version = "1.3.74"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.recipebro.cookingbuddy/"
+
+[scrl]
+enabled = true
+app-name = "SCRL"
+package-name = "com.appostrophe.scrl"
+constant = "SCRL_COMPATIBILITY"
+current-version = "1.21"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.appostrophe.scrl/"
+
+[sticker-ly]
+enabled = true
+app-name = "Sticker.ly"
+package-name = "com.snowcorp.stickerly.android"
+constant = "STICKERLY_COMPATIBILITY"
+current-version = "3.35.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.snowcorp.stickerly.android/"
+
+[tradingview]
+enabled = true
+app-name = "TradingView"
+package-name = "com.tradingview.tradingviewapp"
+constant = "TRADINGVIEW_COMPATIBILITY"
+current-version = "1.20.77.0.1002295"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.tradingview.tradingviewapp/"
+
+[wolframalpha]
+enabled = true
+app-name = "WolframAlpha"
+package-name = "com.wolfram.android.alphapro"
+constant = "WOLFRAMALPHA_COMPATIBILITY"
+current-version = "1.0.8.20260601651"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.wolfram.android.alphapro/"
