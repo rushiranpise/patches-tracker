@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-08T12:46:38.318279+00:00",
+  "checked_at": "2026-07-09T02:38:56.121075+00:00",
   "shard_index": 0,
   "shard_total": 1,
   "app_count": 102,
@@ -478,12 +478,12 @@
       "name": "Speedtest",
       "package_name": "org.zwanoo.android.speedtest",
       "current_version": "7.0.6",
-      "candidate_version": "7.0.6",
-      "version_code": null,
+      "candidate_version": "7.0.7",
+      "version_code": "258530",
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": null
+      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/speedtest/speedtest-patched-7.0.7-candidate.apk"
     },
     {
       "id": "social-gamebox",
@@ -549,36 +549,36 @@
       "id": "accuweather",
       "name": "AccuWeather",
       "package_name": "com.accuweather.android",
-      "current_version": "21.1.12-2-rc",
+      "current_version": "21.1.13-1-rc",
       "candidate_version": "21.1.13-1-rc",
-      "version_code": "210113001",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/accuweather/accuweather-patched-21.1.13-1-rc-candidate.apk"
+      "artifact": null
     },
     {
       "id": "windscribe-vpn",
       "name": "Windscribe VPN",
       "package_name": "com.windscribe.vpn",
-      "current_version": "4.1.2284",
+      "current_version": "4.2.2326",
       "candidate_version": "4.2.2326",
-      "version_code": "2326",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/windscribe-vpn/windscribe-vpn-patched-4.2.2326-candidate.apk"
+      "artifact": null
     },
     {
       "id": "moviebox-tv",
       "name": "MovieBox TV",
       "package_name": "com.community.oneroom",
       "current_version": "3.0.15.0616.03",
-      "candidate_version": "3.0.16.0703.03",
-      "version_code": "50020113",
+      "candidate_version": "3.0.16.0708.03",
+      "version_code": "50020115",
       "ok": false,
       "failure_type": "fingerprint",
-      "log_excerpt": "oke$1.invoke(Patcher.kt)\n\tat kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)\n\tat kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)\n\tat app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)\n\tat kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)\n\tat kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)\n\tat kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)\n\tat kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)\n\tat app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)\n\tat app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)\n\tat picocli.CommandLine.executeUserObject(CommandLine.java:2031)\n\tat picocli.CommandLine.access$1500(CommandLine.java:148)\n\tat picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2461)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2423)\n\tat picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)\n\tat picocli.CommandLine$RunLast.execute(CommandLine.java:2425)\n\tat picocli.CommandLine.execute(CommandLine.java:2174)\n\tat app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)\n \nSEVERE: Patching aborted: FAILED: Spoof member provider flags \n",
+      "log_excerpt": "voke$1.invoke(Patcher.kt)\n\tat kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)\n\tat kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)\n\tat app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)\n\tat kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)\n\tat kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)\n\tat kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)\n\tat kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)\n\tat app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)\n\tat app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)\n\tat picocli.CommandLine.executeUserObject(CommandLine.java:2031)\n\tat picocli.CommandLine.access$1500(CommandLine.java:148)\n\tat picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2461)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2423)\n\tat picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)\n\tat picocli.CommandLine$RunLast.execute(CommandLine.java:2425)\n\tat picocli.CommandLine.execute(CommandLine.java:2174)\n\tat app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)\n \nSEVERE: Patching aborted: FAILED: Bypass member rights check \n",
       "artifact": null
     },
     {
@@ -693,13 +693,13 @@
       "id": "yoga",
       "name": "Yoga",
       "package_name": "air.com.musclemotion.yoga",
-      "current_version": "3.2.0",
+      "current_version": "3.2.1",
       "candidate_version": "3.2.1",
       "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/yoga/yoga-patched-3.2.1-candidate.apk"
+      "artifact": null
     },
     {
       "id": "anatomy",
@@ -849,13 +849,13 @@
       "id": "lawfully",
       "name": "Lawfully",
       "package_name": "com.lawfully.lawfully_ai_tracker",
-      "current_version": "6.6.2",
+      "current_version": "6.7.1",
       "candidate_version": "6.7.1",
-      "version_code": "534",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/lawfully/lawfully-patched-6.7.1-candidate.apk"
+      "artifact": null
     },
     {
       "id": "migraconnect",
@@ -1221,13 +1221,13 @@
       "id": "viz-manga",
       "name": "VIZ Manga",
       "package_name": "com.vizmanga.android",
-      "current_version": "4.13.5",
+      "current_version": "4.14.0",
       "candidate_version": "4.14.0",
-      "version_code": "232",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/viz-manga/viz-manga-patched-4.14.0.apk"
+      "artifact": null
     }
   ]
 }

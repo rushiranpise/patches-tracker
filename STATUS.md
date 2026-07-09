@@ -46,15 +46,15 @@ Failed: 26
 | App Permission Manager | `com.shexa.permissionmanager` | `3.4.6.2` | `3.4.6.2` |  | OK |  |
 | Hola VPN Proxy Plus | `org.hola.play` | `AARCH64_1.248.400` | `AARCH64_1.248.400` |  | OK |  |
 | Psiphon Pro | `com.psiphon3.subscription` | `479` | `479` |  | OK |  |
-| Speedtest | `org.zwanoo.android.speedtest` | `7.0.6` | `7.0.6` |  | OK |  |
+| Speedtest | `org.zwanoo.android.speedtest` | `7.0.6` | `7.0.7` | `258530` | OK |  |
 | Social Gamebox | `com.app.social_gamebox` | `1.1.3` | `latest` |  | FAILED | version_resolve |
 | Flightradar24 | `com.flightradar24free` | `11.6.1` | `11.7.0` | `110708450` | FAILED | fingerprint |
 | Cashew | `com.budget.tracker_app` | `6.5.9` | `6.5.9` |  | OK |  |
 | Rocket Money | `com.truebill` | `13.15.0` | `15.0.0` | `13361` | FAILED | fingerprint |
 | Waze | `com.waze` | `5.21.0.0` | `5.21.0.0` |  | OK |  |
-| AccuWeather | `com.accuweather.android` | `21.1.12-2-rc` | `21.1.13-1-rc` | `210113001` | OK |  |
-| Windscribe VPN | `com.windscribe.vpn` | `4.1.2284` | `4.2.2326` | `2326` | OK |  |
-| MovieBox TV | `com.community.oneroom` | `3.0.15.0616.03` | `3.0.16.0703.03` | `50020113` | FAILED | fingerprint |
+| AccuWeather | `com.accuweather.android` | `21.1.13-1-rc` | `21.1.13-1-rc` |  | OK |  |
+| Windscribe VPN | `com.windscribe.vpn` | `4.2.2326` | `4.2.2326` |  | OK |  |
+| MovieBox TV | `com.community.oneroom` | `3.0.15.0616.03` | `3.0.16.0708.03` | `50020115` | FAILED | fingerprint |
 | The Weather Channel | `com.weather.Weather` | `16.12.0` | `16.12.0` |  | OK |  |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.6` | `1.4.7` | `44` | FAILED | fingerprint |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.18` | `5.19` |  | FAILED | fingerprint |
@@ -64,7 +64,7 @@ Failed: 26
 | Posture | `air.com.musclemotion.posture` | `3.2.0` | `3.2.0` |  | OK |  |
 | Kyphosis | `air.com.musclemotion.kyphosis` | `1.4.9` | `1.4.9` |  | OK |  |
 | Workout | `air.com.musclemotion.workout` | `1.2.0` | `latest` |  | FAILED | version_resolve |
-| Yoga | `air.com.musclemotion.yoga` | `3.2.0` | `3.2.1` |  | OK |  |
+| Yoga | `air.com.musclemotion.yoga` | `3.2.1` | `3.2.1` |  | OK |  |
 | Anatomy | `air.com.musclemotion.anatomy` | `3.2.0` | `latest` |  | FAILED | version_resolve |
 | Citymapper | `com.citymapper.app.release` | `11.55.1` | `11.55.1` |  | OK |  |
 | Moovit | `com.tranzmate` | `5.195.0.1789` | `5.195.2.1792` | `1792` | FAILED | fingerprint |
@@ -77,7 +77,7 @@ Failed: 26
 | Scoopz | `com.localaiapp.scoops` | `3.28.0` | `3.28.0` |  | OK |  |
 | NewsBreak | `com.particlenews.newsbreak` | `26.27.0` | `26.27.0` |  | OK |  |
 | Inmigreat | `com.changayaf.inmigreat` | `2.2.83` | `2.2.83` |  | OK |  |
-| Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.6.2` | `6.7.1` | `534` | OK |  |
+| Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.7.1` | `6.7.1` |  | OK |  |
 | MigraConnect | `com.tecso.MigraConnect` | `2.8.1` | `2.8.1` |  | OK |  |
 | Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `latest` |  | FAILED | version_resolve |
 | CamScanner | `com.intsig.camscanner` | `7.20.0.2606230000` | `7.21.0.2607020000` | `72101` | FAILED | fingerprint |
@@ -108,7 +108,7 @@ Failed: 26
 | TrackChecker Mobile | `com.metalsoft.trackchecker_mobile` | `2.29.3` | `2.29.3` |  | OK |  |
 | Fitbod | `com.fitbod.fitbod` | `8.24.0-1` | `8.24.0-1` |  | OK |  |
 | Toomics | `com.toomics.global.google` | `1.6.7` | `1.6.7` |  | OK |  |
-| VIZ Manga | `com.vizmanga.android` | `4.13.5` | `4.14.0` | `232` | OK |  |
+| VIZ Manga | `com.vizmanga.android` | `4.14.0` | `4.14.0` |  | OK |  |
 
 ## Failure Logs
 
@@ -382,7 +382,7 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 <details><summary>MovieBox TV log excerpt</summary>
 
 ````text
-oke$1.invoke(Patcher.kt)
+voke$1.invoke(Patcher.kt)
 	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
 	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
 	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
@@ -410,7 +410,7 @@ oke$1.invoke(Patcher.kt)
 	at picocli.CommandLine.execute(CommandLine.java:2174)
 	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
  
-SEVERE: Patching aborted: FAILED: Spoof member provider flags 
+SEVERE: Patching aborted: FAILED: Bypass member rights check 
 
 ````
 
