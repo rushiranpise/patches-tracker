@@ -1,9 +1,9 @@
 # Patch Tracker Status
 
 Shard: 1/1
-Checked apps: 102
-Successful: 76
-Failed: 26
+Checked apps: 123
+Successful: 96
+Failed: 27
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -18,7 +18,7 @@ Failed: 26
 | Pialytic | `verbosus.pialytic` | `1.2.8` | `latest` |  | FAILED | version_resolve |
 | Snipd | `ai.topicfinder.podcastdiscovery` | `4.1.14` | `4.1.14` |  | OK |  |
 | Stargazing Hub | `com.twtapp` | `3.3.1` | `latest` |  | FAILED | version_resolve |
-| Photo Editor | `com.iudesk.android.photo.editor` | `13.3.1` | `13.4` | `2026070800` | FAILED | fingerprint |
+| Photo Editor | `com.iudesk.android.photo.editor` | `13.4` | `13.4` |  | OK |  |
 | ML Manager | `com.javiersantos.mlmanager` | `5.0` | `5.0` |  | OK |  |
 | Beta Maniac | `it.mirko.beta` | `0.9.4` | `0.9.4` |  | OK |  |
 | Hibernator | `com.tafayor.hibernator` | `2.56.10` | `2.56.10` |  | OK |  |
@@ -26,14 +26,14 @@ Failed: 26
 | RAR | `com.rarlab.rar` | `7.23.build133` | `7.23.build133` |  | OK |  |
 | m-Indicator | `com.mobond.mindicator` | `18.0.356` | `18.0.356` |  | OK |  |
 | Yatri | `com.yatrirailways.yatri` | `5.0.4` | `5.0.4` |  | OK |  |
-| Proxyman | `com.proxyman.proxymanandroid` | `1.16.0` | `latest` |  | FAILED | version_resolve |
+| Proxyman | `com.proxyman.proxymanandroid` | `1.18.0` | `latest` |  | FAILED | version_resolve |
 | SHAREit Premium | `shareit.premium` | `1.1.98` | `1.1.98` |  | OK |  |
 | NetMonster | `cz.mroczis.netmonster` | `3.4.1` | `3.4.1` |  | OK |  |
 | TeraBox | `com.dubox.drive` | `4.20.1` | `4.20.1` |  | OK |  |
 | SAI | `com.mtv.sai` | `2.2.8` | `latest` |  | FAILED | version_resolve |
 | BlockerHero | `com.blockerhero` | `1.5.0` | `1.5.0` |  | OK |  |
 | nzb360 | `com.kevinforeman.nzb360` | `23.5` | `23.5` |  | OK |  |
-| Canva | `com.canva.editor` | `2.367.0` | `2.367.0` |  | OK |  |
+| Canva | `com.canva.editor` | `2.367.0` | `2.368.0` |  | FAILED | download |
 | Clickmate | `com.inscode.autoclicker` | `7.1.4` | `7.1.4` |  | OK |  |
 | NetGuard | `eu.faircode.netguard` | `2.335` | `2.335` |  | OK |  |
 | AdGuard Nightly | `com.adguard.android` | `4.14.68` | `4.14.68` |  | OK |  |
@@ -46,28 +46,29 @@ Failed: 26
 | App Permission Manager | `com.shexa.permissionmanager` | `3.4.6.2` | `3.4.6.2` |  | OK |  |
 | Hola VPN Proxy Plus | `org.hola.play` | `AARCH64_1.248.400` | `AARCH64_1.248.400` |  | OK |  |
 | Psiphon Pro | `com.psiphon3.subscription` | `479` | `479` |  | OK |  |
-| Speedtest | `org.zwanoo.android.speedtest` | `7.0.6` | `7.0.7` | `258530` | OK |  |
+| Speedtest | `org.zwanoo.android.speedtest` | `7.0.7` | `7.0.7` |  | OK |  |
 | Social Gamebox | `com.app.social_gamebox` | `1.1.3` | `latest` |  | FAILED | version_resolve |
-| Flightradar24 | `com.flightradar24free` | `11.6.1` | `11.7.0` | `110708450` | FAILED | fingerprint |
+| Flightradar24 | `com.flightradar24free` | `11.7.0` | `11.7.0` |  | OK |  |
 | Cashew | `com.budget.tracker_app` | `6.5.9` | `6.5.9` |  | OK |  |
 | Rocket Money | `com.truebill` | `13.15.0` | `15.0.0` | `13361` | FAILED | fingerprint |
 | Waze | `com.waze` | `5.21.0.0` | `5.21.0.0` |  | OK |  |
 | AccuWeather | `com.accuweather.android` | `21.1.13-1-rc` | `21.1.13-1-rc` |  | OK |  |
-| Windscribe VPN | `com.windscribe.vpn` | `4.2.2326` | `4.2.2326` |  | OK |  |
-| MovieBox TV | `com.community.oneroom` | `3.0.15.0616.03` | `3.0.16.0708.03` | `50020115` | FAILED | fingerprint |
+| Windscribe VPN | `com.windscribe.vpn` | `4.2.2326` | `4.2.2328` | `2328` | OK |  |
+| MovieBox | `com.community.oneroom` | `3.0.16.0703.03` | `3.0.16.0708.03` | `50020115` | FAILED | fingerprint |
+| MovieBox TV | `com.community.mbox.tv` | `1.1.1.0702.03` | `3.0.16.0708.03` | `50020115` | FAILED | signing |
 | The Weather Channel | `com.weather.Weather` | `16.12.0` | `16.12.0` |  | OK |  |
-| Ninja VPN | `app.ninjavpn.android` | `1.4.6` | `1.4.7` | `44` | FAILED | fingerprint |
+| Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.7` |  | OK |  |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.18` | `5.19` |  | FAILED | fingerprint |
-| Strength Training | `air.com.musclemotion.strength.mobile` | `3.5.0` | `3.5.1` | `924` | FAILED | fingerprint |
 | Windy | `com.windyty.android` | `50.1.1` | `50.1.1` |  | OK |  |
 | TomTom GO | `com.tomtom.gplay.navapp` | `3.6.316-beta` | `3.6.316-beta` |  | OK |  |
-| Posture | `air.com.musclemotion.posture` | `3.2.0` | `3.2.0` |  | OK |  |
+| Posture | `air.com.musclemotion.posture` | `3.2.1` | `3.2.1` |  | OK |  |
 | Kyphosis | `air.com.musclemotion.kyphosis` | `1.4.9` | `1.4.9` |  | OK |  |
 | Workout | `air.com.musclemotion.workout` | `1.2.0` | `latest` |  | FAILED | version_resolve |
 | Yoga | `air.com.musclemotion.yoga` | `3.2.1` | `3.2.1` |  | OK |  |
-| Anatomy | `air.com.musclemotion.anatomy` | `3.2.0` | `latest` |  | FAILED | version_resolve |
+| Anatomy | `air.com.musclemotion.anatomy` | `3.2.1` | `latest` |  | FAILED | version_resolve |
+| Strength Training | `air.com.musclemotion.strength.mobile` | `3.5.1` | `3.5.1` |  | OK |  |
 | Citymapper | `com.citymapper.app.release` | `11.55.1` | `11.55.1` |  | OK |  |
-| Moovit | `com.tranzmate` | `5.195.0.1789` | `5.195.2.1792` | `1792` | FAILED | fingerprint |
+| Moovit | `com.tranzmate` | `5.195.2.1792` | `5.195.2.1792` |  | OK |  |
 | Transit | `com.thetransitapp.droid` | `6.1.12` | `6.1.12` |  | OK |  |
 | UDisc | `com.regasoftware.udisc` | `24.2.1` | `24.2.1` |  | OK |  |
 | Snow-Forecast.com | `com.snow_forecast.snowforecast` | `8.0.6` | `8.0.6` |  | OK |  |
@@ -80,14 +81,14 @@ Failed: 26
 | Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.7.1` | `6.7.1` |  | OK |  |
 | MigraConnect | `com.tecso.MigraConnect` | `2.8.1` | `2.8.1` |  | OK |  |
 | Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `latest` |  | FAILED | version_resolve |
-| CamScanner | `com.intsig.camscanner` | `7.20.0.2606230000` | `7.21.0.2607020000` | `72101` | FAILED | fingerprint |
+| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.21.0.2607020000` | `72101` | FAILED | fingerprint |
 | Image & Video Date Fixer | `eu.duong.imagedatefixer` | `3.7.1` | `3.7.1` |  | OK |  |
 | Rename & Organize | `eu.duong.picturemanager` | `8.25.1` | `8.25.1` |  | OK |  |
 | Inure App Manager | `app.simple.inure.play` | `build107.0.5` | `build107.0.5` |  | OK |  |
 | Weawow: Weather & Widget | `com.weawow` | `7.1.7` | `7.1.7` |  | OK |  |
 | SPIN | `com.nationaledtech.spinbrowser` | `70.3.0` | `70.3.0` |  | OK |  |
 | Tracked | `com.tracked.mobile` | `7.0.0` | `latest` |  | FAILED | version_resolve |
-| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.15.3` | `latest` |  | FAILED | version_resolve |
+| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.16.6` | `latest` |  | FAILED | version_resolve |
 | All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `3.2.3` | `latest` |  | FAILED | version_resolve |
 | Genius Scan | `com.thegrizzlylabs.geniusscan.free` | `7.40.0` | `7.40.0` |  | OK |  |
 | KineStop | `com.urbandroid.kinestop` | `5.1` | `5.1` |  | OK |  |
@@ -98,6 +99,7 @@ Failed: 26
 | PictureThis - Plant Identifier | `cn.danatech.xingseus` | `5.29.0` | `5.29.0` |  | OK |  |
 | Picture Mushroom - Mushroom ID | `com.glority.picturemushroom` | `2.9.31` | `2.9.31` |  | OK |  |
 | Amazon Shopping | `com.amazon.mShop.android.shopping` | `32.12.4.100` | `32.12.4.100` |  | OK |  |
+| Amazon India | `in.amazon.mShop.android.shopping` | `32.12.4.300` | `32.12.4.300` |  | OK |  |
 | AmoledPix | `com.androholic.amoledpix` | `7.2` | `latest` |  | FAILED | version_resolve |
 | APKMirror Installer | `com.apkmirror.helper.prod` | `2.0.3 (41-d04e542)` | `2.0.3 (41-d04e542)` |  | OK |  |
 | Block Puzzle | `game.puzzle.blockpuzzle` | `6.0` | `6.0` |  | OK |  |
@@ -109,6 +111,25 @@ Failed: 26
 | Fitbod | `com.fitbod.fitbod` | `8.24.0-1` | `8.24.0-1` |  | OK |  |
 | Toomics | `com.toomics.global.google` | `1.6.7` | `1.6.7` |  | OK |  |
 | VIZ Manga | `com.vizmanga.android` | `4.14.0` | `4.14.0` |  | OK |  |
+| Excel | `com.microsoft.office.excel` | `16.0.20131.20080` | `16.0.20131.20080` |  | OK |  |
+| Word | `com.microsoft.office.word` | `16.0.20131.20080` | `16.0.20131.20080` |  | OK |  |
+| AiScore | `com.onesports.score` | `4.2.4` | `4.2.4` |  | OK |  |
+| AMBOSS | `com.amboss.medical.knowledge` | `2.115.1.4408` | `latest` |  | FAILED | version_resolve |
+| Blurams | `com.blurams.ipc` | `5.1049.4.908` | `latest` |  | FAILED | version_resolve |
+| Carousell | `com.thecarousell.Carousell` | `2.461.8` | `2.461.8` |  | OK |  |
+| Duolingo | `com.duolingo` | `6.87.6` | `6.87.6` |  | OK |  |
+| Flightsky | `com.live.flight.tracker` | `1.7.1` | `1.7.1` |  | OK |  |
+| FlightAware | `com.flightaware.android.liveFlightTracker` | `5.15.4` | `latest` |  | FAILED | version_resolve |
+| Historical Calendar | `com.alexandrucene.dayhistory` | `7.5.4` | `7.5.4` |  | OK |  |
+| JEFIT | `je.fit` | `17.1.0` | `17.2.5` | `2002` | OK |  |
+| LiveScore | `com.livescore` | `9.7.1` | `9.7.1` |  | OK |  |
+| MyRadar | `com.acmeaom.android.myradar` | `8.71.2` | `8.71.2` |  | OK |  |
+| Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.27.2` |  | OK |  |
+| RecipeBro | `com.recipebro.cookingbuddy` | `1.3.74` | `latest` |  | FAILED | version_resolve |
+| SCRL | `com.appostrophe.scrl` | `1.21` | `1.22` | `256` | OK |  |
+| Sticker.ly | `com.snowcorp.stickerly.android` | `3.35.0` | `3.35.0` |  | OK |  |
+| TradingView | `com.tradingview.tradingviewapp` | `1.20.77.0.1002295` | `1.20.77.0.1002295` |  | OK |  |
+| WolframAlpha | `com.wolfram.android.alphapro` | `1.0.8.20260601651` | `1.0.8.20260601651` |  | OK |  |
 
 ## Failure Logs
 
@@ -159,43 +180,6 @@ curl: (22) The requested URL returned error: 403
 [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download
 
 Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Photo Editor log excerpt</summary>
-
-````text
-r.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
-	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
-	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
-	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
-	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
-	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
-	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
-	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
-	at picocli.CommandLine.access$1500(CommandLine.java:148)
-	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
-	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
-	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
-	at picocli.CommandLine.execute(CommandLine.java:2174)
-	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
- 
-SEVERE: Patching aborted: FAILED: Unlock Premium 
 
 ````
 
@@ -253,6 +237,20 @@ Timed out after 120s
 
 </details>
 
+<details><summary>Canva log excerpt</summary>
+
+````text
+[uptodown 2.368.0] [+] HTTP GET: https://canva.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://canva.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://canva.en.uptodown.com/android/apps/712532/versions/1 -> -
+[+] HTTP GET: https://canva.en.uptodown.com/android/download/1187327201 -> -
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://canva.en.uptodown.com/android/download/1187327201
+
+````
+
+</details>
+
 <details><summary>HTTP Sniffer log excerpt</summary>
 
 ````text
@@ -305,43 +303,6 @@ Timed out after 120s
 
 </details>
 
-<details><summary>Flightradar24 log excerpt</summary>
-
-````text
-$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
-	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
-	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
-	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
-	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
-	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
-	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
-	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
-	at picocli.CommandLine.access$1500(CommandLine.java:148)
-	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
-	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
-	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
-	at picocli.CommandLine.execute(CommandLine.java:2174)
-	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
- 
-SEVERE: Patching aborted: FAILED: Unlock Business Premium 
-
-````
-
-</details>
-
 <details><summary>Rocket Money log excerpt</summary>
 
 ````text
@@ -379,7 +340,7 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 
 </details>
 
-<details><summary>MovieBox TV log excerpt</summary>
+<details><summary>MovieBox log excerpt</summary>
 
 ````text
 voke$1.invoke(Patcher.kt)
@@ -416,38 +377,32 @@ SEVERE: Patching aborted: FAILED: Bypass member rights check
 
 </details>
 
-<details><summary>Ninja VPN log excerpt</summary>
+<details><summary>MovieBox TV log excerpt</summary>
 
 ````text
-r.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
-	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
-	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
-	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
-	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
-	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
-	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
-	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
-	at picocli.CommandLine.access$1500(CommandLine.java:148)
-	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
-	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
-	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
-	at picocli.CommandLine.execute(CommandLine.java:2174)
-	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
- 
-SEVERE: Patching aborted: FAILED: Unlock Premium 
+/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) 
+INFO: Loading patches... 
+INFO: Initializing patcher... 
+INFO: Filtering patches for com.community.oneroom v3.0.16.0708.03... 
+WARNING: Skipping "Bypass member rights check": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
+WARNING: Skipping "Spoof member active status": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
+WARNING: Skipping "Spoof member provider flags": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
+WARNING: Skipping "Spoof member days left": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
+WARNING: Skipping "Suppress newbie bonus dialog": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
+WARNING: Skipping "Unlock member resolution": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.tv 3.0.16.0708.03) 
+WARNING: Skipping "Clear VIP resolution tip": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.tv 3.0.16.0708.03) 
+INFO: Skipping disabled: Provide Original app certificate (default) 
+INFO: Skipping disabled: Spoof Widevine / DRM level (default) 
+INFO: Skipping disabled: Fix Firebase after re-signing (default) 
+INFO: Skipping disabled: GmsCore support (MicroG) (default) 
+INFO: Skipping disabled: Spoof install source (default) 
+INFO: Skipping disabled: Spoof app signature (default) 
+INFO: Applying 0 patches... 
+INFO: Executing patches 
+INFO: Compiling patched dex files (mode: NONE) 
+INFO: Aligning APK 
+INFO: Signing APK 
+INFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0708.03-candidate.apk 
 
 ````
 
@@ -485,43 +440,6 @@ tcher.Patcher$invoke$1.invoke(Patcher.kt)
 	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
  
 SEVERE: Patching aborted: FAILED: Unlock Pro 
-
-````
-
-</details>
-
-<details><summary>Strength Training log excerpt</summary>
-
-````text
-r.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
-	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
-	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
-	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
-	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
-	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
-	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
-	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
-	at picocli.CommandLine.access$1500(CommandLine.java:148)
-	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
-	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
-	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
-	at picocli.CommandLine.execute(CommandLine.java:2174)
-	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
- 
-SEVERE: Patching aborted: FAILED: Unlock Premium 
 
 ````
 
@@ -574,43 +492,6 @@ curl: (22) The requested URL returned error: 403
 [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.anatomy/download
 
 Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Moovit log excerpt</summary>
-
-````text
-r.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
-	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
-	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
-	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
-	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
-	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
-	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
-	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
-	at picocli.CommandLine.access$1500(CommandLine.java:148)
-	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
-	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
-	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
-	at picocli.CommandLine.execute(CommandLine.java:2174)
-	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
- 
-SEVERE: Patching aborted: FAILED: Unlock Moovit+ 
 
 ````
 
@@ -835,6 +716,78 @@ Timed out after 120s
 curl: (22) The requested URL returned error: 403
 [-] Request failed: https://apkcombo.com/search/io.goodservice.theweekendest/download
 [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/io.goodservice.theweekendest/download
+
+Timed out after 120s
+
+````
+
+</details>
+
+<details><summary>AMBOSS log excerpt</summary>
+
+````text
+[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.amboss.medical.knowledge/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.amboss.medical.knowledge/download
+[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.amboss.medical.knowledge/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.amboss.medical.knowledge/download after 1 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.amboss.medical.knowledge/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/com.amboss.medical.knowledge/download
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.amboss.medical.knowledge/download
+
+Timed out after 120s
+
+````
+
+</details>
+
+<details><summary>Blurams log excerpt</summary>
+
+````text
+[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.blurams.ipc/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.blurams.ipc/download after 1 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.blurams.ipc/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/com.blurams.ipc/download
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.blurams.ipc/download
+
+Timed out after 120s
+
+````
+
+</details>
+
+<details><summary>FlightAware log excerpt</summary>
+
+````text
+[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
+[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download after 1 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
+
+Timed out after 120s
+
+````
+
+</details>
+
+<details><summary>RecipeBro log excerpt</summary>
+
+````text
+[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.recipebro.cookingbuddy/download
+[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.recipebro.cookingbuddy/download after 1 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.recipebro.cookingbuddy/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
 
 Timed out after 120s
 
