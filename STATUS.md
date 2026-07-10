@@ -1,9 +1,9 @@
 # Patch Tracker Status
 
 Shard: 1/1
-Checked apps: 123
-Successful: 96
-Failed: 27
+Checked apps: 127
+Successful: 97
+Failed: 30
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -53,9 +53,10 @@ Failed: 27
 | Rocket Money | `com.truebill` | `13.15.0` | `15.0.0` | `13361` | FAILED | fingerprint |
 | Waze | `com.waze` | `5.21.0.0` | `5.21.0.0` |  | OK |  |
 | AccuWeather | `com.accuweather.android` | `21.1.13-1-rc` | `21.1.13-1-rc` |  | OK |  |
-| Windscribe VPN | `com.windscribe.vpn` | `4.2.2326` | `4.2.2328` | `2328` | OK |  |
-| MovieBox | `com.community.oneroom` | `3.0.16.0703.03` | `3.0.16.0708.03` | `50020115` | FAILED | fingerprint |
-| MovieBox TV | `com.community.mbox.tv` | `1.1.1.0702.03` | `3.0.16.0708.03` | `50020115` | FAILED | signing |
+| Windscribe VPN | `com.windscribe.vpn` | `4.2.2328` | `4.2.2328` |  | OK |  |
+| MovieBox | `com.community.oneroom` | `3.0.16.0703.03` | `3.0.16.0709.03` | `50020116` | OK |  |
+| MovieBox (India) | `com.community.mbox.in` | `3.0.16.0707.03` | `latest` |  | FAILED | version_resolve |
+| MovieBox TV | `com.community.mbox.tv` | `1.1.1.0702.03` | `3.0.16.0709.03` | `50020116` | FAILED | signing |
 | The Weather Channel | `com.weather.Weather` | `16.12.0` | `16.12.0` |  | OK |  |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.7` |  | OK |  |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.18` | `5.19` |  | FAILED | fingerprint |
@@ -74,14 +75,14 @@ Failed: 27
 | Snow-Forecast.com | `com.snow_forecast.snowforecast` | `8.0.6` | `8.0.6` |  | OK |  |
 | SkinSort | `com.skinsort` | `1.15` | `latest` |  | FAILED | version_resolve |
 | BlurWall | `apps.automan.blurwallpaper` | `2.9.2` | `2.9.2` |  | OK |  |
-| Carbon | `com.joincarbon.nutrition` | `2.76.5784` | `2.76.5784` |  | OK |  |
+| Carbon | `com.joincarbon.nutrition` | `2.76.5784` | `2.76.5844` | `1633629130` | FAILED | fingerprint |
 | Scoopz | `com.localaiapp.scoops` | `3.28.0` | `3.28.0` |  | OK |  |
 | NewsBreak | `com.particlenews.newsbreak` | `26.27.0` | `26.27.0` |  | OK |  |
 | Inmigreat | `com.changayaf.inmigreat` | `2.2.83` | `2.2.83` |  | OK |  |
 | Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.7.1` | `6.7.1` |  | OK |  |
 | MigraConnect | `com.tecso.MigraConnect` | `2.8.1` | `2.8.1` |  | OK |  |
 | Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `latest` |  | FAILED | version_resolve |
-| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.21.0.2607020000` | `72101` | FAILED | fingerprint |
+| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.21.0.2607010000` |  | FAILED | download |
 | Image & Video Date Fixer | `eu.duong.imagedatefixer` | `3.7.1` | `3.7.1` |  | OK |  |
 | Rename & Organize | `eu.duong.picturemanager` | `8.25.1` | `8.25.1` |  | OK |  |
 | Inure App Manager | `app.simple.inure.play` | `build107.0.5` | `build107.0.5` |  | OK |  |
@@ -121,15 +122,18 @@ Failed: 27
 | Flightsky | `com.live.flight.tracker` | `1.7.1` | `1.7.1` |  | OK |  |
 | FlightAware | `com.flightaware.android.liveFlightTracker` | `5.15.4` | `latest` |  | FAILED | version_resolve |
 | Historical Calendar | `com.alexandrucene.dayhistory` | `7.5.4` | `7.5.4` |  | OK |  |
-| JEFIT | `je.fit` | `17.1.0` | `17.2.5` | `2002` | OK |  |
+| JEFIT | `je.fit` | `17.2.5` | `17.2.5` |  | OK |  |
 | LiveScore | `com.livescore` | `9.7.1` | `9.7.1` |  | OK |  |
 | MyRadar | `com.acmeaom.android.myradar` | `8.71.2` | `8.71.2` |  | OK |  |
 | Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.27.2` |  | OK |  |
 | RecipeBro | `com.recipebro.cookingbuddy` | `1.3.74` | `latest` |  | FAILED | version_resolve |
-| SCRL | `com.appostrophe.scrl` | `1.21` | `1.22` | `256` | OK |  |
+| SCRL | `com.appostrophe.scrl` | `1.22` | `1.22` |  | OK |  |
 | Sticker.ly | `com.snowcorp.stickerly.android` | `3.35.0` | `3.35.0` |  | OK |  |
 | TradingView | `com.tradingview.tradingviewapp` | `1.20.77.0.1002295` | `1.20.77.0.1002295` |  | OK |  |
 | WolframAlpha | `com.wolfram.android.alphapro` | `1.0.8.20260601651` | `1.0.8.20260601651` |  | OK |  |
+| Life360 | `com.life360.android.safetymapd` | `26.25.0` | `26.25.0` |  | OK |  |
+| Today Weather | `mobi.lockdown.weather` | `2.5.0-5` | `2.5.0-6` | `756` | FAILED | fingerprint |
+| UbikiTouch | `eu.toneiv.ubktouch` | `1.16.13` | `latest` |  | FAILED | version_resolve |
 
 ## Failure Logs
 
@@ -243,9 +247,9 @@ Timed out after 120s
 [uptodown 2.368.0] [+] HTTP GET: https://canva.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://canva.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://canva.en.uptodown.com/android/apps/712532/versions/1 -> -
-[+] HTTP GET: https://canva.en.uptodown.com/android/download/1187327201 -> -
+[+] HTTP GET: https://canva.en.uptodown.com/android/download/1187474902 -> -
 curl: (22) The requested URL returned error: 404
-[-] Request failed: https://canva.en.uptodown.com/android/download/1187327201
+[-] Request failed: https://canva.en.uptodown.com/android/download/1187474902
 
 ````
 
@@ -340,38 +344,19 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 
 </details>
 
-<details><summary>MovieBox log excerpt</summary>
+<details><summary>MovieBox (India) log excerpt</summary>
 
 ````text
-voke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
-	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
-	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
-	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
-	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
-	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
-	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
-	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
-	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
-	at picocli.CommandLine.access$1500(CommandLine.java:148)
-	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
-	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
-	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
-	at picocli.CommandLine.execute(CommandLine.java:2174)
-	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
- 
-SEVERE: Patching aborted: FAILED: Bypass member rights check 
+[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.in/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.community.mbox.in/download
+[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.community.mbox.in/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.community.mbox.in/download after 1 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.community.mbox.in/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/com.community.mbox.in/download
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.in/download
+
+Timed out after 120s
 
 ````
 
@@ -380,17 +365,13 @@ SEVERE: Patching aborted: FAILED: Bypass member rights check
 <details><summary>MovieBox TV log excerpt</summary>
 
 ````text
-/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) 
-INFO: Loading patches... 
-INFO: Initializing patcher... 
-INFO: Filtering patches for com.community.oneroom v3.0.16.0708.03... 
-WARNING: Skipping "Bypass member rights check": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
-WARNING: Skipping "Spoof member active status": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
-WARNING: Skipping "Spoof member provider flags": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
-WARNING: Skipping "Spoof member days left": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
-WARNING: Skipping "Suppress newbie bonus dialog": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) 
-WARNING: Skipping "Unlock member resolution": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.tv 3.0.16.0708.03) 
-WARNING: Skipping "Clear VIP resolution tip": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.tv 3.0.16.0708.03) 
+community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) 
+WARNING: Skipping "Spoof member brief info": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) 
+WARNING: Skipping "Spoof member provider flags": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) 
+WARNING: Skipping "Suppress newbie bonus dialog": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) 
+WARNING: Skipping "Unlock download member requirement": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) 
+WARNING: Skipping "Unlock member resolution": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03; com.community.mbox.tv 3.0.16.0709.03) 
+WARNING: Skipping "Clear VIP resolution tip": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03; com.community.mbox.tv 3.0.16.0709.03) 
 INFO: Skipping disabled: Provide Original app certificate (default) 
 INFO: Skipping disabled: Spoof Widevine / DRM level (default) 
 INFO: Skipping disabled: Fix Firebase after re-signing (default) 
@@ -402,7 +383,7 @@ INFO: Executing patches
 INFO: Compiling patched dex files (mode: NONE) 
 INFO: Aligning APK 
 INFO: Signing APK 
-INFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0708.03-candidate.apk 
+INFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0709.03-candidate.apk 
 
 ````
 
@@ -523,28 +504,10 @@ Timed out after 120s
 
 </details>
 
-<details><summary>Police Scanner log excerpt</summary>
+<details><summary>Carbon log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>CamScanner log excerpt</summary>
-
-````text
-atcher$invoke$1.invoke(Patcher.kt)
+r.Patcher$invoke$1.invoke(Patcher.kt)
 	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
 	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
 	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
@@ -572,7 +535,38 @@ atcher$invoke$1.invoke(Patcher.kt)
 	at picocli.CommandLine.execute(CommandLine.java:2174)
 	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
  
-SEVERE: Patching aborted: FAILED: Disable telemetry 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>Police Scanner log excerpt</summary>
+
+````text
+[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
+[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download after 1 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
+
+Timed out after 120s
+
+````
+
+</details>
+
+<details><summary>CamScanner log excerpt</summary>
+
+````text
+[uptodown 7.21.0.2607010000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/apps/26217/versions/1 -> -
+[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1187621890 -> -
+[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/app/26217/version/13575965/files -> -
 
 ````
 
@@ -788,6 +782,61 @@ Timed out after 120s
 curl: (22) The requested URL returned error: 403
 [-] Request failed: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
 [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
+
+Timed out after 120s
+
+````
+
+</details>
+
+<details><summary>Today Weather log excerpt</summary>
+
+````text
+r.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
+	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>UbikiTouch log excerpt</summary>
+
+````text
+[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.toneiv.ubktouch/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/eu.toneiv.ubktouch/download
+[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/eu.toneiv.ubktouch/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/eu.toneiv.ubktouch/download after 1 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/eu.toneiv.ubktouch/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/eu.toneiv.ubktouch/download
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.toneiv.ubktouch/download
 
 Timed out after 120s
 

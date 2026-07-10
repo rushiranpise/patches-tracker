@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-07-09T13:32:44.561692+00:00",
+  "checked_at": "2026-07-10T03:17:19.743897+00:00",
   "shard_index": 0,
   "shard_total": 1,
-  "app_count": 123,
-  "total_app_count": 123,
+  "app_count": 127,
+  "total_app_count": 127,
   "results": [
     {
       "id": "cube-acr",
@@ -326,7 +326,7 @@
       "version_code": null,
       "ok": false,
       "failure_type": "download",
-      "log_excerpt": "[uptodown 2.368.0] [+] HTTP GET: https://canva.en.uptodown.com/android/versions -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/download -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/apps/712532/versions/1 -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/download/1187327201 -> -\ncurl: (22) The requested URL returned error: 404\n[-] Request failed: https://canva.en.uptodown.com/android/download/1187327201\n",
+      "log_excerpt": "[uptodown 2.368.0] [+] HTTP GET: https://canva.en.uptodown.com/android/versions -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/download -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/apps/712532/versions/1 -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/download/1187474902 -> -\ncurl: (22) The requested URL returned error: 404\n[-] Request failed: https://canva.en.uptodown.com/android/download/1187474902\n",
       "artifact": null
     },
     {
@@ -561,24 +561,36 @@
       "id": "windscribe-vpn",
       "name": "Windscribe VPN",
       "package_name": "com.windscribe.vpn",
-      "current_version": "4.2.2326",
+      "current_version": "4.2.2328",
       "candidate_version": "4.2.2328",
-      "version_code": "2328",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/windscribe-vpn/windscribe-vpn-patched-4.2.2328-candidate.apk"
+      "artifact": null
     },
     {
       "id": "moviebox",
       "name": "MovieBox",
       "package_name": "com.community.oneroom",
       "current_version": "3.0.16.0703.03",
-      "candidate_version": "3.0.16.0708.03",
-      "version_code": "50020115",
+      "candidate_version": "3.0.16.0709.03",
+      "version_code": "50020116",
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
+      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/moviebox/moviebox-patched-3.0.16.0709.03-candidate.apk"
+    },
+    {
+      "id": "moviebox-india",
+      "name": "MovieBox (India)",
+      "package_name": "com.community.mbox.in",
+      "current_version": "3.0.16.0707.03",
+      "candidate_version": "latest",
+      "version_code": null,
       "ok": false,
-      "failure_type": "fingerprint",
-      "log_excerpt": "voke$1.invoke(Patcher.kt)\n\tat kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)\n\tat kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)\n\tat app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)\n\tat kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)\n\tat kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)\n\tat kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)\n\tat kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)\n\tat app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)\n\tat app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)\n\tat picocli.CommandLine.executeUserObject(CommandLine.java:2031)\n\tat picocli.CommandLine.access$1500(CommandLine.java:148)\n\tat picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2461)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2423)\n\tat picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)\n\tat picocli.CommandLine$RunLast.execute(CommandLine.java:2425)\n\tat picocli.CommandLine.execute(CommandLine.java:2174)\n\tat app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)\n \nSEVERE: Patching aborted: FAILED: Bypass member rights check \n",
+      "failure_type": "version_resolve",
+      "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.in/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.community.mbox.in/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.community.mbox.in/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.community.mbox.in/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.community.mbox.in/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.community.mbox.in/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.in/download\n\nTimed out after 120s\n",
       "artifact": null
     },
     {
@@ -586,11 +598,11 @@
       "name": "MovieBox TV",
       "package_name": "com.community.mbox.tv",
       "current_version": "1.1.1.0702.03",
-      "candidate_version": "3.0.16.0708.03",
-      "version_code": "50020115",
+      "candidate_version": "3.0.16.0709.03",
+      "version_code": "50020116",
       "ok": false,
       "failure_type": "signing",
-      "log_excerpt": "/work/patches-tracker/patches-tracker/.work/tools/morphe-data (JAR-adjacent) \nINFO: Loading patches... \nINFO: Initializing patcher... \nINFO: Filtering patches for com.community.oneroom v3.0.16.0708.03... \nWARNING: Skipping \"Bypass member rights check\": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) \nWARNING: Skipping \"Spoof member active status\": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) \nWARNING: Skipping \"Spoof member provider flags\": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) \nWARNING: Skipping \"Spoof member days left\": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) \nWARNING: Skipping \"Suppress newbie bonus dialog\": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03) \nWARNING: Skipping \"Unlock member resolution\": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.tv 3.0.16.0708.03) \nWARNING: Skipping \"Clear VIP resolution tip\": incompatible with com.community.oneroom 3.0.16.0708.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.tv 3.0.16.0708.03) \nINFO: Skipping disabled: Provide Original app certificate (default) \nINFO: Skipping disabled: Spoof Widevine / DRM level (default) \nINFO: Skipping disabled: Fix Firebase after re-signing (default) \nINFO: Skipping disabled: GmsCore support (MicroG) (default) \nINFO: Skipping disabled: Spoof install source (default) \nINFO: Skipping disabled: Spoof app signature (default) \nINFO: Applying 0 patches... \nINFO: Executing patches \nINFO: Compiling patched dex files (mode: NONE) \nINFO: Aligning APK \nINFO: Signing APK \nINFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0708.03-candidate.apk \n",
+      "log_excerpt": "community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) \nWARNING: Skipping \"Spoof member brief info\": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) \nWARNING: Skipping \"Spoof member provider flags\": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) \nWARNING: Skipping \"Suppress newbie bonus dialog\": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) \nWARNING: Skipping \"Unlock download member requirement\": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03) \nWARNING: Skipping \"Unlock member resolution\": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03; com.community.mbox.tv 3.0.16.0709.03) \nWARNING: Skipping \"Clear VIP resolution tip\": incompatible with com.community.oneroom 3.0.16.0709.03 (supported: com.community.oneroom 3.0.16.0703.03; com.community.mbox.in 3.0.16.0707.03; com.community.mbox.tv 3.0.16.0709.03) \nINFO: Skipping disabled: Provide Original app certificate (default) \nINFO: Skipping disabled: Spoof Widevine / DRM level (default) \nINFO: Skipping disabled: Fix Firebase after re-signing (default) \nINFO: Skipping disabled: GmsCore support (MicroG) (default) \nINFO: Skipping disabled: Spoof install source (default) \nINFO: Skipping disabled: Spoof app signature (default) \nINFO: Applying 0 patches... \nINFO: Executing patches \nINFO: Compiling patched dex files (mode: NONE) \nINFO: Aligning APK \nINFO: Signing APK \nINFO: Saved to /home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0709.03-candidate.apk \n",
       "artifact": null
     },
     {
@@ -814,11 +826,11 @@
       "name": "Carbon",
       "package_name": "com.joincarbon.nutrition",
       "current_version": "2.76.5784",
-      "candidate_version": "2.76.5784",
-      "version_code": null,
-      "ok": true,
-      "failure_type": null,
-      "log_excerpt": "",
+      "candidate_version": "2.76.5844",
+      "version_code": "1633629130",
+      "ok": false,
+      "failure_type": "fingerprint",
+      "log_excerpt": "r.Patcher$invoke$1.invoke(Patcher.kt)\n\tat kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)\n\tat kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)\n\tat app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)\n\tat kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)\n\tat kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)\n\tat kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)\n\tat kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)\n\tat app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)\n\tat app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)\n\tat picocli.CommandLine.executeUserObject(CommandLine.java:2031)\n\tat picocli.CommandLine.access$1500(CommandLine.java:148)\n\tat picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2461)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2423)\n\tat picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)\n\tat picocli.CommandLine$RunLast.execute(CommandLine.java:2425)\n\tat picocli.CommandLine.execute(CommandLine.java:2174)\n\tat app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)\n \nSEVERE: Patching aborted: FAILED: Unlock Premium \n",
       "artifact": null
     },
     {
@@ -898,11 +910,11 @@
       "name": "CamScanner",
       "package_name": "com.intsig.camscanner",
       "current_version": "7.20.5.2606250000",
-      "candidate_version": "7.21.0.2607020000",
-      "version_code": "72101",
+      "candidate_version": "7.21.0.2607010000",
+      "version_code": null,
       "ok": false,
-      "failure_type": "fingerprint",
-      "log_excerpt": "atcher$invoke$1.invoke(Patcher.kt)\n\tat kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)\n\tat kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)\n\tat app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)\n\tat kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)\n\tat kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)\n\tat kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)\n\tat kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)\n\tat app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)\n\tat app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)\n\tat picocli.CommandLine.executeUserObject(CommandLine.java:2031)\n\tat picocli.CommandLine.access$1500(CommandLine.java:148)\n\tat picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2461)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2423)\n\tat picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)\n\tat picocli.CommandLine$RunLast.execute(CommandLine.java:2425)\n\tat picocli.CommandLine.execute(CommandLine.java:2174)\n\tat app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)\n \nSEVERE: Patching aborted: FAILED: Disable telemetry \n",
+      "failure_type": "download",
+      "log_excerpt": "[uptodown 7.21.0.2607010000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/apps/26217/versions/1 -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1187621890 -> -\n[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/app/26217/version/13575965/files -> -\n",
       "artifact": null
     },
     {
@@ -1377,13 +1389,13 @@
       "id": "jefit",
       "name": "JEFIT",
       "package_name": "je.fit",
-      "current_version": "17.1.0",
+      "current_version": "17.2.5",
       "candidate_version": "17.2.5",
-      "version_code": "2002",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/jefit/jefit-patched-17.2.5.apk"
+      "artifact": null
     },
     {
       "id": "livescore",
@@ -1437,13 +1449,13 @@
       "id": "scrl",
       "name": "SCRL",
       "package_name": "com.appostrophe.scrl",
-      "current_version": "1.21",
+      "current_version": "1.22",
       "candidate_version": "1.22",
-      "version_code": "256",
+      "version_code": null,
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/scrl/scrl-patched-1.22.apk"
+      "artifact": null
     },
     {
       "id": "sticker-ly",
@@ -1479,6 +1491,42 @@
       "ok": true,
       "failure_type": null,
       "log_excerpt": "",
+      "artifact": null
+    },
+    {
+      "id": "life360",
+      "name": "Life360",
+      "package_name": "com.life360.android.safetymapd",
+      "current_version": "26.25.0",
+      "candidate_version": "26.25.0",
+      "version_code": null,
+      "ok": true,
+      "failure_type": null,
+      "log_excerpt": "",
+      "artifact": null
+    },
+    {
+      "id": "today-weather",
+      "name": "Today Weather",
+      "package_name": "mobi.lockdown.weather",
+      "current_version": "2.5.0-5",
+      "candidate_version": "2.5.0-6",
+      "version_code": "756",
+      "ok": false,
+      "failure_type": "fingerprint",
+      "log_excerpt": "r.Patcher$invoke$1.invoke(Patcher.kt)\n\tat kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)\n\tat kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)\n\tat app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:783)\n\tat kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)\n\tat kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)\n\tat kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)\n\tat kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)\n\tat kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)\n\tat kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)\n\tat kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)\n\tat kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)\n\tat app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)\n\tat app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)\n\tat app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)\n\tat picocli.CommandLine.executeUserObject(CommandLine.java:2031)\n\tat picocli.CommandLine.access$1500(CommandLine.java:148)\n\tat picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2461)\n\tat picocli.CommandLine$RunLast.handle(CommandLine.java:2423)\n\tat picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)\n\tat picocli.CommandLine$RunLast.execute(CommandLine.java:2425)\n\tat picocli.CommandLine.execute(CommandLine.java:2174)\n\tat app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)\n \nSEVERE: Patching aborted: FAILED: Unlock Premium \n",
+      "artifact": null
+    },
+    {
+      "id": "ubikitouch",
+      "name": "UbikiTouch",
+      "package_name": "eu.toneiv.ubktouch",
+      "current_version": "1.16.13",
+      "candidate_version": "latest",
+      "version_code": null,
+      "ok": false,
+      "failure_type": "version_resolve",
+      "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.toneiv.ubktouch/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/eu.toneiv.ubktouch/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/eu.toneiv.ubktouch/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/eu.toneiv.ubktouch/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/eu.toneiv.ubktouch/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/eu.toneiv.ubktouch/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.toneiv.ubktouch/download\n\nTimed out after 120s\n",
       "artifact": null
     }
   ]
