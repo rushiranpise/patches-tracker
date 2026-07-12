@@ -85,6 +85,60 @@ def create_or_update_failure_issue(
         print(f"warning: could not open or update the issue: {error.stderr}", flush=True)
 
 
+def close_resolved_failure_issue(
+    repo: str,
+    title: str,
+    comment: str,
+    *,
+    dry_run: bool = False,
+) -> None:
+    token = token_for_repo(repo)
+    query = f'repo:{repo} is:issue is:open in:title "{title}"'
+    try:
+        issues = run_gh(
+            [
+                "issue",
+                "list",
+                "--repo",
+                repo,
+                "--search",
+                query,
+                "--json",
+                "number,title,body,labels",
+            ],
+            dry_run=dry_run,
+            token=token,
+        )
+    except subprocess.CalledProcessError as error:
+        print(f"warning: could not look for resolved issues: {error.stderr}", flush=True)
+        return
+
+    import json
+
+    for issue in json.loads(issues or "[]"):
+        if issue.get("title") != title:
+            continue
+        body = issue.get("body") or ""
+        labels = {label.get("name") for label in issue.get("labels", [])}
+        if "Automated report from patches-tracker" not in body and not labels.intersection({"tracker", "source-failure", "patch-broken-after-update"}):
+            continue
+        issue_number = str(issue["number"])
+        try:
+            print(f"closing resolved issue {repo}#{issue_number}: {title}", flush=True)
+            run_gh(
+                ["api", f"repos/{repo}/issues/{issue_number}/comments", "-f", f"body={comment}"],
+                dry_run=dry_run,
+                token=token,
+            )
+            run_gh(
+                ["issue", "close", issue_number, "--repo", repo, "--reason", "completed"],
+                dry_run=dry_run,
+                token=token,
+            )
+        except subprocess.CalledProcessError as error:
+            print(f"warning: could not close resolved issue {repo}#{issue_number}: {error.stderr}", flush=True)
+
+
 def token_for_repo(repo: str) -> str | None:
     if repo == os.environ.get("GITHUB_REPOSITORY"):
         return os.environ.get("TRACKER_REPO_TOKEN") or os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")

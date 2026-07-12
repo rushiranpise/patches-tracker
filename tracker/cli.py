@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from .build import build_app
 from .config import load_config
 from .constants import is_newer_version, update_app_target_version
-from .github import create_or_update_failure_issue, create_pull_request
+from .github import close_resolved_failure_issue, create_or_update_failure_issue, create_pull_request
 from .releases import resolve_tool
 
 
@@ -153,6 +153,7 @@ def main() -> int:
     for result in results:
         app = result.app
         if result.ok:
+            close_resolved_issues_for_success(app, result, cfg.tracker.patches_repo)
             if constants_file is None:
                 continue
             if not is_newer_version(result.candidate_version, app.current_version):
@@ -204,6 +205,33 @@ def main() -> int:
     return 0
 
 
+def close_resolved_issues_for_success(app, result, patches_repo: str) -> None:
+    version = result.candidate_version
+    workflow_url = (
+        f"{os.environ.get('GITHUB_SERVER_URL', '')}/"
+        f"{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}"
+    )
+    comment = (
+        f"Closing automatically: patches-tracker verified `{app.name}` "
+        f"at `{version}` successfully in {workflow_url}."
+    )
+    tracker_repo = os.environ.get("GITHUB_REPOSITORY") or "rushiranpise/patches-tracker"
+    tracker_titles = {
+        f"tracker: {app.name} needs attention for {version}",
+        f"tracker: {app.name} needs attention for latest",
+    }
+    if version != app.current_version:
+        tracker_titles.add(f"tracker: {app.name} needs attention for {app.current_version}")
+    for title in tracker_titles:
+        close_resolved_failure_issue(tracker_repo, title, comment)
+
+    close_resolved_failure_issue(
+        patches_repo,
+        f"bug: patch broken after app update - {app.name}",
+        comment,
+    )
+
+
 def issue_repo_for_failure(patches_repo: str, failure_type: str | None) -> str:
     if failure_type in {"download", "version_resolve", "config"}:
         return os.environ.get("GITHUB_REPOSITORY") or "rushiranpise/patches-tracker"
@@ -213,7 +241,7 @@ def issue_repo_for_failure(patches_repo: str, failure_type: str | None) -> str:
 def issue_labels_for_failure(failure_type: str | None) -> list[str]:
     if failure_type in {"download", "version_resolve", "config"}:
         return ["bug", "tracker", "source-failure"]
-    return ["bug"]
+    return ["bug", "patch-broken-after-update"]
 
 
 def issue_title_for_failure(app, result, patches_repo: str) -> str:
