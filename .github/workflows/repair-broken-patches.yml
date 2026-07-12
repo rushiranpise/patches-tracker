@@ -1,0 +1,110 @@
+name: Repair broken patches
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: "Optional morphe-patches issue number to repair"
+        required: false
+        type: string
+      limit:
+        description: "Maximum open failure issues to process"
+        required: false
+        default: "20"
+        type: string
+  workflow_run:
+    workflows:
+      - Track patches
+    types:
+      - completed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  repair:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    services:
+      flaresolverr:
+        image: ghcr.io/flaresolverr/flaresolverr:latest
+        ports:
+          - 8191:8191
+        options: >-
+          --health-cmd "curl -f http://localhost:8191/ || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 6
+    steps:
+      - name: Checkout tracker
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Install repair tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq wget curl unzip zip aapt apktool
+          curl -L --fail -o htmlq.tar.gz \
+            https://github.com/mgdm/htmlq/releases/latest/download/htmlq-x86_64-linux.tar.gz
+          sudo tar xf htmlq.tar.gz -C /usr/local/bin
+          sudo chmod +x /usr/local/bin/htmlq
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Check target repo access
+        env:
+          GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          HAS_PATCHES_REPO_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN != '' }}
+        run: |
+          echo "PATCHES_REPO_TOKEN configured: ${HAS_PATCHES_REPO_TOKEN}"
+          gh api repos/rushiranpise/morphe-patches --jq '.full_name' || true
+          gh api user --jq '"Authenticated as: " + .login' || true
+          gh auth setup-git || true
+
+      - name: Run repair
+        env:
+          GH_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+          TRACKER_REPO_TOKEN: ${{ github.token }}
+          FLARESOLVERR_URL: http://localhost:8191
+        run: |
+          args=(python -m tracker.repair --config config.toml --limit "${{ inputs.limit || '20' }}")
+          if [ -n "${{ inputs.issue }}" ]; then
+            args+=(--issue "${{ inputs.issue }}")
+          fi
+          "${args[@]}"
+
+      - name: Upload repair logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: repair-logs
+          path: |
+            repair-logs
+            repair-status.json
+            REPAIR_STATUS.md
+
+      - name: Upload repaired APK artifacts
+        if: hashFiles('repair-artifacts/*') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: repaired-apks
+          path: repair-artifacts

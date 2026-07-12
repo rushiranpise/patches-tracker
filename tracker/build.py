@@ -61,6 +61,7 @@ def build_app(
     target_branch: str,
     constants_path: str,
     dry_run: bool = False,
+    ignore_known_failures: bool = False,
 ) -> BuildResult:
     app_dir = work_dir / app.id
     app_dir.mkdir(parents=True, exist_ok=True)
@@ -91,7 +92,7 @@ def build_app(
                 latest_version = latest.stdout.strip().splitlines()[0]
                 print(f"[{app.id}] latest version from {source.source}: {latest_version}", flush=True)
                 if is_newer_version(latest_version, app.current_version):
-                    if known_patch_failure_exists(patches_repo, app.name, latest_version):
+                    if not ignore_known_failures and known_patch_failure_exists(patches_repo, app.name, latest_version):
                         log = f"Skipping {latest_version}; already reported as patch-broken in {patches_repo}"
                         print(f"[{app.id}] {log}", flush=True)
                         return BuildResult(app, True, None, log, latest_version, status="skipped_known_broken")
@@ -150,7 +151,7 @@ def build_app(
             return BuildResult(app, True, None, "dry-run: build skipped", candidate_version, status="dry_run")
 
         highest_candidate_version = candidate_version
-        if known_patch_failure_exists(patches_repo, app.name, candidate_version):
+        if not ignore_known_failures and known_patch_failure_exists(patches_repo, app.name, candidate_version):
             log = f"Skipping {candidate_version}; already reported as patch-broken in {patches_repo}"
             print(f"[{app.id}] {log}", flush=True)
             return BuildResult(app, True, None, log, candidate_version, status="skipped_known_broken")
