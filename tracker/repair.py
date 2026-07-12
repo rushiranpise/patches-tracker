@@ -63,6 +63,7 @@ def main() -> int:
             constants_path=cfg.tracker.constants_path,
             dry_run=args.dry_run,
             ignore_known_failures=True,
+            continue_on_error=True,
         )
         log_path = logs_dir / f"{app.id}.log"
         log_path.write_text(result.log, encoding="utf-8")

@@ -62,6 +62,7 @@ def build_app(
     constants_path: str,
     dry_run: bool = False,
     ignore_known_failures: bool = False,
+    continue_on_error: bool = False,
 ) -> BuildResult:
     app_dir = work_dir / app.id
     app_dir.mkdir(parents=True, exist_ok=True)
@@ -194,6 +195,8 @@ def build_app(
     for patch in app.excluded_patches:
         args.extend(["-d", patch])
     args.extend(app.patcher_args)
+    if continue_on_error:
+        args.append("--continue-on-error")
 
     print(f"[{app.id}] patch command: {shell_join(args)}", flush=True)
     completed = run_streamed_process(app.id, "patch", args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
@@ -235,6 +238,8 @@ def build_app(
         for patch in app.excluded_patches:
             retry_args.extend(["-d", patch])
         retry_args.extend(app.patcher_args)
+        if continue_on_error:
+            retry_args.append("--continue-on-error")
         print(f"[{app.id}] retry patch command: {shell_join(retry_args)}", flush=True)
         retry = run_streamed_process(app.id, "patch retry", retry_args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
         print(f"[{app.id}] patch retry return code: {retry.returncode}", flush=True)
@@ -256,6 +261,7 @@ def build_app(
                 failure_type=failure_type,
                 app_dir=app_dir,
                 cli_jar=cli_jar,
+                continue_on_error=continue_on_error,
             )
             combined_log = repair.log
             if repair.output_apk:
@@ -314,6 +320,7 @@ def build_app(
             failure_type=failure_type,
             app_dir=app_dir,
             cli_jar=cli_jar,
+            continue_on_error=continue_on_error,
         )
         failure_log = repair.log
         if repair.output_apk:
@@ -524,6 +531,7 @@ def attempt_fingerprint_repair(
     failure_type: str,
     app_dir: Path,
     cli_jar: Path,
+    continue_on_error: bool = False,
 ) -> RepairResult:
     if failure_type != "fingerprint":
         return RepairResult(append_patch_failure_analysis(app, log, stock_apk, work_dir, failure_type))
@@ -535,22 +543,27 @@ def attempt_fingerprint_repair(
         report = json.loads(analysis)
     except json.JSONDecodeError:
         return RepairResult(enriched_log)
-    plan = select_auto_repair(report)
-    if not plan:
+    plans = select_auto_repairs(report, max_repairs=10)
+    if not plans:
         return RepairResult(enriched_log)
     if repo_dir is None:
         return RepairResult(enriched_log + "\nAuto-repair skipped: patches source was not available.\n")
 
-    repair_log = apply_repair_plan(repo_dir, plan)
-    if not repair_log["changed"]:
-        return RepairResult(enriched_log + "\nAuto-repair skipped: " + repair_log["message"] + "\n")
+    repair_logs = []
+    for plan in plans:
+        repair_log = apply_repair_plan(repo_dir, plan)
+        repair_logs.append(repair_log)
+    changed_repairs = [repair_log for repair_log in repair_logs if repair_log["changed"]]
+    if not changed_repairs:
+        messages = "; ".join(repair_log["message"] for repair_log in repair_logs)
+        return RepairResult(enriched_log + "\nAuto-repair skipped: " + messages + "\n")
 
     constants_file = repo_dir / constants_path
     if not update_app_target_version(constants_file, app.constant, candidate_version, version_code):
         return RepairResult(enriched_log + "\nAuto-repair skipped: constants target update did not change.\n")
 
     candidate_patches_file, build_log = build_patches_bundle_in_repo(repo_dir)
-    enriched_log += "\nAuto-repair applied:\n" + json.dumps(repair_log, indent=2, sort_keys=True) + "\n"
+    enriched_log += "\nAuto-repair applied:\n" + json.dumps(repair_logs, indent=2, sort_keys=True) + "\n"
     enriched_log += "\nAuto-repair build:\n" + build_log + "\n"
     if candidate_patches_file is None:
         return RepairResult(enriched_log)
@@ -562,6 +575,8 @@ def attempt_fingerprint_repair(
     for patch in app.excluded_patches:
         retry_args.extend(["-d", patch])
     retry_args.extend(app.patcher_args)
+    if continue_on_error:
+        retry_args.append("--continue-on-error")
     print(f"[{app.id}] auto-repair retry patch command: {shell_join(retry_args)}", flush=True)
     retry = run_streamed_process(app.id, "auto-repair patch retry", retry_args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
     retry_log = retry.stdout + retry.stderr
@@ -570,9 +585,9 @@ def attempt_fingerprint_repair(
         print(f"[{app.id}] auto-repair did not verify successfully", flush=True)
         return RepairResult(enriched_log)
     print(f"[{app.id}] auto-repair verified: {repaired_output_apk}", flush=True)
-    summary = (
-        f"{plan['fingerprint']}: `{plan['current'].get('definingClass')}`/`{plan['current'].get('name')}` "
-        f"-> `{plan['candidate']['class']}`/`{plan['candidate']['method']}`"
+    summary = "; ".join(
+        f"{repair_log['plan']['fingerprint']}: `{repair_log['plan']['candidate']['class']}`/`{repair_log['plan']['candidate']['method']}`"
+        for repair_log in changed_repairs
     )
     return RepairResult(enriched_log, repaired_output_apk, repo_dir, summary)
 
@@ -587,6 +602,9 @@ def append_patch_failure_analysis(
     if failure_type != "patch":
         return log
     report_path = work_dir / "patch-failure-analysis" / app.id / "report.json"
+    log_path = work_dir / "patch-failure-analysis" / app.id / "failure.log"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    log_path.write_text(log[-12000:], encoding="utf-8")
     script = Path("scripts") / "analyze-patch-failure.py"
     analysis = run_plain_process(
         [
@@ -595,7 +613,7 @@ def append_patch_failure_analysis(
             "--apk",
             str(stock_apk),
             "--log",
-            log[-12000:],
+            str(log_path),
             "--out",
             str(report_path),
             "--work-dir",
@@ -645,6 +663,9 @@ def analyze_fingerprint_failure(
         )
 
     report_path = work_dir / "fingerprint-analysis" / app.id / "report.json"
+    log_path = work_dir / "fingerprint-analysis" / app.id / "failure.log"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    log_path.write_text(log[-12000:], encoding="utf-8")
     script = Path("scripts") / "analyze-fingerprint-failure.py"
     analysis = run_plain_process(
         [
@@ -655,7 +676,7 @@ def analyze_fingerprint_failure(
             "--patches-src",
             str(repo_dir / "patches" / "src" / "main" / "kotlin"),
             "--log",
-            log[-12000:],
+            str(log_path),
             "--out",
             str(report_path),
             "--work-dir",
@@ -671,21 +692,21 @@ def analyze_fingerprint_failure(
     return report_path.read_text(encoding="utf-8").strip(), repo_dir
 
 
-def select_auto_repair(report: dict) -> dict | None:
+def select_auto_repairs(report: dict, max_repairs: int = 10) -> list[dict]:
     plans = []
     for item in report.get("candidates", []):
         candidates = item.get("top_candidates") or []
         if not candidates:
-            return None
+            return []
         top = candidates[0]
         second_score = candidates[1]["score"] if len(candidates) > 1 else -1
         if top["score"] < 90:
-            return None
+            return []
         if second_score >= top["score"] - 20:
-            return None
+            return []
         current = item.get("current") or {}
         if not current.get("definingClass") and not current.get("name"):
-            return None
+            return []
         plans.append(
             {
                 "fingerprint": item["fingerprint"],
@@ -694,9 +715,14 @@ def select_auto_repair(report: dict) -> dict | None:
                 "candidate": top,
             }
         )
-    if len(plans) != 1:
-        return None
-    return plans[0]
+    if not plans or len(plans) > max_repairs:
+        return []
+    return plans
+
+
+def select_auto_repair(report: dict) -> dict | None:
+    plans = select_auto_repairs(report, max_repairs=1)
+    return plans[0] if plans else None
 
 
 def apply_repair_plan(repo_dir: Path, plan: dict) -> dict:

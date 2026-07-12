@@ -10,7 +10,7 @@ on:
       limit:
         description: "Maximum open failure issues to process"
         required: false
-        default: "20"
+        default: "10"
         type: string
   workflow_run:
     workflows:
@@ -85,10 +85,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
           TRACKER_REPO_TOKEN: ${{ github.token }}
           FLARESOLVERR_URL: http://localhost:8191
+          REPAIR_ISSUE: ${{ inputs.issue || '' }}
+          REPAIR_LIMIT: ${{ inputs.limit || '10' }}
         run: |
-          args=(python -m tracker.repair --config config.toml --limit "${{ inputs.limit || '20' }}")
-          if [ -n "${{ inputs.issue }}" ]; then
-            args+=(--issue "${{ inputs.issue }}")
+          args=(python -m tracker.repair --config config.toml --limit "$REPAIR_LIMIT")
+          if [ -n "$REPAIR_ISSUE" ]; then
+            args+=(--issue "$REPAIR_ISSUE")
           fi
           "${args[@]}"
 
