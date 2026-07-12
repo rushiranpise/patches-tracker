@@ -811,6 +811,11 @@ Timed out after 120s
 [apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
 [!] FlareSolverr status 'error' for https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
 [!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download after 1 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
 
 Timed out after 120s
 

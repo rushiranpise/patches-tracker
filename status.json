@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-12T20:58:05.375147+00:00",
+  "checked_at": "2026-07-12T23:00:53.925169+00:00",
   "shard_index": 0,
   "shard_total": 1,
   "app_count": 144,
@@ -18,6 +18,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -34,6 +36,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -50,6 +54,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -66,6 +72,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -82,6 +90,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -98,6 +108,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -114,6 +126,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -130,6 +144,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -146,6 +162,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/verbosus.pialytic/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/verbosus.pialytic/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/verbosus.pialytic/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/verbosus.pialytic/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/verbosus.pialytic/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/verbosus.pialytic/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/verbosus.pialytic/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -162,6 +180,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -178,6 +198,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/tian-wen-tong/com.twtapp/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/tian-wen-tong/com.twtapp/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/tian-wen-tong/com.twtapp/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/tian-wen-tong/com.twtapp/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/tian-wen-tong/com.twtapp/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/tian-wen-tong/com.twtapp/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.twtapp/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.twtapp/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.twtapp/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.twtapp/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.twtapp/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -194,6 +216,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -210,6 +234,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -226,6 +252,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -242,6 +270,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -258,6 +288,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -274,6 +306,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -290,6 +324,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -306,6 +342,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -322,6 +360,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.proxyman.proxymanandroid/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.proxyman.proxymanandroid/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.proxyman.proxymanandroid/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.proxyman.proxymanandroid/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.proxyman.proxymanandroid/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.proxyman.proxymanandroid/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.proxyman.proxymanandroid/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -338,6 +378,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -354,6 +396,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -370,6 +414,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -386,6 +432,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.mtv.sai/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.mtv.sai/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.mtv.sai/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.mtv.sai/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.mtv.sai/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.mtv.sai/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.mtv.sai/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -402,6 +450,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -418,6 +468,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -434,6 +486,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[uptodown 2.368.0] [+] HTTP GET: https://canva.en.uptodown.com/android/versions -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/download -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/apps/712532/versions/1 -> -\n[+] HTTP GET: https://canva.en.uptodown.com/android/download/1187765015 -> -\ncurl: (22) The requested URL returned error: 404\n[-] Request failed: https://canva.en.uptodown.com/android/download/1187765015\n",
       "artifact": null
     },
@@ -450,6 +504,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -466,6 +522,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -482,6 +540,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -498,6 +558,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -514,6 +576,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -530,6 +594,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.anetcapture.mock/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.anetcapture.mock/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.anetcapture.mock/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.anetcapture.mock/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.anetcapture.mock/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -546,6 +612,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkmirror 2.2.0-rc0] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/darken/permission-pilot-2/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/ (title=Download Permission Pilot APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/ (title=Permission Pilot 2.2.0-rc0 APK Download by darken - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/\n[-] Could not find APKMirror variant for version=2.2.0-rc0 arch=all dpi=nodpi anydpi auto\n",
       "artifact": null
     },
@@ -562,6 +630,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -578,6 +648,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -594,6 +666,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -610,6 +684,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -626,6 +702,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -642,6 +720,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -658,6 +738,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.app.social_gamebox/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.app.social_gamebox/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.app.social_gamebox/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.app.social_gamebox/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.app.social_gamebox/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.app.social_gamebox/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.app.social_gamebox/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -674,6 +756,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -690,6 +774,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -706,6 +792,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -722,6 +810,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkmirror 5.21.90.800] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/ (title=Download Waze Navigation &amp; Live Traffic APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/waze-navigation--live-traffic-5-21-90-800-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/waze-navigation--live-traffic-5-21-90-800-release/ (title=Waze Navigation &amp; Live Traffic 5.21.90.800 APK Download by Waze - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/waze-navigation--live-traffic-5-21-90-800-release/\n[-] Could not find APKMirror variant for version=5.21.90.800 arch=all dpi=nodpi anydpi auto\n",
       "artifact": null
     },
@@ -738,6 +828,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -754,6 +846,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -770,6 +864,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -786,6 +882,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.in/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.community.mbox.in/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.community.mbox.in/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.community.mbox.in/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.community.mbox.in/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.community.mbox.in/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.in/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -802,6 +900,8 @@
       "downloaded": true,
       "source": "uptodown",
       "source_url": "https://com-community-oneroom.en.uptodown.com/android",
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0709.03.apk"
     },
@@ -818,6 +918,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkmirror] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/\n[!] FlareSolverr status 'error' for https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/\n[!] FlareSolverr attempt 1/1 failed for: https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/\n[-] FlareSolverr could not fetch https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.weather.Weather/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.weather.Weather/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.weather.Weather/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.weather.Weather/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.weather.Weather/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.weather.Weather/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.weather.Weather/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -834,6 +936,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -850,6 +954,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -866,6 +972,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -882,6 +990,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkmirror] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/\n[!] FlareSolverr status 'error' for https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/\n[!] FlareSolverr attempt 1/1 failed for: https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/\n[-] FlareSolverr could not fetch https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.tomtom.gplay.navapp/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.tomtom.gplay.navapp/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.tomtom.gplay.navapp/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.tomtom.gplay.navapp/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.tomtom.gplay.navapp/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.tomtom.gplay.navapp/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.tomtom.gplay.navapp/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -898,6 +1008,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -914,6 +1026,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -930,6 +1044,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.workout/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/air.com.musclemotion.workout/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/air.com.musclemotion.workout/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/air.com.musclemotion.workout/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/air.com.musclemotion.workout/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/air.com.musclemotion.workout/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.workout/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -946,6 +1062,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -962,6 +1080,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.anatomy/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/air.com.musclemotion.anatomy/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/air.com.musclemotion.anatomy/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/air.com.musclemotion.anatomy/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/air.com.musclemotion.anatomy/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/air.com.musclemotion.anatomy/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.anatomy/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -978,6 +1098,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -994,6 +1116,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1010,6 +1134,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1026,6 +1152,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1042,6 +1170,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1058,6 +1188,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1074,6 +1206,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.skinsort/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.skinsort/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.skinsort/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.skinsort/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.skinsort/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.skinsort/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.skinsort/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1090,6 +1224,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1106,6 +1242,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1122,6 +1260,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1138,6 +1278,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkmirror 26.28.0] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/ (title=Download NewsBreak: Local News &amp; Alerts APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/newsbreak-local-news--alerts-26-28-0-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/newsbreak-local-news--alerts-26-28-0-release/ (title=NewsBreak: Local News &amp; Alerts 26.28.0 APK Download by Particle Media Inc. - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/newsbreak-local-news--alerts-26-28-0-release/\n[-] Could not find APKMirror variant for version=26.28.0 arch=all dpi=nodpi anydpi auto\n",
       "artifact": null
     },
@@ -1154,6 +1296,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1170,6 +1314,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1186,6 +1332,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1202,6 +1350,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1218,6 +1368,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1234,6 +1386,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1250,6 +1404,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1266,6 +1422,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1282,6 +1440,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1298,6 +1458,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1314,6 +1476,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.tracked.mobile/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.tracked.mobile/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.tracked.mobile/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.tracked.mobile/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.tracked.mobile/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.tracked.mobile/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.tracked.mobile/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1330,6 +1494,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1346,6 +1512,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/\n[!] FlareSolverr status 'error' for https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/\n[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/\n[-] FlareSolverr could not fetch https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/ after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/ -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1362,6 +1530,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1378,6 +1548,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1394,6 +1566,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1410,6 +1584,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1426,6 +1602,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1442,6 +1620,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkmirror 5.7.0] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/ (title=Download Wavve Boating: Marine Boat GPS APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/ (title=Wavve Boating: Marine Boat GPS 5.7.0 APK Download by Wavve Boating - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/\n",
       "artifact": null
     },
@@ -1458,6 +1638,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1474,6 +1656,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1490,6 +1674,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1506,6 +1692,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1522,6 +1710,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.androholic.amoledpix/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.androholic.amoledpix/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.androholic.amoledpix/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.androholic.amoledpix/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.androholic.amoledpix/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.androholic.amoledpix/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.androholic.amoledpix/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1538,6 +1728,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1554,6 +1746,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1570,6 +1764,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1586,6 +1782,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1602,6 +1800,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1618,6 +1818,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/io.goodservice.theweekendest/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/io.goodservice.theweekendest/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/io.goodservice.theweekendest/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/io.goodservice.theweekendest/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/io.goodservice.theweekendest/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/io.goodservice.theweekendest/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/io.goodservice.theweekendest/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1634,6 +1836,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1650,6 +1854,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1666,6 +1872,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1682,6 +1890,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1698,6 +1908,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1714,6 +1926,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1730,6 +1944,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1746,6 +1962,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.amboss.medical.knowledge/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.amboss.medical.knowledge/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.amboss.medical.knowledge/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.amboss.medical.knowledge/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.amboss.medical.knowledge/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.amboss.medical.knowledge/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.amboss.medical.knowledge/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1762,6 +1980,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.blurams.ipc/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.blurams.ipc/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.blurams.ipc/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.blurams.ipc/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.blurams.ipc/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.blurams.ipc/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.blurams.ipc/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1778,6 +1998,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1794,6 +2016,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1810,6 +2034,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1826,6 +2052,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1842,6 +2070,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1858,6 +2088,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1874,6 +2106,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1890,6 +2124,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1906,6 +2142,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1922,6 +2160,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.recipebro.cookingbuddy/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.recipebro.cookingbuddy/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.recipebro.cookingbuddy/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.recipebro.cookingbuddy/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.recipebro.cookingbuddy/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.recipebro.cookingbuddy/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.recipebro.cookingbuddy/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -1938,6 +2178,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1954,6 +2196,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1970,6 +2214,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -1986,6 +2232,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2002,6 +2250,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2018,6 +2268,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2034,6 +2286,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.toneiv.ubktouch/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/eu.toneiv.ubktouch/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/eu.toneiv.ubktouch/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/eu.toneiv.ubktouch/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/eu.toneiv.ubktouch/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/eu.toneiv.ubktouch/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.toneiv.ubktouch/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -2050,6 +2304,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2066,6 +2322,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2082,6 +2340,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2098,6 +2358,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -2114,6 +2376,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2130,6 +2394,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2146,6 +2412,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2162,6 +2430,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.minimal.widgets/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.jndapp.minimal.widgets/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.jndapp.minimal.widgets/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.jndapp.minimal.widgets/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.jndapp.minimal.widgets/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.jndapp.minimal.widgets/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.minimal.widgets/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -2178,7 +2448,9 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
-      "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download\n\nTimed out after 120s\n",
+      "repair": false,
+      "repair_summary": "",
+      "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download\n\nTimed out after 120s\n",
       "artifact": null
     },
     {
@@ -2194,6 +2466,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -2210,6 +2484,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download\n[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download\n[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download\n[-] FlareSolverr could not fetch https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download after 1 attempt(s); trying a plain request\n[+] HTTP GET: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download\n\nTimed out after 120s\n",
       "artifact": null
     },
@@ -2226,6 +2502,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2242,6 +2520,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2258,6 +2538,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2274,6 +2556,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2290,6 +2574,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     },
@@ -2306,6 +2592,8 @@
       "downloaded": false,
       "source": null,
       "source_url": null,
+      "repair": false,
+      "repair_summary": "",
       "log_excerpt": "",
       "artifact": null
     }
