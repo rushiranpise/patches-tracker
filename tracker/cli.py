@@ -402,6 +402,7 @@ def failure_metadata(app, result, target_repo: str) -> str:
             "source_url": result.source_url,
             "apk_source": apk_source_summary(result.log),
             "skipped_patches": skipped_patch_names(result.log),
+            "analysis_reports": analysis_report_types(result.log),
         },
         indent=2,
         sort_keys=True,
@@ -412,6 +413,15 @@ def skipped_patch_names(log: str) -> list[str]:
     import re
 
     return sorted(set(re.findall(r'WARNING: Skipping "([^"]+)"', log)))
+
+
+def analysis_report_types(log: str) -> list[str]:
+    reports = []
+    if "Fingerprint analysis JSON:" in log:
+        reports.append("fingerprint")
+    if "Patch analysis JSON:" in log:
+        reports.append("patch")
+    return reports
 
 
 def apk_source_summary(log: str) -> str:

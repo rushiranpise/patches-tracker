@@ -525,7 +525,7 @@ def attempt_fingerprint_repair(
     cli_jar: Path,
 ) -> RepairResult:
     if failure_type != "fingerprint":
-        return RepairResult(log)
+        return RepairResult(append_patch_failure_analysis(app, log, stock_apk, work_dir, failure_type))
     analysis, repo_dir = analyze_fingerprint_failure(app, log, stock_apk, work_dir, patches_repo, target_branch)
     if not analysis:
         return RepairResult(log)
@@ -574,6 +574,47 @@ def attempt_fingerprint_repair(
         f"-> `{plan['candidate']['class']}`/`{plan['candidate']['method']}`"
     )
     return RepairResult(enriched_log, repaired_output_apk, repo_dir, summary)
+
+
+def append_patch_failure_analysis(
+    app: AppConfig,
+    log: str,
+    stock_apk: Path,
+    work_dir: Path,
+    failure_type: str,
+) -> str:
+    if failure_type != "patch":
+        return log
+    report_path = work_dir / "patch-failure-analysis" / app.id / "report.json"
+    script = Path("scripts") / "analyze-patch-failure.py"
+    analysis = run_plain_process(
+        [
+            "python",
+            str(script),
+            "--apk",
+            str(stock_apk),
+            "--log",
+            log[-12000:],
+            "--out",
+            str(report_path),
+            "--work-dir",
+            str(work_dir / "patch-failure-analysis" / app.id / "decoded"),
+        ],
+        timeout_seconds=900,
+    )
+    if analysis.returncode != 0:
+        detail = (analysis.stdout + analysis.stderr)[-1000:].replace("\n", "\\n")
+        return log + "\n\nPatch analysis JSON:\n" + json.dumps(
+            {
+                "schema": "patches-tracker/patch-analysis/v1",
+                "notes": [f"Patch analysis failed: {detail}"],
+            },
+            indent=2,
+            sort_keys=True,
+        ) + "\n"
+    if not report_path.exists():
+        return log
+    return log + "\n\nPatch analysis JSON:\n" + report_path.read_text(encoding="utf-8").strip() + "\n"
 
 
 def analyze_fingerprint_failure(
