@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from functools import lru_cache
+import json
 import os
+import re
 import subprocess
 from pathlib import Path
 from urllib.parse import quote
@@ -114,8 +116,6 @@ def close_resolved_failure_issue(
         print(f"warning: could not look for resolved issues: {error.stderr}", flush=True)
         return
 
-    import json
-
     for issue in json.loads(issues or "[]"):
         if issue.get("title") != title:
             continue
@@ -162,8 +162,6 @@ def known_patch_failure_exists(repo: str, app_name: str, version: str) -> bool:
         print(f"warning: could not check known patch failures for {app_name}: {error}", flush=True)
         return False
 
-    import json
-
     for issue in json.loads(issues or "[]"):
         if issue.get("title") != title:
             continue
@@ -171,10 +169,27 @@ def known_patch_failure_exists(repo: str, app_name: str, version: str) -> bool:
         body = issue.get("body") or ""
         if "Automated report from patches-tracker" not in body and "patch-broken-after-update" not in labels:
             continue
+        metadata = tracker_metadata_from_issue_body(body)
+        if metadata and metadata.get("candidate_version") == version:
+            print(f"[{app_name}] {version} is already reported as patch-broken in {repo}#{issue['number']}", flush=True)
+            return True
         if version in body or version in (issue.get("title") or ""):
             print(f"[{app_name}] {version} is already reported as patch-broken in {repo}#{issue['number']}", flush=True)
             return True
     return False
+
+
+def tracker_metadata_from_issue_body(body: str) -> dict:
+    match = re.search(r"```json\s*(\{[\s\S]*?\})\s*```", body)
+    if not match:
+        return {}
+    try:
+        metadata = json.loads(match.group(1))
+    except json.JSONDecodeError:
+        return {}
+    if metadata.get("schema") != "patches-tracker/failure/v1":
+        return {}
+    return metadata
 
 
 def token_for_repo(repo: str) -> str | None:

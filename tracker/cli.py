@@ -125,7 +125,11 @@ def main() -> int:
                 "candidate_version": r.candidate_version,
                 "version_code": r.version_code,
                 "ok": r.ok,
+                "status": r.status,
                 "failure_type": r.failure_type,
+                "downloaded": r.downloaded,
+                "source": r.source_name,
+                "source_url": r.source_url,
                 "log_excerpt": r.log[-2000:] if not r.ok else "",
                 "artifact": str(r.output) if r.output else None,
             }
@@ -152,6 +156,8 @@ def main() -> int:
 
     for result in results:
         app = result.app
+        if result.downloaded:
+            close_resolved_source_issues(app, result)
         if result.ok:
             if result.output:
                 close_resolved_issues_for_success(app, result, cfg.tracker.patches_repo)
@@ -206,6 +212,27 @@ def main() -> int:
     return 0
 
 
+def close_resolved_source_issues(app, result) -> None:
+    workflow_url = (
+        f"{os.environ.get('GITHUB_SERVER_URL', '')}/"
+        f"{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}"
+    )
+    source = result.source_name or "configured source"
+    comment = (
+        f"Closing automatically: patches-tracker downloaded `{app.name}` "
+        f"`{result.candidate_version}` from `{source}` in {workflow_url}."
+    )
+    tracker_repo = os.environ.get("GITHUB_REPOSITORY") or "rushiranpise/patches-tracker"
+    titles = {
+        f"tracker: {app.name} needs attention for {result.candidate_version}",
+        f"tracker: {app.name} needs attention for latest",
+    }
+    if result.candidate_version != app.current_version:
+        titles.add(f"tracker: {app.name} needs attention for {app.current_version}")
+    for title in titles:
+        close_resolved_failure_issue(tracker_repo, title, comment)
+
+
 def close_resolved_issues_for_success(app, result, patches_repo: str) -> None:
     version = result.candidate_version
     workflow_url = (
@@ -258,6 +285,7 @@ def issue_body_for_failure(app, result, target_repo: str, patches_repo: str, cli
     )
     if target_repo == patches_repo:
         broken_patches = "\n".join(f"- {patch}" for patch in skipped_patch_names(result.log)) or "- Unknown; see logs."
+        metadata = failure_metadata(app, result, target_repo)
         return (
             "### App name\n\n"
             f"{app.name} (`{app.package_name}`)\n\n"
@@ -275,6 +303,10 @@ def issue_body_for_failure(app, result, target_repo: str, patches_repo: str, cli
             f"{apk_source_summary(result.log)}\n\n"
             "### Broken patch or patches\n\n"
             f"{broken_patches}\n\n"
+            "### Tracker metadata\n\n"
+            "```json\n"
+            f"{metadata}\n"
+            "```\n\n"
             "### Error logs\n\n"
             "```shell\n"
             f"{result.log[-6000:]}\n"
@@ -286,6 +318,7 @@ def issue_body_for_failure(app, result, target_repo: str, patches_repo: str, cli
             "- [x] I followed the README log capture instructions and included the relevant logs.\n"
             "- [x] All requested information has been provided properly.\n"
         )
+    metadata = failure_metadata(app, result, target_repo)
     return (
         f"The tracker could not finish `{app.name}` (`{app.package_name}`).\n\n"
         f"- Current known working: `{app.current_version}`\n"
@@ -293,10 +326,39 @@ def issue_body_for_failure(app, result, target_repo: str, patches_repo: str, cli
         f"- Problem area: `{friendly_failure_type(result.failure_type)}`\n"
         f"- Issue repo: `{target_repo}`\n"
         f"- Workflow: {workflow_url}\n\n"
+        "Tracker metadata:\n\n"
+        "```json\n"
+        f"{metadata}\n"
+        "```\n\n"
         "Last log excerpt:\n\n"
         "```text\n"
         f"{result.log[-6000:]}\n"
         "```"
+    )
+
+
+def failure_metadata(app, result, target_repo: str) -> str:
+    return json.dumps(
+        {
+            "schema": "patches-tracker/failure/v1",
+            "issue_repo": target_repo,
+            "app_id": app.id,
+            "app_name": app.name,
+            "package_name": app.package_name,
+            "constant": app.constant,
+            "current_version": app.current_version,
+            "candidate_version": result.candidate_version,
+            "version_code": result.version_code,
+            "status": result.status,
+            "failure_type": result.failure_type,
+            "downloaded": result.downloaded,
+            "source": result.source_name,
+            "source_url": result.source_url,
+            "apk_source": apk_source_summary(result.log),
+            "skipped_patches": skipped_patch_names(result.log),
+        },
+        indent=2,
+        sort_keys=True,
     )
 
 
@@ -328,21 +390,25 @@ def friendly_failure_type(failure_type: str | None) -> str:
 
 
 def render_status_table(results, shard_index: int = 0, shard_total: int = 1) -> str:
-    ok_count = sum(1 for result in results if result.ok)
-    failed_count = len(results) - ok_count
+    patched_count = sum(1 for result in results if result.status == "patched")
+    skipped_count = sum(1 for result in results if result.status == "skipped_known_broken")
+    no_update_count = sum(1 for result in results if result.status == "no_update")
+    failed_count = sum(1 for result in results if not result.ok)
     lines = [
         "# Patch Tracker Status",
         "",
         f"Shard: {shard_index + 1}/{shard_total}",
         f"Checked apps: {len(results)}",
-        f"Successful: {ok_count}",
+        f"Patched: {patched_count}",
+        f"No update: {no_update_count}",
+        f"Skipped known broken: {skipped_count}",
         f"Failed: {failed_count}",
         "",
         "| App | Package | Known working | Tested | Version code | Status | Failure |",
         "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     for result in results:
-        status = "OK" if result.ok else "FAILED"
+        status = result.status.upper()
         lines.append(
             "| "
             + " | ".join(

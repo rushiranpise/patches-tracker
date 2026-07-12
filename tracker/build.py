@@ -30,6 +30,10 @@ class BuildResult:
     candidate_version: str
     version_code: str | None = None
     failure_type: str | None = None
+    status: str = "failed"
+    downloaded: bool = False
+    source_name: str | None = None
+    source_url: str | None = None
 
 
 def download(url: str, dest: Path) -> Path:
@@ -86,7 +90,7 @@ def build_app(
                     if known_patch_failure_exists(patches_repo, app.name, latest_version):
                         log = f"Skipping {latest_version}; already reported as patch-broken in {patches_repo}"
                         print(f"[{app.id}] {log}", flush=True)
-                        return BuildResult(app, True, None, log, latest_version)
+                        return BuildResult(app, True, None, log, latest_version, status="skipped_known_broken")
                     candidate_version = latest_version
                     highest_candidate_version = latest_version
                     candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
@@ -131,21 +135,21 @@ def build_app(
                 return BuildResult(app, False, None, "\n".join(resolve_logs), candidate_version, failure_type="version_resolve")
             log = f"No configured source reported a version newer than {app.current_version}"
             print(f"[{app.id}] {log}", flush=True)
-            return BuildResult(app, True, None, log, app.current_version)
+            return BuildResult(app, True, None, log, app.current_version, status="no_update")
     else:
         if not is_newer_version(candidate_version, app.current_version):
             log = f"Configured version {candidate_version} is not newer than current {app.current_version}"
             print(f"[{app.id}] {log}", flush=True)
-            return BuildResult(app, True, None, log, app.current_version)
+            return BuildResult(app, True, None, log, app.current_version, status="no_update")
 
         if dry_run:
-            return BuildResult(app, True, None, "dry-run: build skipped", candidate_version)
+            return BuildResult(app, True, None, "dry-run: build skipped", candidate_version, status="dry_run")
 
         highest_candidate_version = candidate_version
         if known_patch_failure_exists(patches_repo, app.name, candidate_version):
             log = f"Skipping {candidate_version}; already reported as patch-broken in {patches_repo}"
             print(f"[{app.id}] {log}", flush=True)
-            return BuildResult(app, True, None, log, candidate_version)
+            return BuildResult(app, True, None, log, candidate_version, status="skipped_known_broken")
         for source in sources:
             candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
             candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
@@ -207,7 +211,18 @@ def build_app(
             constants_path=constants_path,
         )
         if candidate_patches_file is None:
-            return BuildResult(app, False, None, patch_context + log + "\n\n" + rebuild_log, candidate_version, version_code, "patch")
+            return BuildResult(
+                app,
+                False,
+                None,
+                patch_context + log + "\n\n" + rebuild_log,
+                candidate_version,
+                version_code,
+                "patch",
+                downloaded=True,
+                source_name=source.source,
+                source_url=source.url,
+            )
         candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}-candidate.apk"
         retry_args = ["java", "-jar", str(cli_jar), "patch", str(stock_apk), "-o", str(candidate_output_apk), "--patches", str(candidate_patches_file)]
         for patch in app.included_patches:
@@ -222,14 +237,58 @@ def build_app(
         combined_log = patch_context + log + "\n\nCandidate patch bundle rebuild:\n" + rebuild_log + "\n\nPatch retry:\n" + retry_log
         if retry.returncode != 0 or not candidate_output_apk.exists() or patcher_skipped_incompatible_patch(retry_log):
             print(f"[{app.id}] candidate-version patch did not finish successfully: {retry_log[-1000:]}", flush=True)
-            return BuildResult(app, False, None, combined_log, candidate_version, version_code, classify_failure(retry_log, "patch"))
+            return BuildResult(
+                app,
+                False,
+                None,
+                combined_log,
+                candidate_version,
+                version_code,
+                classify_failure(retry_log, "patch"),
+                downloaded=True,
+                source_name=source.source,
+                source_url=source.url,
+            )
         print(f"[{app.id}] patched APK ready: {candidate_output_apk}", flush=True)
-        return BuildResult(app, True, candidate_output_apk, combined_log, candidate_version, version_code)
+        return BuildResult(
+            app,
+            True,
+            candidate_output_apk,
+            combined_log,
+            candidate_version,
+            version_code,
+            status="patched",
+            downloaded=True,
+            source_name=source.source,
+            source_url=source.url,
+        )
     if completed.returncode != 0 or not output_apk.exists():
         print(f"[{app.id}] patch did not finish successfully: {log[-1000:]}", flush=True)
-        return BuildResult(app, False, None, patch_context + log, candidate_version, version_code, classify_failure(log, "patch"))
+        return BuildResult(
+            app,
+            False,
+            None,
+            patch_context + log,
+            candidate_version,
+            version_code,
+            classify_failure(log, "patch"),
+            downloaded=True,
+            source_name=source.source,
+            source_url=source.url,
+        )
     print(f"[{app.id}] patched APK ready: {output_apk}", flush=True)
-    return BuildResult(app, True, output_apk, log, candidate_version, version_code)
+    return BuildResult(
+        app,
+        True,
+        output_apk,
+        log,
+        candidate_version,
+        version_code,
+        status="patched",
+        downloaded=True,
+        source_name=source.source,
+        source_url=source.url,
+    )
 
 
 def run_resolver(app_id: str, phase: str, args: list[str]) -> subprocess.CompletedProcess[str]:
