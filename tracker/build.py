@@ -237,6 +237,16 @@ def build_app(
         combined_log = patch_context + log + "\n\nCandidate patch bundle rebuild:\n" + rebuild_log + "\n\nPatch retry:\n" + retry_log
         if retry.returncode != 0 or not candidate_output_apk.exists() or patcher_skipped_incompatible_patch(retry_log):
             print(f"[{app.id}] candidate-version patch did not finish successfully: {retry_log[-1000:]}", flush=True)
+            failure_type = classify_failure(retry_log, "patch")
+            combined_log = append_failure_analysis(
+                app,
+                combined_log,
+                stock_apk,
+                work_dir,
+                patches_repo=patches_repo,
+                target_branch=target_branch,
+                failure_type=failure_type,
+            )
             return BuildResult(
                 app,
                 False,
@@ -244,7 +254,7 @@ def build_app(
                 combined_log,
                 candidate_version,
                 version_code,
-                classify_failure(retry_log, "patch"),
+                failure_type,
                 downloaded=True,
                 source_name=source.source,
                 source_url=source.url,
@@ -264,14 +274,24 @@ def build_app(
         )
     if completed.returncode != 0 or not output_apk.exists():
         print(f"[{app.id}] patch did not finish successfully: {log[-1000:]}", flush=True)
+        failure_type = classify_failure(log, "patch")
+        failure_log = append_failure_analysis(
+            app,
+            patch_context + log,
+            stock_apk,
+            work_dir,
+            patches_repo=patches_repo,
+            target_branch=target_branch,
+            failure_type=failure_type,
+        )
         return BuildResult(
             app,
             False,
             None,
-            patch_context + log,
+            failure_log,
             candidate_version,
             version_code,
-            classify_failure(log, "patch"),
+            failure_type,
             downloaded=True,
             source_name=source.source,
             source_url=source.url,
@@ -433,6 +453,70 @@ def build_candidate_patches_bundle(
     if not candidates:
         return None, log + "\nCould not find built .mpp in patches/build/libs\n"
     return max(candidates, key=lambda path: path.stat().st_mtime), log
+
+
+def append_failure_analysis(
+    app: AppConfig,
+    log: str,
+    stock_apk: Path,
+    work_dir: Path,
+    *,
+    patches_repo: str,
+    target_branch: str,
+    failure_type: str,
+) -> str:
+    if failure_type != "fingerprint":
+        return log
+    analysis = analyze_fingerprint_failure(app, log, stock_apk, work_dir, patches_repo, target_branch)
+    if not analysis:
+        return log
+    return log + "\n\nFingerprint analysis JSON:\n" + analysis + "\n"
+
+
+def analyze_fingerprint_failure(
+    app: AppConfig,
+    log: str,
+    stock_apk: Path,
+    work_dir: Path,
+    patches_repo: str,
+    target_branch: str,
+) -> str:
+    repo_dir = work_dir / "fingerprint-analysis-source" / app.id
+    if repo_dir.exists():
+        shutil.rmtree(repo_dir)
+    clone_url = f"https://github.com/{patches_repo}.git"
+    clone = run_plain_process(
+        ["git", "clone", "--depth", "1", "--branch", target_branch, clone_url, str(repo_dir)],
+        timeout_seconds=300,
+    )
+    if clone.returncode != 0:
+        return '{"schema":"patches-tracker/fingerprint-analysis/v1","notes":["Could not clone patches source for analysis."]}'
+
+    report_path = work_dir / "fingerprint-analysis" / app.id / "report.json"
+    script = Path("scripts") / "analyze-fingerprint-failure.py"
+    analysis = run_plain_process(
+        [
+            "python",
+            str(script),
+            "--apk",
+            str(stock_apk),
+            "--patches-src",
+            str(repo_dir / "patches" / "src" / "main" / "kotlin"),
+            "--log",
+            log[-12000:],
+            "--out",
+            str(report_path),
+            "--work-dir",
+            str(work_dir / "fingerprint-analysis" / app.id / "decoded"),
+        ],
+        timeout_seconds=900,
+    )
+    if analysis.returncode != 0:
+        detail = (analysis.stdout + analysis.stderr)[-1000:].replace('"', "'").replace("\n", "\\n")
+        return f'{{"schema":"patches-tracker/fingerprint-analysis/v1","notes":["Fingerprint analysis failed: {detail}"]}}'
+    if not report_path.exists():
+        return '{"schema":"patches-tracker/fingerprint-analysis/v1","notes":["Fingerprint analysis did not create a report."]}'
+    return report_path.read_text(encoding="utf-8").strip()
 
 
 def run_plain_process(
