@@ -166,6 +166,9 @@ def main() -> int:
             if result.repair_repo_path:
                 create_repair_pull_request(result, cfg.tracker.patches_repo, cfg.tracker.target_branch)
                 continue
+            if not result.output:
+                print(f"[{app.id}] {result.status}; no patched APK artifact, leaving constants unchanged", flush=True)
+                continue
             if constants_file is None:
                 continue
             if not is_newer_version(result.candidate_version, app.current_version):
