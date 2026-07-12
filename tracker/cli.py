@@ -153,7 +153,8 @@ def main() -> int:
     for result in results:
         app = result.app
         if result.ok:
-            close_resolved_issues_for_success(app, result, cfg.tracker.patches_repo)
+            if result.output:
+                close_resolved_issues_for_success(app, result, cfg.tracker.patches_repo)
             if constants_file is None:
                 continue
             if not is_newer_version(result.candidate_version, app.current_version):

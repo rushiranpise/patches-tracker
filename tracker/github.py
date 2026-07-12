@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from functools import lru_cache
 import os
 import subprocess
 from pathlib import Path
@@ -137,6 +138,43 @@ def close_resolved_failure_issue(
             )
         except subprocess.CalledProcessError as error:
             print(f"warning: could not close resolved issue {repo}#{issue_number}: {error.stderr}", flush=True)
+
+
+@lru_cache(maxsize=512)
+def known_patch_failure_exists(repo: str, app_name: str, version: str) -> bool:
+    title = f"bug: patch broken after app update - {app_name}"
+    query = f'repo:{repo} is:issue is:open in:title "{title}"'
+    try:
+        issues = run_gh(
+            [
+                "issue",
+                "list",
+                "--repo",
+                repo,
+                "--search",
+                query,
+                "--json",
+                "number,title,body,labels",
+            ],
+            token=token_for_repo(repo),
+        )
+    except (subprocess.CalledProcessError, RuntimeError) as error:
+        print(f"warning: could not check known patch failures for {app_name}: {error}", flush=True)
+        return False
+
+    import json
+
+    for issue in json.loads(issues or "[]"):
+        if issue.get("title") != title:
+            continue
+        labels = {label.get("name") for label in issue.get("labels", [])}
+        body = issue.get("body") or ""
+        if "Automated report from patches-tracker" not in body and "patch-broken-after-update" not in labels:
+            continue
+        if version in body or version in (issue.get("title") or ""):
+            print(f"[{app_name}] {version} is already reported as patch-broken in {repo}#{issue['number']}", flush=True)
+            return True
+    return False
 
 
 def token_for_repo(repo: str) -> str | None:

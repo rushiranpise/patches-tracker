@@ -13,6 +13,7 @@ import requests
 
 from .config import AppConfig
 from .constants import is_newer_version, update_app_target_version
+from .github import known_patch_failure_exists
 
 
 RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "1"))
@@ -82,6 +83,10 @@ def build_app(
                 latest_version = latest.stdout.strip().splitlines()[0]
                 print(f"[{app.id}] latest version from {source.source}: {latest_version}", flush=True)
                 if is_newer_version(latest_version, app.current_version):
+                    if known_patch_failure_exists(patches_repo, app.name, latest_version):
+                        log = f"Skipping {latest_version}; already reported as patch-broken in {patches_repo}"
+                        print(f"[{app.id}] {log}", flush=True)
+                        return BuildResult(app, True, None, log, latest_version)
                     candidate_version = latest_version
                     highest_candidate_version = latest_version
                     candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
@@ -137,6 +142,10 @@ def build_app(
             return BuildResult(app, True, None, "dry-run: build skipped", candidate_version)
 
         highest_candidate_version = candidate_version
+        if known_patch_failure_exists(patches_repo, app.name, candidate_version):
+            log = f"Skipping {candidate_version}; already reported as patch-broken in {patches_repo}"
+            print(f"[{app.id}] {log}", flush=True)
+            return BuildResult(app, True, None, log, candidate_version)
         for source in sources:
             candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
             candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
