@@ -11,8 +11,8 @@ import time
 
 import requests
 
-from .config import AppConfig, SourceConfig
-from .constants import is_newer_version, normalize_suffix, update_app_target_version, version_key
+from .config import AppConfig
+from .constants import is_newer_version, update_app_target_version
 
 
 RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "1"))
@@ -29,17 +29,6 @@ class BuildResult:
     candidate_version: str
     version_code: str | None = None
     failure_type: str | None = None
-
-
-@dataclass(frozen=True)
-class VersionCandidate:
-    version: str
-    source: SourceConfig
-    source_index: int
-
-
-def version_candidate_sort_key(candidate: VersionCandidate) -> tuple[tuple[int, ...], int, int]:
-    return (version_key(candidate.version), normalize_suffix(candidate.version), -candidate.source_index)
 
 
 def download(url: str, dest: Path) -> Path:
@@ -73,10 +62,15 @@ def build_app(
 
     resolver = Path("scripts") / "resolve-apk.sh"
     resolve_logs = []
-    candidates = []
+    download_logs = []
     resolved_latest_count = 0
+    stock_apk = None
+    output_apk = None
+    source = None
+    highest_candidate_version = candidate_version
+
     if candidate_version == "latest" and not dry_run:
-        for source_index, source in enumerate(sources):
+        for source in sources:
             print(f"[{app.id}] resolving latest via {source.source}: {source.url}", flush=True)
             latest = run_resolver(
                 app.id,
@@ -88,7 +82,34 @@ def build_app(
                 latest_version = latest.stdout.strip().splitlines()[0]
                 print(f"[{app.id}] latest version from {source.source}: {latest_version}", flush=True)
                 if is_newer_version(latest_version, app.current_version):
-                    candidates.append(VersionCandidate(latest_version, source, source_index))
+                    candidate_version = latest_version
+                    highest_candidate_version = latest_version
+                    candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
+                    candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
+                    print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
+                    resolved = run_resolver(
+                        app.id,
+                        "download",
+                        [
+                            "bash",
+                            str(resolver),
+                            source.source,
+                            source.url,
+                            candidate_version,
+                            str(candidate_stock_apk),
+                            source.arch,
+                            source.dpi,
+                            " ".join(source.apk_types),
+                        ],
+                    )
+                    if resolved.returncode == 0 and candidate_stock_apk.exists():
+                        stock_apk = candidate_stock_apk
+                        output_apk = candidate_output_apk
+                        print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}; skipping lower-priority sources", flush=True)
+                        break
+                    source_log = resolved.stdout + resolved.stderr
+                    print(f"[{app.id}] download did not work via {source.source}; trying next source", flush=True)
+                    download_logs.append(f"[{source.source} {candidate_version}] {source_log}")
                 else:
                     print(
                         f"[{app.id}] {source.source} is not newer than current {app.current_version}; skipping {latest_version}",
@@ -98,63 +119,51 @@ def build_app(
             source_log = latest.stdout + latest.stderr
             print(f"[{app.id}] could not get latest version from {source.source}", flush=True)
             resolve_logs.append(f"[{source.source}] {source_log}")
-        if not candidates and resolved_latest_count == 0 and resolve_logs:
-            return BuildResult(app, False, None, "\n".join(resolve_logs), candidate_version, failure_type="version_resolve")
-        if not candidates:
+        if stock_apk is None or output_apk is None:
+            if download_logs:
+                return BuildResult(app, False, None, "\n".join(download_logs), highest_candidate_version, failure_type="download")
+            if resolved_latest_count == 0 and resolve_logs:
+                return BuildResult(app, False, None, "\n".join(resolve_logs), candidate_version, failure_type="version_resolve")
             log = f"No configured source reported a version newer than {app.current_version}"
             print(f"[{app.id}] {log}", flush=True)
             return BuildResult(app, True, None, log, app.current_version)
-        candidates.sort(key=version_candidate_sort_key, reverse=True)
-        print(
-            f"[{app.id}] newer versions to try: "
-            + ", ".join(f"{candidate.version} via {candidate.source.source}" for candidate in candidates),
-            flush=True,
-        )
     else:
         if not is_newer_version(candidate_version, app.current_version):
             log = f"Configured version {candidate_version} is not newer than current {app.current_version}"
             print(f"[{app.id}] {log}", flush=True)
             return BuildResult(app, True, None, log, app.current_version)
-        candidates = [VersionCandidate(candidate_version, source, source_index) for source_index, source in enumerate(sources)]
 
-    candidate_version = candidates[0].version
-    highest_candidate_version = candidate_version
+        if dry_run:
+            return BuildResult(app, True, None, "dry-run: build skipped", candidate_version)
 
-    if dry_run:
-        return BuildResult(app, True, None, "dry-run: build skipped", candidate_version)
-
-    download_logs = []
-    stock_apk = None
-    output_apk = None
-    for candidate in candidates:
-        candidate_version = candidate.version
-        source = candidate.source
-        candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
-        candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
-        print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
-        resolved = run_resolver(
-            app.id,
-            "download",
-            [
-                "bash",
-                str(resolver),
-                source.source,
-                source.url,
-                candidate_version,
-                str(candidate_stock_apk),
-                source.arch,
-                source.dpi,
-                " ".join(source.apk_types),
-            ],
-        )
-        if resolved.returncode == 0 and candidate_stock_apk.exists():
-            stock_apk = candidate_stock_apk
-            output_apk = candidate_output_apk
-            print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}", flush=True)
-            break
-        source_log = resolved.stdout + resolved.stderr
-        print(f"[{app.id}] download did not work via {source.source}", flush=True)
-        download_logs.append(f"[{source.source} {candidate_version}] {source_log}")
+        highest_candidate_version = candidate_version
+        for source in sources:
+            candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
+            candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
+            print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
+            resolved = run_resolver(
+                app.id,
+                "download",
+                [
+                    "bash",
+                    str(resolver),
+                    source.source,
+                    source.url,
+                    candidate_version,
+                    str(candidate_stock_apk),
+                    source.arch,
+                    source.dpi,
+                    " ".join(source.apk_types),
+                ],
+            )
+            if resolved.returncode == 0 and candidate_stock_apk.exists():
+                stock_apk = candidate_stock_apk
+                output_apk = candidate_output_apk
+                print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}; skipping lower-priority sources", flush=True)
+                break
+            source_log = resolved.stdout + resolved.stderr
+            print(f"[{app.id}] download did not work via {source.source}; trying next source", flush=True)
+            download_logs.append(f"[{source.source} {candidate_version}] {source_log}")
     if stock_apk is None or output_apk is None:
         return BuildResult(app, False, None, "\n".join(download_logs), highest_candidate_version, failure_type="download")
 

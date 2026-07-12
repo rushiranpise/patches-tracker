@@ -44,6 +44,8 @@ def main() -> int:
     existing = read_existing_config(args.output)
     if args.no_resolve_source_urls:
         seed_existing_source_urls(apps, existing)
+        for app in apps:
+            prune_lower_priority_source_urls(app)
     else:
         resolve_source_urls(apps, existing, args.source_workers, args.source_timeout, args.max_source_checks)
     args.output.write_text(render_config(apps, args, existing), encoding="utf-8")
@@ -224,6 +226,8 @@ def toml_value(value: object) -> str:
 def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int, timeout: int, max_checks: int) -> None:
     workers = max(1, workers)
     seed_existing_source_urls(apps, existing)
+    for app in apps:
+        prune_lower_priority_source_urls(app)
     pending_checks = source_checks_to_run(apps, existing, max_checks)
     print(f"Source discovery checks this run: {len(pending_checks)}")
     if not pending_checks:
@@ -237,6 +241,7 @@ def resolve_source_urls(apps: list[dict[str, str]], existing: dict, workers: int
             app = future_to_app[future]
             try:
                 app.update(future.result())
+                prune_lower_priority_source_urls(app)
             except Exception as error:
                 print(f"[{app['id']}] source discovery failed: {error}")
 
@@ -252,28 +257,32 @@ def seed_existing_source_urls(apps: list[dict[str, str]], existing: dict, *, fin
                 app[key] = str(existing_url)
 
 
+def prune_lower_priority_source_urls(app: dict[str, str]) -> None:
+    if app.get("apkmirror-dlurl"):
+        app.pop("uptodown-dlurl", None)
+        app.pop("apkpure-dlurl", None)
+    elif app.get("uptodown-dlurl"):
+        app.pop("apkpure-dlurl", None)
+
+
 def source_checks_to_run(apps: list[dict[str, str]], existing: dict, max_checks: int) -> list[tuple[dict[str, str], list[str]]]:
     unlimited = max_checks <= 0
     pending = []
     remaining = max_checks
+    source_keys = ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl")
     for app in apps:
         existing_app = existing.get(app["id"], {})
         if not isinstance(existing_app, dict):
             existing_app = {}
-        keys = [
-            key
-            for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl")
-            if not is_final_source_url(key, existing_app.get(key, ""), app.get("package_name", ""))
-        ]
+        keys = []
+        for key in source_keys:
+            if is_final_source_url(key, existing_app.get(key, ""), app.get("package_name", "")):
+                if not app.get("apk_types") and not has_specific_apk_types(existing_app.get("apk-types", "")):
+                    keys = [key]
+                break
+            keys.append(key)
         if not keys:
-            if not app.get("apk_types") and not has_specific_apk_types(existing_app.get("apk-types", "")):
-                keys = [
-                    key
-                    for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl")
-                    if is_final_source_url(key, existing_app.get(key, ""), app.get("package_name", ""))
-                ][:1]
-            if not keys:
-                continue
+            continue
         if not unlimited:
             keys = keys[:remaining]
         pending.append((app, keys))
@@ -313,7 +322,7 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
                     if apk_types and not app.get("apk_types") and not has_specific_apk_types(existing.get("apk-types", "")):
                         resolved["apk_types"] = apk_types
                     print(f"[{app['id']}] kept existing {key}: {resolved[key]}")
-                    continue
+                    break
                 print(f"[{app['id']}] existing {key} did not match package {package_name}; resolving again: {existing_url}")
             elif isinstance(existing_url, str) and existing_url:
                 print(f"[{app['id']}] dropping non-final {key}: {existing_url}")
@@ -328,6 +337,7 @@ def resolve_app_source_urls(app: dict[str, str], existing_app: object, timeout: 
                 if apk_types and not app.get("apk_types"):
                     resolved["apk_types"] = apk_types
                 print(f"[{app['id']}] found {key}: {url}")
+                break
             else:
                 print(f"[{app['id']}] no usable {key} found")
     return resolved

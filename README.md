@@ -57,9 +57,9 @@ When an app has more than one source, the tracker tries them in this order:
 direct -> github -> archive -> apkmirror -> uptodown -> apkpure -> apkcombo
 ```
 
-The same order is used when checking the latest version. If one source reports a version but the download fails, the tracker moves on to the next configured source.
+The same order is used when checking the latest version. The tracker stops at the first source that reports a newer version and produces a downloadable APK. If version lookup or download fails, it moves on to the next configured source. Once an APK downloads, patching is attempted from that APK and lower-priority sources are skipped.
 
-Successful builds only update `Constants.kt` when the tested version is newer than `current-version`. If a fallback source reports an older version, the tracker may still test it, but it will not downgrade the compatibility constant or include it in the update PR.
+Successful builds only update `Constants.kt` when the tested version is newer than `current-version`. Fallback sources that report the current or an older version are skipped, so compatibility constants are never downgraded.
 
 Supported package formats:
 
@@ -84,7 +84,7 @@ The generator extracts:
 - current target version
 - preferred APK file type from `apkFileType`, when present
 
-It uses the package name to discover source links, then writes final app page URLs for APKMirror, Uptodown, and APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Existing final source URLs are kept, so repeat runs only look for missing links. If constants do not declare `apkFileType`, source discovery can infer a narrower `apk-types` value from the resolved source page. Manual patch options also survive regeneration:
+It uses the package name to discover source links, then writes the first final app page URL found in source-priority order: APKMirror, then Uptodown, then APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Existing final higher-priority source URLs are kept, so repeat runs do not keep checking lower-priority mirrors once a better source is available. If constants do not declare `apkFileType`, source discovery can infer a narrower `apk-types` value from the resolved source page. Manual patch options also survive regeneration:
 
 ```toml
 included-patches = "'Some Patch'"
