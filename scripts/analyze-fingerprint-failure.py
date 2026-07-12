@@ -57,6 +57,8 @@ def main() -> int:
 def analyze(apk: Path, patches_src: Path, log: str, work_dir: Path) -> dict:
     failed_names = failed_fingerprint_names(log)
     fingerprints = parse_fingerprints(patches_src)
+    if not failed_names:
+        failed_names = infer_fingerprints_from_stacktrace(log, patches_src, fingerprints)
     selected = [fingerprints[name] for name in failed_names if name in fingerprints]
     if not selected and len(failed_names) == 1:
         selected = [fp for name, fp in fingerprints.items() if failed_names[0].lower() in name.lower()]
@@ -206,6 +208,33 @@ def failed_fingerprint_names(log: str) -> list[str]:
                 name += "Fingerprint"
             names.append(name)
     return sorted(set(names))
+
+
+def infer_fingerprints_from_stacktrace(log: str, root: Path, fingerprints: dict[str, Fingerprint]) -> list[str]:
+    inferred = []
+    for file_name, line_text in re.findall(r"\(([A-Za-z0-9_]+\.kt):(\d+)\)", log):
+        line_number = int(line_text)
+        for path in root.rglob(file_name):
+            names = fingerprint_names_near_line(path, line_number, set(fingerprints))
+            inferred.extend(names)
+    return sorted(set(inferred))
+
+
+def fingerprint_names_near_line(path: Path, line_number: int, known_names: set[str]) -> list[str]:
+    try:
+        lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    except OSError:
+        return []
+    if 1 <= line_number <= len(lines):
+        exact_names = re.findall(r"\b([A-Za-z0-9_]+Fingerprint)\b", lines[line_number - 1])
+        exact_matches = [name for name in exact_names if name in known_names]
+        if exact_matches:
+            return exact_matches
+    start = max(0, line_number - 6)
+    end = min(len(lines), line_number + 5)
+    window = "\n".join(lines[start:end])
+    names = re.findall(r"\b([A-Za-z0-9_]+Fingerprint)\b", window)
+    return [name for name in names if name in known_names]
 
 
 def parse_fingerprints(root: Path) -> dict[str, Fingerprint]:

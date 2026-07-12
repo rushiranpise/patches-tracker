@@ -824,9 +824,9 @@ def read_version_code(apk: Path) -> str | None:
 
 def classify_failure(log: str, default: str) -> str:
     lower = log.lower()
-    if "fingerprint" in lower or "failed to resolve" in lower or ("not found" in lower and "patch" in lower):
+    if "failed to match the fingerprint" in lower or "failed to resolve" in lower or "fingerprint" in lower:
         return "fingerprint"
-    if "sign" in lower or "keystore" in lower or "apksigner" in lower:
+    if "keystore" in lower or "apksigner" in lower or "failed to sign" in lower or "signing" in lower:
         return "signing"
     if "download" in lower or "http" in lower or "cloudflare" in lower:
         return "download"
