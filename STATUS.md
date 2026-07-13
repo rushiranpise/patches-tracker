@@ -1,11 +1,11 @@
 # Patch Tracker Status
 
 Shard: 1/1
-Checked apps: 144
-Patched: 1
-No update: 104
+Checked apps: 146
+Patched: 13
+No update: 117
 Skipped known broken: 5
-Failed: 34
+Failed: 11
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -14,12 +14,12 @@ Failed: 34
 | Citizen | `sp0n.citizen` | `0.1300.0` | `0.1300.0` |  | NO_UPDATE |  |
 | Case Tracker | `com.saldous.casetracker` | `5.5.3` | `5.5.3` |  | NO_UPDATE |  |
 | 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.7` | `6.38.7` |  | NO_UPDATE |  |
-| Crime Radar | `com.newsbreak.crimeradar` | `26.23.2` | `26.23.2` |  | NO_UPDATE |  |
+| Crime Radar | `com.newsbreak.crimeradar` | `26.23.2` | `26.27.0` |  | FAILED | download |
 | Splitwise | `com.Splitwise.SplitwiseMobile` | `26.7.1` | `26.7.1` |  | NO_UPDATE |  |
 | Greenify | `com.oasisfeng.greenify` | `5.1.1` | `5.1.1` |  | NO_UPDATE |  |
-| Pialytic | `verbosus.pialytic` | `1.2.8` | `latest` |  | FAILED | version_resolve |
+| Pialytic | `verbosus.pialytic` | `1.2.8` | `1.3.0` | `21` | PATCHED |  |
 | Snipd | `ai.topicfinder.podcastdiscovery` | `4.1.14` | `4.1.14` |  | NO_UPDATE |  |
-| Stargazing Hub | `com.twtapp` | `3.3.1` | `latest` |  | FAILED | version_resolve |
+| Stargazing Hub | `com.twtapp` | `3.3.1` | `3.3.1` |  | NO_UPDATE |  |
 | Photo Editor | `com.iudesk.android.photo.editor` | `13.4` | `13.4` |  | NO_UPDATE |  |
 | ML Manager | `com.javiersantos.mlmanager` | `5.0` | `5.0` |  | NO_UPDATE |  |
 | Beta Maniac | `it.mirko.beta` | `0.9.4` | `0.9.4` |  | NO_UPDATE |  |
@@ -28,20 +28,20 @@ Failed: 34
 | RAR | `com.rarlab.rar` | `7.23.build133` | `7.23.build133` |  | NO_UPDATE |  |
 | m-Indicator | `com.mobond.mindicator` | `18.0.356` | `18.0.356` |  | NO_UPDATE |  |
 | Yatri | `com.yatrirailways.yatri` | `5.0.4` | `5.0.4` |  | NO_UPDATE |  |
-| Proxyman | `com.proxyman.proxymanandroid` | `1.18.0` | `latest` |  | FAILED | version_resolve |
+| Proxyman | `com.proxyman.proxymanandroid` | `1.18.0` | `1.19.0` | `46` | PATCHED |  |
 | SHAREit Premium | `shareit.premium` | `1.1.98` | `1.1.98` |  | NO_UPDATE |  |
 | NetMonster | `cz.mroczis.netmonster` | `3.4.1` | `3.4.1` |  | NO_UPDATE |  |
 | TeraBox | `com.dubox.drive` | `4.20.1` | `4.20.1` |  | NO_UPDATE |  |
-| SAI | `com.mtv.sai` | `2.2.8` | `latest` |  | FAILED | version_resolve |
+| SAI | `com.mtv.sai` | `2.2.8` | `2.2.8` |  | NO_UPDATE |  |
 | BlockerHero | `com.blockerhero` | `1.5.0` | `1.5.0` |  | NO_UPDATE |  |
 | nzb360 | `com.kevinforeman.nzb360` | `23.5` | `23.5` |  | NO_UPDATE |  |
-| Canva | `com.canva.editor` | `2.367.0` | `2.368.0` |  | FAILED | download |
+| Canva | `com.canva.editor` | `2.367.0` | `2.368.0` | `29623126` | PATCHED |  |
 | Clickmate | `com.inscode.autoclicker` | `7.1.4` | `7.1.4` |  | NO_UPDATE |  |
 | NetGuard | `eu.faircode.netguard` | `2.335` | `2.335` |  | NO_UPDATE |  |
 | AdGuard Nightly | `com.adguard.android` | `4.14.68` | `4.14.68` |  | NO_UPDATE |  |
 | AIDA64 | `com.finalwire.aida64` | `2.21` | `2.21` |  | NO_UPDATE |  |
 | CPU-Z | `com.cpuid.cpu_z` | `1.59` | `1.59` |  | NO_UPDATE |  |
-| HTTP Sniffer | `com.anetcapture.mock` | `2.11.1-ad_mob` | `latest` |  | FAILED | version_resolve |
+| HTTP Sniffer | `com.anetcapture.mock` | `2.11.1-ad_mob` | `2.11.1-ad_mob` |  | NO_UPDATE |  |
 | Permission Pilot | `eu.darken.myperm` | `2.1.1-rc0` | `2.2.0-rc0` |  | FAILED | download |
 | Proton VPN | `ch.protonvpn.android` | `5.19.16.0` | `5.19.16.0` |  | NO_UPDATE |  |
 | NetShare | `kha.prog.mikrotik` | `277` | `277` |  | NO_UPDATE |  |
@@ -49,50 +49,50 @@ Failed: 34
 | Hola VPN Proxy Plus | `org.hola.play` | `AARCH64_1.248.400` | `AARCH64_1.248.400` |  | NO_UPDATE |  |
 | Psiphon Pro | `com.psiphon3.subscription` | `479` | `479` |  | NO_UPDATE |  |
 | Speedtest | `org.zwanoo.android.speedtest` | `7.0.7` | `7.0.7` |  | NO_UPDATE |  |
-| Social Gamebox | `com.app.social_gamebox` | `1.1.3` | `latest` |  | FAILED | version_resolve |
+| Social Gamebox | `com.app.social_gamebox` | `1.1.3` | `1.1.3` |  | NO_UPDATE |  |
 | Flightradar24 | `com.flightradar24free` | `11.7.0` | `11.7.0` |  | NO_UPDATE |  |
 | Cashew | `com.budget.tracker_app` | `6.6.11` | `6.6.11` |  | NO_UPDATE |  |
 | Rocket Money | `com.truebill` | `13.15.0` | `15.0.0` |  | SKIPPED_KNOWN_BROKEN |  |
-| Waze | `com.waze` | `5.21.0.0` | `5.21.90.800` |  | FAILED | download |
+| Waze | `com.waze` | `5.21.0.0` | `5.21.90.800` | `1030712` | PATCHED |  |
 | AccuWeather | `com.accuweather.android` | `21.1.13-1-rc` | `21.1.13-1-rc` |  | NO_UPDATE |  |
 | Windscribe VPN | `com.windscribe.vpn` | `4.2.2328` | `4.2.2328` |  | NO_UPDATE |  |
 | MovieBox | `com.community.oneroom` | `3.0.16.0709.03` | `3.0.16.0709.03` |  | NO_UPDATE |  |
 | MovieBox (India) | `com.community.mbox.in` | `3.0.16.0707.03` | `latest` |  | FAILED | version_resolve |
 | MovieBox TV | `com.community.mbox.tv` | `1.1.4.0710.03` | `3.0.16.0709.03` | `50020116` | PATCHED |  |
-| The Weather Channel | `com.weather.Weather` | `16.12.0` | `latest` |  | FAILED | version_resolve |
+| The Weather Channel | `com.weather.Weather` | `16.12.0` | `16.12.0` |  | NO_UPDATE |  |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.7` |  | NO_UPDATE |  |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.18` | `5.19` |  | SKIPPED_KNOWN_BROKEN |  |
 | Windy | `com.windyty.android` | `50.1.1` | `50.1.1` |  | NO_UPDATE |  |
-| TomTom GO | `com.tomtom.gplay.navapp` | `3.6.316-beta` | `latest` |  | FAILED | version_resolve |
+| TomTom GO | `com.tomtom.gplay.navapp` | `3.6.316-beta` | `3.6.316-beta` |  | NO_UPDATE |  |
 | Posture | `air.com.musclemotion.posture` | `3.2.1` | `3.2.1` |  | NO_UPDATE |  |
 | Kyphosis | `air.com.musclemotion.kyphosis` | `1.4.9` | `1.4.9` |  | NO_UPDATE |  |
-| Workout | `air.com.musclemotion.workout` | `1.2.0` | `latest` |  | FAILED | version_resolve |
+| Workout | `air.com.musclemotion.workout` | `1.2.0` | `1.2.0` |  | NO_UPDATE |  |
 | Yoga | `air.com.musclemotion.yoga` | `3.2.1` | `3.2.1` |  | NO_UPDATE |  |
-| Anatomy | `air.com.musclemotion.anatomy` | `3.2.1` | `latest` |  | FAILED | version_resolve |
+| Anatomy | `air.com.musclemotion.anatomy` | `3.2.1` | `3.2.1` |  | NO_UPDATE |  |
 | Strength Training | `air.com.musclemotion.strength.mobile` | `3.5.1` | `3.5.1` |  | NO_UPDATE |  |
 | Citymapper | `com.citymapper.app.release` | `11.55.1` | `11.55.1` |  | NO_UPDATE |  |
 | Moovit | `com.tranzmate` | `5.195.2.1792` | `5.195.2.1792` |  | NO_UPDATE |  |
 | Transit | `com.thetransitapp.droid` | `6.1.12` | `6.1.12` |  | NO_UPDATE |  |
 | UDisc | `com.regasoftware.udisc` | `24.2.1` | `24.2.3` |  | SKIPPED_KNOWN_BROKEN |  |
-| Snow-Forecast.com | `com.snow_forecast.snowforecast` | `8.0.6` | `8.0.6` |  | NO_UPDATE |  |
-| SkinSort | `com.skinsort` | `1.15` | `latest` |  | FAILED | version_resolve |
+| Snow-Forecast.com | `com.snow_forecast.snowforecast` | `8.0.6` | `8.0.8` | `2145` | PATCHED |  |
+| SkinSort | `com.skinsort` | `1.15` | `1.20` | `31` | PATCHED |  |
 | BlurWall | `apps.automan.blurwallpaper` | `2.9.2` | `2.9.2` |  | NO_UPDATE |  |
 | Carbon | `com.joincarbon.nutrition` | `2.76.5784` | `2.76.5784` |  | NO_UPDATE |  |
 | Scoopz | `com.localaiapp.scoops` | `3.28.0` | `3.28.0` |  | NO_UPDATE |  |
-| NewsBreak | `com.particlenews.newsbreak` | `26.27.0` | `26.28.0` |  | FAILED | download |
+| NewsBreak | `com.particlenews.newsbreak` | `26.27.0` | `26.28.0` | `26280034` | PATCHED |  |
 | Inmigreat | `com.changayaf.inmigreat` | `2.3.4` | `2.3.4` |  | NO_UPDATE |  |
 | Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.7.1` | `6.7.1` |  | NO_UPDATE |  |
 | MigraConnect | `com.tecso.MigraConnect` | `2.8.1` | `2.8.1` |  | NO_UPDATE |  |
-| Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `latest` |  | FAILED | version_resolve |
-| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.20.5.2606250000` |  | NO_UPDATE |  |
+| Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `1.29.0-260420093` |  | NO_UPDATE |  |
+| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.21.0.2607020000` | `72101` | FAILED | fingerprint |
 | Image & Video Date Fixer | `eu.duong.imagedatefixer` | `3.7.1` | `3.7.1` |  | NO_UPDATE |  |
 | Rename & Organize | `eu.duong.picturemanager` | `8.25.1` | `8.25.1` |  | NO_UPDATE |  |
 | Inure App Manager | `app.simple.inure.play` | `build107.0.5` | `build107.0.5` |  | NO_UPDATE |  |
 | Weawow: Weather & Widget | `com.weawow` | `7.1.7` | `7.1.7` |  | NO_UPDATE |  |
 | SPIN | `com.nationaledtech.spinbrowser` | `70.3.0` | `70.3.0` |  | NO_UPDATE |  |
-| Tracked | `com.tracked.mobile` | `7.0.0` | `latest` |  | FAILED | version_resolve |
-| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.16.6` | `latest` |  | FAILED | version_resolve |
-| All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `3.2.3` | `latest` |  | FAILED | version_resolve |
+| Tracked | `com.tracked.mobile` | `7.0.0` | `7.1.1` | `127` | PATCHED |  |
+| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.16.6` | `1.17.0` | `70` | FAILED | fingerprint |
+| All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `3.2.3` | `3.2.3` |  | NO_UPDATE |  |
 | Genius Scan | `com.thegrizzlylabs.geniusscan.free` | `7.40.0` | `7.40.0` |  | NO_UPDATE |  |
 | KineStop | `com.urbandroid.kinestop` | `5.1` | `5.1` |  | NO_UPDATE |  |
 | pkge | `net.pkge.pkge` | `19.0.13` | `19.0.13` |  | NO_UPDATE |  |
@@ -103,198 +103,73 @@ Failed: 34
 | Picture Mushroom - Mushroom ID | `com.glority.picturemushroom` | `2.9.31` | `2.9.31` |  | NO_UPDATE |  |
 | Amazon Shopping | `com.amazon.mShop.android.shopping` | `32.12.4.100` | `32.12.4.100` |  | NO_UPDATE |  |
 | Amazon India | `in.amazon.mShop.android.shopping` | `32.12.4.300` | `32.12.4.300` |  | NO_UPDATE |  |
-| AmoledPix | `com.androholic.amoledpix` | `7.2` | `latest` |  | FAILED | version_resolve |
-| APKMirror Installer | `com.apkmirror.helper.prod` | `2.0.3 (41-d04e542)` | `2.0.3 (41-d04e542)` |  | NO_UPDATE |  |
+| AmoledPix | `com.androholic.amoledpix` | `7.2` | `7.2` |  | NO_UPDATE |  |
+| APKMirror Installer | `com.apkmirror.helper.prod` | `2.0.3 (41-d04e542)` | `998` |  | FAILED | download |
 | Block Puzzle | `game.puzzle.blockpuzzle` | `6.0` | `6.0` |  | NO_UPDATE |  |
-| ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.4` | `latest` |  | FAILED | version_resolve |
+| ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.4` | `4.8.4` |  | NO_UPDATE |  |
 | Pocket Casts | `au.com.shiftyjelly.pocketcasts` | `8.14` | `8.14` |  | NO_UPDATE |  |
 | Sticker Maker | `com.marsvard.stickermakerforwhatsapp` | `1.0.10-5` | `1.0.10-5` |  | NO_UPDATE |  |
-| Subway Now | `io.goodservice.theweekendest` | `1.2.8` | `latest` |  | FAILED | version_resolve |
+| Subway Now | `io.goodservice.theweekendest` | `1.2.8` | `1.2.8` |  | NO_UPDATE |  |
 | TrackChecker Mobile | `com.metalsoft.trackchecker_mobile` | `2.29.3` | `2.29.3` |  | NO_UPDATE |  |
 | Fitbod | `com.fitbod.fitbod` | `8.24.1-0` | `8.24.1-0` |  | NO_UPDATE |  |
 | Toomics | `com.toomics.global.google` | `1.6.7` | `1.6.7` |  | NO_UPDATE |  |
 | VIZ Manga | `com.vizmanga.android` | `4.14.0` | `4.14.0` |  | NO_UPDATE |  |
 | Excel | `com.microsoft.office.excel` | `16.0.20131.20080` | `16.0.20131.20080` |  | NO_UPDATE |  |
 | Word | `com.microsoft.office.word` | `16.0.20131.20080` | `16.0.20131.20080` |  | NO_UPDATE |  |
-| AiScore | `com.onesports.score` | `4.2.4` | `4.2.4` |  | NO_UPDATE |  |
-| AMBOSS | `com.amboss.medical.knowledge` | `2.115.1.4408` | `latest` |  | FAILED | version_resolve |
-| Blurams | `com.blurams.ipc` | `5.1049.4.908` | `latest` |  | FAILED | version_resolve |
+| AiScore | `com.onesports.score` | `4.2.4` | `4.2.6` | `291` | PATCHED |  |
+| AMBOSS | `com.amboss.medical.knowledge` | `2.115.1.4408` | `2.115.1.4408` |  | NO_UPDATE |  |
+| Blurams | `com.blurams.ipc` | `5.1049.4.908` | `5.1049.4.908` |  | NO_UPDATE |  |
 | Carousell | `com.thecarousell.Carousell` | `2.461.8` | `2.462.7` |  | SKIPPED_KNOWN_BROKEN |  |
 | Duolingo | `com.duolingo` | `6.87.6` | `6.87.6` |  | NO_UPDATE |  |
 | Flightsky | `com.live.flight.tracker` | `1.7.1` | `1.7.1` |  | NO_UPDATE |  |
-| FlightAware | `com.flightaware.android.liveFlightTracker` | `5.15.4` | `latest` |  | FAILED | version_resolve |
+| FlightAware | `com.flightaware.android.liveFlightTracker` | `5.15.4` | `5.15.4` |  | NO_UPDATE |  |
 | Historical Calendar | `com.alexandrucene.dayhistory` | `7.5.4` | `7.5.4` |  | NO_UPDATE |  |
-| JEFIT | `je.fit` | `17.2.5` | `17.2.5` |  | NO_UPDATE |  |
+| JEFIT | `je.fit` | `17.2.5` | `17.2.6` |  | FAILED | download |
 | LiveScore | `com.livescore` | `9.7.1` | `9.7.1` |  | NO_UPDATE |  |
-| MyRadar | `com.acmeaom.android.myradar` | `8.71.2` | `8.71.2` |  | NO_UPDATE |  |
+| MyRadar | `com.acmeaom.android.myradar` | `8.71.2` | `8.71.3` | `592` | PATCHED |  |
 | Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.27.2` |  | NO_UPDATE |  |
-| RecipeBro | `com.recipebro.cookingbuddy` | `1.3.74` | `latest` |  | FAILED | version_resolve |
+| RecipeBro | `com.recipebro.cookingbuddy` | `1.3.74` | `1.4.22` | `1388` | FAILED | fingerprint |
 | SCRL | `com.appostrophe.scrl` | `1.22` | `1.22` |  | NO_UPDATE |  |
 | Sticker.ly | `com.snowcorp.stickerly.android` | `3.35.0` | `3.35.0` |  | NO_UPDATE |  |
 | TradingView | `com.tradingview.tradingviewapp` | `1.20.77.0.1002295` | `1.20.77.0.1002295` |  | NO_UPDATE |  |
 | WolframAlpha | `com.wolfram.android.alphapro` | `1.0.8.20260601651` | `1.0.8.20260601651` |  | NO_UPDATE |  |
 | Life360 | `com.life360.android.safetymapd` | `26.25.0` | `26.25.0` |  | NO_UPDATE |  |
 | Today Weather | `mobi.lockdown.weather` | `2.5.0-5` | `2.5.0-6` |  | SKIPPED_KNOWN_BROKEN |  |
-| UbikiTouch | `eu.toneiv.ubktouch` | `1.16.13` | `latest` |  | FAILED | version_resolve |
+| UbikiTouch | `eu.toneiv.ubktouch` | `1.16.13` | `1.16.13` |  | NO_UPDATE |  |
 | Ace Ex File Manager | `com.ace.ex.file.manager` | `1.6.0.4` | `1.6.0.4` |  | NO_UPDATE |  |
 | RS File Manager | `com.rs.explorer.filemanager` | `2.3.0.4` | `2.3.0.4` |  | NO_UPDATE |  |
 | Strava | `com.strava` | `471.11` | `471.11` |  | NO_UPDATE |  |
-| KineMaster | `com.nexstreaming.app.kinemasterfree` | `8.1.13.36552.GP` | `latest` |  | FAILED | version_resolve |
+| KineMaster | `com.nexstreaming.app.kinemasterfree` | `8.1.13.36552.GP` | `8.1.15.36566` |  | FAILED | download |
 | BuzzCast | `com.guochao.faceshow` | `3.2.80` | `3.2.80` |  | NO_UPDATE |  |
-| Lark Player | `com.dywx.larkplayer` | `2026.9.6` | `2026.9.6` |  | NO_UPDATE |  |
+| Lark Player | `com.dywx.larkplayer` | `2026.9.6` | `2026.10.5` | `2026100509` | FAILED | fingerprint |
 | Uptodown App Store | `com.uptodown` | `7.34` | `7.34` |  | NO_UPDATE |  |
-| Minimal Widgets | `com.jndapp.minimal.widgets` | `1.0.08` | `latest` |  | FAILED | version_resolve |
-| Anime Depth Wallpapers | `com.jndapp.anime.depth.live.wallpaper` | `1.0.4` | `latest` |  | FAILED | version_resolve |
-| Depth Live Wallpaper | `com.jndapp.depth.live.wallpaper` | `2.1.06` | `latest` |  | FAILED | version_resolve |
-| Pixel Habit Tracker | `com.pixel.al.pixelhabittracker` | `2.1.1` | `latest` |  | FAILED | version_resolve |
+| Minimal Widgets | `com.jndapp.minimal.widgets` | `1.0.08` | `1.1.01` | `10` | PATCHED |  |
+| Anime Depth Wallpapers | `com.jndapp.anime.depth.live.wallpaper` | `1.0.4` | `1.0.4` |  | NO_UPDATE |  |
+| Depth Live Wallpaper | `com.jndapp.depth.live.wallpaper` | `2.1.06` | `2.1.06` |  | NO_UPDATE |  |
+| Pixel Habit Tracker | `com.pixel.al.pixelhabittracker` | `2.1.1` | `2.1.1` |  | NO_UPDATE |  |
 | PLAYit | `com.playit.videoplayer` | `2.7.50.12` | `2.7.50.12` |  | NO_UPDATE |  |
 | Pocket Bard | `com.MojoFilterMediaLLC.RPGSoundSystem` | `3.1.16` | `3.1.16` |  | NO_UPDATE |  |
 | NYT Games | `com.nytimes.crossword` | `6.33.1` | `6.33.1` |  | NO_UPDATE |  |
 | komoot | `de.komoot.android` | `2026.28.2` | `2026.28.2` |  | NO_UPDATE |  |
 | MEGA | `mega.privacy.android.app` | `16.9(261881039)(3c7e30562a)` | `16.9(261881039)(3c7e30562a)` |  | NO_UPDATE |  |
 | Dailyhunt | `com.eterno` | `33.5.4` | `33.5.4` |  | NO_UPDATE |  |
+| ES File Explorer | `com.estrongs.android.pop` | `4.4.3.7` | `4.4.3.7` |  | NO_UPDATE |  |
+| Super File | `com.esuper.file.explorer` | `1.5.6.2` | `1.5.6.3` | `77` | PATCHED |  |
 
 ## Failure Logs
 
-<details><summary>Pialytic log excerpt</summary>
+<details><summary>Crime Radar log excerpt</summary>
 
 ````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/ -> -
+[apkcombo 26.27.0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.newsbreak.crimeradar/download
+[+] FlareSolverr OK: https://apkcombo.com/search/com.newsbreak.crimeradar/download (title=CrimeRadar: Dispatch Alerts APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.newsbreak.crimeradar/download/phone-26.27.0-xapk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.newsbreak.crimeradar/download/phone-26.27.0-xapk (title=Download CrimeRadar: Dispatch Alerts APK - Latest Version 2024)
+[+] HTTP GET: https://apkcombo.com/checkin -> -
 curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/pialytic-julia-editor/verbosus.pialytic/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/verbosus.pialytic/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/verbosus.pialytic/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/verbosus.pialytic/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/verbosus.pialytic/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/verbosus.pialytic/download -> -
+[-] Request failed: https://apkcombo.com/checkin
+[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExtNWxkM05pY21WaGF5NWpjbWx0WlhKaFpHRnlYekkyTWpjd01ERXlYMlpoTUdGak9HSmk/YXMyPTJiNjAxM2JkYTYxNDNkNzZjMTdmYWFkNmEzZjQ2M2Y4NmMyZWMyOWQmaz1iYWY3MzE3NjM5YmYxMTc0NDE0OWNlODI5MzI0NTM2YzZjMmVjMjlkJl9wPVkyOXRMbTVsZDNOaWNtVmhheTVqY21sdFpYSmhaR0Z5JmM9MSU3Q05FV1NfQU5EX01BR0FaSU5FUyU3Q2IybGtQVGttWkdWMlBWTmpiMjl3ZWlVeU1FeE1ReVowUFhoaGNHc21jejA0TkRZd056YzVOeVoyYmoweU5pNHlOeTR3Sm5aalBUSTJNamN3TURFeSZfZm49UTNKcGJXVlNZV1JoY2lVelFTdEVhWE53WVhSamFDdEJiR1Z5ZEhOZk1qWXVNamN1TUY5aGNHdGpiMjFpYnk1amIyMHVlR0Z3YXclM0QlM0Q=&fp=40be77a497415ced8150670675164ec4&ip=20.161.28.179&package_name=com.newsbreak.crimeradar&lang=en
 curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/verbosus.pialytic/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/verbosus.pialytic/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Stargazing Hub log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/tian-wen-tong/com.twtapp/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/tian-wen-tong/com.twtapp/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/tian-wen-tong/com.twtapp/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/tian-wen-tong/com.twtapp/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/tian-wen-tong/com.twtapp/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/tian-wen-tong/com.twtapp/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.twtapp/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.twtapp/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.twtapp/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.twtapp/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.twtapp/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.twtapp/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Proxyman log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/proxyman-capture-https/com.proxyman.proxymanandroid/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.proxyman.proxymanandroid/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.proxyman.proxymanandroid/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.proxyman.proxymanandroid/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.proxyman.proxymanandroid/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.proxyman.proxymanandroid/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.proxyman.proxymanandroid/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.proxyman.proxymanandroid/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>SAI log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/sai-split-apks-installer/com.mtv.sai/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.mtv.sai/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.mtv.sai/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.mtv.sai/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.mtv.sai/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.mtv.sai/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.mtv.sai/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.mtv.sai/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Canva log excerpt</summary>
-
-````text
-[uptodown 2.368.0] [+] HTTP GET: https://canva.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://canva.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://canva.en.uptodown.com/android/apps/712532/versions/1 -> -
-[+] HTTP GET: https://canva.en.uptodown.com/android/download/1187765015 -> -
-curl: (22) The requested URL returned error: 404
-[-] Request failed: https://canva.en.uptodown.com/android/download/1187765015
-
-````
-
-</details>
-
-<details><summary>HTTP Sniffer log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.anetcapture.mock/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.anetcapture.mock/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.anetcapture.mock/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.anetcapture.mock/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.anetcapture.mock/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.anetcapture.mock/download
-
-Timed out after 120s
 
 ````
 
@@ -303,52 +178,22 @@ Timed out after 120s
 <details><summary>Permission Pilot log excerpt</summary>
 
 ````text
-[apkmirror 2.2.0-rc0] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/darken/permission-pilot-2/
+sion-pilot-2/
 [+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/ (title=Download Permission Pilot APKs for Android - APKMirror)
 [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/
 [+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/ (title=Permission Pilot 2.2.0-rc0 APK Download by darken - APKMirror)
 [+] APKMirror release page: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/
 [-] Could not find APKMirror variant for version=2.2.0-rc0 arch=all dpi=nodpi anydpi auto
 
-````
-
-</details>
-
-<details><summary>Social Gamebox log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/ -> -
+[apkcombo 2.2.0-rc0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download
+[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.2.0-rc0-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.2.0-rc0-apk (title=Download Permission Pilot APK - Latest Version 2024)
+[+] HTTP GET: https://apkcombo.com/checkin -> -
 curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/social-gamebox/com.app.social_gamebox/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.app.social_gamebox/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.app.social_gamebox/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.app.social_gamebox/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.app.social_gamebox/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.app.social_gamebox/download -> -
+[-] Request failed: https://apkcombo.com/checkin
+[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWlhVdVpHRnlhMlZ1TG0xNWNHVnliVjh5TURJd01EQXdNRjh4T0ROaE1UUmpZZz9hczI9OWMyODExYjZiZWM2NjY3NzU3ZjhiMzk3ZDNiODQzNWU2YzJmMDIwNiZrPThkZThlY2ZkYmNiOGY3OWFiNDE0ZDZjNGEzM2NlYzdlNmMyZjAyMDYmX3A9WlhVdVpHRnlhMlZ1TG0xNWNHVnliUSZjPTElN0NUT09MUyU3Q2IybGtQVGttWkdWMlBXUmhjbXRsYmlaMFBYaGhjR3NtY3oweE1EQXdNelkwTkNaMmJqMHlMakl1TUMxeVl6QW1kbU05TWpBeU1EQXdNREEmX2ZuPVVHVnliV2x6YzJsdmJpdFFhV3h2ZEY4eUxqSXVNQzF5WXpCZllYQnJZMjl0WW04dVkyOXRMbmhoY0dzJTNE&fp=40be77a497415ced8150670675164ec4&ip=20.161.28.179&package_name=eu.darken.myperm&lang=en
 curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.app.social_gamebox/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.app.social_gamebox/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Waze log excerpt</summary>
-
-````text
-[apkmirror 5.21.90.800] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/ (title=Download Waze Navigation &amp; Live Traffic APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/waze-navigation--live-traffic-5-21-90-800-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/waze-navigation--live-traffic-5-21-90-800-release/ (title=Waze Navigation &amp; Live Traffic 5.21.90.800 APK Download by Waze - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/waze/waze-gps-maps-traffic-alerts-live-navigation/waze-navigation--live-traffic-5-21-90-800-release/
-[-] Could not find APKMirror variant for version=5.21.90.800 arch=all dpi=nodpi anydpi auto
 
 ````
 
@@ -358,203 +203,73 @@ Timed out after 120s
 
 ````text
 [apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.in/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.community.mbox.in/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.community.mbox.in/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.community.mbox.in/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.community.mbox.in/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.community.mbox.in/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.in/download
-
-Timed out after 120s
+[+] FlareSolverr OK: https://apkcombo.com/search/com.community.mbox.in/download (title=com.community.mbox.in APK - Download (Android))
 
 ````
 
 </details>
 
-<details><summary>The Weather Channel log excerpt</summary>
+<details><summary>CamScanner log excerpt</summary>
 
 ````text
-[apkmirror] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/
-[!] FlareSolverr status 'error' for https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/
-[!] FlareSolverr attempt 1/1 failed for: https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/
-[-] FlareSolverr could not fetch https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://www.apkmirror.com/apk/the-weather-channel/the-weather-channel-local-forecast-weather-maps/
+patches-tracker/patches-tracker/.work/fingerprint-analysis/camscanner/decoded/camscanner-7.21.0.2607020000/smali/s/h/e/l/l/N.smali",
+          "method": "r",
+          "reason": "return type matches, obfuscated method shape matches",
+          "score": 35
+        },
+        {
+          "class": "Ls/h/e/l/l/N;",
+          "descriptor": "(Landroid/app/Application;Ljava/lang/String;)Z",
+          "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis/camscanner/decoded/camscanner-7.21.0.2607020000/smali/s/h/e/l/l/N.smali",
+          "method": "ra",
+          "reason": "return type matches, obfuscated method shape matches",
+          "score": 35
+        }
+      ]
+    }
+  ],
+  "failed_fingerprints": [
+    "IsPremiumFingerprint",
+    "declarationFingerprint",
+    "failedFingerprint"
+  ],
+  "notes": [],
+  "schema": "patches-tracker/fingerprint-analysis/v1"
+}
 
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.weather.Weather/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.weather.Weather/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.weather.Weather/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.weather.Weather/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.weather.Weather/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.weather.Weather/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.weather.Weather/download
+Auto-repair attempt 3 applied:
+[
+  {
+    "changed": false,
+    "message": "repair did not change fingerprint declaration",
+    "plan": {
+      "candidate": {
+        "class": "Ls/h/e/l/l/N;",
+        "descriptor": "()Z",
+        "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis/camscanner/decoded/camscanner-7.21.0.2607020000/smali/s/h/e/l/l/N.smali",
+        "method": "x",
+        "reason": "return type matches, parameters match, method name still matches",
+        "score": 70
+      },
+      "current": {
+        "definingClass": "",
+        "name": "x",
+        "parameters": [],
+        "returnType": "Z",
+        "strings": [
+          "Monthly",
+          "Yearly",
+          "3 Month",
+          "3 Years"
+        ]
+      },
+      "fingerprint": "IsPremiumFingerprint",
+      "source_file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/camscanner/patches/src/main/kotlin/app/template/patches/anatomy/premium/Fingerprints.kt"
+    }
+  }
+]
 
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>TomTom GO log excerpt</summary>
-
-````text
-[apkmirror] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/
-[!] FlareSolverr status 'error' for https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/
-[!] FlareSolverr attempt 1/1 failed for: https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/
-[-] FlareSolverr could not fetch https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://www.apkmirror.com/apk/tomtom-international-bv/tomtom-go-expert-truck-gps/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.tomtom.gplay.navapp/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.tomtom.gplay.navapp/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.tomtom.gplay.navapp/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.tomtom.gplay.navapp/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.tomtom.gplay.navapp/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.tomtom.gplay.navapp/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.tomtom.gplay.navapp/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Workout log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/muscle-motion-workouts/air.com.musclemotion.workout/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.workout/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/air.com.musclemotion.workout/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/air.com.musclemotion.workout/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/air.com.musclemotion.workout/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/air.com.musclemotion.workout/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/air.com.musclemotion.workout/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.workout/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Anatomy log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/muscle-motion-anatomy/air.com.musclemotion.anatomy/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.anatomy/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/air.com.musclemotion.anatomy/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/air.com.musclemotion.anatomy/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/air.com.musclemotion.anatomy/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/air.com.musclemotion.anatomy/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/air.com.musclemotion.anatomy/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/air.com.musclemotion.anatomy/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>SkinSort log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/skinsort-skincare-scanner/com.skinsort/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.skinsort/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.skinsort/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.skinsort/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.skinsort/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.skinsort/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.skinsort/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.skinsort/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>NewsBreak log excerpt</summary>
-
-````text
-[apkmirror 26.28.0] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/ (title=Download NewsBreak: Local News &amp; Alerts APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/newsbreak-local-news--alerts-26-28-0-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/newsbreak-local-news--alerts-26-28-0-release/ (title=NewsBreak: Local News &amp; Alerts 26.28.0 APK Download by Particle Media Inc. - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/particle-media-inc/news-break-local-breaking/newsbreak-local-news--alerts-26-28-0-release/
-[-] Could not find APKMirror variant for version=26.28.0 arch=all dpi=nodpi anydpi auto
-
-````
-
-</details>
-
-<details><summary>Police Scanner log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Tracked log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tracked.mobile/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.tracked.mobile/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.tracked.mobile/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.tracked.mobile/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.tracked.mobile/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.tracked.mobile/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.tracked.mobile/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.tracked.mobile/download
-
-Timed out after 120s
+Auto-repair stopped at attempt 3: repair did not change fingerprint declaration
 
 ````
 
@@ -563,50 +278,58 @@ Timed out after 120s
 <details><summary>Toxly log excerpt</summary>
 
 ````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner/downloading/
+)
+	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
+	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
 
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/download
 
-Timed out after 120s
+Fingerprint analysis JSON:
+{
+  "analyzed_fingerprints": [
+    "BillingRepositoryConstructorFingerprint"
+  ],
+  "apk": "/home/runner/work/patches-tracker/patches-tracker/.work/toxly/toxly-1.17.0.apk",
+  "candidates": [
+    {
+      "candidate_count": 0,
+      "current": {
+        "definingClass": "Lg80;",
+        "name": "<init>",
+        "parameters": [
+          "Landroid/content/Context;",
+          "Lbw1;"
+        ],
+        "returnType": "V",
+        "strings": [
+          "Please provide a valid listener for purchases updates."
+        ]
+      },
+      "fingerprint": "BillingRepositoryConstructorFingerprint",
+      "source_file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/toxly/patches/src/main/kotlin/app/template/patches/toxly/Fingerprints.kt",
+      "top_candidates": []
+    }
+  ],
+  "failed_fingerprints": [
+    "BillingRepositoryConstructorFingerprint"
+  ],
+  "notes": [],
+  "schema": "patches-tracker/fingerprint-analysis/v1"
+}
 
-````
-
-</details>
-
-<details><summary>All Reader log excerpt</summary>
-
-````text
-[apkpure] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/
-[!] FlareSolverr attempt 1/1 failed for: https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/ after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/all-document-reader-pdf-viewer/alldocumentreader.office.viewer.filereader.pdfviewer/downloading/
-
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/alldocumentreader.office.viewer.filereader.pdfviewer/download
-
-Timed out after 120s
+Auto-repair stopped at attempt 1: no repair plan.
 
 ````
 
@@ -615,119 +338,66 @@ Timed out after 120s
 <details><summary>Wavve Boating log excerpt</summary>
 
 ````text
-[apkmirror 5.7.0] [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/ (title=Download Wavve Boating: Marine Boat GPS APKs for Android - APKMirror)
+ng: Marine Boat GPS APKs for Android - APKMirror)
 [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/
 [+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/ (title=Wavve Boating: Marine Boat GPS 5.7.0 APK Download by Wavve Boating - APKMirror)
 [+] APKMirror release page: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/
 
-````
-
-</details>
-
-<details><summary>AmoledPix log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.androholic.amoledpix/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.androholic.amoledpix/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.androholic.amoledpix/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.androholic.amoledpix/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.androholic.amoledpix/download -> -
+[apkcombo 5.7.0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.wavve.boating.gps/download
+[+] FlareSolverr OK: https://apkcombo.com/search/com.wavve.boating.gps/download (title=Wavve Boating: Marine Boat GPS APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.wavve.boating.gps/download/phone-5.7.0-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.wavve.boating.gps/download/phone-5.7.0-apk (title=Download Wavve Boating: Marine Boat GPS APK - Latest Version 2024)
+[+] HTTP GET: https://apkcombo.com/checkin -> -
 curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.androholic.amoledpix/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.androholic.amoledpix/download
-
-Timed out after 120s
+[-] Request failed: https://apkcombo.com/checkin
+[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExuZGhkblpsTG1KdllYUnBibWN1WjNCelh6TXhOemxmTnpRMk9EVmhOR00/YXMyPTRlY2ZmZTAwNDZhNWM0NTZhYTRmNGJmZTgwMjA5YmMzNmMyZjE5MDEmaz1mNGFlMGE4ZDZiMmFmYmY1ODg2OTdhZTVlYjhkZjNiNTZjMmYxOTAxJl9wPVkyOXRMbmRoZG5abExtSnZZWFJwYm1jdVozQnomYz0xJTdDTUFQU19BTkRfTkFWSUdBVElPTiU3Q2IybGtQVGttWkdWMlBWZGhkblpsSlRJd1FtOWhkR2x1WnlaMFBYaGhjR3NtY3oweE1USTFNVFUxTURNbWRtNDlOUzQzTGpBbWRtTTlNekUzT1EmX2ZuPVYyRjJkbVVyUW05aGRHbHVaeVV6UVN0TllYSnBibVVyUW05aGRDdEhVRk5mTlM0M0xqQmZZWEJyWTI5dFltOHVZMjl0TG5oaGNHcyUzRA==&fp=40be77a497415ced8150670675164ec4&ip=20.161.28.179&package_name=com.wavve.boating.gps&lang=en
+curl: (22) The requested URL returned error: 403
 
 ````
 
 </details>
 
-<details><summary>ColorNote log excerpt</summary>
+<details><summary>APKMirror Installer log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/download
+?response-content-disposition=attachment%3B+filename%3D%22APKMirror+Installer_998_apkcombo.com.apk%22&response-content-type=application/vnd.android.package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260713T055235Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260713/auto/s3/aws4_request&X-Amz-Signature=ecf03b55edd05250633b2dc6a45d7c7c5f3864df414e2918237148357fd825af
+[+] Getting '.work/resolver/apkmirror-installer/apkeditor.jar' from 'https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar'
+[+] HTTP GET: https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/apkmirror-installer/apkeditor.jar
+[+] Saved response: .work/resolver/apkmirror-installer/apkeditor.jar (7733037 bytes)
+[+] Merging XAPK splits with APKEditor
+[-] APKEditor m error: 00.000 I: [MERGE] Using: APKEditor version 1.4.9, ARSCLib version 1.3.9
+      -i = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
+         = taller/apkmirror-installer-998.apk                                   
+      -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
+         = taller/apkmirror-installer-998.apk.extracted-unsigned                
+ ______________________________________________________________________________ 
+00.021 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
-Timed out after 120s
+ERROR:
+java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
+	at com.reandroid.apkeditor.merge.Merger.extractFile(Merger.java:114)
+	at com.reandroid.apkeditor.merge.Merger.runCommand(Merger.java:57)
+	at com.reandroid.apkeditor.Options.runCommand(Options.java:59)
+	at com.reandroid.apkeditor.Main.run(Main.java:136)
+	at com.reandroid.apkeditor.Main.execute(Main.java:72)
+	at com.reandroid.apkeditor.Main.main(Main.java:57)
 
 ````
 
 </details>
 
-<details><summary>Subway Now log excerpt</summary>
+<details><summary>JEFIT log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/io.goodservice.theweekendest/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/io.goodservice.theweekendest/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/io.goodservice.theweekendest/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/io.goodservice.theweekendest/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/io.goodservice.theweekendest/download -> -
+[apkcombo 17.2.6] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/je.fit/download
+[+] FlareSolverr OK: https://apkcombo.com/search/je.fit/download (title=JEFIT APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/je.fit/download/phone-17.2.6-xapk
+[+] FlareSolverr OK: https://apkcombo.com/search/je.fit/download/phone-17.2.6-xapk (title=Download JEFIT APK - Latest Version 2024)
+[+] HTTP GET: https://apkcombo.com/checkin -> -
 curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/io.goodservice.theweekendest/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/io.goodservice.theweekendest/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>AMBOSS log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.amboss.medical.knowledge/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.amboss.medical.knowledge/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.amboss.medical.knowledge/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.amboss.medical.knowledge/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.amboss.medical.knowledge/download -> -
+[-] Request failed: https://apkcombo.com/checkin
+[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvYW1VdVptbDBYekl3TURaZllXRmxObVF5WWpZP2FzMj00MzFhODk3ZDdiMTc2NzI5MWQ1MzE5MDFhMTk5OTg1MTZjMmVjZTgyJms9NzQ1ODVhOGVmMDAwZDIyMGMzZmFkZTE0NTllOWZmM2M2YzJlY2U4MiZfcD1hbVV1Wm1sMCZjPTElN0NIRUFMVEhfQU5EX0ZJVE5FU1MlN0NiMmxrUFRrbVpHVjJQVXBsWm1sMEpUSXdTVzVqTGlaMFBYaGhjR3NtY3oweE5EVXlNemMyTVRVbWRtNDlNVGN1TWk0MkpuWmpQVEl3TURZJl9mbj1Ta1ZHU1ZSZk1UY3VNaTQyWDJGd2EyTnZiV0p2TG1OdmJTNTRZWEJy&fp=40be77a497415ced8150670675164ec4&ip=20.161.28.179&package_name=je.fit&lang=en
 curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.amboss.medical.knowledge/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.amboss.medical.knowledge/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Blurams log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.blurams.ipc/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.blurams.ipc/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.blurams.ipc/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.blurams.ipc/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.blurams.ipc/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.blurams.ipc/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.blurams.ipc/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>FlightAware log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.flightaware.android.liveFlightTracker/download
-
-Timed out after 120s
 
 ````
 
@@ -736,34 +406,56 @@ Timed out after 120s
 <details><summary>RecipeBro log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.recipebro.cookingbuddy/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.recipebro.cookingbuddy/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.recipebro.cookingbuddy/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.recipebro.cookingbuddy/download
+ders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
+	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
 
-Timed out after 120s
 
-````
+Fingerprint analysis JSON:
+{
+  "analyzed_fingerprints": [
+    "GetBooleanFingerprint"
+  ],
+  "apk": "/home/runner/work/patches-tracker/patches-tracker/.work/recipebro/recipebro-1.4.22.apk",
+  "candidates": [
+    {
+      "candidate_count": 0,
+      "current": {
+        "definingClass": "Lcom/recipebro/cookingbuddy/client/utils/FeatureFlagResponse;",
+        "name": "getBoolean",
+        "parameters": [
+          "Lqd2;"
+        ],
+        "returnType": "Z",
+        "strings": []
+      },
+      "fingerprint": "GetBooleanFingerprint",
+      "source_file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/recipebro/patches/src/main/kotlin/app/template/patches/recipebro/Fingerprints.kt",
+      "top_candidates": []
+    }
+  ],
+  "failed_fingerprints": [
+    "GetBooleanFingerprint"
+  ],
+  "notes": [],
+  "schema": "patches-tracker/fingerprint-analysis/v1"
+}
 
-</details>
-
-<details><summary>UbikiTouch log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.toneiv.ubktouch/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/eu.toneiv.ubktouch/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/eu.toneiv.ubktouch/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/eu.toneiv.ubktouch/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/eu.toneiv.ubktouch/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/eu.toneiv.ubktouch/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.toneiv.ubktouch/download
-
-Timed out after 120s
+Auto-repair stopped at attempt 1: no repair plan.
 
 ````
 
@@ -772,88 +464,67 @@ Timed out after 120s
 <details><summary>KineMaster log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.nexstreaming.app.kinemasterfree/download
-
-Timed out after 120s
+[apkpure 8.1.15.36566] [+] FlareSolverr GET attempt 1/1: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
+[+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/ (title=Download KineMaster - Video Editor latest 8.1.15.... Android APK)
+[+] FlareSolverr GET attempt 1/1: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.1.15.36566
+[+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.1.15.36566 (title=Free APK Downloader Online - Download Region Free APK)
+[-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
 
 ````
 
 </details>
 
-<details><summary>Minimal Widgets log excerpt</summary>
+<details><summary>Lark Player log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.minimal.widgets/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.jndapp.minimal.widgets/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.jndapp.minimal.widgets/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.jndapp.minimal.widgets/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.jndapp.minimal.widgets/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.jndapp.minimal.widgets/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.minimal.widgets/download
+otlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.cli.command.PatchCommand.call$lambda$12$2(PatchCommand.kt:782)
+	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:24)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:779)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
 
-Timed out after 120s
 
-````
+Fingerprint analysis JSON:
+{
+  "analyzed_fingerprints": [
+    "HasPurchaseFingerprint"
+  ],
+  "apk": "/home/runner/work/patches-tracker/patches-tracker/.work/lark-player/lark-player-2026.10.5.apk",
+  "candidates": [
+    {
+      "candidate_count": 0,
+      "current": {
+        "definingClass": "Lo/b15;",
+        "name": "d",
+        "parameters": [],
+        "returnType": "Z",
+        "strings": []
+      },
+      "fingerprint": "HasPurchaseFingerprint",
+      "source_file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/lark-player/patches/src/main/kotlin/app/template/patches/larkplayer/Fingerprints.kt",
+      "top_candidates": []
+    }
+  ],
+  "failed_fingerprints": [
+    "HasPurchaseFingerprint"
+  ],
+  "notes": [],
+  "schema": "patches-tracker/fingerprint-analysis/v1"
+}
 
-</details>
-
-<details><summary>Anime Depth Wallpapers log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Depth Live Wallpaper log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/download
-
-Timed out after 120s
-
-````
-
-</details>
-
-<details><summary>Pixel Habit Tracker log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download
-[!] FlareSolverr attempt 1/1 failed for: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download after 1 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download
-[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.pixel.al.pixelhabittracker/download
-
-Timed out after 120s
+Auto-repair stopped at attempt 1: no repair plan.
 
 ````
 
