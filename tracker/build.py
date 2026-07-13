@@ -546,63 +546,83 @@ def attempt_fingerprint_repair(
     if not analysis:
         return RepairResult(log)
     enriched_log = log + "\n\nFingerprint analysis JSON:\n" + analysis + "\n"
-    try:
-        report = json.loads(analysis)
-    except json.JSONDecodeError:
-        return RepairResult(enriched_log)
-    plans = select_auto_repairs(report, max_repairs=10)
-    if not plans:
-        return RepairResult(enriched_log)
     if repo_dir is None:
         return RepairResult(enriched_log + "\nAuto-repair skipped: patches source was not available.\n")
 
-    repair_logs = []
-    for plan in plans:
-        repair_log = apply_repair_plan(repo_dir, plan)
-        repair_logs.append(repair_log)
-    changed_repairs = [repair_log for repair_log in repair_logs if repair_log["changed"]]
-    if not changed_repairs:
-        messages = "; ".join(repair_log["message"] for repair_log in repair_logs)
-        return RepairResult(enriched_log + "\nAuto-repair skipped: " + messages + "\n")
-
     constants_file = repo_dir / constants_path
-    if not update_app_target_version(constants_file, app.constant, candidate_version, version_code):
-        return RepairResult(enriched_log + "\nAuto-repair skipped: constants target update did not change.\n")
+    update_app_target_version(constants_file, app.constant, candidate_version, version_code)
 
-    candidate_patches_file, build_log = build_patches_bundle_in_repo(repo_dir)
-    enriched_log += "\nAuto-repair applied:\n" + json.dumps(repair_logs, indent=2, sort_keys=True) + "\n"
-    enriched_log += "\nAuto-repair build:\n" + build_log + "\n"
-    if candidate_patches_file is None:
-        return RepairResult(enriched_log)
+    changed_repairs = []
+    max_attempts = 10
+    for attempt in range(1, max_attempts + 1):
+        try:
+            report = json.loads(analysis)
+        except json.JSONDecodeError:
+            return RepairResult(enriched_log)
+        plans = select_auto_repairs(report, max_repairs=max_attempts)
+        if not plans:
+            return RepairResult(enriched_log + f"\nAuto-repair stopped at attempt {attempt}: no repair plan.\n")
 
-    repaired_output_apk = app_dir / f"{app.id}-patched-{candidate_version}-fingerprint-repair.apk"
-    retry_args = ["java", "-jar", str(cli_jar), "patch", str(stock_apk), "-o", str(repaired_output_apk), "--patches", str(candidate_patches_file)]
-    for patch in app.included_patches:
-        retry_args.extend(["-e", patch])
-    for patch in app.excluded_patches:
-        retry_args.extend(["-d", patch])
-    retry_args.extend(app.patcher_args)
-    add_force_compatibility(retry_args)
-    if continue_on_error:
-        retry_args.append("--continue-on-error")
-    print(f"[{app.id}] auto-repair retry patch command: {shell_join(retry_args)}", flush=True)
-    retry = run_streamed_process(app.id, "auto-repair patch retry", retry_args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
-    retry_log = retry.stdout + retry.stderr
-    enriched_log += "\nAuto-repair patch retry:\n" + retry_log
-    if (
-        retry.returncode != 0
-        or not repaired_output_apk.exists()
-        or patcher_skipped_incompatible_patch(retry_log)
-        or patcher_failed_patch(retry_log)
-    ):
-        print(f"[{app.id}] auto-repair did not verify successfully", flush=True)
-        return RepairResult(enriched_log)
-    print(f"[{app.id}] auto-repair verified: {repaired_output_apk}", flush=True)
-    summary = "; ".join(
-        f"{repair_log['plan']['fingerprint']}: `{repair_log['plan']['candidate']['class']}`/`{repair_log['plan']['candidate']['method']}`"
-        for repair_log in changed_repairs
-    )
-    return RepairResult(enriched_log, repaired_output_apk, repo_dir, summary)
+        repair_logs = []
+        for plan in plans:
+            repair_log = apply_repair_plan(repo_dir, plan)
+            repair_logs.append(repair_log)
+        changed_this_attempt = [repair_log for repair_log in repair_logs if repair_log["changed"]]
+        enriched_log += f"\nAuto-repair attempt {attempt} applied:\n" + json.dumps(repair_logs, indent=2, sort_keys=True) + "\n"
+        if not changed_this_attempt:
+            messages = "; ".join(repair_log["message"] for repair_log in repair_logs)
+            return RepairResult(enriched_log + f"\nAuto-repair stopped at attempt {attempt}: {messages}\n")
+        changed_repairs.extend(changed_this_attempt)
+
+        candidate_patches_file, build_log = build_patches_bundle_in_repo(repo_dir)
+        enriched_log += f"\nAuto-repair attempt {attempt} build:\n" + build_log + "\n"
+        if candidate_patches_file is None:
+            return RepairResult(enriched_log)
+
+        repaired_output_apk = app_dir / f"{app.id}-patched-{candidate_version}-fingerprint-repair-{attempt}.apk"
+        retry_args = ["java", "-jar", str(cli_jar), "patch", str(stock_apk), "-o", str(repaired_output_apk), "--patches", str(candidate_patches_file)]
+        for patch in app.included_patches:
+            retry_args.extend(["-e", patch])
+        for patch in app.excluded_patches:
+            retry_args.extend(["-d", patch])
+        retry_args.extend(app.patcher_args)
+        add_force_compatibility(retry_args)
+        if continue_on_error:
+            retry_args.append("--continue-on-error")
+        print(f"[{app.id}] auto-repair attempt {attempt} patch command: {shell_join(retry_args)}", flush=True)
+        retry = run_streamed_process(app.id, f"auto-repair attempt {attempt} patch", retry_args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
+        retry_log = retry.stdout + retry.stderr
+        enriched_log += f"\nAuto-repair attempt {attempt} patch retry:\n" + retry_log
+        if (
+            retry.returncode == 0
+            and repaired_output_apk.exists()
+            and not patcher_skipped_incompatible_patch(retry_log)
+            and not patcher_failed_patch(retry_log)
+        ):
+            print(f"[{app.id}] auto-repair verified: {repaired_output_apk}", flush=True)
+            summary = "; ".join(
+                f"{repair_log['plan']['fingerprint']}: `{repair_log['plan']['candidate']['class']}`/`{repair_log['plan']['candidate']['method']}`"
+                for repair_log in changed_repairs
+            )
+            return RepairResult(enriched_log, repaired_output_apk, repo_dir, summary)
+
+        if classify_failure(retry_log, "patch") != "fingerprint":
+            print(f"[{app.id}] auto-repair did not verify successfully", flush=True)
+            return RepairResult(enriched_log)
+        analysis, _ = analyze_fingerprint_failure(
+            app,
+            enriched_log,
+            stock_apk,
+            work_dir,
+            patches_repo,
+            target_branch,
+            repo_dir=repo_dir,
+        )
+        if not analysis:
+            return RepairResult(enriched_log)
+        enriched_log += f"\nFingerprint analysis JSON after auto-repair attempt {attempt}:\n" + analysis + "\n"
+
+    return RepairResult(enriched_log + f"\nAuto-repair stopped after {max_attempts} attempts.\n")
 
 
 def append_patch_failure_analysis(
@@ -656,24 +676,27 @@ def analyze_fingerprint_failure(
     work_dir: Path,
     patches_repo: str,
     target_branch: str,
+    *,
+    repo_dir: Path | None = None,
 ) -> tuple[str, Path | None]:
-    repo_dir = work_dir / "fingerprint-analysis-source" / app.id
-    if repo_dir.exists():
-        shutil.rmtree(repo_dir)
-    clone_url = f"https://github.com/{patches_repo}.git"
-    clone = run_plain_process(
-        ["git", "clone", "--depth", "1", "--branch", target_branch, clone_url, str(repo_dir)],
-        timeout_seconds=300,
-    )
-    if clone.returncode != 0:
-        return '{"schema":"patches-tracker/fingerprint-analysis/v1","notes":["Could not clone patches source for analysis."]}', None
-    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
-    if token:
-        run_plain_process(
-            ["git", "remote", "set-url", "origin", f"https://x-access-token:{token}@github.com/{patches_repo}.git"],
-            cwd=repo_dir,
-            timeout_seconds=60,
+    if repo_dir is None:
+        repo_dir = work_dir / "fingerprint-analysis-source" / app.id
+        if repo_dir.exists():
+            shutil.rmtree(repo_dir)
+        clone_url = f"https://github.com/{patches_repo}.git"
+        clone = run_plain_process(
+            ["git", "clone", "--depth", "1", "--branch", target_branch, clone_url, str(repo_dir)],
+            timeout_seconds=300,
         )
+        if clone.returncode != 0:
+            return '{"schema":"patches-tracker/fingerprint-analysis/v1","notes":["Could not clone patches source for analysis."]}', None
+        token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+        if token:
+            run_plain_process(
+                ["git", "remote", "set-url", "origin", f"https://x-access-token:{token}@github.com/{patches_repo}.git"],
+                cwd=repo_dir,
+                timeout_seconds=60,
+            )
 
     report_path = work_dir / "fingerprint-analysis" / app.id / "report.json"
     log_path = work_dir / "fingerprint-analysis" / app.id / "failure.log"
