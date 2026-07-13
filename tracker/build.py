@@ -713,7 +713,7 @@ def select_auto_repairs(report: dict, max_repairs: int = 10) -> list[dict]:
             return []
         top = candidates[0]
         current = item.get("current") or {}
-        if not current.get("definingClass") and not current.get("name"):
+        if not any((current.get("definingClass"), current.get("name"), top.get("class"), top.get("method"))):
             return []
         plans.append(
             {
