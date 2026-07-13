@@ -2,10 +2,10 @@
 
 Shard: 1/1
 Checked apps: 146
-Patched: 2
-No update: 129
+Patched: 0
+No update: 130
 Skipped known broken: 9
-Failed: 6
+Failed: 7
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -58,7 +58,7 @@ Failed: 6
 | Windscribe VPN | `com.windscribe.vpn` | `4.2.2328` | `4.2.2328` |  | NO_UPDATE |  |
 | MovieBox | `com.community.oneroom` | `3.0.16.0709.03` | `3.0.16.0709.03` |  | NO_UPDATE |  |
 | MovieBox (India) | `com.community.mbox.in` | `3.0.16.0707.03` | `latest` |  | FAILED | version_resolve |
-| MovieBox TV | `com.community.mbox.tv` | `1.1.4.0710.03` | `3.0.16.0709.03` | `50020116` | PATCHED |  |
+| MovieBox TV | `com.community.mbox.tv` | `1.1.4.0710.03` | `latest` |  | FAILED | version_resolve |
 | The Weather Channel | `com.weather.Weather` | `16.12.0` | `16.12.0` |  | NO_UPDATE |  |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.7` |  | NO_UPDATE |  |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.18` | `5.19` |  | SKIPPED_KNOWN_BROKEN |  |
@@ -124,7 +124,7 @@ Failed: 6
 | Flightsky | `com.live.flight.tracker` | `1.7.1` | `1.7.1` |  | NO_UPDATE |  |
 | FlightAware | `com.flightaware.android.liveFlightTracker` | `5.15.4` | `5.15.4` |  | NO_UPDATE |  |
 | Historical Calendar | `com.alexandrucene.dayhistory` | `7.5.4` | `7.5.4` |  | NO_UPDATE |  |
-| JEFIT | `je.fit` | `17.2.5` | `17.2.6` | `2006` | PATCHED |  |
+| JEFIT | `je.fit` | `17.2.6` | `17.2.6` |  | NO_UPDATE |  |
 | LiveScore | `com.livescore` | `9.7.1` | `9.7.1` |  | NO_UPDATE |  |
 | MyRadar | `com.acmeaom.android.myradar` | `8.71.3` | `8.71.3` |  | NO_UPDATE |  |
 | Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.27.2` |  | NO_UPDATE |  |
@@ -168,7 +168,7 @@ Failed: 6
 [+] HTTP GET: https://apkcombo.com/checkin -> -
 curl: (22) The requested URL returned error: 403
 [-] Request failed: https://apkcombo.com/checkin
-[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExtNWxkM05pY21WaGF5NWpjbWx0WlhKaFpHRnlYekkyTWpjd01ERXlYMlpoTUdGak9HSmk/YXMyPTRiZDIxM2Y4NDA2ZDQ1Mzg2MWNkOWY0MjA5ZTBkY2ZlNmMyZjE3N2Qmaz1iZDQ4MjFkZjBlM2E3NzdjODVjNWUxYjRiOWE4OGVkMjZjMmYxNzdkJl9wPVkyOXRMbTVsZDNOaWNtVmhheTVqY21sdFpYSmhaR0Z5JmM9MSU3Q05FV1NfQU5EX01BR0FaSU5FUyU3Q2IybGtQVGttWkdWMlBWTmpiMjl3ZWlVeU1FeE1ReVowUFhoaGNHc21jejA0TkRZd056YzVOeVoyYmoweU5pNHlOeTR3Sm5aalBUSTJNamN3TURFeSZfZm49UTNKcGJXVlNZV1JoY2lVelFTdEVhWE53WVhSamFDdEJiR1Z5ZEhOZk1qWXVNamN1TUY5aGNHdGpiMjFpYnk1amIyMHVlR0Z3YXclM0QlM0Q=&fp=7d4280482c949b2d2e762bbd9e32c761&ip=20.169.100.160&package_name=com.newsbreak.crimeradar&lang=en
+[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExtNWxkM05pY21WaGF5NWpjbWx0WlhKaFpHRnlYekkyTWpjd01ERXlYMlpoTUdGak9HSmk/YXMyPTRiZDIxM2Y4NDA2ZDQ1Mzg2MWNkOWY0MjA5ZTBkY2ZlNmMyZjE3N2Qmaz1iZDQ4MjFkZjBlM2E3NzdjODVjNWUxYjRiOWE4OGVkMjZjMmYxNzdkJl9wPVkyOXRMbTVsZDNOaWNtVmhheTVqY21sdFpYSmhaR0Z5JmM9MSU3Q05FV1NfQU5EX01BR0FaSU5FUyU3Q2IybGtQVGttWkdWMlBWTmpiMjl3ZWlVeU1FeE1ReVowUFhoaGNHc21jejA0TkRZd056YzVOeVoyYmoweU5pNHlOeTR3Sm5aalBUSTJNamN3TURFeSZfZm49UTNKcGJXVlNZV1JoY2lVelFTdEVhWE53WVhSamFDdEJiR1Z5ZEhOZk1qWXVNamN1TUY5aGNHdGpiMjFpYnk1amIyMHVlR0Z3YXclM0QlM0Q=&fp=5c7c7d78cb281a382b958af655e21c49&ip=172.184.213.234&package_name=com.newsbreak.crimeradar&lang=en
 curl: (22) The requested URL returned error: 403
 
 ````
@@ -178,7 +178,7 @@ curl: (22) The requested URL returned error: 403
 <details><summary>Permission Pilot log excerpt</summary>
 
 ````text
-ion-pilot-2/
+on-pilot-2/
 [+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/ (title=Download Permission Pilot APKs for Android - APKMirror)
 [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/
 [+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/ (title=Permission Pilot 2.2.0-rc0 APK Download by darken - APKMirror)
@@ -192,7 +192,7 @@ ion-pilot-2/
 [+] HTTP GET: https://apkcombo.com/checkin -> -
 curl: (22) The requested URL returned error: 403
 [-] Request failed: https://apkcombo.com/checkin
-[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWlhVdVpHRnlhMlZ1TG0xNWNHVnliVjh5TURJd01EQXdNRjh4T0ROaE1UUmpZZz9hczI9OWMyODExYjZiZWM2NjY3NzU3ZjhiMzk3ZDNiODQzNWU2YzJmMDIwNiZrPThkZThlY2ZkYmNiOGY3OWFiNDE0ZDZjNGEzM2NlYzdlNmMyZjAyMDYmX3A9WlhVdVpHRnlhMlZ1TG0xNWNHVnliUSZjPTElN0NUT09MUyU3Q2IybGtQVGttWkdWMlBXUmhjbXRsYmlaMFBYaGhjR3NtY3oweE1EQXdNelkwTkNaMmJqMHlMakl1TUMxeVl6QW1kbU05TWpBeU1EQXdNREEmX2ZuPVVHVnliV2x6YzJsdmJpdFFhV3h2ZEY4eUxqSXVNQzF5WXpCZllYQnJZMjl0WW04dVkyOXRMbmhoY0dzJTNE&fp=7d4280482c949b2d2e762bbd9e32c761&ip=20.169.100.160&package_name=eu.darken.myperm&lang=en
+[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWlhVdVpHRnlhMlZ1TG0xNWNHVnliVjh5TURJd01EQXdNRjh4T0ROaE1UUmpZZz9hczI9OWMyODExYjZiZWM2NjY3NzU3ZjhiMzk3ZDNiODQzNWU2YzJmMDIwNiZrPThkZThlY2ZkYmNiOGY3OWFiNDE0ZDZjNGEzM2NlYzdlNmMyZjAyMDYmX3A9WlhVdVpHRnlhMlZ1TG0xNWNHVnliUSZjPTElN0NUT09MUyU3Q2IybGtQVGttWkdWMlBXUmhjbXRsYmlaMFBYaGhjR3NtY3oweE1EQXdNelkwTkNaMmJqMHlMakl1TUMxeVl6QW1kbU05TWpBeU1EQXdNREEmX2ZuPVVHVnliV2x6YzJsdmJpdFFhV3h2ZEY4eUxqSXVNQzF5WXpCZllYQnJZMjl0WW04dVkyOXRMbmhoY0dzJTNE&fp=5c7c7d78cb281a382b958af655e21c49&ip=172.184.213.234&package_name=eu.darken.myperm&lang=en
 curl: (22) The requested URL returned error: 403
 
 ````
@@ -209,10 +209,24 @@ curl: (22) The requested URL returned error: 403
 
 </details>
 
+<details><summary>MovieBox TV log excerpt</summary>
+
+````text
+[uptodown] [+] HTTP GET: https://com-community-mbox-tv.en.uptodown.com/android/versions -> -
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://com-community-mbox-tv.en.uptodown.com/android/versions
+
+[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.tv/download
+[+] FlareSolverr OK: https://apkcombo.com/search/com.community.mbox.tv/download (title=Sorry, something went wrong.)
+
+````
+
+</details>
+
 <details><summary>Wavve Boating log excerpt</summary>
 
 ````text
-g: Marine Boat GPS APKs for Android - APKMirror)
+: Marine Boat GPS APKs for Android - APKMirror)
 [+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/
 [+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/ (title=Wavve Boating: Marine Boat GPS 5.7.0 APK Download by Wavve Boating - APKMirror)
 [+] APKMirror release page: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/
@@ -224,7 +238,7 @@ g: Marine Boat GPS APKs for Android - APKMirror)
 [+] HTTP GET: https://apkcombo.com/checkin -> -
 curl: (22) The requested URL returned error: 403
 [-] Request failed: https://apkcombo.com/checkin
-[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExuZGhkblpsTG1KdllYUnBibWN1WjNCelh6TXhOemxmTnpRMk9EVmhOR00/YXMyPTRlY2ZmZTAwNDZhNWM0NTZhYTRmNGJmZTgwMjA5YmMzNmMyZjE5MDEmaz1mNGFlMGE4ZDZiMmFmYmY1ODg2OTdhZTVlYjhkZjNiNTZjMmYxOTAxJl9wPVkyOXRMbmRoZG5abExtSnZZWFJwYm1jdVozQnomYz0xJTdDTUFQU19BTkRfTkFWSUdBVElPTiU3Q2IybGtQVGttWkdWMlBWZGhkblpsSlRJd1FtOWhkR2x1WnlaMFBYaGhjR3NtY3oweE1USTFNVFUxTURNbWRtNDlOUzQzTGpBbWRtTTlNekUzT1EmX2ZuPVYyRjJkbVVyUW05aGRHbHVaeVV6UVN0TllYSnBibVVyUW05aGRDdEhVRk5mTlM0M0xqQmZZWEJyWTI5dFltOHVZMjl0TG5oaGNHcyUzRA==&fp=7d4280482c949b2d2e762bbd9e32c761&ip=20.169.100.160&package_name=com.wavve.boating.gps&lang=en
+[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExuZGhkblpsTG1KdllYUnBibWN1WjNCelh6TXhOemxmTnpRMk9EVmhOR00/YXMyPTRlY2ZmZTAwNDZhNWM0NTZhYTRmNGJmZTgwMjA5YmMzNmMyZjE5MDEmaz1mNGFlMGE4ZDZiMmFmYmY1ODg2OTdhZTVlYjhkZjNiNTZjMmYxOTAxJl9wPVkyOXRMbmRoZG5abExtSnZZWFJwYm1jdVozQnomYz0xJTdDTUFQU19BTkRfTkFWSUdBVElPTiU3Q2IybGtQVGttWkdWMlBWZGhkblpsSlRJd1FtOWhkR2x1WnlaMFBYaGhjR3NtY3oweE1USTFNVFUxTURNbWRtNDlOUzQzTGpBbWRtTTlNekUzT1EmX2ZuPVYyRjJkbVVyUW05aGRHbHVaeVV6UVN0TllYSnBibVVyUW05aGRDdEhVRk5mTlM0M0xqQmZZWEJyWTI5dFltOHVZMjl0TG5oaGNHcyUzRA==&fp=5c7c7d78cb281a382b958af655e21c49&ip=172.184.213.234&package_name=com.wavve.boating.gps&lang=en
 curl: (22) The requested URL returned error: 403
 
 ````
@@ -234,7 +248,7 @@ curl: (22) The requested URL returned error: 403
 <details><summary>APKMirror Installer log excerpt</summary>
 
 ````text
-?response-content-disposition=attachment%3B+filename%3D%22APKMirror+Installer_998_apkcombo.com.apk%22&response-content-type=application/vnd.android.package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260713T062619Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260713/auto/s3/aws4_request&X-Amz-Signature=367f56ef13f727c56db4dc9930e2d28efed70485131123adcf485dfc5bf4f92d
+?response-content-disposition=attachment%3B+filename%3D%22APKMirror+Installer_998_apkcombo.com.apk%22&response-content-type=application/vnd.android.package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260713T065759Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260713/auto/s3/aws4_request&X-Amz-Signature=1aa40bf5de59fe608814c691b9359be11694428493f912dfe3c90ec11817fcf5
 [+] Getting '.work/resolver/apkmirror-installer/apkeditor.jar' from 'https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar'
 [+] HTTP GET: https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/apkmirror-installer/apkeditor.jar
 [+] Saved response: .work/resolver/apkmirror-installer/apkeditor.jar (7733037 bytes)
@@ -245,7 +259,7 @@ curl: (22) The requested URL returned error: 403
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.010 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.070 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk

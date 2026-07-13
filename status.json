@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-07-13T06:30:10.684829+00:00",
+  "checked_at": "2026-07-13T07:01:51.928565+00:00",
   "shard_index": 0,
   "shard_total": 1,
   "app_count": 146,
@@ -110,7 +110,7 @@
       "source_url": null,
       "repair": false,
       "repair_summary": "",
-      "log_excerpt": "[apkcombo 26.27.0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.newsbreak.crimeradar/download\n[+] FlareSolverr OK: https://apkcombo.com/search/com.newsbreak.crimeradar/download (title=CrimeRadar: Dispatch Alerts APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.newsbreak.crimeradar/download/phone-26.27.0-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.newsbreak.crimeradar/download/phone-26.27.0-xapk (title=Download CrimeRadar: Dispatch Alerts APK - Latest Version 2024)\n[+] HTTP GET: https://apkcombo.com/checkin -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/checkin\n[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExtNWxkM05pY21WaGF5NWpjbWx0WlhKaFpHRnlYekkyTWpjd01ERXlYMlpoTUdGak9HSmk/YXMyPTRiZDIxM2Y4NDA2ZDQ1Mzg2MWNkOWY0MjA5ZTBkY2ZlNmMyZjE3N2Qmaz1iZDQ4MjFkZjBlM2E3NzdjODVjNWUxYjRiOWE4OGVkMjZjMmYxNzdkJl9wPVkyOXRMbTVsZDNOaWNtVmhheTVqY21sdFpYSmhaR0Z5JmM9MSU3Q05FV1NfQU5EX01BR0FaSU5FUyU3Q2IybGtQVGttWkdWMlBWTmpiMjl3ZWlVeU1FeE1ReVowUFhoaGNHc21jejA0TkRZd056YzVOeVoyYmoweU5pNHlOeTR3Sm5aalBUSTJNamN3TURFeSZfZm49UTNKcGJXVlNZV1JoY2lVelFTdEVhWE53WVhSamFDdEJiR1Z5ZEhOZk1qWXVNamN1TUY5aGNHdGpiMjFpYnk1amIyMHVlR0Z3YXclM0QlM0Q=&fp=7d4280482c949b2d2e762bbd9e32c761&ip=20.169.100.160&package_name=com.newsbreak.crimeradar&lang=en\ncurl: (22) The requested URL returned error: 403\n",
+      "log_excerpt": "[apkcombo 26.27.0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.newsbreak.crimeradar/download\n[+] FlareSolverr OK: https://apkcombo.com/search/com.newsbreak.crimeradar/download (title=CrimeRadar: Dispatch Alerts APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.newsbreak.crimeradar/download/phone-26.27.0-xapk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.newsbreak.crimeradar/download/phone-26.27.0-xapk (title=Download CrimeRadar: Dispatch Alerts APK - Latest Version 2024)\n[+] HTTP GET: https://apkcombo.com/checkin -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/checkin\n[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExtNWxkM05pY21WaGF5NWpjbWx0WlhKaFpHRnlYekkyTWpjd01ERXlYMlpoTUdGak9HSmk/YXMyPTRiZDIxM2Y4NDA2ZDQ1Mzg2MWNkOWY0MjA5ZTBkY2ZlNmMyZjE3N2Qmaz1iZDQ4MjFkZjBlM2E3NzdjODVjNWUxYjRiOWE4OGVkMjZjMmYxNzdkJl9wPVkyOXRMbTVsZDNOaWNtVmhheTVqY21sdFpYSmhaR0Z5JmM9MSU3Q05FV1NfQU5EX01BR0FaSU5FUyU3Q2IybGtQVGttWkdWMlBWTmpiMjl3ZWlVeU1FeE1ReVowUFhoaGNHc21jejA0TkRZd056YzVOeVoyYmoweU5pNHlOeTR3Sm5aalBUSTJNamN3TURFeSZfZm49UTNKcGJXVlNZV1JoY2lVelFTdEVhWE53WVhSamFDdEJiR1Z5ZEhOZk1qWXVNamN1TUY5aGNHdGpiMjFpYnk1amIyMHVlR0Z3YXclM0QlM0Q=&fp=5c7c7d78cb281a382b958af655e21c49&ip=172.184.213.234&package_name=com.newsbreak.crimeradar&lang=en\ncurl: (22) The requested URL returned error: 403\n",
       "artifact": null
     },
     {
@@ -614,7 +614,7 @@
       "source_url": null,
       "repair": false,
       "repair_summary": "",
-      "log_excerpt": "ion-pilot-2/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/ (title=Download Permission Pilot APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/ (title=Permission Pilot 2.2.0-rc0 APK Download by darken - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/\n[-] Could not find APKMirror variant for version=2.2.0-rc0 arch=all dpi=nodpi anydpi auto\n\n[apkcombo 2.2.0-rc0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.2.0-rc0-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.2.0-rc0-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] HTTP GET: https://apkcombo.com/checkin -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/checkin\n[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWlhVdVpHRnlhMlZ1TG0xNWNHVnliVjh5TURJd01EQXdNRjh4T0ROaE1UUmpZZz9hczI9OWMyODExYjZiZWM2NjY3NzU3ZjhiMzk3ZDNiODQzNWU2YzJmMDIwNiZrPThkZThlY2ZkYmNiOGY3OWFiNDE0ZDZjNGEzM2NlYzdlNmMyZjAyMDYmX3A9WlhVdVpHRnlhMlZ1TG0xNWNHVnliUSZjPTElN0NUT09MUyU3Q2IybGtQVGttWkdWMlBXUmhjbXRsYmlaMFBYaGhjR3NtY3oweE1EQXdNelkwTkNaMmJqMHlMakl1TUMxeVl6QW1kbU05TWpBeU1EQXdNREEmX2ZuPVVHVnliV2x6YzJsdmJpdFFhV3h2ZEY4eUxqSXVNQzF5WXpCZllYQnJZMjl0WW04dVkyOXRMbmhoY0dzJTNE&fp=7d4280482c949b2d2e762bbd9e32c761&ip=20.169.100.160&package_name=eu.darken.myperm&lang=en\ncurl: (22) The requested URL returned error: 403\n",
+      "log_excerpt": "on-pilot-2/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/ (title=Download Permission Pilot APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/ (title=Permission Pilot 2.2.0-rc0 APK Download by darken - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/\n[-] Could not find APKMirror variant for version=2.2.0-rc0 arch=all dpi=nodpi anydpi auto\n\n[apkcombo 2.2.0-rc0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.2.0-rc0-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.2.0-rc0-apk (title=Download Permission Pilot APK - Latest Version 2024)\n[+] HTTP GET: https://apkcombo.com/checkin -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/checkin\n[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWlhVdVpHRnlhMlZ1TG0xNWNHVnliVjh5TURJd01EQXdNRjh4T0ROaE1UUmpZZz9hczI9OWMyODExYjZiZWM2NjY3NzU3ZjhiMzk3ZDNiODQzNWU2YzJmMDIwNiZrPThkZThlY2ZkYmNiOGY3OWFiNDE0ZDZjNGEzM2NlYzdlNmMyZjAyMDYmX3A9WlhVdVpHRnlhMlZ1TG0xNWNHVnliUSZjPTElN0NUT09MUyU3Q2IybGtQVGttWkdWMlBXUmhjbXRsYmlaMFBYaGhjR3NtY3oweE1EQXdNelkwTkNaMmJqMHlMakl1TUMxeVl6QW1kbU05TWpBeU1EQXdNREEmX2ZuPVVHVnliV2x6YzJsdmJpdFFhV3h2ZEY4eUxqSXVNQzF5WXpCZllYQnJZMjl0WW04dVkyOXRMbmhoY0dzJTNE&fp=5c7c7d78cb281a382b958af655e21c49&ip=172.184.213.234&package_name=eu.darken.myperm&lang=en\ncurl: (22) The requested URL returned error: 403\n",
       "artifact": null
     },
     {
@@ -892,18 +892,18 @@
       "name": "MovieBox TV",
       "package_name": "com.community.mbox.tv",
       "current_version": "1.1.4.0710.03",
-      "candidate_version": "3.0.16.0709.03",
-      "version_code": "50020116",
-      "ok": true,
-      "status": "patched",
-      "failure_type": null,
-      "downloaded": true,
-      "source": "uptodown",
-      "source_url": "https://com-community-oneroom.en.uptodown.com/android",
+      "candidate_version": "latest",
+      "version_code": null,
+      "ok": false,
+      "status": "failed",
+      "failure_type": "version_resolve",
+      "downloaded": false,
+      "source": null,
+      "source_url": null,
       "repair": false,
       "repair_summary": "",
-      "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/moviebox-tv/moviebox-tv-patched-3.0.16.0709.03.apk"
+      "log_excerpt": "[uptodown] [+] HTTP GET: https://com-community-mbox-tv.en.uptodown.com/android/versions -> -\ncurl: (22) The requested URL returned error: 404\n[-] Request failed: https://com-community-mbox-tv.en.uptodown.com/android/versions\n\n[apkcombo] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.community.mbox.tv/download\n[+] FlareSolverr OK: https://apkcombo.com/search/com.community.mbox.tv/download (title=Sorry, something went wrong.)\n",
+      "artifact": null
     },
     {
       "id": "the-weather-channel",
@@ -1622,7 +1622,7 @@
       "source_url": null,
       "repair": false,
       "repair_summary": "",
-      "log_excerpt": "g: Marine Boat GPS APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/ (title=Wavve Boating: Marine Boat GPS 5.7.0 APK Download by Wavve Boating - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/\n\n[apkcombo 5.7.0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.wavve.boating.gps/download\n[+] FlareSolverr OK: https://apkcombo.com/search/com.wavve.boating.gps/download (title=Wavve Boating: Marine Boat GPS APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.wavve.boating.gps/download/phone-5.7.0-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.wavve.boating.gps/download/phone-5.7.0-apk (title=Download Wavve Boating: Marine Boat GPS APK - Latest Version 2024)\n[+] HTTP GET: https://apkcombo.com/checkin -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/checkin\n[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExuZGhkblpsTG1KdllYUnBibWN1WjNCelh6TXhOemxmTnpRMk9EVmhOR00/YXMyPTRlY2ZmZTAwNDZhNWM0NTZhYTRmNGJmZTgwMjA5YmMzNmMyZjE5MDEmaz1mNGFlMGE4ZDZiMmFmYmY1ODg2OTdhZTVlYjhkZjNiNTZjMmYxOTAxJl9wPVkyOXRMbmRoZG5abExtSnZZWFJwYm1jdVozQnomYz0xJTdDTUFQU19BTkRfTkFWSUdBVElPTiU3Q2IybGtQVGttWkdWMlBWZGhkblpsSlRJd1FtOWhkR2x1WnlaMFBYaGhjR3NtY3oweE1USTFNVFUxTURNbWRtNDlOUzQzTGpBbWRtTTlNekUzT1EmX2ZuPVYyRjJkbVVyUW05aGRHbHVaeVV6UVN0TllYSnBibVVyUW05aGRDdEhVRk5mTlM0M0xqQmZZWEJyWTI5dFltOHVZMjl0TG5oaGNHcyUzRA==&fp=7d4280482c949b2d2e762bbd9e32c761&ip=20.169.100.160&package_name=com.wavve.boating.gps&lang=en\ncurl: (22) The requested URL returned error: 403\n",
+      "log_excerpt": ": Marine Boat GPS APKs for Android - APKMirror)\n[+] FlareSolverr GET attempt 1/1: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/\n[+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/ (title=Wavve Boating: Marine Boat GPS 5.7.0 APK Download by Wavve Boating - APKMirror)\n[+] APKMirror release page: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/\n\n[apkcombo 5.7.0] [+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.wavve.boating.gps/download\n[+] FlareSolverr OK: https://apkcombo.com/search/com.wavve.boating.gps/download (title=Wavve Boating: Marine Boat GPS APK (Android App) - Free Download)\n[+] FlareSolverr GET attempt 1/1: https://apkcombo.com/search/com.wavve.boating.gps/download/phone-5.7.0-apk\n[+] FlareSolverr OK: https://apkcombo.com/search/com.wavve.boating.gps/download/phone-5.7.0-apk (title=Download Wavve Boating: Marine Boat GPS APK - Latest Version 2024)\n[+] HTTP GET: https://apkcombo.com/checkin -> -\ncurl: (22) The requested URL returned error: 403\n[-] Request failed: https://apkcombo.com/checkin\n[+] Downloading from APKCombo: https://apkcombo.com/d?u=aHR0cHM6Ly9kb3dubG9hZC5wdXJlYXBrLmNvbS9iL1hBUEsvWTI5dExuZGhkblpsTG1KdllYUnBibWN1WjNCelh6TXhOemxmTnpRMk9EVmhOR00/YXMyPTRlY2ZmZTAwNDZhNWM0NTZhYTRmNGJmZTgwMjA5YmMzNmMyZjE5MDEmaz1mNGFlMGE4ZDZiMmFmYmY1ODg2OTdhZTVlYjhkZjNiNTZjMmYxOTAxJl9wPVkyOXRMbmRoZG5abExtSnZZWFJwYm1jdVozQnomYz0xJTdDTUFQU19BTkRfTkFWSUdBVElPTiU3Q2IybGtQVGttWkdWMlBWZGhkblpsSlRJd1FtOWhkR2x1WnlaMFBYaGhjR3NtY3oweE1USTFNVFUxTURNbWRtNDlOUzQzTGpBbWRtTTlNekUzT1EmX2ZuPVYyRjJkbVVyUW05aGRHbHVaeVV6UVN0TllYSnBibVVyUW05aGRDdEhVRk5mTlM0M0xqQmZZWEJyWTI5dFltOHVZMjl0TG5oaGNHcyUzRA==&fp=5c7c7d78cb281a382b958af655e21c49&ip=172.184.213.234&package_name=com.wavve.boating.gps&lang=en\ncurl: (22) The requested URL returned error: 403\n",
       "artifact": null
     },
     {
@@ -1730,7 +1730,7 @@
       "source_url": null,
       "repair": false,
       "repair_summary": "",
-      "log_excerpt": "?response-content-disposition=attachment%3B+filename%3D%22APKMirror+Installer_998_apkcombo.com.apk%22&response-content-type=application/vnd.android.package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260713T062619Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260713/auto/s3/aws4_request&X-Amz-Signature=367f56ef13f727c56db4dc9930e2d28efed70485131123adcf485dfc5bf4f92d\n[+] Getting '.work/resolver/apkmirror-installer/apkeditor.jar' from 'https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar'\n[+] HTTP GET: https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/apkmirror-installer/apkeditor.jar\n[+] Saved response: .work/resolver/apkmirror-installer/apkeditor.jar (7733037 bytes)\n[+] Merging XAPK splits with APKEditor\n[-] APKEditor m error: 00.000 I: [MERGE] Using: APKEditor version 1.4.9, ARSCLib version 1.3.9\n      -i = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins\n         = taller/apkmirror-installer-998.apk                                   \n      -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins\n         = taller/apkmirror-installer-998.apk.extracted-unsigned                \n ______________________________________________________________________________ \n00.010 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f\n\nERROR:\njava.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk\n\tat com.reandroid.apkeditor.merge.Merger.extractFile(Merger.java:114)\n\tat com.reandroid.apkeditor.merge.Merger.runCommand(Merger.java:57)\n\tat com.reandroid.apkeditor.Options.runCommand(Options.java:59)\n\tat com.reandroid.apkeditor.Main.run(Main.java:136)\n\tat com.reandroid.apkeditor.Main.execute(Main.java:72)\n\tat com.reandroid.apkeditor.Main.main(Main.java:57)\n",
+      "log_excerpt": "?response-content-disposition=attachment%3B+filename%3D%22APKMirror+Installer_998_apkcombo.com.apk%22&response-content-type=application/vnd.android.package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260713T065759Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260713/auto/s3/aws4_request&X-Amz-Signature=1aa40bf5de59fe608814c691b9359be11694428493f912dfe3c90ec11817fcf5\n[+] Getting '.work/resolver/apkmirror-installer/apkeditor.jar' from 'https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar'\n[+] HTTP GET: https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/apkmirror-installer/apkeditor.jar\n[+] Saved response: .work/resolver/apkmirror-installer/apkeditor.jar (7733037 bytes)\n[+] Merging XAPK splits with APKEditor\n[-] APKEditor m error: 00.000 I: [MERGE] Using: APKEditor version 1.4.9, ARSCLib version 1.3.9\n      -i = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins\n         = taller/apkmirror-installer-998.apk                                   \n      -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins\n         = taller/apkmirror-installer-998.apk.extracted-unsigned                \n ______________________________________________________________________________ \n00.070 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f\n\nERROR:\njava.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk\n\tat com.reandroid.apkeditor.merge.Merger.extractFile(Merger.java:114)\n\tat com.reandroid.apkeditor.merge.Merger.runCommand(Merger.java:57)\n\tat com.reandroid.apkeditor.Options.runCommand(Options.java:59)\n\tat com.reandroid.apkeditor.Main.run(Main.java:136)\n\tat com.reandroid.apkeditor.Main.execute(Main.java:72)\n\tat com.reandroid.apkeditor.Main.main(Main.java:57)\n",
       "artifact": null
     },
     {
@@ -2079,19 +2079,19 @@
       "id": "jefit",
       "name": "JEFIT",
       "package_name": "je.fit",
-      "current_version": "17.2.5",
+      "current_version": "17.2.6",
       "candidate_version": "17.2.6",
-      "version_code": "2006",
+      "version_code": null,
       "ok": true,
-      "status": "patched",
+      "status": "no_update",
       "failure_type": null,
-      "downloaded": true,
-      "source": "uptodown",
-      "source_url": "https://jefit.en.uptodown.com/android",
+      "downloaded": false,
+      "source": null,
+      "source_url": null,
       "repair": false,
       "repair_summary": "",
       "log_excerpt": "",
-      "artifact": "/home/runner/work/patches-tracker/patches-tracker/.work/jefit/jefit-patched-17.2.6.apk"
+      "artifact": null
     },
     {
       "id": "livescore",
