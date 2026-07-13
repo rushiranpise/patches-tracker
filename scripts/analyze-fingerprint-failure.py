@@ -59,9 +59,14 @@ def analyze(apk: Path, patches_src: Path, log: str, work_dir: Path) -> dict:
     fingerprints = parse_fingerprints(patches_src)
     if not failed_names:
         failed_names = infer_fingerprints_from_stacktrace(log, patches_src, fingerprints)
-    selected = [fingerprints[name] for name in failed_names if name in fingerprints]
+    selected = select_fingerprints(failed_names, fingerprints, log)
     if not selected and len(failed_names) == 1:
-        selected = [fp for name, fp in fingerprints.items() if failed_names[0].lower() in name.lower()]
+        selected = [
+            fp
+            for name, entries in fingerprints.items()
+            for fp in entries
+            if failed_names[0].lower() in name.lower()
+        ]
 
     report = {
         "schema": "patches-tracker/fingerprint-analysis/v1",
@@ -224,7 +229,8 @@ def failed_fingerprint_names(log: str) -> list[str]:
     for pattern in patterns:
         for match in re.finditer(pattern, log, flags=re.IGNORECASE):
             name = match.group(1)
-            if name.lower() in {"fingerprint"}:
+            normalized = re.sub(r"[^a-z0-9]+", "", name.lower())
+            if normalized in {"fingerprint", "failed", "failedfingerprint", "failedfingerprints", "declaration", "declarationfingerprint"}:
                 continue
             if not name.endswith("Fingerprint"):
                 name += "Fingerprint"
@@ -232,7 +238,40 @@ def failed_fingerprint_names(log: str) -> list[str]:
     return sorted(set(names))
 
 
-def infer_fingerprints_from_stacktrace(log: str, root: Path, fingerprints: dict[str, Fingerprint]) -> list[str]:
+def select_fingerprints(failed_names: list[str], fingerprints: dict[str, list[Fingerprint]], log: str) -> list[Fingerprint]:
+    selected = []
+    preferred_segments = preferred_source_segments(log)
+    for name in failed_names:
+        entries = fingerprints.get(name, [])
+        if not entries:
+            continue
+        selected.append(best_fingerprint_entry(entries, preferred_segments))
+    return selected
+
+
+def preferred_source_segments(log: str) -> list[str]:
+    segments = []
+    for package in re.findall(r"\bapp\.template\.patches\.([A-Za-z0-9_.]+)", log):
+        bits = [bit for bit in package.split(".") if bit and bit[0].islower()]
+        for index in range(len(bits), 0, -1):
+            segment = "/".join(bits[:index])
+            if segment and segment not in segments:
+                segments.append(segment)
+    return segments
+
+
+def best_fingerprint_entry(entries: list[Fingerprint], preferred_segments: list[str]) -> Fingerprint:
+    def score(fp: Fingerprint) -> tuple[int, int]:
+        source = fp.source_file.replace("\\", "/").lower()
+        for index, segment in enumerate(preferred_segments):
+            if f"/{segment.lower()}/" in source:
+                return (100 - index, -len(source))
+        return (0, -len(source))
+
+    return max(entries, key=score)
+
+
+def infer_fingerprints_from_stacktrace(log: str, root: Path, fingerprints: dict[str, list[Fingerprint]]) -> list[str]:
     inferred = []
     for file_name, line_text in re.findall(r"\(([A-Za-z0-9_]+\.kt):(\d+)\)", log):
         line_number = int(line_text)
@@ -259,7 +298,7 @@ def fingerprint_names_near_line(path: Path, line_number: int, known_names: set[s
     return [name for name in names if name in known_names]
 
 
-def parse_fingerprints(root: Path) -> dict[str, Fingerprint]:
+def parse_fingerprints(root: Path) -> dict[str, list[Fingerprint]]:
     fingerprints = {}
     for path in root.rglob("*.kt"):
         text = path.read_text(encoding="utf-8", errors="ignore")
@@ -274,7 +313,7 @@ def parse_fingerprints(root: Path) -> dict[str, Fingerprint]:
                 continue
             defining_class = first_string_arg(body, "definingClass") or custom_class_check(body)
             method_name = first_string_arg(body, "name") or custom_method_check(body)
-            fingerprints[name] = Fingerprint(
+            fingerprints.setdefault(name, []).append(Fingerprint(
                 name=name,
                 defining_class=defining_class,
                 method_name=method_name,
@@ -282,7 +321,7 @@ def parse_fingerprints(root: Path) -> dict[str, Fingerprint]:
                 parameters=list_arg(body, "parameters"),
                 strings=list_arg(body, "strings"),
                 source_file=str(path),
-            )
+            ))
     return fingerprints
 
 
