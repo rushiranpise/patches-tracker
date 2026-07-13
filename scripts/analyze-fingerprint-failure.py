@@ -189,9 +189,9 @@ def analyze_fingerprint(
 def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool, old_method: Method | None = None) -> int:
     score = 0
     params, return_type = split_descriptor(method.descriptor)
-    if fp.method_name and is_obfuscated_method_name(fp.method_name) and not is_obfuscated_method_name(method.name):
+    if not old_method and fp.method_name and is_obfuscated_method_name(fp.method_name) and not is_obfuscated_method_name(method.name):
         return 0
-    if fp.defining_class and is_obfuscated_class_type(fp.defining_class) and not is_obfuscated_class_type(method.class_type):
+    if not old_method and fp.defining_class and is_obfuscated_class_type(fp.defining_class) and not is_obfuscated_class_type(method.class_type):
         return 0
     if fp.return_type and return_type == fp.return_type:
         score += 25
@@ -216,7 +216,10 @@ def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_m
     if fp.method_name and is_obfuscated_method_name(fp.method_name) and is_obfuscated_method_name(method.name):
         score += 10
     if old_method:
-        score += bytecode_similarity_score(old_method, method)
+        similarity = bytecode_similarity_score(old_method, method)
+        if similarity < 20:
+            return 0
+        score += similarity
     return score
 
 
