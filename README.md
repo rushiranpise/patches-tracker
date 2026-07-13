@@ -16,7 +16,7 @@ The main workflow is `.github/workflows/track.yml`.
 3. Find the latest app version from the configured sources.
 4. Download the stock APK, APKM, XAPK, or APKS.
 5. Merge split packages into a patchable APK when needed.
-6. Run the patcher with any configured include/exclude patch options.
+6. Run the patcher with Morphe CLI `--force` so newer versions are tested instead of skipped by compatibility metadata.
 7. Upload logs and patched APK artifacts.
 8. Create a release for successful artifacts.
 9. Open or update failure issues.

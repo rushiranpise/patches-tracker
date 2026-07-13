@@ -195,6 +195,7 @@ def build_app(
     for patch in app.excluded_patches:
         args.extend(["-d", patch])
     args.extend(app.patcher_args)
+    add_force_compatibility(args)
     if continue_on_error:
         args.append("--continue-on-error")
 
@@ -238,6 +239,7 @@ def build_app(
         for patch in app.excluded_patches:
             retry_args.extend(["-d", patch])
         retry_args.extend(app.patcher_args)
+        add_force_compatibility(retry_args)
         if continue_on_error:
             retry_args.append("--continue-on-error")
         print(f"[{app.id}] retry patch command: {shell_join(retry_args)}", flush=True)
@@ -245,7 +247,12 @@ def build_app(
         print(f"[{app.id}] patch retry return code: {retry.returncode}", flush=True)
         retry_log = retry.stdout + retry.stderr
         combined_log = patch_context + log + "\n\nCandidate patch bundle rebuild:\n" + rebuild_log + "\n\nPatch retry:\n" + retry_log
-        if retry.returncode != 0 or not candidate_output_apk.exists() or patcher_skipped_incompatible_patch(retry_log):
+        if (
+            retry.returncode != 0
+            or not candidate_output_apk.exists()
+            or patcher_skipped_incompatible_patch(retry_log)
+            or patcher_failed_patch(retry_log)
+        ):
             print(f"[{app.id}] candidate-version patch did not finish successfully: {retry_log[-1000:]}", flush=True)
             failure_type = classify_failure(retry_log, "patch")
             repair = attempt_fingerprint_repair(
@@ -304,7 +311,7 @@ def build_app(
             source_name=source.source,
             source_url=source.url,
         )
-    if completed.returncode != 0 or not output_apk.exists():
+    if completed.returncode != 0 or not output_apk.exists() or patcher_failed_patch(log):
         print(f"[{app.id}] patch did not finish successfully: {log[-1000:]}", flush=True)
         failure_type = classify_failure(log, "patch")
         repair = attempt_fingerprint_repair(
@@ -575,13 +582,19 @@ def attempt_fingerprint_repair(
     for patch in app.excluded_patches:
         retry_args.extend(["-d", patch])
     retry_args.extend(app.patcher_args)
+    add_force_compatibility(retry_args)
     if continue_on_error:
         retry_args.append("--continue-on-error")
     print(f"[{app.id}] auto-repair retry patch command: {shell_join(retry_args)}", flush=True)
     retry = run_streamed_process(app.id, "auto-repair patch retry", retry_args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
     retry_log = retry.stdout + retry.stderr
     enriched_log += "\nAuto-repair patch retry:\n" + retry_log
-    if retry.returncode != 0 or not repaired_output_apk.exists() or patcher_skipped_incompatible_patch(retry_log):
+    if (
+        retry.returncode != 0
+        or not repaired_output_apk.exists()
+        or patcher_skipped_incompatible_patch(retry_log)
+        or patcher_failed_patch(retry_log)
+    ):
         print(f"[{app.id}] auto-repair did not verify successfully", flush=True)
         return RepairResult(enriched_log)
     print(f"[{app.id}] auto-repair verified: {repaired_output_apk}", flush=True)
@@ -860,6 +873,15 @@ def looks_stdout_with_noisy_exit_usable(stdout: str, stderr: str) -> bool:
 def patcher_skipped_incompatible_patch(log: str) -> bool:
     lower = log.lower()
     return "warning: skipping" in lower and "incompatible with" in lower
+
+
+def patcher_failed_patch(log: str) -> bool:
+    return bool(re.search(r"(?im)^\s*(?:severe:\s*)?failed:\s+", log))
+
+
+def add_force_compatibility(args: list[str]) -> None:
+    if "-f" not in args and "--force" not in args:
+        args.append("--force")
 
 
 def shell_join(args: list[str]) -> str:
