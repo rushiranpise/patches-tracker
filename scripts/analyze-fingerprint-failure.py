@@ -158,6 +158,10 @@ def analyze_fingerprint(
 def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool) -> int:
     score = 0
     params, return_type = split_descriptor(method.descriptor)
+    if fp.method_name and is_obfuscated_method_name(fp.method_name) and not is_obfuscated_method_name(method.name):
+        return 0
+    if fp.defining_class and is_obfuscated_class_type(fp.defining_class) and not is_obfuscated_class_type(method.class_type):
+        return 0
     if fp.return_type and return_type == fp.return_type:
         score += 25
     elif fp.return_type:
@@ -176,6 +180,10 @@ def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_m
         score += 20
     if fp.defining_class and method.class_type == fp.defining_class:
         score += 20
+    elif fp.defining_class and is_obfuscated_class_type(fp.defining_class) and is_obfuscated_class_type(method.class_type):
+        score += 10
+    if fp.method_name and is_obfuscated_method_name(fp.method_name) and is_obfuscated_method_name(method.name):
+        score += 10
     return score
 
 
@@ -190,7 +198,21 @@ def candidate_reason(fp: Fingerprint, method: Method, class_matched: bool) -> st
         bits.append("class/string context matches")
     if fp.method_name and method.name == fp.method_name:
         bits.append("method name still matches")
+    elif fp.method_name and is_obfuscated_method_name(fp.method_name) and is_obfuscated_method_name(method.name):
+        bits.append("obfuscated method shape matches")
+    if fp.defining_class and method.class_type != fp.defining_class and is_obfuscated_class_type(fp.defining_class) and is_obfuscated_class_type(method.class_type):
+        bits.append("obfuscated class shape matches")
     return ", ".join(bits) or "shape match"
+
+
+def is_obfuscated_class_type(value: str) -> bool:
+    return bool(re.fullmatch(r"L[A-Za-z0-9_$]{1,5};", value or ""))
+
+
+def is_obfuscated_method_name(value: str) -> bool:
+    if not value or value.startswith("<"):
+        return False
+    return bool(re.fullmatch(r"[A-Za-z_$][A-Za-z0-9_$]{0,2}", value))
 
 
 def failed_fingerprint_names(log: str) -> list[str]:
