@@ -251,7 +251,12 @@ def select_fingerprints(failed_names: list[str], fingerprints: dict[str, list[Fi
 
 def preferred_source_segments(log: str) -> list[str]:
     segments = []
-    for package in re.findall(r"\bapp\.template\.patches\.([A-Za-z0-9_.]+)", log):
+    focused_lines = []
+    for line in log.splitlines():
+        if "Failed to match the fingerprint:" in line or "\tat app.template.patches." in line:
+            focused_lines.append(line)
+    focused_log = "\n".join(focused_lines) or log
+    for package in re.findall(r"\bapp\.template\.patches\.([A-Za-z0-9_.]+)", focused_log):
         bits = [bit for bit in package.split(".") if bit and bit[0].islower()]
         for index in range(len(bits), 0, -1):
             segment = "/".join(bits[:index])
