@@ -220,10 +220,10 @@ def main() -> int:
     return 0
 
 
-def create_repair_pull_request(result, patches_repo: str, target_branch: str) -> None:
+def create_repair_pull_request(result, patches_repo: str, target_branch: str) -> str:
     repo_path = result.repair_repo_path
     if repo_path is None:
-        return
+        return ""
     app = result.app
     branch = slug_branch(f"tracker/repair-{app.id}-{result.candidate_version}")
     body = (
@@ -240,10 +240,10 @@ def create_repair_pull_request(result, patches_repo: str, target_branch: str) ->
         staged = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=repo_path)
         if staged.returncode == 0:
             print(f"[{app.id}] auto-repair produced no git changes; skipping PR", flush=True)
-            return
+            return ""
         git(["commit", "-m", f"fix: repair {app.name} for {result.candidate_version}"], repo_path)
         git(["push", "origin", branch, "--force-with-lease"], repo_path)
-        create_pull_request(
+        return create_pull_request(
             repo_path,
             patches_repo,
             branch,
@@ -253,6 +253,7 @@ def create_repair_pull_request(result, patches_repo: str, target_branch: str) ->
         )
     except subprocess.CalledProcessError:
         print(f"warning: could not push or open auto-repair PR for {app.name}", flush=True)
+        return ""
 
 
 def slug_branch(value: str) -> str:

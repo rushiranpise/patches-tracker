@@ -13,14 +13,13 @@ from datetime import datetime, timezone
 from .build import build_app
 from .cli import (
     clone_patches_repo,
-    close_resolved_issues_for_success,
     create_repair_pull_request,
     git,
     render_status_table,
 )
 from .config import AppConfig, load_config
 from .constants import is_newer_version, update_app_target_version
-from .github import close_resolved_failure_issue, create_pull_request, run_gh, token_for_repo, tracker_metadata_from_issue_body
+from .github import comment_issue, create_pull_request, run_gh, token_for_repo, tracker_metadata_from_issue_body
 from .releases import resolve_tool
 
 
@@ -108,15 +107,10 @@ def main() -> int:
     constants_repo = None
     constants_file = None
     for target, result in results:
-        if result.ok and result.output:
-            close_resolved_issues_for_success(result.app, result, cfg.tracker.patches_repo)
-            close_resolved_failure_issue(
-                cfg.tracker.patches_repo,
-                f"bug: patch broken after app update - {result.app.name}",
-                f"Repair workflow verified `{result.app.name}` `{result.candidate_version}` successfully.",
-            )
         if result.repair_repo_path:
-            create_repair_pull_request(result, cfg.tracker.patches_repo, cfg.tracker.target_branch)
+            pr_url = create_repair_pull_request(result, cfg.tracker.patches_repo, cfg.tracker.target_branch)
+            if pr_url:
+                comment_repair_issue(cfg.tracker.patches_repo, target, result, pr_url)
             continue
         if result.ok and result.output and is_newer_version(result.candidate_version, result.app.current_version):
             if constants_repo is None:
@@ -125,7 +119,7 @@ def main() -> int:
                 git(["checkout", "-b", branch], constants_repo)
                 constants_file = constants_repo / cfg.tracker.constants_path
             if update_app_target_version(constants_file, result.app.constant, result.candidate_version, result.version_code):
-                changed.append(result)
+                changed.append((target, result))
 
     if changed and constants_repo and constants_file:
         git(["config", "user.name", "patches-tracker"], constants_repo)
@@ -135,11 +129,11 @@ def main() -> int:
         body = "\n".join(
             f"- `{result.app.name}`: `{result.app.current_version}` -> `{result.candidate_version}`"
             + (f" (`versionCode {result.version_code}`)" if result.version_code else "")
-            for result in changed
+            for _, result in changed
         )
         branch = git(["branch", "--show-current"], constants_repo)
         git(["push", "origin", branch], constants_repo)
-        create_pull_request(
+        pr_url = create_pull_request(
             constants_repo,
             cfg.tracker.patches_repo,
             branch,
@@ -147,8 +141,26 @@ def main() -> int:
             "chore: update repaired app versions",
             body,
         )
+        if pr_url:
+            for target, result in changed:
+                comment_repair_issue(cfg.tracker.patches_repo, target, result, pr_url)
 
     return 0
+
+
+def comment_repair_issue(repo: str, target: "RepairTarget", result, pr_url: str) -> None:
+    summary = result.repair_summary or "verified with a rebuilt patch bundle; no patch-file repair was needed"
+    body = (
+        f"Repair PR opened: {pr_url}\n\n"
+        f"- App: `{result.app.name}`\n"
+        f"- Version: `{result.candidate_version}`"
+        + (f" (`versionCode {result.version_code}`)" if result.version_code else "")
+        + "\n"
+        f"- Result: patched APK verified\n"
+        f"- Repair: {summary}\n\n"
+        "Leaving this issue open for review until the repair PR is merged."
+    )
+    comment_issue(repo, target.issue_number, body)
 
 
 class RepairTarget:

@@ -140,6 +140,24 @@ def close_resolved_failure_issue(
             print(f"warning: could not close resolved issue {repo}#{issue_number}: {error.stderr}", flush=True)
 
 
+def comment_issue(
+    repo: str,
+    issue_number: int | str,
+    body: str,
+    *,
+    dry_run: bool = False,
+) -> None:
+    token = token_for_repo(repo)
+    try:
+        run_gh(
+            ["api", f"repos/{repo}/issues/{issue_number}/comments", "-f", f"body={body}"],
+            dry_run=dry_run,
+            token=token,
+        )
+    except subprocess.CalledProcessError as error:
+        print(f"warning: could not comment on issue {repo}#{issue_number}: {error.stderr}", flush=True)
+
+
 @lru_cache(maxsize=512)
 def known_patch_failure_exists(repo: str, app_name: str, version: str) -> bool:
     title = f"bug: patch broken after app update - {app_name}"
@@ -268,9 +286,26 @@ def create_pull_request(
     body: str,
     *,
     dry_run: bool = False,
-) -> None:
-    run_gh(
-        ["pr", "create", "--repo", repo, "--head", branch, "--base", base, "--title", title, "--body", body],
+) -> str:
+    return run_gh(
+        [
+            "pr",
+            "create",
+            "--repo",
+            repo,
+            "--head",
+            branch,
+            "--base",
+            base,
+            "--title",
+            title,
+            "--body",
+            body,
+            "--json",
+            "url",
+            "--jq",
+            ".url",
+        ],
         cwd=repo_path,
         dry_run=dry_run,
     )
