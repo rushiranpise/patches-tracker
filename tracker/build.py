@@ -712,11 +712,6 @@ def select_auto_repairs(report: dict, max_repairs: int = 10) -> list[dict]:
         if not candidates:
             return []
         top = candidates[0]
-        second_score = candidates[1]["score"] if len(candidates) > 1 else -1
-        if top["score"] < 90:
-            return []
-        if second_score >= top["score"] - 20:
-            return []
         current = item.get("current") or {}
         if not current.get("definingClass") and not current.get("name"):
             return []
