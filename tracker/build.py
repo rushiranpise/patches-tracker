@@ -269,6 +269,7 @@ def build_app(
                 app_dir=app_dir,
                 cli_jar=cli_jar,
                 continue_on_error=continue_on_error,
+                old_stock_apk=download_current_version_apk(app, app_dir, resolver),
             )
             combined_log = repair.log
             if repair.output_apk:
@@ -328,6 +329,7 @@ def build_app(
             app_dir=app_dir,
             cli_jar=cli_jar,
             continue_on_error=continue_on_error,
+            old_stock_apk=download_current_version_apk(app, app_dir, resolver),
         )
         failure_log = repair.log
         if repair.output_apk:
@@ -396,6 +398,38 @@ def run_resolver(app_id: str, phase: str, args: list[str]) -> subprocess.Complet
             continue
         return completed
     return last
+
+
+def download_current_version_apk(app: AppConfig, app_dir: Path, resolver: Path) -> Path | None:
+    if not app.current_version:
+        return None
+    current_stock_apk = app_dir / f"{app.id}-{app.current_version}-current.apk"
+    if current_stock_apk.exists():
+        print(f"[{app.id}] using cached current-version APK for repair: {current_stock_apk}", flush=True)
+        return current_stock_apk
+    for source in app.resolved_sources():
+        print(f"[{app.id}] downloading current version {app.current_version} via {source.source} for repair comparison", flush=True)
+        resolved = run_resolver(
+            app.id,
+            "current-version download",
+            [
+                "bash",
+                str(resolver),
+                source.source,
+                source.url,
+                app.current_version,
+                str(current_stock_apk),
+                source.arch,
+                source.dpi,
+                " ".join(source.apk_types),
+            ],
+        )
+        if resolved.returncode == 0 and current_stock_apk.exists():
+            print(f"[{app.id}] downloaded current-version APK via {source.source}: {current_stock_apk}", flush=True)
+            return current_stock_apk
+        print(f"[{app.id}] current-version download did not work via {source.source}; trying next source", flush=True)
+    print(f"[{app.id}] could not download current-version APK for repair comparison", flush=True)
+    return None
 
 
 def run_streamed_process(
@@ -539,10 +573,11 @@ def attempt_fingerprint_repair(
     app_dir: Path,
     cli_jar: Path,
     continue_on_error: bool = False,
+    old_stock_apk: Path | None = None,
 ) -> RepairResult:
     if failure_type != "fingerprint":
         return RepairResult(append_patch_failure_analysis(app, log, stock_apk, work_dir, failure_type))
-    analysis, repo_dir = analyze_fingerprint_failure(app, log, stock_apk, work_dir, patches_repo, target_branch)
+    analysis, repo_dir = analyze_fingerprint_failure(app, log, stock_apk, work_dir, patches_repo, target_branch, old_stock_apk=old_stock_apk)
     if not analysis:
         return RepairResult(log)
     enriched_log = log + "\n\nFingerprint analysis JSON:\n" + analysis + "\n"
@@ -617,6 +652,7 @@ def attempt_fingerprint_repair(
             patches_repo,
             target_branch,
             repo_dir=repo_dir,
+            old_stock_apk=old_stock_apk,
         )
         if not analysis:
             return RepairResult(enriched_log)
@@ -678,6 +714,7 @@ def analyze_fingerprint_failure(
     target_branch: str,
     *,
     repo_dir: Path | None = None,
+    old_stock_apk: Path | None = None,
 ) -> tuple[str, Path | None]:
     if repo_dir is None:
         repo_dir = work_dir / "fingerprint-analysis-source" / app.id
@@ -709,6 +746,7 @@ def analyze_fingerprint_failure(
             str(script),
             "--apk",
             str(stock_apk),
+            *(["--old-apk", str(old_stock_apk)] if old_stock_apk else []),
             "--patches-src",
             str(repo_dir / "patches" / "src" / "main" / "kotlin"),
             "--log",

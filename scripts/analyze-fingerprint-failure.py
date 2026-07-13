@@ -27,11 +27,13 @@ class Method:
     name: str
     descriptor: str
     file: Path
+    body: str
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Find likely moved/renamed fingerprint targets in an APK.")
     parser.add_argument("--apk", required=True)
+    parser.add_argument("--old-apk", default="", help="Known-working APK for the current Constants.kt version")
     parser.add_argument("--patches-src", required=True, help="Path to patches/src/main/kotlin")
     parser.add_argument("--log", default="", help="Patch failure log text or path")
     parser.add_argument("--out", default="")
@@ -44,7 +46,8 @@ def main() -> int:
     out = Path(args.out) if args.out else None
     log = read_text_or_literal(args.log)
 
-    report = analyze(apk, patches_src, log, work_dir)
+    old_apk = Path(args.old_apk) if args.old_apk else None
+    report = analyze(apk, patches_src, log, work_dir, old_apk=old_apk)
     text = json.dumps(report, indent=2, sort_keys=True) + "\n"
     if out:
         out.parent.mkdir(parents=True, exist_ok=True)
@@ -54,7 +57,7 @@ def main() -> int:
     return 0
 
 
-def analyze(apk: Path, patches_src: Path, log: str, work_dir: Path) -> dict:
+def analyze(apk: Path, patches_src: Path, log: str, work_dir: Path, old_apk: Path | None = None) -> dict:
     failed_names = failed_fingerprint_names(log)
     fingerprints = parse_fingerprints(patches_src)
     if not failed_names:
@@ -71,6 +74,7 @@ def analyze(apk: Path, patches_src: Path, log: str, work_dir: Path) -> dict:
     report = {
         "schema": "patches-tracker/fingerprint-analysis/v1",
         "apk": str(apk),
+        "old_apk": str(old_apk) if old_apk else "",
         "failed_fingerprints": failed_names,
         "analyzed_fingerprints": [fp.name for fp in selected],
         "candidates": [],
@@ -104,8 +108,28 @@ def analyze(apk: Path, patches_src: Path, log: str, work_dir: Path) -> dict:
     smali_files = list(decoded.glob("smali*/**/*.smali"))
     methods_by_file = {path: parse_smali_methods(path) for path in smali_files}
     text_cache = {path: path.read_text(encoding="utf-8", errors="ignore") for path in smali_files}
+    old_methods_by_file = {}
+    old_text_cache = {}
+    if old_apk and old_apk.exists():
+        old_decoded = work_dir / safe_name(old_apk.stem)
+        if old_decoded.exists():
+            shutil.rmtree(old_decoded)
+        completed = subprocess.run(
+            ["apktool", "d", "-f", "-r", "-o", str(old_decoded), str(old_apk)],
+            text=True,
+            capture_output=True,
+            timeout=600,
+        )
+        if completed.returncode == 0:
+            old_smali_files = list(old_decoded.glob("smali*/**/*.smali"))
+            old_methods_by_file = {path: parse_smali_methods(path) for path in old_smali_files}
+            old_text_cache = {path: path.read_text(encoding="utf-8", errors="ignore") for path in old_smali_files}
+        else:
+            report["notes"].append("old APK decode failed.")
+            report["notes"].append((completed.stdout + completed.stderr)[-2000:])
     for fp in selected:
-        report["candidates"].append(analyze_fingerprint(fp, methods_by_file, text_cache))
+        old_method = find_old_method(fp, old_methods_by_file)
+        report["candidates"].append(analyze_fingerprint(fp, methods_by_file, text_cache, old_method))
     return report
 
 
@@ -113,6 +137,7 @@ def analyze_fingerprint(
     fp: Fingerprint,
     methods_by_file: dict[Path, list[Method]],
     text_cache: dict[Path, str],
+    old_method: Method | None = None,
 ) -> dict:
     class_files = []
     if fp.defining_class:
@@ -130,7 +155,7 @@ def analyze_fingerprint(
     search_files = class_files or list(methods_by_file)
     for path in search_files:
         for method in methods_by_file[path]:
-            score = score_method(fp, method, path, text_cache[path], bool(class_files))
+            score = score_method(fp, method, path, text_cache[path], bool(class_files), old_method)
             if score <= 0:
                 continue
             candidates.append(
@@ -140,7 +165,7 @@ def analyze_fingerprint(
                     "method": method.name,
                     "descriptor": method.descriptor,
                     "file": str(path),
-                    "reason": candidate_reason(fp, method, bool(class_files)),
+                    "reason": candidate_reason(fp, method, bool(class_files), old_method),
                 }
             )
 
@@ -154,13 +179,14 @@ def analyze_fingerprint(
             "returnType": fp.return_type,
             "parameters": fp.parameters,
             "strings": fp.strings,
+            "oldTargetFound": old_method is not None,
         },
         "candidate_count": len(candidates),
         "top_candidates": candidates[:10],
     }
 
 
-def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool) -> int:
+def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool, old_method: Method | None = None) -> int:
     score = 0
     params, return_type = split_descriptor(method.descriptor)
     if fp.method_name and is_obfuscated_method_name(fp.method_name) and not is_obfuscated_method_name(method.name):
@@ -189,10 +215,12 @@ def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_m
         score += 10
     if fp.method_name and is_obfuscated_method_name(fp.method_name) and is_obfuscated_method_name(method.name):
         score += 10
+    if old_method:
+        score += bytecode_similarity_score(old_method, method)
     return score
 
 
-def candidate_reason(fp: Fingerprint, method: Method, class_matched: bool) -> str:
+def candidate_reason(fp: Fingerprint, method: Method, class_matched: bool, old_method: Method | None = None) -> str:
     bits = []
     params, return_type = split_descriptor(method.descriptor)
     if fp.return_type and return_type == fp.return_type:
@@ -207,7 +235,59 @@ def candidate_reason(fp: Fingerprint, method: Method, class_matched: bool) -> st
         bits.append("obfuscated method shape matches")
     if fp.defining_class and method.class_type != fp.defining_class and is_obfuscated_class_type(fp.defining_class) and is_obfuscated_class_type(method.class_type):
         bits.append("obfuscated class shape matches")
+    if old_method:
+        bits.append(f"old bytecode similarity {bytecode_similarity_score(old_method, method)}")
     return ", ".join(bits) or "shape match"
+
+
+def find_old_method(fp: Fingerprint, methods_by_file: dict[Path, list[Method]]) -> Method | None:
+    if not methods_by_file or not fp.defining_class or not fp.method_name:
+        return None
+    wanted_descriptor = "(" + "".join(fp.parameters) + ")" + fp.return_type if fp.return_type else ""
+    suffix = fp.defining_class.removeprefix("L").removesuffix(";") + ".smali"
+    for path, methods in methods_by_file.items():
+        if not str(path).replace("\\", "/").endswith(suffix):
+            continue
+        for method in methods:
+            if method.name == fp.method_name and (not wanted_descriptor or method.descriptor == wanted_descriptor):
+                return method
+    return None
+
+
+def bytecode_similarity_score(old_method: Method, new_method: Method) -> int:
+    old_features = method_features(old_method.body)
+    new_features = method_features(new_method.body)
+    score = 0
+    for key, weight in (("strings", 25), ("field_refs", 20), ("method_refs", 15), ("opcodes", 10)):
+        score += int(weight * jaccard(old_features[key], new_features[key]))
+    old_lines = old_features["body_lines"]
+    new_lines = new_features["body_lines"]
+    if old_lines and new_lines:
+        ratio = min(old_lines, new_lines) / max(old_lines, new_lines)
+        score += int(10 * ratio)
+    return score
+
+
+def method_features(body: str) -> dict[str, set[str] | int]:
+    instructions = [
+        line.strip()
+        for line in body.splitlines()
+        if line.strip() and not line.strip().startswith((".", "#", ":"))
+    ]
+    return {
+        "strings": set(re.findall(r'const-string(?:/jumbo)?\s+\S+,\s+"([^"]*)"', body)),
+        "field_refs": set(re.findall(r"\s[sp]?ut[^\s]*\s+[^,]+,\s+([^\s]+)", body)),
+        "method_refs": set(re.findall(r"invoke-[^\s]+\s+\{[^}]*\},\s+([^\s]+)", body)),
+        "opcodes": {line.split()[0] for line in instructions if line.split()},
+        "body_lines": len(instructions),
+    }
+
+
+def jaccard(left: set[str], right: set[str]) -> float:
+    if not left and not right:
+        return 0.0
+    union = left | right
+    return len(left & right) / len(union) if union else 0.0
 
 
 def is_obfuscated_class_type(value: str) -> bool:
@@ -385,8 +465,8 @@ def parse_smali_methods(path: Path) -> list[Method]:
     class_match = re.search(r"^\.class\b.*\s(L[^;]+;)", text, flags=re.MULTILINE)
     class_type = class_match.group(1) if class_match else ""
     methods = []
-    for match in re.finditer(r"^\.method\b.*?\s([^\s(]+)(\([^)]*\).+)$", text, flags=re.MULTILINE):
-        methods.append(Method(class_type, match.group(1), match.group(2).strip(), path))
+    for match in re.finditer(r"^\.method\b.*?\s([^\s(]+)(\([^)]*\).+?)$\n([\s\S]*?)^\.end method$", text, flags=re.MULTILINE):
+        methods.append(Method(class_type, match.group(1), match.group(2).strip(), path, match.group(3)))
     return methods
 
 
