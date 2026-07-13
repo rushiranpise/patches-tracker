@@ -250,10 +250,12 @@ def parse_fingerprints(root: Path) -> dict[str, Fingerprint]:
             body = balanced_call_body(text, match.end() - 1)
             if not body:
                 continue
+            defining_class = first_string_arg(body, "definingClass") or custom_class_check(body)
+            method_name = first_string_arg(body, "name") or custom_method_check(body)
             fingerprints[name] = Fingerprint(
                 name=name,
-                defining_class=first_string_arg(body, "definingClass"),
-                method_name=first_string_arg(body, "name"),
+                defining_class=defining_class,
+                method_name=method_name,
                 return_type=first_string_arg(body, "returnType"),
                 parameters=list_arg(body, "parameters"),
                 strings=list_arg(body, "strings"),
@@ -289,6 +291,16 @@ def balanced_call_body(text: str, open_paren_index: int) -> str:
 
 def first_string_arg(body: str, name: str) -> str:
     match = re.search(rf"\b{name}\s*=\s*\"([^\"]*)\"", body)
+    return match.group(1) if match else ""
+
+
+def custom_class_check(body: str) -> str:
+    match = re.search(r"\bclassDef\.type\s*==\s*\"([^\"]*)\"", body)
+    return match.group(1) if match else ""
+
+
+def custom_method_check(body: str) -> str:
+    match = re.search(r"\bmethod\.name\s*==\s*\"([^\"]*)\"", body)
     return match.group(1) if match else ""
 
 

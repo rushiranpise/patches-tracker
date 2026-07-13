@@ -730,25 +730,62 @@ def analyze_fingerprint_failure(
 
 def select_auto_repairs(report: dict, max_repairs: int = 10) -> list[dict]:
     plans = []
+    used_targets = set()
     for item in report.get("candidates", []):
         candidates = item.get("top_candidates") or []
         if not candidates:
             return []
-        top = candidates[0]
         current = item.get("current") or {}
-        if not any((current.get("definingClass"), current.get("name"), top.get("class"), top.get("method"))):
+        candidate = first_safe_repair_candidate(current, candidates, used_targets)
+        if not candidate:
             return []
+        if not any((current.get("definingClass"), current.get("name"), candidate.get("class"), candidate.get("method"))):
+            return []
+        used_targets.add(candidate_target(candidate))
         plans.append(
             {
                 "fingerprint": item["fingerprint"],
                 "source_file": item["source_file"],
                 "current": current,
-                "candidate": top,
+                "candidate": candidate,
             }
         )
     if not plans or len(plans) > max_repairs:
         return []
     return plans
+
+
+def first_safe_repair_candidate(current: dict, candidates: list[dict], used_targets: set[tuple[str, str]]) -> dict | None:
+    for candidate in candidates:
+        target = candidate_target(candidate)
+        if target in used_targets:
+            continue
+        if is_bad_framework_method_candidate(current, candidate):
+            continue
+        return candidate
+    return None
+
+
+def candidate_target(candidate: dict) -> tuple[str, str]:
+    return (candidate.get("class") or "", candidate.get("method") or "")
+
+
+def is_bad_framework_method_candidate(current: dict, candidate: dict) -> bool:
+    method_name = candidate.get("method") or ""
+    return method_name in {
+        "areAllItemsEnabled",
+        "getCount",
+        "getItem",
+        "getItemId",
+        "getItemViewType",
+        "getView",
+        "getViewTypeCount",
+        "hasStableIds",
+        "isEmpty",
+        "isEnabled",
+        "onBindViewHolder",
+        "onCreateViewHolder",
+    }
 
 
 def select_auto_repair(report: dict) -> dict | None:
