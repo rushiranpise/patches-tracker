@@ -15,6 +15,8 @@ from .cli import (
     clone_patches_repo,
     create_repair_pull_request,
     git,
+    git_author_email,
+    git_author_name,
     render_status_table,
 )
 from .config import AppConfig, load_config
@@ -121,8 +123,8 @@ def main() -> int:
                 changed.append((target, result))
 
     if changed and constants_repo and constants_file:
-        git(["config", "user.name", "patches-tracker"], constants_repo)
-        git(["config", "user.email", "patches-tracker@users.noreply.github.com"], constants_repo)
+        git(["config", "user.name", git_author_name()], constants_repo)
+        git(["config", "user.email", git_author_email()], constants_repo)
         git(["add", cfg.tracker.constants_path], constants_repo)
         git(["commit", "-m", "chore: update repaired app versions"], constants_repo)
         body = "\n".join(

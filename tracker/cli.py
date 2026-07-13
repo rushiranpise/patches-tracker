@@ -193,8 +193,8 @@ def main() -> int:
         )
 
     if changed:
-        git(["config", "user.name", "patches-tracker"], patches_repo_path)
-        git(["config", "user.email", "patches-tracker@users.noreply.github.com"], patches_repo_path)
+        git(["config", "user.name", git_author_name()], patches_repo_path)
+        git(["config", "user.email", git_author_email()], patches_repo_path)
         git(["add", cfg.tracker.constants_path], patches_repo_path)
         git(["commit", "-m", "chore: update verified app versions"], patches_repo_path)
         changed_by_id = {result.app.id: result for result in results}
@@ -233,8 +233,8 @@ def create_repair_pull_request(result, patches_repo: str, target_branch: str) ->
         + f"- Auto-repair: {result.repair_summary or 'fingerprint target update'}\n"
     )
     try:
-        git(["config", "user.name", "patches-tracker"], repo_path)
-        git(["config", "user.email", "patches-tracker@users.noreply.github.com"], repo_path)
+        git(["config", "user.name", git_author_name()], repo_path)
+        git(["config", "user.email", git_author_email()], repo_path)
         git(["checkout", "-B", branch], repo_path)
         git(["add", "."], repo_path)
         staged = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=repo_path)
@@ -251,9 +251,17 @@ def create_repair_pull_request(result, patches_repo: str, target_branch: str) ->
             f"fix: repair {app.name} for {result.candidate_version}",
             body,
         )
-    except subprocess.CalledProcessError:
-        print(f"warning: could not push or open auto-repair PR for {app.name}", flush=True)
+    except subprocess.CalledProcessError as error:
+        print(f"warning: could not push or open auto-repair PR for {app.name}: {error}", flush=True)
         return ""
+
+
+def git_author_name() -> str:
+    return os.environ.get("GIT_AUTHOR_NAME") or os.environ.get("GITHUB_ACTOR") or "Rushi Ranpise"
+
+
+def git_author_email() -> str:
+    return os.environ.get("GIT_AUTHOR_EMAIL") or "rushiranpise17@gmail.com"
 
 
 def slug_branch(value: str) -> str:
