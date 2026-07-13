@@ -757,6 +757,8 @@ def apply_repair_plan(repo_dir: Path, plan: dict) -> dict:
     if current.get("name") and candidate.get("method"):
         updated = replace_string_arg(updated, "name", candidate["method"])
     if updated == body:
+        updated = replace_custom_fingerprint_checks(updated, candidate)
+    if updated == body:
         return {"changed": False, "message": "repair did not change fingerprint declaration", "plan": plan}
     target_file.write_text(text[:start] + updated + text[end:], encoding="utf-8")
     return {"changed": True, "message": "fingerprint declaration updated", "file": str(target_file), "plan": plan}
@@ -797,6 +799,25 @@ def fingerprint_body_span(text: str, fingerprint_name: str) -> tuple[int, int] |
 
 def replace_string_arg(body: str, name: str, value: str) -> str:
     return re.sub(rf'(\b{name}\s*=\s*)"[^"]*"', rf'\1"{value}"', body, count=1)
+
+
+def replace_custom_fingerprint_checks(body: str, candidate: dict) -> str:
+    updated = body
+    if candidate.get("class"):
+        updated = re.sub(
+            r'(\bclassDef\s*\.\s*type\s*==\s*)"[^"]*"',
+            lambda match: f'{match.group(1)}"{candidate["class"]}"',
+            updated,
+            count=1,
+        )
+    if candidate.get("method"):
+        updated = re.sub(
+            r'(\bmethod\s*\.\s*name\s*==\s*)"[^"]*"',
+            lambda match: f'{match.group(1)}"{candidate["method"]}"',
+            updated,
+            count=1,
+        )
+    return updated
 
 
 def build_patches_bundle_in_repo(repo_dir: Path) -> tuple[Path | None, str]:
