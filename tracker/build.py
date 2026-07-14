@@ -588,13 +588,14 @@ def attempt_fingerprint_repair(
     update_app_target_version(constants_file, app.constant, candidate_version, version_code)
 
     changed_repairs = []
+    rejected_targets = set()
     max_attempts = 10
     for attempt in range(1, max_attempts + 1):
         try:
             report = json.loads(analysis)
         except json.JSONDecodeError:
             return RepairResult(enriched_log)
-        plans = select_auto_repairs(report, max_repairs=max_attempts)
+        plans = select_auto_repairs(report, max_repairs=max_attempts, rejected_targets=rejected_targets)
         if not plans:
             return RepairResult(enriched_log + f"\nAuto-repair stopped at attempt {attempt}: no repair plan.\n")
 
@@ -644,6 +645,8 @@ def attempt_fingerprint_repair(
         if classify_failure(retry_log, "patch") != "fingerprint":
             print(f"[{app.id}] auto-repair did not verify successfully", flush=True)
             return RepairResult(enriched_log)
+        for repair_log in changed_this_attempt:
+            rejected_targets.add(candidate_target(repair_log["plan"]["candidate"]))
         # Re-analyze only the latest failed patch retry. The accumulated log also
         # contains older failures and JSON reports, which can point repair at the
         # wrong fingerprint on later attempts.
@@ -773,9 +776,13 @@ def analyze_fingerprint_failure(
     return report_path.read_text(encoding="utf-8").strip(), repo_dir
 
 
-def select_auto_repairs(report: dict, max_repairs: int = 10) -> list[dict]:
+def select_auto_repairs(
+    report: dict,
+    max_repairs: int = 10,
+    rejected_targets: set[tuple[str, str]] | None = None,
+) -> list[dict]:
     plans = []
-    used_targets = set()
+    used_targets = set(rejected_targets or set())
     for item in report.get("candidates", []):
         candidates = item.get("top_candidates") or []
         if not candidates:
