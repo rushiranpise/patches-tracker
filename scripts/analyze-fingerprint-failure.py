@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+from difflib import SequenceMatcher
 import json
 from pathlib import Path
 import re
@@ -263,6 +264,7 @@ def bytecode_similarity_score(old_method: Method, new_method: Method) -> int:
     score = 0
     for key, weight in (("strings", 25), ("field_refs", 20), ("method_refs", 15), ("opcodes", 10)):
         score += int(weight * jaccard(old_features[key], new_features[key]))
+    score += int(30 * SequenceMatcher(None, old_features["opcode_sequence"], new_features["opcode_sequence"]).ratio())
     old_lines = old_features["body_lines"]
     new_lines = new_features["body_lines"]
     if old_lines and new_lines:
@@ -271,7 +273,7 @@ def bytecode_similarity_score(old_method: Method, new_method: Method) -> int:
     return score
 
 
-def method_features(body: str) -> dict[str, set[str] | int]:
+def method_features(body: str) -> dict[str, set[str] | list[str] | int]:
     instructions = [
         line.strip()
         for line in body.splitlines()
@@ -282,6 +284,7 @@ def method_features(body: str) -> dict[str, set[str] | int]:
         "field_refs": set(re.findall(r"\s[sp]?ut[^\s]*\s+[^,]+,\s+([^\s]+)", body)),
         "method_refs": set(re.findall(r"invoke-[^\s]+\s+\{[^}]*\},\s+([^\s]+)", body)),
         "opcodes": {line.split()[0] for line in instructions if line.split()},
+        "opcode_sequence": [line.split()[0] for line in instructions if line.split()],
         "body_lines": len(instructions),
     }
 
@@ -304,13 +307,19 @@ def is_obfuscated_method_name(value: str) -> bool:
 
 
 def failed_fingerprint_names(log: str) -> list[str]:
+    focused_lines = [
+        line
+        for line in log.splitlines()
+        if "Failed to match the fingerprint:" in line or "\tat app.template.patches." in line
+    ]
+    search_log = "\n".join(focused_lines) or log
     patterns = [
         r"([A-Za-z0-9_]+Fingerprint)\b",
         r"fingerprint\s+['\"]?([A-Za-z0-9_]+)['\"]?",
     ]
     names = []
     for pattern in patterns:
-        for match in re.finditer(pattern, log, flags=re.IGNORECASE):
+        for match in re.finditer(pattern, search_log, flags=re.IGNORECASE):
             name = match.group(1)
             normalized = re.sub(r"[^a-z0-9]+", "", name.lower())
             if normalized in {"fingerprint", "failed", "failedfingerprint", "failedfingerprints", "declaration", "declarationfingerprint"}:
