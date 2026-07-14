@@ -73,6 +73,7 @@ def analyze(
     fingerprints = parse_fingerprints(patches_src)
     if not failed_names:
         failed_names = infer_fingerprints_from_stacktrace(log, patches_src, fingerprints)
+    preferred_segments = preferred_source_segments(log, app_id=app_id, package_name=package_name)
     selected = select_fingerprints(failed_names, fingerprints, log, app_id=app_id, package_name=package_name)
     if not selected and len(failed_names) == 1:
         selected = [
@@ -88,6 +89,7 @@ def analyze(
         "old_apk": str(old_apk) if old_apk else "",
         "failed_fingerprints": failed_names,
         "analyzed_fingerprints": [fp.name for fp in selected],
+        "preferred_source_segments": preferred_segments,
         "candidates": [],
         "notes": [],
     }
@@ -364,8 +366,22 @@ def select_fingerprints(
         entries = fingerprints.get(name, [])
         if not entries:
             continue
+        entries = same_app_entries(entries, preferred_segments) or entries
         selected.append(best_fingerprint_entry(entries, preferred_segments))
     return selected
+
+
+def same_app_entries(entries: list[Fingerprint], preferred_segments: list[str]) -> list[Fingerprint]:
+    for segment in preferred_segments:
+        segment = segment.lower()
+        exact = [
+            fp
+            for fp in entries
+            if f"/app/template/patches/{segment}/" in fp.source_file.replace("\\", "/").lower()
+        ]
+        if exact:
+            return exact
+    return []
 
 
 def preferred_source_segments(log: str, app_id: str = "", package_name: str = "") -> list[str]:
