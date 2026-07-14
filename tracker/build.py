@@ -533,7 +533,7 @@ def build_candidate_patches_bundle(
     except OSError:
         pass
     build = run_plain_process(
-        [str(gradlew), ":patches:build", "--no-daemon"],
+        [str(gradlew), ":patches:buildAndroid", "--no-daemon"],
         cwd=repo_dir,
         timeout_seconds=900,
     )
@@ -939,7 +939,7 @@ def build_patches_bundle_in_repo(repo_dir: Path) -> tuple[Path | None, str]:
     except OSError:
         pass
     build = run_plain_process(
-        [str(gradlew), ":patches:build", "--no-daemon"],
+        [str(gradlew), ":patches:buildAndroid", "--no-daemon"],
         cwd=repo_dir,
         timeout_seconds=900,
     )

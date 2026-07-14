@@ -78,6 +78,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
           TRACKER_REPO_TOKEN: ${{ github.token }}
           FLARESOLVERR_URL: http://localhost:8191
+          GPLAY_DISPENSER_URL: ${{ secrets.GPLAY_DISPENSER_URL || '' }}
           FETCH_RETRIES: "3"
           APKCOMBO_RETRIES: "3"
         run: >-

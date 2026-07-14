@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import zipfile
 
 
 @dataclass
@@ -19,6 +20,7 @@ class Fingerprint:
     return_type: str
     parameters: list[str]
     strings: list[str]
+    opcodes: list[str]
     source_file: str
 
 
@@ -107,12 +109,7 @@ def analyze(
     if decoded.exists():
         shutil.rmtree(decoded)
     decoded.parent.mkdir(parents=True, exist_ok=True)
-    completed = subprocess.run(
-        ["apktool", "d", "-f", "-r", "-o", str(decoded), str(apk)],
-        text=True,
-        capture_output=True,
-        timeout=600,
-    )
+    completed, decoded_apk = decode_for_analysis(apk, decoded)
     if completed.returncode != 0:
         report["notes"].append("apktool decode failed.")
         report["notes"].append((completed.stdout + completed.stderr)[-2000:])
@@ -127,23 +124,65 @@ def analyze(
         old_decoded = work_dir / safe_name(old_apk.stem)
         if old_decoded.exists():
             shutil.rmtree(old_decoded)
-        completed = subprocess.run(
-            ["apktool", "d", "-f", "-r", "-o", str(old_decoded), str(old_apk)],
-            text=True,
-            capture_output=True,
-            timeout=600,
-        )
+        completed, old_decoded_apk = decode_for_analysis(old_apk, old_decoded)
         if completed.returncode == 0:
             old_smali_files = list(old_decoded.glob("smali*/**/*.smali"))
             old_methods_by_file = {path: parse_smali_methods(path) for path in old_smali_files}
             old_text_cache = {path: path.read_text(encoding="utf-8", errors="ignore") for path in old_smali_files}
+            if old_decoded_apk != old_apk:
+                report["notes"].append(f"Decoded embedded old APK for analysis: {old_decoded_apk}")
         else:
             report["notes"].append("old APK decode failed.")
             report["notes"].append((completed.stdout + completed.stderr)[-2000:])
+    if decoded_apk != apk:
+        report["notes"].append(f"Decoded embedded APK for analysis: {decoded_apk}")
     for fp in selected:
         old_method = find_old_method(fp, old_methods_by_file)
         report["candidates"].append(analyze_fingerprint(fp, methods_by_file, text_cache, old_method))
     return report
+
+
+def decode_for_analysis(apk: Path, decoded: Path) -> tuple[subprocess.CompletedProcess[str], Path]:
+    completed = run_apktool_decode(apk, decoded)
+    if completed.returncode != 0 or list(decoded.glob("smali*/**/*.smali")):
+        return completed, apk
+
+    embedded = extract_largest_embedded_apk(apk, decoded.parent / f"{decoded.name}-embedded.apk")
+    if not embedded:
+        return completed, apk
+
+    if decoded.exists():
+        shutil.rmtree(decoded)
+    embedded_completed = run_apktool_decode(embedded, decoded)
+    return embedded_completed, embedded
+
+
+def run_apktool_decode(apk: Path, decoded: Path) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        ["apktool", "d", "-f", "-r", "-o", str(decoded), str(apk)],
+        text=True,
+        capture_output=True,
+        timeout=600,
+    )
+
+
+def extract_largest_embedded_apk(apk: Path, output: Path) -> Path | None:
+    try:
+        with zipfile.ZipFile(apk) as archive:
+            apk_infos = [
+                info
+                for info in archive.infolist()
+                if not info.is_dir() and info.filename.lower().endswith(".apk")
+            ]
+            if not apk_infos:
+                return None
+            info = max(apk_infos, key=lambda item: item.file_size)
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with archive.open(info) as src, output.open("wb") as dst:
+                shutil.copyfileobj(src, dst)
+            return output
+    except zipfile.BadZipFile:
+        return None
 
 
 def analyze_fingerprint(
@@ -192,6 +231,7 @@ def analyze_fingerprint(
             "returnType": fp.return_type,
             "parameters": fp.parameters,
             "strings": fp.strings,
+            "opcodes": fp.opcodes,
             "oldTargetFound": old_method is not None,
         },
         "candidate_count": len(candidates),
@@ -202,10 +242,17 @@ def analyze_fingerprint(
 def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool, old_method: Method | None = None) -> int:
     score = 0
     params, return_type = split_descriptor(method.descriptor)
-    if not old_method and fp.method_name and is_obfuscated_method_name(fp.method_name) and not is_obfuscated_method_name(method.name):
-        return 0
-    if not old_method and fp.defining_class and is_obfuscated_class_type(fp.defining_class) and not is_obfuscated_class_type(method.class_type):
-        return 0
+    if old_method:
+        old_params, old_return_type = split_descriptor(old_method.descriptor)
+        if return_type != old_return_type:
+            return 0
+        if params != old_params:
+            return 0
+    else:
+        if fp.method_name and is_obfuscated_method_name(fp.method_name) and not is_obfuscated_method_name(method.name):
+            return 0
+        if fp.defining_class and is_obfuscated_class_type(fp.defining_class) and not is_obfuscated_class_type(method.class_type):
+            return 0
     if fp.return_type and return_type == fp.return_type:
         score += 25
     elif fp.return_type:
@@ -216,6 +263,11 @@ def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_m
         score += 20
     elif fp.parameters:
         return 0
+    if fp.opcodes:
+        opcodes = method_opcode_set(method.body)
+        if not set(fp.opcodes).issubset(opcodes):
+            return 0
+        score += min(20, len(fp.opcodes) * 5)
     if class_matched:
         score += 30
     if fp.method_name and method.name == fp.method_name:
@@ -230,8 +282,10 @@ def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_m
         score += 10
     if old_method:
         similarity = bytecode_similarity_score(old_method, method)
-        if similarity < 20:
+        if similarity < 35:
             return 0
+        if method.name == old_method.name:
+            score += 30
         score += similarity
     return score
 
@@ -253,6 +307,8 @@ def candidate_reason(fp: Fingerprint, method: Method, class_matched: bool, old_m
         bits.append("obfuscated class shape matches")
     if old_method:
         bits.append(f"old bytecode similarity {bytecode_similarity_score(old_method, method)}")
+        if method.name == old_method.name:
+            bits.append("old method name still matches")
     return ", ".join(bits) or "shape match"
 
 
@@ -284,6 +340,7 @@ def bytecode_similarity_score(old_method: Method, new_method: Method) -> int:
     ):
         score += int(weight * jaccard(old_features[key], new_features[key]))
     score += int(30 * SequenceMatcher(None, old_features["opcode_sequence"], new_features["opcode_sequence"]).ratio())
+    score += int(40 * SequenceMatcher(None, old_features["normalized_instructions"], new_features["normalized_instructions"]).ratio())
     old_lines = old_features["body_lines"]
     new_lines = new_features["body_lines"]
     if old_lines and new_lines:
@@ -308,7 +365,26 @@ def method_features(body: str) -> dict[str, set[str] | list[str] | int]:
         "method_protos": {"(" + ref.split("(", 1)[1] for ref in method_refs if "(" in ref},
         "opcodes": {line.split()[0] for line in instructions if line.split()},
         "opcode_sequence": [line.split()[0] for line in instructions if line.split()],
+        "normalized_instructions": [normalize_instruction(line) for line in instructions],
         "body_lines": len(instructions),
+}
+
+
+def normalize_instruction(line: str) -> str:
+    line = re.sub(r"\b[vp]\d+\b", "v#", line)
+    line = re.sub(r"\+?-?[0-9a-fA-F]+h\b", "#h", line)
+    line = re.sub(r"\b0x[0-9a-fA-F]+\b", "0x#", line)
+    line = re.sub(r"L(?:[A-Za-z0-9_$]+/)*[A-Za-z0-9_$]+;", "L#;", line)
+    line = re.sub(r"->([A-Za-z_$][A-Za-z0-9_$]{0,3})\(", "->m#(", line)
+    line = re.sub(r"->([A-Za-z_$][A-Za-z0-9_$]{0,3})\s", "->f# ", line)
+    return line
+
+
+def method_opcode_set(body: str) -> set[str]:
+    return {
+        line.split()[0]
+        for line in (raw.strip() for raw in body.splitlines())
+        if line and not line.startswith((".", "#", ":")) and line.split()
     }
 
 
@@ -335,22 +411,29 @@ def failed_fingerprint_names(log: str) -> list[str]:
         for line in log.splitlines()
         if "Failed to match the fingerprint:" in line or "\tat app.template.patches." in line
     ]
-    search_log = "\n".join(focused_lines) or log
+    focused_log = "\n".join(focused_lines)
     patterns = [
         r"([A-Za-z0-9_]+Fingerprint)\b",
         r"fingerprint\s+['\"]?([A-Za-z0-9_]+)['\"]?",
     ]
+    names = fingerprint_names_in_text(focused_log, patterns) if focused_log else []
+    if not names:
+        names = fingerprint_names_in_text(log, patterns)
+    return sorted(set(names))
+
+
+def fingerprint_names_in_text(text: str, patterns: list[str]) -> list[str]:
     names = []
     for pattern in patterns:
-        for match in re.finditer(pattern, search_log, flags=re.IGNORECASE):
+        for match in re.finditer(pattern, text, flags=re.IGNORECASE):
             name = match.group(1)
             normalized = re.sub(r"[^a-z0-9]+", "", name.lower())
-            if normalized in {"fingerprint", "failed", "failedfingerprint", "failedfingerprints", "declaration", "declarationfingerprint"}:
+            if normalized in {"fingerprint", "failed", "analysis", "failedfingerprint", "failedfingerprints", "declaration", "declarationfingerprint", "analysisfingerprint"}:
                 continue
             if not name.endswith("Fingerprint"):
                 name += "Fingerprint"
             names.append(name)
-    return sorted(set(names))
+    return names
 
 
 def select_fingerprints(
@@ -472,6 +555,7 @@ def parse_fingerprints(root: Path) -> dict[str, list[Fingerprint]]:
                 return_type=first_string_arg(body, "returnType"),
                 parameters=list_arg(body, "parameters"),
                 strings=list_arg(body, "strings"),
+                opcodes=opcode_filters(body),
                 source_file=str(path),
             ))
     return fingerprints
@@ -515,6 +599,13 @@ def custom_class_check(body: str) -> str:
 def custom_method_check(body: str) -> str:
     match = re.search(r"\bmethod\.name\s*==\s*\"([^\"]*)\"", body)
     return match.group(1) if match else ""
+
+
+def opcode_filters(body: str) -> list[str]:
+    values = []
+    for match in re.finditer(r"\bOpcode\.([A-Z0-9_]+)\b", body):
+        values.append(match.group(1).lower().replace("_", "-"))
+    return sorted(set(values))
 
 
 def list_arg(body: str, name: str) -> list[str]:

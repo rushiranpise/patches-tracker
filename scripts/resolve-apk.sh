@@ -10,6 +10,7 @@ KEYSTORE_ALIAS="${KEYSTORE_ALIAS:-patches-tracker}"
 KEYSTORE_PASS="${KEYSTORE_PASS:-123456789}"
 APKCOMBO_RETRIES="${APKCOMBO_RETRIES:-3}"
 FETCH_RETRIES="${FETCH_RETRIES:-3}"
+APK_MERGE_TIMEOUT_SECONDS="${APK_MERGE_TIMEOUT_SECONDS:-180}"
 apkmirror_example_url="${apkmirror_example_url:-}"
 __AAV__="${__AAV__:-false}"
 mkdir -p "$TEMP_DIR"
@@ -235,6 +236,15 @@ sign_apk() {
   rm "${output}.idsig" 2>/dev/null || :
 }
 
+run_apkeditor_merge() {
+  local input=$1 output=$2
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "$APK_MERGE_TIMEOUT_SECONDS" java -jar "$TEMP_DIR/apkeditor.jar" m -i "$input" -o "$output"
+  else
+    java -jar "$TEMP_DIR/apkeditor.jar" m -i "$input" -o "$output"
+  fi
+}
+
 merge_splits() {
   local bundle=$1 output=$2
   if unzip -l "$bundle" 2>/dev/null | grep -q '^[[:space:]]*[0-9].*AndroidManifest\.xml$'; then
@@ -243,7 +253,11 @@ merge_splits() {
   fi
   gh_dl "$TEMP_DIR/apkeditor.jar" "https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar" >/dev/null || return 1
   rm -rf "${output}-unsigned" "$output"
-  java -jar "$TEMP_DIR/apkeditor.jar" merge -i "$bundle" -o "${output}-unsigned" -clean-meta -f >/dev/null
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "$APK_MERGE_TIMEOUT_SECONDS" java -jar "$TEMP_DIR/apkeditor.jar" merge -i "$bundle" -o "${output}-unsigned" -clean-meta -f >/dev/null || return 1
+  else
+    java -jar "$TEMP_DIR/apkeditor.jar" merge -i "$bundle" -o "${output}-unsigned" -clean-meta -f >/dev/null || return 1
+  fi
   if sign_apk "${output}-unsigned" "$output"; then
     rm "${output}-unsigned" 2>/dev/null || :
     return 0
@@ -674,7 +688,7 @@ _apkpure_install_xapk() {
 	else
 		pr "Merging XAPK splits with APKEditor"
 		local OP
-		if ! OP=$(java -jar "$TEMP_DIR/apkeditor.jar" m -i "$xapk" -o "${output}-unsigned" 2>&1); then
+		if ! OP=$(run_apkeditor_merge "$xapk" "${output}-unsigned" 2>&1); then
 			epr "APKEditor m error: $OP"
 			return 1
 		fi
@@ -1070,7 +1084,9 @@ dl_gplay() {
 	tmp_output="${output}.gplay"
 	pr "Downloading from Google Play: $pkg"
 	local exit_code=0 json_result=""
-	result=$(py "$helper" "$pkg" "$tmp_output" 2>&1) || exit_code=$?
+	local dispenser_arg=()
+	[ -n "${GPLAY_DISPENSER_URL:-}" ] && dispenser_arg=(--dispenser "$GPLAY_DISPENSER_URL")
+	result=$(py "$helper" "$pkg" "$tmp_output" "${dispenser_arg[@]}" 2>&1) || exit_code=$?
 	json_result=$(grep -E '^\{' <<<"$result" | tail -1 || true)
 	if [ "$exit_code" -ne 0 ] || [ -z "$json_result" ]; then
 		echo "$result" >&2
