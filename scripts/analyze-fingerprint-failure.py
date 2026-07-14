@@ -262,7 +262,14 @@ def bytecode_similarity_score(old_method: Method, new_method: Method) -> int:
     old_features = method_features(old_method.body)
     new_features = method_features(new_method.body)
     score = 0
-    for key, weight in (("strings", 25), ("field_refs", 20), ("method_refs", 15), ("opcodes", 10)):
+    for key, weight in (
+        ("strings", 25),
+        ("field_refs", 10),
+        ("method_refs", 8),
+        ("field_types", 12),
+        ("method_protos", 15),
+        ("opcodes", 10),
+    ):
         score += int(weight * jaccard(old_features[key], new_features[key]))
     score += int(30 * SequenceMatcher(None, old_features["opcode_sequence"], new_features["opcode_sequence"]).ratio())
     old_lines = old_features["body_lines"]
@@ -279,10 +286,14 @@ def method_features(body: str) -> dict[str, set[str] | list[str] | int]:
         for line in body.splitlines()
         if line.strip() and not line.strip().startswith((".", "#", ":"))
     ]
+    field_refs = set(re.findall(r"\s[sp]?ut[^\s]*\s+[^,]+,\s+([^\s]+)", body))
+    method_refs = set(re.findall(r"invoke-[^\s]+\s+\{[^}]*\},\s+([^\s]+)", body))
     return {
         "strings": set(re.findall(r'const-string(?:/jumbo)?\s+\S+,\s+"([^"]*)"', body)),
-        "field_refs": set(re.findall(r"\s[sp]?ut[^\s]*\s+[^,]+,\s+([^\s]+)", body)),
-        "method_refs": set(re.findall(r"invoke-[^\s]+\s+\{[^}]*\},\s+([^\s]+)", body)),
+        "field_refs": field_refs,
+        "method_refs": method_refs,
+        "field_types": {ref.split(":", 1)[1] for ref in field_refs if ":" in ref},
+        "method_protos": {"(" + ref.split("(", 1)[1] for ref in method_refs if "(" in ref},
         "opcodes": {line.split()[0] for line in instructions if line.split()},
         "opcode_sequence": [line.split()[0] for line in instructions if line.split()],
         "body_lines": len(instructions),

@@ -644,9 +644,12 @@ def attempt_fingerprint_repair(
         if classify_failure(retry_log, "patch") != "fingerprint":
             print(f"[{app.id}] auto-repair did not verify successfully", flush=True)
             return RepairResult(enriched_log)
+        # Re-analyze only the latest failed patch retry. The accumulated log also
+        # contains older failures and JSON reports, which can point repair at the
+        # wrong fingerprint on later attempts.
         analysis, _ = analyze_fingerprint_failure(
             app,
-            enriched_log,
+            retry_log,
             stock_apk,
             work_dir,
             patches_repo,
