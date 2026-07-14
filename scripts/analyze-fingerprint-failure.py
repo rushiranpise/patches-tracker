@@ -204,11 +204,25 @@ def analyze_fingerprint(
         ]
 
     candidates = []
+    near_misses = []
+    rejection_counts = {
+        "return_type": 0,
+        "parameters": 0,
+        "obfuscated_method_shape": 0,
+        "obfuscated_class_shape": 0,
+        "opcodes": 0,
+        "old_similarity": 0,
+        "unknown": 0,
+    }
     search_files = class_files or list(methods_by_file)
     for path in search_files:
         for method in methods_by_file[path]:
-            score = score_method(fp, method, path, text_cache[path], bool(class_files), old_method)
+            score, reject_reason = score_method_detail(fp, method, path, text_cache[path], bool(class_files), old_method)
             if score <= 0:
+                rejection_counts[reject_reason or "unknown"] = rejection_counts.get(reject_reason or "unknown", 0) + 1
+                near_miss = near_miss_candidate(fp, method, old_method, reject_reason)
+                if near_miss:
+                    near_misses.append(near_miss)
                 continue
             candidates.append(
                 {
@@ -222,6 +236,8 @@ def analyze_fingerprint(
             )
 
     candidates.sort(key=lambda item: (-item["score"], item["class"], item["method"]))
+    if not candidates and near_misses:
+        candidates = sorted(near_misses, key=lambda item: (-item["score"], item["class"], item["method"]))
     return {
         "fingerprint": fp.name,
         "source_file": fp.source_file,
@@ -236,37 +252,50 @@ def analyze_fingerprint(
         },
         "candidate_count": len(candidates),
         "top_candidates": candidates[:10],
+        "diagnostics": {
+            "class_file_count": len(class_files),
+            "search_file_count": len(search_files),
+            "method_count": sum(len(methods_by_file[path]) for path in search_files),
+            "rejection_counts": rejection_counts,
+            "near_miss_count": len(near_misses),
+            "top_near_misses": near_misses[:10],
+        },
     }
 
 
 def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool, old_method: Method | None = None) -> int:
+    score, _ = score_method_detail(fp, method, path, text, class_matched, old_method)
+    return score
+
+
+def score_method_detail(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool, old_method: Method | None = None) -> tuple[int, str]:
     score = 0
     params, return_type = split_descriptor(method.descriptor)
     if old_method:
         old_params, old_return_type = split_descriptor(old_method.descriptor)
         if return_type != old_return_type:
-            return 0
+            return 0, "return_type"
         if params != old_params:
-            return 0
+            return 0, "parameters"
     else:
         if fp.method_name and is_obfuscated_method_name(fp.method_name) and not is_obfuscated_method_name(method.name):
-            return 0
+            return 0, "obfuscated_method_shape"
         if fp.defining_class and is_obfuscated_class_type(fp.defining_class) and not is_obfuscated_class_type(method.class_type):
-            return 0
+            return 0, "obfuscated_class_shape"
     if fp.return_type and return_type == fp.return_type:
         score += 25
     elif fp.return_type:
-        return 0
+        return 0, "return_type"
     if fp.parameters and params == fp.parameters:
         score += 25
     elif fp.parameters == [] and params == []:
         score += 20
     elif fp.parameters:
-        return 0
+        return 0, "parameters"
     if fp.opcodes:
         opcodes = method_opcode_set(method.body)
         if not set(fp.opcodes).issubset(opcodes):
-            return 0
+            return 0, "opcodes"
         score += min(20, len(fp.opcodes) * 5)
     if class_matched:
         score += 30
@@ -284,11 +313,50 @@ def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_m
         similarity = bytecode_similarity_score(old_method, method)
         same_obfuscated_name = method.name == old_method.name and is_obfuscated_method_name(method.name)
         if similarity < 35 and not same_obfuscated_name:
-            return 0
+            return 0, "old_similarity"
         if method.name == old_method.name:
             score += 30
         score += similarity
-    return score
+    return score, ""
+
+
+def near_miss_candidate(fp: Fingerprint, method: Method, old_method: Method | None, reject_reason: str) -> dict | None:
+    if not old_method:
+        return None
+    params, return_type = split_descriptor(method.descriptor)
+    old_params, old_return_type = split_descriptor(old_method.descriptor)
+    if return_type != old_return_type or params != old_params:
+        return None
+    if fp.return_type and return_type != fp.return_type:
+        return None
+    if fp.parameters and params != fp.parameters:
+        return None
+    same_obfuscated_name = method.name == old_method.name and is_obfuscated_method_name(method.name)
+    if not same_obfuscated_name:
+        return None
+    old_class_obfuscated = is_obfuscated_class_type(old_method.class_type)
+    new_class_obfuscated = is_obfuscated_class_type(method.class_type)
+    if old_class_obfuscated and not new_class_obfuscated:
+        return None
+    opcodes = method_opcode_set(method.body)
+    opcode_overlap = len(set(fp.opcodes) & opcodes) if fp.opcodes else 0
+    if fp.opcodes and opcode_overlap == 0:
+        return None
+    similarity = bytecode_similarity_score(old_method, method)
+    score = 75 + min(40, similarity) + (opcode_overlap * 5)
+    if fp.opcodes and set(fp.opcodes).issubset(opcodes):
+        score += 25
+    return {
+        "score": score,
+        "class": method.class_type,
+        "method": method.name,
+        "descriptor": method.descriptor,
+        "file": str(method.file),
+        "reason": (
+            f"near miss: old obfuscated method name and descriptor match; "
+            f"old bytecode similarity {similarity}; rejected by {reject_reason or 'unknown'}"
+        ),
+    }
 
 
 def candidate_reason(fp: Fingerprint, method: Method, class_matched: bool, old_method: Method | None = None) -> str:
