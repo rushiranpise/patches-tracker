@@ -282,7 +282,8 @@ def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_m
         score += 10
     if old_method:
         similarity = bytecode_similarity_score(old_method, method)
-        if similarity < 35:
+        same_obfuscated_name = method.name == old_method.name and is_obfuscated_method_name(method.name)
+        if similarity < 35 and not same_obfuscated_name:
             return 0
         if method.name == old_method.name:
             score += 30
@@ -309,6 +310,8 @@ def candidate_reason(fp: Fingerprint, method: Method, class_matched: bool, old_m
         bits.append(f"old bytecode similarity {bytecode_similarity_score(old_method, method)}")
         if method.name == old_method.name:
             bits.append("old method name still matches")
+        if is_obfuscated_method_name(method.name):
+            bits.append("obfuscated method fallback")
     return ", ".join(bits) or "shape match"
 
 
@@ -396,7 +399,12 @@ def jaccard(left: set[str], right: set[str]) -> float:
 
 
 def is_obfuscated_class_type(value: str) -> bool:
-    return bool(re.fullmatch(r"L[A-Za-z0-9_$]{1,5};", value or ""))
+    if not value:
+        return False
+    parts = value.removeprefix("L").removesuffix(";").split("/")
+    if not parts:
+        return False
+    return all(re.fullmatch(r"[A-Za-z0-9_$]{1,5}", part) for part in parts)
 
 
 def is_obfuscated_method_name(value: str) -> bool:
