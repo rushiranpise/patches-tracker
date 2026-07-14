@@ -37,6 +37,8 @@ def main() -> int:
     parser.add_argument("--old-apk", default="", help="Known-working APK for the current Constants.kt version")
     parser.add_argument("--patches-src", required=True, help="Path to patches/src/main/kotlin")
     parser.add_argument("--log", default="", help="Patch failure log text or path")
+    parser.add_argument("--app-id", default="", help="Tracker app id used to prefer same-app fingerprint declarations")
+    parser.add_argument("--package-name", default="", help="Android package name used to prefer same-app fingerprint declarations")
     parser.add_argument("--out", default="")
     parser.add_argument("--work-dir", default=".work/fingerprint-analysis")
     args = parser.parse_args()
@@ -48,7 +50,7 @@ def main() -> int:
     log = read_text_or_literal(args.log)
 
     old_apk = Path(args.old_apk) if args.old_apk else None
-    report = analyze(apk, patches_src, log, work_dir, old_apk=old_apk)
+    report = analyze(apk, patches_src, log, work_dir, old_apk=old_apk, app_id=args.app_id, package_name=args.package_name)
     text = json.dumps(report, indent=2, sort_keys=True) + "\n"
     if out:
         out.parent.mkdir(parents=True, exist_ok=True)
@@ -58,12 +60,20 @@ def main() -> int:
     return 0
 
 
-def analyze(apk: Path, patches_src: Path, log: str, work_dir: Path, old_apk: Path | None = None) -> dict:
+def analyze(
+    apk: Path,
+    patches_src: Path,
+    log: str,
+    work_dir: Path,
+    old_apk: Path | None = None,
+    app_id: str = "",
+    package_name: str = "",
+) -> dict:
     failed_names = failed_fingerprint_names(log)
     fingerprints = parse_fingerprints(patches_src)
     if not failed_names:
         failed_names = infer_fingerprints_from_stacktrace(log, patches_src, fingerprints)
-    selected = select_fingerprints(failed_names, fingerprints, log)
+    selected = select_fingerprints(failed_names, fingerprints, log, app_id=app_id, package_name=package_name)
     if not selected and len(failed_names) == 1:
         selected = [
             fp
@@ -341,9 +351,15 @@ def failed_fingerprint_names(log: str) -> list[str]:
     return sorted(set(names))
 
 
-def select_fingerprints(failed_names: list[str], fingerprints: dict[str, list[Fingerprint]], log: str) -> list[Fingerprint]:
+def select_fingerprints(
+    failed_names: list[str],
+    fingerprints: dict[str, list[Fingerprint]],
+    log: str,
+    app_id: str = "",
+    package_name: str = "",
+) -> list[Fingerprint]:
     selected = []
-    preferred_segments = preferred_source_segments(log)
+    preferred_segments = preferred_source_segments(log, app_id=app_id, package_name=package_name)
     for name in failed_names:
         entries = fingerprints.get(name, [])
         if not entries:
@@ -352,8 +368,12 @@ def select_fingerprints(failed_names: list[str], fingerprints: dict[str, list[Fi
     return selected
 
 
-def preferred_source_segments(log: str) -> list[str]:
+def preferred_source_segments(log: str, app_id: str = "", package_name: str = "") -> list[str]:
     segments = []
+    for hint in (app_id, app_id.replace("-", ""), package_name.split(".")[-1] if package_name else ""):
+        hint = re.sub(r"[^a-z0-9_]+", "", hint.lower())
+        if hint and hint not in segments:
+            segments.append(hint)
     focused_lines = []
     for line in log.splitlines():
         if "Failed to match the fingerprint:" in line or "\tat app.template.patches." in line:

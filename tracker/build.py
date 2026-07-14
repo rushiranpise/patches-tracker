@@ -741,7 +741,7 @@ def analyze_fingerprint_failure(
     report_path = work_dir / "fingerprint-analysis" / app.id / "report.json"
     log_path = work_dir / "fingerprint-analysis" / app.id / "failure.log"
     log_path.parent.mkdir(parents=True, exist_ok=True)
-    log_path.write_text(log[-12000:], encoding="utf-8")
+    log_path.write_text(log, encoding="utf-8")
     script = Path("scripts") / "analyze-fingerprint-failure.py"
     analysis = run_plain_process(
         [
@@ -754,6 +754,10 @@ def analyze_fingerprint_failure(
             str(repo_dir / "patches" / "src" / "main" / "kotlin"),
             "--log",
             str(log_path),
+            "--app-id",
+            app.id,
+            "--package-name",
+            app.package_name,
             "--out",
             str(report_path),
             "--work-dir",
