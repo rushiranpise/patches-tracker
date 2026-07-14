@@ -203,8 +203,6 @@ def analyze_fingerprint(
             if all(string in text for string in fp.strings)
         ]
 
-    candidates = []
-    near_misses = []
     rejection_counts = {
         "return_type": 0,
         "parameters": 0,
@@ -214,26 +212,32 @@ def analyze_fingerprint(
         "old_similarity": 0,
         "unknown": 0,
     }
-    search_files = class_files or list(methods_by_file)
-    for path in search_files:
-        for method in methods_by_file[path]:
-            score, reject_reason = score_method_detail(fp, method, path, text_cache[path], bool(class_files), old_method)
-            if score <= 0:
-                rejection_counts[reject_reason or "unknown"] = rejection_counts.get(reject_reason or "unknown", 0) + 1
-                near_miss = near_miss_candidate(fp, method, old_method, reject_reason)
-                if near_miss:
-                    near_misses.append(near_miss)
-                continue
-            candidates.append(
-                {
-                    "score": score,
-                    "class": method.class_type,
-                    "method": method.name,
-                    "descriptor": method.descriptor,
-                    "file": str(path),
-                    "reason": candidate_reason(fp, method, bool(class_files), old_method),
-                }
+    primary_search_files = class_files or list(methods_by_file)
+    candidates, near_misses = scan_methods_for_candidates(
+        fp,
+        methods_by_file,
+        text_cache,
+        primary_search_files,
+        rejection_counts,
+        old_method,
+        class_matched=bool(class_files),
+    )
+    widened_search = False
+    if not candidates and old_method and class_files:
+        widened_files = [path for path in methods_by_file if path not in set(class_files)]
+        if widened_files:
+            widened_search = True
+            widened_candidates, widened_near_misses = scan_methods_for_candidates(
+                fp,
+                methods_by_file,
+                text_cache,
+                widened_files,
+                rejection_counts,
+                old_method,
+                class_matched=False,
             )
+            candidates.extend(widened_candidates)
+            near_misses.extend(widened_near_misses)
 
     candidates.sort(key=lambda item: (-item["score"], item["class"], item["method"]))
     if not candidates and near_misses:
@@ -254,13 +258,49 @@ def analyze_fingerprint(
         "top_candidates": candidates[:10],
         "diagnostics": {
             "class_file_count": len(class_files),
-            "search_file_count": len(search_files),
-            "method_count": sum(len(methods_by_file[path]) for path in search_files),
+            "search_file_count": len(primary_search_files),
+            "method_count": sum(len(methods_by_file[path]) for path in primary_search_files),
+            "widened_search": widened_search,
+            "widened_search_file_count": len(methods_by_file) - len(class_files) if widened_search else 0,
             "rejection_counts": rejection_counts,
             "near_miss_count": len(near_misses),
             "top_near_misses": near_misses[:10],
         },
     }
+
+
+def scan_methods_for_candidates(
+    fp: Fingerprint,
+    methods_by_file: dict[Path, list[Method]],
+    text_cache: dict[Path, str],
+    search_files: list[Path],
+    rejection_counts: dict[str, int],
+    old_method: Method | None,
+    *,
+    class_matched: bool,
+) -> tuple[list[dict], list[dict]]:
+    candidates = []
+    near_misses = []
+    for path in search_files:
+        for method in methods_by_file[path]:
+            score, reject_reason = score_method_detail(fp, method, path, text_cache[path], class_matched, old_method)
+            if score <= 0:
+                rejection_counts[reject_reason or "unknown"] = rejection_counts.get(reject_reason or "unknown", 0) + 1
+                near_miss = near_miss_candidate(fp, method, old_method, reject_reason)
+                if near_miss:
+                    near_misses.append(near_miss)
+                continue
+            candidates.append(
+                {
+                    "score": score,
+                    "class": method.class_type,
+                    "method": method.name,
+                    "descriptor": method.descriptor,
+                    "file": str(path),
+                    "reason": candidate_reason(fp, method, class_matched, old_method),
+                }
+            )
+    return candidates, near_misses
 
 
 def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool, old_method: Method | None = None) -> int:
