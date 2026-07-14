@@ -240,8 +240,17 @@ def analyze_fingerprint(
             near_misses.extend(widened_near_misses)
 
     candidates.sort(key=lambda item: (-item["score"], item["class"], item["method"]))
-    if not candidates and near_misses:
+    ambiguity = candidate_ambiguity(candidates) if widened_search else {}
+    blocked_by_ambiguity = False
+    if ambiguity.get("ambiguous"):
+        candidates = []
+        blocked_by_ambiguity = True
+    if not candidates and near_misses and not blocked_by_ambiguity:
         candidates = sorted(near_misses, key=lambda item: (-item["score"], item["class"], item["method"]))
+        ambiguity = candidate_ambiguity(candidates) if widened_search else {}
+        if ambiguity.get("ambiguous"):
+            candidates = []
+            blocked_by_ambiguity = True
     return {
         "fingerprint": fp.name,
         "source_file": fp.source_file,
@@ -262,6 +271,8 @@ def analyze_fingerprint(
             "method_count": sum(len(methods_by_file[path]) for path in primary_search_files),
             "widened_search": widened_search,
             "widened_search_file_count": len(methods_by_file) - len(class_files) if widened_search else 0,
+            "blocked_by_ambiguity": blocked_by_ambiguity,
+            "ambiguity": ambiguity,
             "rejection_counts": rejection_counts,
             "near_miss_count": len(near_misses),
             "top_near_misses": near_misses[:10],
@@ -298,9 +309,33 @@ def scan_methods_for_candidates(
                     "descriptor": method.descriptor,
                     "file": str(path),
                     "reason": candidate_reason(fp, method, class_matched, old_method),
+                    "evidence": candidate_evidence(fp, method, text_cache[path], class_matched, old_method),
                 }
             )
     return candidates, near_misses
+
+
+def candidate_ambiguity(candidates: list[dict]) -> dict:
+    if not candidates:
+        return {"ambiguous": False}
+    top_score = candidates[0]["score"]
+    tied = [candidate for candidate in candidates if candidate["score"] == top_score]
+    close = [candidate for candidate in candidates if top_score - candidate["score"] <= 10]
+    return {
+        "ambiguous": len(tied) > 1 or len(close) > 3,
+        "top_score": top_score,
+        "top_tie_count": len(tied),
+        "near_top_count": len(close),
+        "top_targets": [
+            {
+                "class": candidate.get("class"),
+                "method": candidate.get("method"),
+                "score": candidate.get("score"),
+                "evidence": candidate.get("evidence", {}),
+            }
+            for candidate in close[:10]
+        ],
+    }
 
 
 def score_method(fp: Fingerprint, method: Method, path: Path, text: str, class_matched: bool, old_method: Method | None = None) -> int:
@@ -392,6 +427,7 @@ def near_miss_candidate(fp: Fingerprint, method: Method, old_method: Method | No
         "method": method.name,
         "descriptor": method.descriptor,
         "file": str(method.file),
+        "evidence": candidate_evidence(fp, method, method.body, False, old_method),
         "reason": (
             f"near miss: old obfuscated method name and descriptor match; "
             f"old bytecode similarity {similarity}; rejected by {reject_reason or 'unknown'}"
@@ -421,6 +457,44 @@ def candidate_reason(fp: Fingerprint, method: Method, class_matched: bool, old_m
         if is_obfuscated_method_name(method.name):
             bits.append("obfuscated method fallback")
     return ", ".join(bits) or "shape match"
+
+
+def candidate_evidence(fp: Fingerprint, method: Method, text: str, class_matched: bool, old_method: Method | None = None) -> dict:
+    evidence = {
+        "class_context": class_matched,
+        "string_context": bool(fp.strings and all(string in text for string in fp.strings)),
+        "opcode_filter": bool(fp.opcodes and set(fp.opcodes).issubset(method_opcode_set(method.body))),
+        "same_method_name": bool(fp.method_name and method.name == fp.method_name),
+        "same_obfuscated_method_name": bool(old_method and method.name == old_method.name and is_obfuscated_method_name(method.name)),
+        "shared_strings": 0,
+        "shared_field_refs": 0,
+        "shared_method_refs": 0,
+        "shared_field_types": 0,
+        "shared_method_protos": 0,
+    }
+    if old_method:
+        old_features = method_features(old_method.body)
+        new_features = method_features(method.body)
+        evidence["shared_strings"] = len(old_features["strings"] & new_features["strings"])
+        evidence["shared_field_refs"] = len(old_features["field_refs"] & new_features["field_refs"])
+        evidence["shared_method_refs"] = len(old_features["method_refs"] & new_features["method_refs"])
+        evidence["shared_field_types"] = len(old_features["field_types"] & new_features["field_types"])
+        evidence["shared_method_protos"] = len(old_features["method_protos"] & new_features["method_protos"])
+    evidence["concrete_anchor_count"] = sum(
+        1
+        for key in (
+            "class_context",
+            "string_context",
+            "opcode_filter",
+            "shared_strings",
+            "shared_field_refs",
+            "shared_method_refs",
+            "shared_field_types",
+            "shared_method_protos",
+        )
+        if bool(evidence[key])
+    )
+    return evidence
 
 
 def find_old_method(fp: Fingerprint, methods_by_file: dict[Path, list[Method]]) -> Method | None:
