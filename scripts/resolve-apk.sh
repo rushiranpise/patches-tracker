@@ -8,8 +8,8 @@ HTMLQ="${HTMLQ:-htmlq}"
 KEYSTORE="${KEYSTORE:-$TEMP_DIR/patches-tracker.keystore}"
 KEYSTORE_ALIAS="${KEYSTORE_ALIAS:-patches-tracker}"
 KEYSTORE_PASS="${KEYSTORE_PASS:-123456789}"
-APKCOMBO_RETRIES="${APKCOMBO_RETRIES:-1}"
-FETCH_RETRIES="${FETCH_RETRIES:-1}"
+APKCOMBO_RETRIES="${APKCOMBO_RETRIES:-3}"
+FETCH_RETRIES="${FETCH_RETRIES:-3}"
 apkmirror_example_url="${apkmirror_example_url:-}"
 __AAV__="${__AAV__:-false}"
 mkdir -p "$TEMP_DIR"
@@ -76,6 +76,37 @@ page_hint() {
 
 page_title() {
   tr '\n' ' ' <<<"$1" | grep -oP '<title[^>]*>\K[^<]+' | head -1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' || true
+}
+
+decode_apkcombo_url_param() {
+  py - "$1" <<'PYC'
+import base64
+import sys
+import urllib.parse
+
+url = sys.argv[1]
+raw = urllib.parse.parse_qs(urllib.parse.urlparse(url).query).get("u", [""])[0]
+decoded = urllib.parse.unquote(raw)
+if not decoded:
+    sys.exit(1)
+if not decoded.startswith("http"):
+    padded = decoded + "=" * (-len(decoded) % 4)
+    try:
+        decoded = base64.urlsafe_b64decode(padded).decode("utf-8", "replace")
+    except Exception:
+        sys.exit(1)
+parts = urllib.parse.urlsplit(decoded)
+if not parts.scheme or not parts.netloc:
+    sys.exit(1)
+query = urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
+print(urllib.parse.urlunsplit((
+    parts.scheme,
+    parts.netloc,
+    parts.path,
+    urllib.parse.urlencode(query, doseq=True, safe="/:_-."),
+    parts.fragment,
+)))
+PYC
 }
 
 query_param() {
@@ -189,8 +220,14 @@ merge_splits() {
     return 0
   fi
   gh_dl "$TEMP_DIR/apkeditor.jar" "https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar" >/dev/null || return 1
+  rm -rf "${output}-unsigned" "$output"
   java -jar "$TEMP_DIR/apkeditor.jar" merge -i "$bundle" -o "${output}-unsigned" -clean-meta -f >/dev/null
-  sign_apk "${output}-unsigned" "$output" || return 1
+  if sign_apk "${output}-unsigned" "$output"; then
+    rm "${output}-unsigned" 2>/dev/null || :
+    return 0
+  fi
+  wpr "Could not sign merged split APK; using APKEditor merged output as patcher input"
+  mv -f "${output}-unsigned" "$output"
   rm "${output}-unsigned" 2>/dev/null || :
 }
 
@@ -620,8 +657,9 @@ _apkpure_install_xapk() {
 			return 1
 		fi
 		if ! OP=$(sign_apk "${output}-unsigned" "$output" 2>&1); then
-			epr "apksigner error: $OP"
-			return 1
+			wpr "apksigner failed; using APKEditor merged output as patcher input: $OP"
+			mv -f "${output}-unsigned" "$output"
+			return 0
 		fi
 		rm "${output}.idsig" "${output}-unsigned" 2>/dev/null || :
 	fi
@@ -736,29 +774,15 @@ dl_apkcombo() {
 		checkin=$(req "https://apkcombo.com/checkin" -) || true
 		if [ -n "$checkin" ]; then
 			dl_url="${dl_url}&${checkin}&package_name=${__APKCOMBO_PKG__}&lang=en"
+			final_url=$(curl -s -o /dev/null -w "%{url_effective}" -L --max-redirs 10 \
+				-H "User-Agent: ${user_agent:-Mozilla/5.0}" \
+				-H "Referer: $page_url" "$dl_url") || return 1
+		else
+			wpr "APKCombo checkin failed; decoding direct /d URL"
+			final_url=$(decode_apkcombo_url_param "$dl_url") || return 1
 		fi
-		final_url=$(curl -s -o /dev/null -w "%{url_effective}" -L --max-redirs 10 \
-			-H "User-Agent: ${user_agent:-Mozilla/5.0}" \
-			-H "Referer: $page_url" "$dl_url") || return 1
 	elif [[ "$dl_url" == https://apkcombo.com/r2\?u=* ]]; then
-		final_url=$(py - <<'PYC' "$dl_url"
-import sys, urllib.parse
-u=sys.argv[1]
-q=urllib.parse.urlparse(u).query
-raw=urllib.parse.parse_qs(q).get('u',[''])[0]
-decoded=urllib.parse.unquote(raw)
-parts=urllib.parse.urlsplit(decoded)
-query=urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
-encoded=urllib.parse.urlunsplit((
-    parts.scheme,
-    parts.netloc,
-    parts.path,
-    urllib.parse.urlencode(query, doseq=True, safe='/:_-.'),
-    parts.fragment,
-))
-print(encoded)
-PYC
-		) || return 1
+		final_url=$(decode_apkcombo_url_param "$dl_url") || return 1
 	else
 		checkin=$(req "https://apkcombo.com/checkin" -) || true
 		if [ -n "$checkin" ] && [[ "$dl_url" != *fp=* ]]; then
@@ -1000,6 +1024,37 @@ dl_direct() {
 	esac
 }
 
+# -------------------- google play --------------------
+gplay_package_name() {
+	local url=$1 pkg=""
+	pkg=$(query_param "$url" package_name)
+	[ -z "$pkg" ] && pkg=$(query_param "$url" id)
+	[ -z "$pkg" ] && pkg=$(basename "${url%/}")
+	echo "$pkg"
+}
+
+dl_gplay() {
+	local url=$1 _version=$2 output=$3 _arch=$4 _dpi=$5 _apk_types=${6:-}
+	local pkg helper tmp_output result success is_split
+	pkg=$(gplay_package_name "$url")
+	helper="${GPLAY_HELPER:-scripts/helpers/ggplay_dl/ggplay_dl.py}"
+	tmp_output="${output}.gplay"
+	pr "Downloading from Google Play: $pkg"
+	result=$(py "$helper" "$pkg" "$tmp_output" 2>&1)
+	success=$(grep -E '^\{' <<<"$result" | tail -1 | py -c 'import json,sys; print(json.load(sys.stdin).get("success", False))' 2>/dev/null || echo false)
+	if [ "$success" != "True" ] && [ "$success" != "true" ]; then
+		echo "$result" >&2
+		epr "Google Play download failed for $pkg"
+		return 1
+	fi
+	is_split=$(grep -E '^\{' <<<"$result" | tail -1 | py -c 'import json,sys; print(json.load(sys.stdin).get("isSplit", False))' 2>/dev/null || echo false)
+	if [ "$is_split" = "True" ] || [ "$is_split" = "true" ]; then
+		merge_splits "$tmp_output" "$output"
+	else
+		mv -f "$tmp_output" "$output"
+	fi
+}
+
 usage() {
 	cat >&2 <<'EOF'
 Usage:
@@ -1007,7 +1062,7 @@ Usage:
   resolve-apk.sh latest <source> <url>
 
 Sources:
-  direct github archive apkmirror uptodown apkpure apkcombo
+  direct github archive apkmirror uptodown apkpure apkcombo gplay
 EOF
 }
 
@@ -1057,6 +1112,10 @@ latest_version() {
 			done
 			return 1
 			;;
+		gplay)
+			epr "Google Play source does not expose a comparable versionName; use it as a download fallback"
+			return 1
+			;;
 		*) epr "Unsupported source: $source"; return 2 ;;
 	esac
 }
@@ -1104,6 +1163,9 @@ main() {
 		apkcombo)
 			get_apkcombo_resp "$url" || return 1
 			dl_apkcombo "$url" "$version" "$output" "$arch" "$dpi" "$apk_types"
+			;;
+		gplay)
+			dl_gplay "$url" "$version" "$output" "$arch" "$dpi" "$apk_types"
 			;;
 		*)
 			epr "Unsupported source: $source"

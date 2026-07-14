@@ -41,6 +41,7 @@ dpi = "nodpi anydpi auto"
 apk-types = "apk xapk apks"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/splitwise/splitwise"
 apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile"
 uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/apk-info/com.Splitwise.SplitwiseMobile"
 ```
@@ -54,7 +55,7 @@ The legacy `[[apps]]` / `[[apps.sources]]` format is still accepted, but new ent
 When an app has more than one source, the tracker tries them in this order:
 
 ```text
-direct -> github -> archive -> apkmirror -> uptodown -> apkpure -> apkcombo
+direct -> github -> archive -> apkmirror -> uptodown -> apkpure -> apkcombo -> gplay
 ```
 
 The same order is used when checking the latest version. The tracker stops at the first source that reports a newer version and produces a downloadable APK. If version lookup or download fails, it moves on to the next configured source. Once an APK downloads, patching is attempted from that APK and lower-priority sources are skipped.
@@ -132,8 +133,8 @@ Environment variables:
 ```text
 RESOLVER_RETRIES=1
 RESOLVER_TIMEOUT_SECONDS=120
-FETCH_RETRIES=1
-APKCOMBO_RETRIES=1
+FETCH_RETRIES=3
+APKCOMBO_RETRIES=3
 PATCHER_TIMEOUT_SECONDS=900
 ```
 
@@ -172,5 +173,7 @@ python scripts/generate-config-from-constants.py \
 - Morphe patches and compatibility constants: `rushiranpise/morphe-patches`
 - Morphe/ReVanced-style patching tools and patch format: Morphe and ReVanced projects
 - Downloader behavior and rvb-style config conventions: `rvb` by j-hc and contributors
+- APKMirror/APKCombo/APKPure/Uptodown hardening and Google Play downloader references: `FiorenMas/Revanced-And-Revanced-Extended-Non-Root`
+- Google Play helper lineage: Aurora Store / AuroraOSS, GPLv3
 - APK split merge support: REAndroid APKEditor
 - CI runtime: GitHub Actions, FlareSolverr, htmlq, jq, Android build tools

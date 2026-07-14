@@ -53,6 +53,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y jq wget curl unzip zip aapt apktool
+          sudo apt-get install -y apksigner || true
           curl -L --fail -o htmlq.tar.gz \
             https://github.com/mgdm/htmlq/releases/latest/download/htmlq-x86_64-linux.tar.gz
           sudo tar xf htmlq.tar.gz -C /usr/local/bin
@@ -77,6 +78,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PATCHES_REPO_TOKEN || secrets.GITHUB_TOKEN }}
           TRACKER_REPO_TOKEN: ${{ github.token }}
           FLARESOLVERR_URL: http://localhost:8191
+          FETCH_RETRIES: "3"
+          APKCOMBO_RETRIES: "3"
         run: >-
           python -m tracker.cli
           --config config.toml

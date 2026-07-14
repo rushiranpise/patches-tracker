@@ -101,7 +101,7 @@ def _load_rvb_style_app(app_id: str, raw: dict) -> AppConfig:
     app = _normalize_keys(raw)
     apk_types = _list_value(app.get("apk_types", []))
     sources = []
-    for source in ("direct", "github", "archive", "apkmirror", "uptodown", "apkpure", "apkcombo"):
+    for source in ("direct", "github", "archive", "apkmirror", "uptodown", "apkpure", "apkcombo", "gplay"):
         url = app.pop(f"{source}_dlurl", "")
         if url:
             sources.append(SourceConfig(source, url, app.get("arch", "all"), app.get("dpi", "nodpi anydpi auto"), apk_types))
