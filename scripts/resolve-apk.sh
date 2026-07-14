@@ -109,6 +109,28 @@ print(urllib.parse.urlunsplit((
 PYC
 }
 
+normalize_apkpure_proxy_url() {
+  py - "$1" <<'PYC'
+import sys
+import urllib.parse
+
+url = sys.argv[1]
+parts = urllib.parse.urlsplit(url)
+if parts.netloc not in {"apkpure.com", "www.apkpure.com"} or parts.path != "/url":
+    print(url)
+    raise SystemExit(0)
+qs = urllib.parse.parse_qs(parts.query)
+outer = qs.get("ou", [""])[0]
+if not outer:
+    print(url)
+    raise SystemExit(0)
+outer = urllib.parse.unquote(outer)
+if outer.startswith("/"):
+    outer = "https://download.apkpure.com" + outer
+print(outer)
+PYC
+}
+
 query_param() {
   py - "$1" "$2" <<'PYC'
 import sys, urllib.parse
@@ -797,10 +819,17 @@ dl_apkcombo() {
 			-H "Referer: $page_url" "$dl_url") || return 1
 	fi
 
+	final_url=$(normalize_apkpure_proxy_url "$final_url")
 	pr "Downloading from APKCombo: $final_url"
+	local final_referer="$page_url"
+	[[ "$final_url" == https://download.apkpure.com/* ]] && final_referer="https://apkpure.com/"
+	local cookie_header=()
+	[ -n "${FS_COOKIES:-}" ] && cookie_header=(-H "Cookie: $FS_COOKIES")
 	curl -L --fail -s -S --connect-timeout 30 --max-time 300 \
 		-H "User-Agent: ${user_agent:-Mozilla/5.0}" \
-		-H "Referer: $page_url" "$final_url" -o "$output" || return 1
+		-H "Referer: $final_referer" \
+		"${cookie_header[@]}" \
+		"$final_url" -o "$output" || return 1
 	if ! unzip -t "$output" >/dev/null 2>&1; then
 		epr "Downloaded file from APKCombo is not a valid zip"
 		return 1
@@ -1040,14 +1069,21 @@ dl_gplay() {
 	helper="${GPLAY_HELPER:-scripts/helpers/ggplay_dl/ggplay_dl.py}"
 	tmp_output="${output}.gplay"
 	pr "Downloading from Google Play: $pkg"
-	result=$(py "$helper" "$pkg" "$tmp_output" 2>&1)
-	success=$(grep -E '^\{' <<<"$result" | tail -1 | py -c 'import json,sys; print(json.load(sys.stdin).get("success", False))' 2>/dev/null || echo false)
+	local exit_code=0 json_result=""
+	result=$(py "$helper" "$pkg" "$tmp_output" 2>&1) || exit_code=$?
+	json_result=$(grep -E '^\{' <<<"$result" | tail -1 || true)
+	if [ "$exit_code" -ne 0 ] || [ -z "$json_result" ]; then
+		echo "$result" >&2
+		epr "Google Play helper failed for $pkg"
+		return 1
+	fi
+	success=$(py -c 'import json,sys; print(json.load(sys.stdin).get("success", False))' <<<"$json_result" 2>/dev/null || echo false)
 	if [ "$success" != "True" ] && [ "$success" != "true" ]; then
 		echo "$result" >&2
 		epr "Google Play download failed for $pkg"
 		return 1
 	fi
-	is_split=$(grep -E '^\{' <<<"$result" | tail -1 | py -c 'import json,sys; print(json.load(sys.stdin).get("isSplit", False))' 2>/dev/null || echo false)
+	is_split=$(py -c 'import json,sys; print(json.load(sys.stdin).get("isSplit", False))' <<<"$json_result" 2>/dev/null || echo false)
 	if [ "$is_split" = "True" ] || [ "$is_split" = "true" ]; then
 		merge_splits "$tmp_output" "$output"
 	else

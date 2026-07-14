@@ -24,6 +24,7 @@ GENERATED_APP_KEYS = {
     "uptodown-dlurl",
     "apkpure-dlurl",
     "apkcombo-dlurl",
+    "gplay-dlurl",
 }
 
 
@@ -202,6 +203,8 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace, existing
                 lines.append(f"{key} = {quote(app[key])}")
         apkcombo_url = app.get("apkcombo-dlurl") or "https://apkcombo.com/search/" + app["package_name"] + "/"
         lines.append(f"apkcombo-dlurl = {quote(apkcombo_url)}")
+        gplay_url = app.get("gplay-dlurl") or "https://play.google.com/store/apps/details?id=" + app["package_name"]
+        lines.append(f"gplay-dlurl = {quote(gplay_url)}")
         for key, value in preserved:
             lines.append(f"{key} = {toml_value(value)}")
     return "\n".join(lines) + "\n"
@@ -251,7 +254,7 @@ def seed_existing_source_urls(apps: list[dict[str, str]], existing: dict, *, fin
         existing_app = existing.get(app["id"], {})
         if not isinstance(existing_app, dict):
             continue
-        for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl", "apkcombo-dlurl"):
+        for key in ("apkmirror-dlurl", "uptodown-dlurl", "apkpure-dlurl", "apkcombo-dlurl", "gplay-dlurl"):
             existing_url = existing_app.get(key, "")
             if isinstance(existing_url, str) and existing_url and (not final_only or is_final_source_url(key, existing_url, app.get("package_name", ""))):
                 app[key] = str(existing_url)
