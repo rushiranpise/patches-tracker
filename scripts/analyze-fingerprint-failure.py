@@ -370,9 +370,17 @@ def best_fingerprint_entry(entries: list[Fingerprint], preferred_segments: list[
 
 def infer_fingerprints_from_stacktrace(log: str, root: Path, fingerprints: dict[str, list[Fingerprint]]) -> list[str]:
     inferred = []
-    for file_name, line_text in re.findall(r"\(([A-Za-z0-9_]+\.kt):(\d+)\)", log):
-        line_number = int(line_text)
-        for path in root.rglob(file_name):
+    frames = []
+    for line in log.splitlines():
+        match = re.search(r"\tat app\.template\.patches\.([A-Za-z0-9_.]+)\.[A-Za-z0-9_$]+\(([A-Za-z0-9_]+\.kt):(\d+)\)", line)
+        if match:
+            frames.append((match.group(1), match.group(2), int(match.group(3))))
+    for package, file_name, line_number in frames:
+        package_path = Path(*[part for part in package.split(".") if part and part[0].islower()])
+        search_root = root / "app" / "template" / "patches" / package_path
+        if not search_root.exists():
+            search_root = root
+        for path in search_root.rglob(file_name):
             names = fingerprint_names_near_line(path, line_number, set(fingerprints))
             inferred.extend(names)
     return sorted(set(inferred))
