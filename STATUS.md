@@ -2,10 +2,10 @@
 
 Shard: 1/1
 Checked apps: 151
-Patched: 11
-No update: 117
+Patched: 20
+No update: 113
 Skipped known broken: 9
-Failed: 14
+Failed: 9
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -29,22 +29,22 @@ Failed: 14
 | BlurWall | `apps.automan.blurwallpaper` | `2.9.2` | `2.9.2` |  | NO_UPDATE |  |
 | BuzzCast | `com.guochao.faceshow` | `3.2.80` | `3.2.80` |  | NO_UPDATE |  |
 | Cube ACR | `com.catalinagroup.callrecorder` | `2.4.281` | `2.4.281` |  | NO_UPDATE |  |
-| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.21.0.2607010000` | `72101` | PATCHED |  |
+| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.21.5.2607100000` | `72151` | FAILED | fingerprint |
 | Canva | `com.canva.editor` | `2.368.0` | `2.368.0` |  | NO_UPDATE |  |
 | Carbon | `com.joincarbon.nutrition` | `2.76.5784` | `2.76.5844` |  | SKIPPED_KNOWN_BROKEN |  |
-| Carousell | `com.thecarousell.Carousell` | `2.461.8` | `2.462.7` |  | SKIPPED_KNOWN_BROKEN |  |
+| Carousell | `com.thecarousell.Carousell` | `2.461.8` | `2.463.9` | `10820` | PATCHED |  |
 | Case Tracker | `com.saldous.casetracker` | `5.5.3` | `5.5.3` |  | NO_UPDATE |  |
 | Cashew | `com.budget.tracker_app` | `6.6.11` | `6.6.11` |  | NO_UPDATE |  |
 | Citizen | `sp0n.citizen` | `0.1300.0` | `0.1300.0` |  | NO_UPDATE |  |
 | Citymapper | `com.citymapper.app.release` | `11.55.1` | `11.55.2` | `1155090` | PATCHED |  |
-| ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.4` | `4.8.4` |  | NO_UPDATE |  |
+| ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.4` | `4.8.6` | `2104860` | PATCHED |  |
 | Countdown Widget | `me.gira.widget.countdown` | `3.2.0` | `3.2.0` |  | NO_UPDATE |  |
 | CPU-Z | `com.cpuid.cpu_z` | `1.59` | `1.59` |  | NO_UPDATE |  |
-| Crime Radar | `com.newsbreak.crimeradar` | `26.23.2` | `26.27.0` |  | FAILED | download |
+| Crime Radar | `com.newsbreak.crimeradar` | `26.23.2` | `26.27.0` | `26270012` | PATCHED |  |
 | Dailyhunt | `com.eterno` | `33.5.4` | `33.5.4` |  | NO_UPDATE |  |
 | Depth Live Wallpaper | `com.jndapp.depth.live.wallpaper` | `2.1.06` | `2.1.06` |  | NO_UPDATE |  |
 | TeraBox | `com.dubox.drive` | `4.20.1` | `4.20.1` |  | NO_UPDATE |  |
-| Duolingo | `com.duolingo` | `6.87.6` | `6.88.2` | `2412` | FAILED | fingerprint |
+| Duolingo | `com.duolingo` | `6.87.6` | `6.88.2` |  | SKIPPED_KNOWN_BROKEN |  |
 | ES File Explorer | `com.estrongs.android.pop` | `4.4.3.7` | `4.4.3.7` |  | NO_UPDATE |  |
 | Excel | `com.microsoft.office.excel` | `16.0.20131.20080` | `16.0.20131.20080` |  | NO_UPDATE |  |
 | Fitbod | `com.fitbod.fitbod` | `8.24.1-0` | `8.24.1-0` |  | NO_UPDATE |  |
@@ -60,7 +60,7 @@ Failed: 14
 | Image & Video Date Fixer | `eu.duong.imagedatefixer` | `3.7.1` | `3.7.1` |  | NO_UPDATE |  |
 | Inmigreat | `com.changayaf.inmigreat` | `2.3.4` | `2.3.4` |  | NO_UPDATE |  |
 | Clickmate | `com.inscode.autoclicker` | `7.1.4` | `7.1.4` |  | NO_UPDATE |  |
-| Inure App Manager | `app.simple.inure.play` | `build107.0.5` | `build107.0.5` |  | NO_UPDATE |  |
+| Inure App Manager | `app.simple.inure.play` | `build107.0.5` | `107.1.0` |  | FAILED | download |
 | JEFIT | `je.fit` | `17.2.6` | `17.2.6` |  | NO_UPDATE |  |
 | Kahoot! | `no.mobitroll.kahoot.android` | `6.6.7` | `6.6.7` |  | NO_UPDATE |  |
 | KillApps | `com.tafayor.killall` | `1.57.9` | `1.57.9` |  | NO_UPDATE |  |
@@ -73,17 +73,17 @@ Failed: 14
 | Life360 | `com.life360.android.safetymapd` | `26.25.0` | `26.25.0` |  | NO_UPDATE |  |
 | LiveScore | `com.livescore` | `9.7.1` | `9.8` | `2088` | PATCHED |  |
 | MEGA | `mega.privacy.android.app` | `16.9(261881039)(3c7e30562a)` | `16.9(261881039)(3c7e30562a)` |  | NO_UPDATE |  |
-| MigraConnect | `com.tecso.MigraConnect` | `2.8.1` | `2.8.1` |  | NO_UPDATE |  |
+| MigraConnect | `com.tecso.MigraConnect` | `2.8.1` | `2.8.2` | `119` | PATCHED |  |
 | m-Indicator | `com.mobond.mindicator` | `18.0.356` | `18.0.356` |  | NO_UPDATE |  |
 | Minimal Widgets | `com.jndapp.minimal.widgets` | `1.1.01` | `1.1.01` |  | NO_UPDATE |  |
 | Beta Maniac | `it.mirko.beta` | `0.9.4` | `0.9.4` |  | NO_UPDATE |  |
 | ML Manager | `com.javiersantos.mlmanager` | `5.0` | `5.0` |  | NO_UPDATE |  |
 | MovieBox | `com.community.oneroom` | `3.0.16.0709.03` | `3.0.16.0709.03` |  | NO_UPDATE |  |
-| MovieBox (India) | `com.community.mbox.in` | `3.0.16.0707.03` | `latest` |  | FAILED | version_resolve |
-| MovieBox TV | `com.community.mbox.tv` | `1.1.4.0710.03` | `latest` |  | FAILED | version_resolve |
-| Permission Pilot | `eu.darken.myperm` | `2.1.1-rc0` | `2.2.0-rc0` |  | FAILED | download |
+| MovieBox (India) | `com.community.mbox.in` | `3.0.16.0707.03` | `3.0.16.0707.03` |  | NO_UPDATE |  |
+| MovieBox TV | `com.community.mbox.tv` | `1.1.4.0710.03` | `1.1.5.0711.03` | `50040010` | PATCHED |  |
+| Permission Pilot | `eu.darken.myperm` | `2.1.1-rc0` | `2.2.0-rc0` | `20200000` | PATCHED |  |
 | MyRadar | `com.acmeaom.android.myradar` | `8.71.3` | `8.71.3` |  | NO_UPDATE |  |
-| NAVITIME | `com.navitime.inbound.walk` | `12.0.1` | `12.0.2` | `364` | PATCHED |  |
+| NAVITIME | `com.navitime.inbound.walk` | `12.0.1` | `12.0.3` |  | FAILED | download |
 | NetGuard | `eu.faircode.netguard` | `2.335` | `2.335` |  | NO_UPDATE |  |
 | NetMonster | `cz.mroczis.netmonster` | `3.4.1` | `3.4.1` |  | NO_UPDATE |  |
 | NetShare | `kha.prog.mikrotik` | `277` | `277` |  | NO_UPDATE |  |
@@ -97,21 +97,21 @@ Failed: 14
 | Pialytic | `verbosus.pialytic` | `1.3.0` | `1.3.0` |  | NO_UPDATE |  |
 | Picture Mushroom - Mushroom ID | `com.glority.picturemushroom` | `2.9.31` | `2.9.31` |  | NO_UPDATE |  |
 | PictureThis - Plant Identifier | `cn.danatech.xingseus` | `5.29.0` | `5.29.0` |  | NO_UPDATE |  |
-| Pixel Habit Tracker | `com.pixel.al.pixelhabittracker` | `2.1.1` | `2.1.2` |  | FAILED | download |
+| Pixel Habit Tracker | `com.pixel.al.pixelhabittracker` | `2.1.1` | `2.1.2` | `100063` | PATCHED |  |
 | pkge | `net.pkge.pkge` | `19.0.13` | `19.0.13` |  | NO_UPDATE |  |
 | PLAYit | `com.playit.videoplayer` | `2.7.50.12` | `2.7.50.12` |  | NO_UPDATE |  |
 | Pocket Bard | `com.MojoFilterMediaLLC.RPGSoundSystem` | `3.1.16` | `3.1.16` |  | NO_UPDATE |  |
 | Pocket Casts | `au.com.shiftyjelly.pocketcasts` | `8.14` | `8.14` |  | NO_UPDATE |  |
 | Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.27.2` |  | NO_UPDATE |  |
-| Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `latest` |  | FAILED | version_resolve |
+| Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `29.7` |  | FAILED | download |
 | Posture | `air.com.musclemotion.posture` | `3.2.1` | `3.2.1` |  | NO_UPDATE |  |
-| Proton VPN | `ch.protonvpn.android` | `5.19.16.0` | `5.19.43.0` |  | FAILED | download |
+| Proton VPN | `ch.protonvpn.android` | `5.19.16.0` | `5.19.43.0` | `605194300` | PATCHED |  |
 | Proxyman | `com.proxyman.proxymanandroid` | `1.19.0` | `1.19.0` |  | NO_UPDATE |  |
 | Psiphon Pro | `com.psiphon3.subscription` | `479` | `479` |  | NO_UPDATE |  |
 | RAR | `com.rarlab.rar` | `7.23.build133` | `7.23.build133` |  | NO_UPDATE |  |
 | RecipeBro | `com.recipebro.cookingbuddy` | `1.3.74` | `1.4.22` |  | SKIPPED_KNOWN_BROKEN |  |
 | Rename & Organize | `eu.duong.picturemanager` | `8.25.1` | `8.25.1` |  | NO_UPDATE |  |
-| Rocket Money | `com.truebill` | `13.15.0` | `15.1.0` |  | FAILED | download |
+| Rocket Money | `com.truebill` | `13.15.0` | `15.1.0` | `13446` | FAILED | signing |
 | RS File Manager | `com.rs.explorer.filemanager` | `2.3.0.4` | `2.3.0.4` |  | NO_UPDATE |  |
 | SAI | `com.mtv.sai` | `2.2.8` | `2.3.1` | `43` | FAILED | fingerprint |
 | Scoopz | `com.localaiapp.scoops` | `3.28.0` | `3.29.0` | `3290002` | PATCHED |  |
@@ -149,8 +149,8 @@ Failed: 14
 | Unimote | `sensustech.universal.tv.remote.control` | `1.8.1` | `1.8.1` |  | NO_UPDATE |  |
 | Uptodown App Store | `com.uptodown` | `7.34` | `7.34` |  | NO_UPDATE |  |
 | VIZ Manga | `com.vizmanga.android` | `4.14.0` | `4.14.0` |  | NO_UPDATE |  |
-| 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.7` | `6.38.7` |  | NO_UPDATE |  |
-| Wavve Boating | `com.wavve.boating.gps` | `5.6.9` | `5.7.0` |  | FAILED | download |
+| 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.7` | `6.38.8` | `5431` | PATCHED |  |
+| Wavve Boating | `com.wavve.boating.gps` | `5.6.9` | `5.7.0` | `3179` | PATCHED |  |
 | Waze | `com.waze` | `5.21.90.800` | `5.21.90.800` |  | NO_UPDATE |  |
 | Weawow: Weather & Widget | `com.weawow` | `7.1.7` | `7.1.7` |  | NO_UPDATE |  |
 | Windscribe VPN | `com.windscribe.vpn` | `4.2.2328` | `4.2.2328` |  | NO_UPDATE |  |
@@ -158,7 +158,7 @@ Failed: 14
 | WolframAlpha | `com.wolfram.android.alphapro` | `1.0.8.20260601651` | `1.0.8.20260601651` |  | NO_UPDATE |  |
 | Word | `com.microsoft.office.word` | `16.0.20131.20080` | `16.0.20131.20080` |  | NO_UPDATE |  |
 | Workout | `air.com.musclemotion.workout` | `1.2.0` | `1.2.0` |  | NO_UPDATE |  |
-| Yatri | `com.yatrirailways.yatri` | `5.0.4` | `5.0.4` |  | NO_UPDATE |  |
+| Yatri | `com.yatrirailways.yatri` | `5.0.4` | `5.0.5` | `1003` | PATCHED |  |
 | Yoga | `air.com.musclemotion.yoga` | `3.2.1` | `3.2.1` |  | NO_UPDATE |  |
 
 ## Failure Logs
@@ -166,9 +166,7 @@ Failed: 14
 <details><summary>APKMirror Installer log excerpt</summary>
 
 ````text
-?response-content-disposition=attachment%3B+filename%3D%22APKMirror+Installer_998_apkcombo.com.apk%22&response-content-type=application/vnd.android.package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260715T053224Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260715/auto/s3/aws4_request&X-Amz-Signature=b30631ce809124673fd9cf75969880922bd98f48c6744ab400f9647c1309b513
-[+] Getting '.work/resolver/apkmirror-installer/apkeditor.jar' from 'https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar'
-[+] HTTP GET: https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/apkmirror-installer/apkeditor.jar
+/releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/apkmirror-installer/apkeditor.jar
 [+] Saved response: .work/resolver/apkmirror-installer/apkeditor.jar (7733037 bytes)
 [+] Merging XAPK splits with APKEditor
 [-] APKEditor m error: 00.000 I: [MERGE] Using: APKEditor version 1.4.9, ARSCLib version 1.3.9
@@ -177,7 +175,7 @@ Failed: 14
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.030 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.032 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -188,91 +186,103 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 	at com.reandroid.apkeditor.Main.execute(Main.java:72)
 	at com.reandroid.apkeditor.Main.main(Main.java:57)
 
-````
-
-</details>
-
-<details><summary>Crime Radar log excerpt</summary>
-
-````text
-[apkcombo 26.27.0] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.newsbreak.crimeradar/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.newsbreak.crimeradar/download (title=CrimeRadar: Dispatch Alerts APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.newsbreak.crimeradar/download/phone-26.27.0-xapk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.newsbreak.crimeradar/download/phone-26.27.0-xapk (title=Download CrimeRadar: Dispatch Alerts APK - Latest Version 2024)
-[+] HTTP GET: https://apkcombo.com/checkin -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/checkin
-[!] APKCombo checkin failed; decoding direct /d URL
-[+] Downloading from APKCombo: https://download.pureapk.com/b/XAPK/Y29tLm5ld3NicmVhay5jcmltZXJhZGFyXzI2MjcwMDEyX2ZhMGFjOGJi?as2=b3e3f8dc45b14d73ddb87e30ba4338cc6c31b7f2&k=c60113b106386a4ce6cd0e46af51feda6c31b7f2&_p=Y29tLm5ld3NicmVhay5jcmltZXJhZGFy&c=1%7CNEWS_AND_MAGAZINES%7Cb2lkPTkmZGV2PVNjb29weiUyMExMQyZ0PXhhcGsmcz04NDYwNzc5NyZ2bj0yNi4yNy4wJnZjPTI2MjcwMDEy&_fn=Q3JpbWVSYWRhciUzQStEaXNwYXRjaCtBbGVydHNfMjYuMjcuMF9hcGtjb21iby5jb20ueGFwaw%3D%3D
-curl: (22) The requested URL returned error: 403
+[gplay 998] [+] Downloading from Google Play: com.apkmirror.helper.prod
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.apkmirror.helper.prod
 
 ````
 
 </details>
 
-<details><summary>Duolingo log excerpt</summary>
+<details><summary>CamScanner log excerpt</summary>
 
 ````text
-   "method": "<init>",
-              "score": 218
-            },
-            {
-              "class": "Landroidx/compose/material/c;",
-              "evidence": {
-                "class_context": false,
-                "concrete_anchor_count": 2,
-                "opcode_filter": false,
-                "same_method_name": true,
-                "same_obfuscated_method_name": false,
-                "shared_field_refs": 0,
-                "shared_field_types": 0,
-                "shared_method_protos": 1,
-                "shared_method_refs": 1,
-                "shared_strings": 0,
-                "string_context": false
-              },
-              "method": "<init>",
-              "score": 208
-            }
-          ],
-          "top_tie_count": 3
-        },
-        "blocked_by_ambiguity": true,
-        "class_file_count": 2,
-        "method_count": 6,
+file_count": 1,
+        "method_count": 14,
         "near_miss_count": 0,
         "rejection_counts": {
           "obfuscated_class_shape": 0,
           "obfuscated_method_shape": 0,
-          "old_similarity": 17,
+          "old_similarity": 0,
           "opcodes": 0,
-          "parameters": 187519,
-          "return_type": 204911,
+          "parameters": 0,
+          "return_type": 13,
           "unknown": 0
         },
-        "search_file_count": 2,
+        "search_file_count": 1,
         "top_near_misses": [],
-        "widened_search": true,
-        "widened_search_file_count": 85133
+        "widened_search": false,
+        "widened_search_file_count": 0
       },
-      "fingerprint": "HasMaxUserInfoConstructorFingerprint",
-      "source_file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/duolingo/patches/src/main/kotlin/app/template/patches/duolingo/Fingerprints.kt",
-      "top_candidates": []
+      "fingerprint": "IsPremiumFingerprint",
+      "source_file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/camscanner/patches/src/main/kotlin/app/template/patches/camscanner/Fingerprints.kt",
+      "top_candidates": [
+        {
+          "class": "Ls/h/e/l/l/S;",
+          "descriptor": "()Z",
+          "evidence": {
+            "class_context": true,
+            "concrete_anchor_count": 1,
+            "opcode_filter": false,
+            "same_method_name": false,
+            "same_obfuscated_method_name": false,
+            "shared_field_refs": 0,
+            "shared_field_types": 0,
+            "shared_method_protos": 0,
+            "shared_method_refs": 0,
+            "shared_strings": 0,
+            "string_context": false
+          },
+          "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis/camscanner/decoded/camscanner-7.21.5.2607100000/smali/s/h/e/l/l/S.smali",
+          "method": "il",
+          "reason": "return type matches, parameters match, class/string context matches",
+          "score": 95
+        }
+      ]
     }
   ],
   "failed_fingerprints": [
-    "HasMaxUserInfoConstructorFingerprint"
+    "IsPremiumFingerprint"
   ],
   "notes": [],
-  "old_apk": "/home/runner/work/patches-tracker/patches-tracker/.work/duolingo/duolingo-6.87.6-current.apk",
+  "old_apk": "/home/runner/work/patches-tracker/patches-tracker/.work/camscanner/camscanner-7.20.5.2606250000-current.apk",
   "preferred_source_segments": [
-    "duolingo",
-    "duolingo/duolingoUnlockSubscriptionPatch"
+    "camscanner",
+    "camscanner/yearlyUnlockPatch"
   ],
   "schema": "patches-tracker/fingerprint-analysis/v1"
 }
 
-Auto-repair stopped at attempt 1: no repair plan.
+Auto-repair stopped at attempt 3: no repair plan.
+
+````
+
+</details>
+
+<details><summary>Inure App Manager log excerpt</summary>
+
+````text
+[apkpure 107.1.0] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/
+[+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/ (title=Download Inure App Manager (Trial) latest build10... Android APK)
+[+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.1.0
+[+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.1.0 (title=Free APK Downloader Online - Download Region Free APK)
+[-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
+
+[gplay 107.1.0] [+] Downloading from Google Play: app.simple.inure.play
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 3 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for app.simple.inure.play
 
 ````
 
@@ -287,74 +297,43 @@ Auto-repair stopped at attempt 1: no repair plan.
 [+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.1.15.36566 (title=Free APK Downloader Online - Download Region Free APK)
 [-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
 
-````
-
-</details>
-
-<details><summary>MovieBox (India) log excerpt</summary>
-
-````text
-[apkcombo] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.community.mbox.in/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.community.mbox.in/download (title=com.community.mbox.in APK - Download (Android))
-
-[gplay] [-] Google Play source does not expose a comparable versionName; use it as a download fallback
+[gplay 8.1.15.36566] [+] Downloading from Google Play: com.nexstreaming.app.kinemasterfree
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 7 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.nexstreaming.app.kinemasterfree
 
 ````
 
 </details>
 
-<details><summary>MovieBox TV log excerpt</summary>
+<details><summary>NAVITIME log excerpt</summary>
 
 ````text
-[uptodown] [+] HTTP GET: https://com-community-mbox-tv.en.uptodown.com/android/versions -> -
-curl: (22) The requested URL returned error: 404
-[-] Request failed: https://com-community-mbox-tv.en.uptodown.com/android/versions
-
-[apkcombo] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.community.mbox.tv/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.community.mbox.tv/download (title=com.community.mbox.tv APK - Download (Android))
-
-[gplay] [-] Google Play source does not expose a comparable versionName; use it as a download fallback
-
-````
-
-</details>
-
-<details><summary>Permission Pilot log excerpt</summary>
-
-````text
-[apkmirror 2.2.0-rc0] [+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/darken/permission-pilot-2/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/ (title=Download Permission Pilot APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/ (title=Permission Pilot 2.2.0-rc0 APK Download by darken - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/darken/permission-pilot-2/permission-pilot-2-2-0-rc0-release/
-[-] Could not find APKMirror variant for version=2.2.0-rc0 arch=all dpi=nodpi anydpi auto
-
-[apkcombo 2.2.0-rc0] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/eu.darken.myperm/download
-[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download (title=Permission Pilot APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.2.0-rc0-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/eu.darken.myperm/download/phone-2.2.0-rc0-apk (title=Download Permission Pilot APK - Latest Version 2024)
+[apkcombo 12.0.3] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.navitime.inbound.walk/download
+[+] FlareSolverr OK: https://apkcombo.com/search/com.navitime.inbound.walk/download (title=Japan Travel–Trip,Transit&amp;Rail APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.navitime.inbound.walk/download/phone-12.0.3-apks
+[+] FlareSolverr OK: https://apkcombo.com/search/com.navitime.inbound.walk/download/phone-12.0.3-apks (title=Download Japan Travel–Trip,Transit&amp;Rail APK - Latest Version 2024)
 [+] HTTP GET: https://apkcombo.com/checkin -> -
 curl: (22) The requested URL returned error: 403
 [-] Request failed: https://apkcombo.com/checkin
 [!] APKCombo checkin failed; decoding direct /d URL
-[+] Downloading from APKCombo: https://download.pureapk.com/b/XAPK/ZXUuZGFya2VuLm15cGVybV8yMDIwMDAwMF8xODNhMTRjYg?as2=283b6735fcfdb6216075d79551f29f656c31b974&k=f9379a8049b5d03b45da8cf7dd4e1c5a6c31b974&_p=ZXUuZGFya2VuLm15cGVybQ&c=1%7CTOOLS%7Cb2lkPTkmZGV2PWRhcmtlbiZ0PXhhcGsmcz0xMDAwMzY0NCZ2bj0yLjIuMC1yYzAmdmM9MjAyMDAwMDA&_fn=UGVybWlzc2lvbitQaWxvdF8yLjIuMC1yYzBfYXBrY29tYm8uY29tLnhhcGs%3D
+[+] Downloading from APKCombo: https://download.pureapk.com/b/XAPK/Y29tLm5hdml0aW1lLmluYm91bmQud2Fsa18zNjVfMjlkYTRjODA?as2=777aa9dbdc5b7dd6976b08f299d87aac6c31daba&k=8a8e3abc9784f4f38f4aad5a52faf1926c31daba&_p=Y29tLm5hdml0aW1lLmluYm91bmQud2Fsaw&c=1%7CMAPS_AND_NAVIGATION%7Cb2lkPTkmZGV2PU5BVklUSU1FJTIwSkFQQU4lMjBDTy4lMkMlMjBMVEQuJnQ9eGFwayZzPTE1MDExNzk0NiZ2bj0xMi4wLjMmdmM9MzY1&_fn=SmFwYW4rVHJhdmVsJUUyJTgwJTkzVHJpcCUyQ1RyYW5zaXQlMjZSYWlsXzEyLjAuM19hcGtjb21iby5jb20ueGFwaw%3D%3D
 curl: (22) The requested URL returned error: 403
 
-````
-
-</details>
-
-<details><summary>Pixel Habit Tracker log excerpt</summary>
-
-````text
-[apkpure 2.1.2] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/pixel-habit-tracker/com.pixel.al.pixelhabittracker/downloading/
-[+] FlareSolverr OK: https://apkpure.com/pixel-habit-tracker/com.pixel.al.pixelhabittracker/downloading/ (title=Download Pixel Habit Tracker latest 2.1.2 Android APK)
-[+] FlareSolverr GET attempt 1/3: https://apkpure.com/pixel-habit-tracker/com.pixel.al.pixelhabittracker/downloading/2.1.2
-[!] FlareSolverr status 'error' for https://apkpure.com/pixel-habit-tracker/com.pixel.al.pixelhabittracker/downloading/2.1.2
-[!] FlareSolverr attempt 1/3 failed for: https://apkpure.com/pixel-habit-tracker/com.pixel.al.pixelhabittracker/downloading/2.1.2
-[+] FlareSolverr GET attempt 2/3: https://apkpure.com/pixel-habit-tracker/com.pixel.al.pixelhabittracker/downloading/2.1.2
-
-Timed out after 120s
+[gplay 12.0.3] [+] Downloading from Google Play: com.navitime.inbound.walk
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 3 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.navitime.inbound.walk
 
 ````
 
@@ -363,37 +342,21 @@ Timed out after 120s
 <details><summary>Police Scanner log excerpt</summary>
 
 ````text
-[apkpure] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen/downloading/
-[!] FlareSolverr attempt 1/3 failed for: https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen/downloading/
-[+] FlareSolverr GET attempt 2/3: https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen/downloading/
+[apkpure 29.7] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen/downloading/
+[+] FlareSolverr OK: https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen/downloading/ (title=Download Police Scanner - Live Radio latest 1.29.0-... Android APK)
+[+] FlareSolverr GET attempt 1/3: https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen/downloading/29.7
+[+] FlareSolverr OK: https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen/downloading/29.7 (title=Free APK Downloader Online - Download Region Free APK)
+[-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
 
-Timed out after 120s
-
-[apkcombo] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/download
-
-Timed out after 120s
-
-[gplay] [-] Google Play source does not expose a comparable versionName; use it as a download fallback
-
-````
-
-</details>
-
-<details><summary>Proton VPN log excerpt</summary>
-
-````text
-[apkmirror 5.19.43.0] [+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/ (title=Download Proton VPN: Fast &amp; Secure VPN APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-fast--secure-vpn-5-19-43-0-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-fast--secure-vpn-5-19-43-0-release/ (title=Proton VPN: Fast &amp; Secure VPN 5.19.43.0 APK Download by Proton AG - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-fast--secure-vpn-5-19-43-0-release/
-[+] APKMirror variant page: https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-fast-secure-vpn-5-19-43-0-release/proton-vpn-fast-secure-vpn-5-19-43-0-2-android-apk-download/
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-fast-secure-vpn-5-19-43-0-release/proton-vpn-fast-secure-vpn-5-19-43-0-2-android-apk-download/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn/proton-vpn-fast-secure-vpn-5-19-43-0-release/proton-vpn-fast-secure-vpn-5-19-43-0-2-android-apk-download/ (title=Proton VPN: Fast &amp; Secure VPN 5.19.43.0 (nodpi) (Android 8.0+) APK Download by Proton AG - APKMirror)
+[gplay 29.7] [+] Downloading from Google Play: police.scanner.radio.broadcastify.citizen
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for police.scanner.radio.broadcastify.citizen
 
 ````
 
@@ -402,12 +365,35 @@ Timed out after 120s
 <details><summary>Rocket Money log excerpt</summary>
 
 ````text
-[apkmirror 15.1.0] [+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/truebill/truebill/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/truebill/truebill/ (title=Download Rocket Money - Bills &amp; Budgets APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-1-0-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-1-0-release/ (title=Rocket Money - Bills &amp; Budgets 15.1.0 APK Download by Rocket Money - Bills &amp; Budgets - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-1-0-release/
-[-] Could not find APKMirror variant for version=15.1.0 arch=all dpi=nodpi anydpi auto
+r.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.cli.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:794)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.cli.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:793)
+	at app.morphe.cli.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:790)
+	at app.morphe.cli.command.PatchCommand.call(PatchCommand.kt:55)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
 
 ````
 
@@ -562,30 +548,6 @@ Fingerprint analysis JSON:
 }
 
 Auto-repair stopped at attempt 1: no repair plan.
-
-````
-
-</details>
-
-<details><summary>Wavve Boating log excerpt</summary>
-
-````text
- 1/3: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/ (title=Download Wavve Boating: Marine Boat GPS APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/ (title=Wavve Boating: Marine Boat GPS 5.7.0 APK Download by Wavve Boating - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/wavve-boating-marine-boat-gps-5-7-0-release/
-
-[apkcombo 5.7.0] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.wavve.boating.gps/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.wavve.boating.gps/download (title=Wavve Boating: Marine Boat GPS APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.wavve.boating.gps/download/phone-5.7.0-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.wavve.boating.gps/download/phone-5.7.0-apk (title=Download Wavve Boating: Marine Boat GPS APK - Latest Version 2024)
-[+] HTTP GET: https://apkcombo.com/checkin -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/checkin
-[!] APKCombo checkin failed; decoding direct /d URL
-[+] Downloading from APKCombo: https://download.pureapk.com/b/XAPK/Y29tLndhdnZlLmJvYXRpbmcuZ3BzXzMxNzlfNzQ2ODVhNGM?as2=6564756b01a6618e134a46b52f5f6d736c31bcf7&k=2ba4d3f3e85ae7e748bbbcba0bb178b16c31bcf7&_p=Y29tLndhdnZlLmJvYXRpbmcuZ3Bz&c=1%7CMAPS_AND_NAVIGATION%7Cb2lkPTkmZGV2PVdhdnZlJTIwQm9hdGluZyZ0PXhhcGsmcz0xMTI1MTU1MDMmdm49NS43LjAmdmM9MzE3OQ&_fn=V2F2dmUrQm9hdGluZyUzQStNYXJpbmUrQm9hdCtHUFNfNS43LjBfYXBrY29tYm8uY29tLnhhcGs%3D
-curl: (22) The requested URL returned error: 403
 
 ````
 
