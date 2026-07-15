@@ -9,6 +9,7 @@ def update_app_target_version(
     constant_name: str,
     new_version: str,
     version_code: str | None = None,
+    apk_file_type: str | None = None,
 ) -> bool:
     text = constants_file.read_text(encoding="utf-8")
     pattern = re.compile(
@@ -39,13 +40,54 @@ def update_app_target_version(
     else:
         code_changed = 0
 
+    updated_prefix = match.group(1)
+    type_changed = 0
+    if apk_file_type:
+        normalized_type = apk_file_type.strip().upper()
+        if normalized_type not in {"APK", "APKM", "APKS", "XAPK"}:
+            raise ValueError(f"Unsupported ApkFileType for {constant_name}: {apk_file_type}")
+        updated_prefix, type_changed = update_apk_file_type(updated_prefix, normalized_type)
+
     if not version_changed:
         raise ValueError(f"Could not find AppTarget version for {constant_name}")
-    if updated_body == target_body:
+    if updated_body == target_body and not type_changed:
         return False
-    updated = text[: match.start(2)] + updated_body + text[match.end(2) :]
+    updated = text[: match.start(1)] + updated_prefix + updated_body + text[match.end(2) :]
+    if apk_file_type:
+        updated = ensure_apk_file_type_import(updated)
     constants_file.write_text(updated, encoding="utf-8")
     return True
+
+
+def update_apk_file_type(prefix: str, apk_file_type: str) -> tuple[str, int]:
+    replacement = f"apkFileType = ApkFileType.{apk_file_type}"
+    if re.search(r"apkFileType\s*=", prefix):
+        updated, changed = re.subn(
+            r"apkFileType\s*=\s*ApkFileType\.[A-Za-z0-9_]+",
+            replacement,
+            prefix,
+            count=1,
+        )
+        return updated, changed if updated != prefix else 0
+
+    target_match = re.search(r"(\n[ \t]*)targets\s*=", prefix)
+    if not target_match:
+        return prefix, 0
+    indent = target_match.group(1)
+    return prefix[: target_match.start()] + f"{indent}{replacement}," + prefix[target_match.start() :], 1
+
+
+def ensure_apk_file_type_import(text: str) -> str:
+    if "import app.morphe.patcher.patch.ApkFileType" in text:
+        return text
+    marker = "import app.morphe.patcher.patch.AppTarget"
+    if marker in text:
+        return text.replace(marker, "import app.morphe.patcher.patch.ApkFileType\n" + marker, 1)
+    package_match = re.search(r"^package\s+[^\n]+\n", text, re.MULTILINE)
+    if package_match:
+        insert_at = package_match.end()
+        return text[:insert_at] + "\nimport app.morphe.patcher.patch.ApkFileType\n" + text[insert_at:]
+    return "import app.morphe.patcher.patch.ApkFileType\n" + text
 
 
 def is_newer_version(candidate: str, current: str) -> bool:

@@ -130,6 +130,7 @@ def main() -> int:
                 "downloaded": r.downloaded,
                 "source": r.source_name,
                 "source_url": r.source_url,
+                "apk_file_type": r.apk_file_type,
                 "repair": bool(r.repair_repo_path),
                 "repair_summary": r.repair_summary,
                 "log_excerpt": r.log[-2000:] if not r.ok else "",
@@ -178,7 +179,13 @@ def main() -> int:
                     flush=True,
                 )
                 continue
-            if update_app_target_version(constants_file, app.constant, result.candidate_version, result.version_code):
+            if update_app_target_version(
+                constants_file,
+                app.constant,
+                result.candidate_version,
+                result.version_code,
+                result.apk_file_type,
+            ):
                 changed.append(app)
             continue
 
@@ -201,6 +208,7 @@ def main() -> int:
         body = "\n".join(
             f"- `{app.name}`: `{app.current_version}` -> `{changed_by_id[app.id].candidate_version}`"
             + (f" (`versionCode {changed_by_id[app.id].version_code}`)" if changed_by_id[app.id].version_code else "")
+            + (f", `ApkFileType.{changed_by_id[app.id].apk_file_type}`" if changed_by_id[app.id].apk_file_type else "")
             for app in changed
         )
         pr_title = "chore: update verified app versions"

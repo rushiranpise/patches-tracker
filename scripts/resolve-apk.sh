@@ -22,6 +22,10 @@ isoneof() { local i=$1; shift; for v; do [ "$v" = "$i" ] && return 0; done; retu
 GH_HEADER="${GH_HEADER:-}"
 if [ -z "$GH_HEADER" ] && [ -n "${GITHUB_TOKEN-}" ]; then GH_HEADER="Authorization: token ${GITHUB_TOKEN}"; fi
 
+mark_apk_file_type() {
+	pr "APK file type: $1"
+}
+
 _req() {
 	local ip="$1" op="$2"
 	shift 2
@@ -426,6 +430,7 @@ dl_apkmirror() {
 
 	if [ -f "${output}.apkm" ]; then
 		merge_splits "${output}.apkm" "${output}"
+		mark_apk_file_type APKM
 		return 0
 	fi
 
@@ -557,6 +562,7 @@ dl_apkmirror() {
 			return 1
 		fi
 		merge_splits "${output}.apkm" "${output}"
+		mark_apk_file_type APKM
 	else
 		wget -nv -O "${output}" \
 			--header="User-Agent: ${user_agent:-Mozilla/5.0}" \
@@ -564,6 +570,7 @@ dl_apkmirror() {
 			"${cookie_args[@]}" \
 			--timeout=300 \
 			"$final_url" || return 1
+		mark_apk_file_type APK
 	fi
 }
 
@@ -665,6 +672,7 @@ dl_apkpure() {
 			--connect-timeout 30 --max-time 300 \
 			"$download_url" -o "${output}.xapk" || return 1
 		_apkpure_install_xapk "${output}.xapk" "${output}" || return 1
+		mark_apk_file_type XAPK
 	else
 		curl -L --fail -s -S \
 			-H "User-Agent: ${user_agent:-Mozilla/5.0}" \
@@ -672,6 +680,7 @@ dl_apkpure() {
 			"${cookie_header[@]}" \
 			--connect-timeout 30 --max-time 300 \
 			"$download_url" -o "${output}" || return 1
+		mark_apk_file_type APK
 	fi
 }
 
@@ -849,8 +858,19 @@ dl_apkcombo() {
 		return 1
 	fi
 	if echo "$final_url$dl_url" | grep -qi 'xapk\|\.apks\|\.apkm'; then
-		_apkpure_install_xapk "$output" "${output}.extracted" || return 1
-		mv "${output}.extracted" "$output"
+		local detected_type=XAPK
+		echo "$final_url$dl_url" | grep -qi '\.apks' && detected_type=APKS
+		echo "$final_url$dl_url" | grep -qi '\.apkm' && detected_type=APKM
+		if unzip -l "$output" 2>/dev/null | grep -q '^[[:space:]]*[0-9].*AndroidManifest\.xml$'; then
+			wpr "APKCombo route looked like $detected_type but downloaded a plain APK"
+			mark_apk_file_type APK
+		else
+			_apkpure_install_xapk "$output" "${output}.extracted" || return 1
+			mv "${output}.extracted" "$output"
+			mark_apk_file_type "$detected_type"
+		fi
+	else
+		mark_apk_file_type APK
 	fi
 }
 
@@ -916,8 +936,10 @@ dl_uptodown() {
 	if [ $is_bundle = true ]; then
 		req "https://dw.uptodown.com/dwn/${data_url}" "$output.apkm" || return 1
 		merge_splits "${output}.apkm" "${output}"
+		mark_apk_file_type XAPK
 	else
 		req "https://dw.uptodown.com/dwn/${data_url}" "$output"
+		mark_apk_file_type APK
 	fi
 }
 get_uptodown_pkg_name() { $HTMLQ --text "tr.full:nth-child(1) > td:nth-child(3)" <<<"$__UPTODOWN_RESP_PKG__"; }
@@ -965,10 +987,12 @@ dl_archive() {
 	case "${path##*.}" in
 		apk)
 			req "${url}/${path}" "$output"
+			mark_apk_file_type APK
 			;;
 		apkm|xapk|apks)
 			req "${url}/${path}" "${output}.${path##*.}" || return 1
 			merge_splits "${output}.${path##*.}" "${output}"
+			mark_apk_file_type "$(tr '[:lower:]' '[:upper:]' <<<"${path##*.}")"
 			;;
 		*)
 			epr "Unsupported archive file type for ${path}"
@@ -984,6 +1008,69 @@ get_archive_resp() {
 }
 get_archive_vers() { sed 's/^[^-]*-//;s/-\(all\|arm64-v8a\|arm-v7a\|x86\|x86_64\)\.\(apk\|apkm\|xapk\|apks\)$//g' <<<"$__ARCHIVE_RESP__"; }
 get_archive_pkg_name() { echo "$__ARCHIVE_PKG_NAME__"; }
+
+# -------------------- aoneroom official app API --------------------
+get_aoneroom_resp() {
+	local url=$1
+	pr "Aoneroom API GET: $url"
+	__AONEROOM_RESP__=$(curl -L --fail -s -S \
+		-H "User-Agent: ${user_agent:-Mozilla/5.0}" \
+		-H "Accept: application/json" \
+		-H "X-Request-Lang: en" \
+		-H "Referer: https://moviebox.ac/moviebox-tv-apk" \
+		--connect-timeout 30 --max-time 60 \
+		"$url") || return 1
+}
+get_aoneroom_vers() {
+	command -v jq >/dev/null || { epr "jq is required for aoneroom source"; return 1; }
+	local url=${1:-} package_name channel_type
+	package_name=$(query_param "$url" packageName)
+	[ -z "$package_name" ] && package_name=$(query_param "$url" package_name)
+	[ -z "$package_name" ] && package_name=$(query_param "$url" pkgName)
+	channel_type=$(query_param "$url" channelType)
+	[ -z "$channel_type" ] && channel_type=$(query_param "$url" channel_type)
+	[ -z "$channel_type" ] && channel_type=CHANNEL_OWN
+	jq -r --arg package_name "$package_name" --arg channel_type "$channel_type" '
+		.data[]?
+		| select(.channelType == $channel_type)
+		| select(($package_name == "") or (.pkgName == $package_name))
+		| .versionName
+	' <<<"$__AONEROOM_RESP__" | head -1
+}
+get_aoneroom_download_url() {
+	local url=$1 version=$2 package_name channel_type
+	command -v jq >/dev/null || { epr "jq is required for aoneroom source"; return 1; }
+	package_name=$(query_param "$url" packageName)
+	[ -z "$package_name" ] && package_name=$(query_param "$url" package_name)
+	[ -z "$package_name" ] && package_name=$(query_param "$url" pkgName)
+	channel_type=$(query_param "$url" channelType)
+	[ -z "$channel_type" ] && channel_type=$(query_param "$url" channel_type)
+	[ -z "$channel_type" ] && channel_type=CHANNEL_OWN
+	jq -r --arg version "$version" --arg package_name "$package_name" --arg channel_type "$channel_type" '
+		.data[]?
+		| select(.channelType == $channel_type)
+		| select(($package_name == "") or (.pkgName == $package_name))
+		| select(.versionName == $version)
+		| .url
+	' <<<"$__AONEROOM_RESP__" | head -1
+}
+dl_aoneroom() {
+	local url=$1 version=$2 output=$3 _arch=$4 _dpi=$5
+	get_aoneroom_resp "$url" || return 1
+	local dl_url
+	dl_url=$(get_aoneroom_download_url "$url" "$version")
+	if [ -z "$dl_url" ] || [ "$dl_url" = "null" ]; then
+		epr "Could not find Aoneroom official download for version $version"
+		return 1
+	fi
+	pr "Downloading from Aoneroom official API: $dl_url"
+	curl -L --fail -s -S \
+		-H "User-Agent: ${user_agent:-Mozilla/5.0}" \
+		-H "Referer: https://moviebox.ac/moviebox-tv-apk" \
+		--connect-timeout 30 --max-time 300 \
+		"$dl_url" -o "$output" || return 1
+	mark_apk_file_type APK
+}
 
 # -------------------- github --------------------
 dl_github() {
@@ -1007,15 +1094,17 @@ dl_github() {
     fi
     
     local ext="${path##*.}"
-    case "$ext" in
-        apk)
-            req "${base_url}/${path}" "$output"
-            ;;
-        apkm|xapk|apks)
+	case "$ext" in
+		apk)
+			req "${base_url}/${path}" "$output"
+			mark_apk_file_type APK
+			;;
+		apkm|xapk|apks)
 			local bundle="${output}.${ext}"
 			req "${base_url}/${path}" "$bundle" || return 1
 			merge_splits "$bundle" "$output"
-            ;;
+			mark_apk_file_type "$(tr '[:lower:]' '[:upper:]' <<<"$ext")"
+			;;
         *)
             epr "Unsupported github file type for ${path}"
             return 1
@@ -1057,11 +1146,12 @@ get_github_pkg_name() {
 dl_direct() {
 	local url=$1 version=${2// /-} output=$3 arch=$4 _dpi=$5
 	case "${url##*.}" in
-		apk) req "$url" "${output}" || return 1 ;;
+		apk) req "$url" "${output}" || return 1; mark_apk_file_type APK ;;
 		apkm|xapk|apks)
 			local bundle="${output}.${url##*.}"
 			req "$url" "$bundle" || return 1
 			merge_splits "$bundle" "$output"
+			mark_apk_file_type "$(tr '[:lower:]' '[:upper:]' <<<"${url##*.}")"
 			;;
 		*) epr "Unsupported direct file type: $url"; return 1 ;;
 	esac
@@ -1102,8 +1192,10 @@ dl_gplay() {
 	is_split=$(py -c 'import json,sys; print(json.load(sys.stdin).get("isSplit", False))' <<<"$json_result" 2>/dev/null || echo false)
 	if [ "$is_split" = "True" ] || [ "$is_split" = "true" ]; then
 		merge_splits "$tmp_output" "$output"
+		mark_apk_file_type APKS
 	else
 		mv -f "$tmp_output" "$output"
+		mark_apk_file_type APK
 	fi
 }
 
@@ -1114,7 +1206,7 @@ Usage:
   resolve-apk.sh latest <source> <url>
 
 Sources:
-  direct github archive apkmirror uptodown apkpure apkcombo gplay
+  direct github archive aoneroom apkmirror uptodown apkpure apkcombo gplay
 EOF
 }
 
@@ -1132,6 +1224,11 @@ latest_version() {
 		archive)
 			get_archive_resp "$url" || return 1
 			get_archive_vers | sort -Vr | head -n 1
+			;;
+		aoneroom)
+			command -v jq >/dev/null || { epr "jq is required for aoneroom source"; return 1; }
+			get_aoneroom_resp "$url" || return 1
+			get_aoneroom_vers "$url" | head -n 1
 			;;
 		apkmirror)
 			ensure_htmlq
@@ -1195,6 +1292,10 @@ main() {
 		archive)
 			get_archive_resp "$url" || return 1
 			dl_archive "$url" "$version" "$output" "$arch" "$dpi"
+			;;
+		aoneroom)
+			command -v jq >/dev/null || { epr "jq is required for aoneroom source"; return 1; }
+			dl_aoneroom "$url" "$version" "$output" "$arch" "$dpi"
 			;;
 		apkmirror)
 			ensure_htmlq

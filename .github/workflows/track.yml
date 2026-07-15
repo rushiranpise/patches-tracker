@@ -81,6 +81,8 @@ jobs:
           GPLAY_DISPENSER_URL: ${{ secrets.GPLAY_DISPENSER_URL || '' }}
           FETCH_RETRIES: "3"
           APKCOMBO_RETRIES: "3"
+          RESOLVER_TIMEOUT_SECONDS: "300"
+          APK_MERGE_TIMEOUT_SECONDS: "240"
         run: >-
           python -m tracker.cli
           --config config.toml

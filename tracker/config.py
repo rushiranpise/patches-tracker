@@ -71,7 +71,7 @@ class Config:
 
 def load_config(path: str | Path) -> Config:
     data = tomllib.loads(Path(path).read_text(encoding="utf-8"))
-    apps = [_load_legacy_app(app) for app in data.get("apps", [])]
+    apps = [_load_legacy_app(app) for app in data.get("apps", []) if app.get("enabled", True) is not False]
     reserved_tables = {"tracker", "cli", "patches", "apps"}
     for app_id, app in data.items():
         if app_id in reserved_tables or not isinstance(app, dict):
@@ -80,7 +80,7 @@ def load_config(path: str | Path) -> Config:
             continue
         apps.append(_load_rvb_style_app(app_id, app))
     return Config(
-        tracker=TrackerConfig(**data["tracker"]),
+        tracker=TrackerConfig(**_normalize_keys(data["tracker"])),
         cli=ToolConfig(**data["cli"]),
         patches=ToolConfig(**data["patches"]),
         apps=apps,
@@ -89,6 +89,7 @@ def load_config(path: str | Path) -> Config:
 
 def _load_legacy_app(raw: dict) -> AppConfig:
     app = _normalize_keys(raw)
+    app.pop("enabled", None)
     app["apk_types"] = _list_value(app.get("apk_types", []))
     app["sources"] = [
         _load_source(source, app.get("arch", "all"), app.get("dpi", "nodpi anydpi auto"), app["apk_types"])
@@ -101,7 +102,7 @@ def _load_rvb_style_app(app_id: str, raw: dict) -> AppConfig:
     app = _normalize_keys(raw)
     apk_types = _list_value(app.get("apk_types", []))
     sources = []
-    for source in ("direct", "github", "archive", "apkmirror", "uptodown", "apkpure", "apkcombo", "gplay"):
+    for source in ("direct", "github", "archive", "aoneroom", "apkmirror", "uptodown", "apkpure", "apkcombo", "gplay"):
         url = app.pop(f"{source}_dlurl", "")
         if url:
             sources.append(SourceConfig(source, url, app.get("arch", "all"), app.get("dpi", "nodpi anydpi auto"), apk_types))

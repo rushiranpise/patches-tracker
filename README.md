@@ -85,14 +85,17 @@ The generator extracts:
 - current target version
 - preferred APK file type from `apkFileType`, when present
 
-It uses the package name to discover source links, then writes the first final app page URL found in source-priority order: APKMirror, then Uptodown, then APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Existing final higher-priority source URLs are kept, so repeat runs do not keep checking lower-priority mirrors once a better source is available. If constants do not declare `apkFileType`, source discovery can infer a narrower `apk-types` value from the resolved source page. Manual patch options also survive regeneration:
+It uses the package name to discover source links, then writes the first final app page URL found in source-priority order: APKMirror, then Uptodown, then APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Existing final higher-priority source URLs are kept, so repeat runs do not keep checking lower-priority mirrors once a better source is available. If constants do not declare `apkFileType`, source discovery can infer a narrower `apk-types` value from the resolved source page. Manual patch options and disabled apps also survive regeneration:
 
 ```toml
+enabled = false
 included-patches = "'Some Patch'"
 excluded-patches = "'Other Patch'"
 ```
 
-Generated fields such as `app-name`, `package-name`, `constant`, `current-version`, `version`, `arch`, `dpi`, `apk-types`, `apkmirror-dlurl`, `uptodown-dlurl`, `apkpure-dlurl`, and `apkcombo-dlurl` are refreshed from the generator.
+Generated fields such as `app-name`, `package-name`, `constant`, `current-version`, `version`, `arch`, `dpi`, `apk-types`, `apkmirror-dlurl`, `uptodown-dlurl`, `apkpure-dlurl`, and `apkcombo-dlurl` are refreshed from the generator. Set `enabled = false` under an app table to keep it in config but skip it during tracker runs.
+
+`apk-types` is derived from `apkFileType` in `Constants.kt` and guides which file formats each source should try. When a newer app version patches successfully, the tracker records the actual downloaded/tested input format and updates `apkFileType = ApkFileType.APK/APKM/APKS/XAPK` in the Morphe constants PR along with the version and versionCode. That makes Constants the record of the last format verified to patch.
 
 Generated source discovery starts from these package-name URLs:
 
@@ -126,13 +129,16 @@ That keeps source-site breakage separate from real patch breakage.
 
 ## Runtime Controls
 
-The resolver is intentionally fail-fast by default so one blocked source does not eat the whole CI budget.
+For `version = "latest"`, the tracker first asks comparable sources for their latest version, ignores anything not newer than `current-version`, selects the highest newer version, then downloads only from sources that reported that selected version. Google Play is download-only because it does not expose a comparable version name, so it is used as a fallback for the selected version instead of participating in latest-version sorting.
+
+The resolver is still bounded so one blocked source does not eat the whole CI budget, but the timeout is long enough for split APK merge work.
 
 Environment variables:
 
 ```text
 RESOLVER_RETRIES=1
-RESOLVER_TIMEOUT_SECONDS=120
+RESOLVER_TIMEOUT_SECONDS=300
+APK_MERGE_TIMEOUT_SECONDS=240
 FETCH_RETRIES=3
 APKCOMBO_RETRIES=3
 PATCHER_TIMEOUT_SECONDS=900

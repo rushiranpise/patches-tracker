@@ -187,7 +187,7 @@ def render_config(apps: list[dict[str, str]], args: argparse.Namespace, existing
             [
                 "",
                 f"[{app['id']}]",
-                "enabled = true",
+                f"enabled = {toml_value(existing_app_enabled(existing.get(app['id'], {})))}",
                 f"app-name = {quote(app['name'])}",
                 f"package-name = {quote(app['package_name'])}",
                 f"constant = {quote(app['constant'])}",
@@ -214,6 +214,13 @@ def preserved_app_items(existing_app: object) -> list[tuple[str, object]]:
     if not isinstance(existing_app, dict):
         return []
     return [(key, value) for key, value in existing_app.items() if key not in GENERATED_APP_KEYS]
+
+
+def existing_app_enabled(existing_app: object) -> bool:
+    if not isinstance(existing_app, dict):
+        return True
+    value = existing_app.get("enabled", True)
+    return value if isinstance(value, bool) else True
 
 
 def toml_value(value: object) -> str:

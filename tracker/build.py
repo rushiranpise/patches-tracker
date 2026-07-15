@@ -19,8 +19,10 @@ from .github import known_patch_failure_exists
 
 
 RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "1"))
-RESOLVER_TIMEOUT_SECONDS = int(os.environ.get("RESOLVER_TIMEOUT_SECONDS", "120"))
+RESOLVER_TIMEOUT_SECONDS = int(os.environ.get("RESOLVER_TIMEOUT_SECONDS", "300"))
 PATCHER_TIMEOUT_SECONDS = int(os.environ.get("PATCHER_TIMEOUT_SECONDS", "900"))
+COMPARABLE_LATEST_SOURCES = {"direct", "github", "archive", "aoneroom", "apkmirror", "uptodown", "apkpure", "apkcombo"}
+DOWNLOAD_FALLBACK_SOURCES = {"gplay"}
 
 
 @dataclass
@@ -36,6 +38,7 @@ class BuildResult:
     downloaded: bool = False
     source_name: str | None = None
     source_url: str | None = None
+    apk_file_type: str | None = None
     repair_repo_path: Path | None = None
     repair_summary: str = ""
 
@@ -78,10 +81,20 @@ def build_app(
     stock_apk = None
     output_apk = None
     source = None
+    apk_file_type = None
     highest_candidate_version = candidate_version
 
     if candidate_version == "latest" and not dry_run:
-        for source in sources:
+        latest_candidates: list[tuple[str, SourceConfig]] = []
+        comparable_sources = [source for source in sources if source.source in COMPARABLE_LATEST_SOURCES]
+        fallback_sources = [source for source in sources if source.source in DOWNLOAD_FALLBACK_SOURCES]
+        skipped_latest_sources = [source for source in sources if source.source not in COMPARABLE_LATEST_SOURCES]
+        for skipped in skipped_latest_sources:
+            print(
+                f"[{app.id}] skipping latest resolve via {skipped.source}; source is download-only for known versions",
+                flush=True,
+            )
+        for source in comparable_sources:
             print(f"[{app.id}] resolving latest via {source.source}: {source.url}", flush=True)
             latest = run_resolver(
                 app.id,
@@ -93,38 +106,9 @@ def build_app(
                 latest_version = latest.stdout.strip().splitlines()[0]
                 print(f"[{app.id}] latest version from {source.source}: {latest_version}", flush=True)
                 if is_newer_version(latest_version, app.current_version):
-                    if not ignore_known_failures and known_patch_failure_exists(patches_repo, app.name, latest_version):
-                        log = f"Skipping {latest_version}; already reported as patch-broken in {patches_repo}"
-                        print(f"[{app.id}] {log}", flush=True)
-                        return BuildResult(app, True, None, log, latest_version, status="skipped_known_broken")
-                    candidate_version = latest_version
-                    highest_candidate_version = latest_version
-                    candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
-                    candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
-                    print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
-                    resolved = run_resolver(
-                        app.id,
-                        "download",
-                        [
-                            "bash",
-                            str(resolver),
-                            source.source,
-                            source.url,
-                            candidate_version,
-                            str(candidate_stock_apk),
-                            source.arch,
-                            source.dpi,
-                            " ".join(source.apk_types),
-                        ],
-                    )
-                    if resolved.returncode == 0 and candidate_stock_apk.exists():
-                        stock_apk = candidate_stock_apk
-                        output_apk = candidate_output_apk
-                        print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}; skipping lower-priority sources", flush=True)
-                        break
-                    source_log = resolved.stdout + resolved.stderr
-                    print(f"[{app.id}] download did not work via {source.source}; trying next source", flush=True)
-                    download_logs.append(f"[{source.source} {candidate_version}] {source_log}")
+                    latest_candidates.append((latest_version, source))
+                    if highest_candidate_version == "latest" or is_newer_version(latest_version, highest_candidate_version):
+                        highest_candidate_version = latest_version
                 else:
                     print(
                         f"[{app.id}] {source.source} is not newer than current {app.current_version}; skipping {latest_version}",
@@ -134,6 +118,62 @@ def build_app(
             source_log = latest.stdout + latest.stderr
             print(f"[{app.id}] could not get latest version from {source.source}", flush=True)
             resolve_logs.append(f"[{source.source}] {source_log}")
+
+        if latest_candidates:
+            candidate_version = highest_candidate_version
+            if not ignore_known_failures and known_patch_failure_exists(patches_repo, app.name, candidate_version):
+                log = f"Skipping {candidate_version}; already reported as patch-broken in {patches_repo}"
+                print(f"[{app.id}] {log}", flush=True)
+                return BuildResult(app, True, None, log, candidate_version, status="skipped_known_broken")
+            print(
+                f"[{app.id}] selected highest newer version {candidate_version}; "
+                f"sources: {', '.join(src.source for version, src in latest_candidates if version == candidate_version)}",
+                flush=True,
+            )
+            download_sources = [src for version, src in latest_candidates if version == candidate_version]
+            download_sources.extend(fallback_sources)
+            seen_download_sources = set()
+            unique_download_sources = []
+            for candidate_source in download_sources:
+                source_key = (candidate_source.source, candidate_source.url)
+                if source_key in seen_download_sources:
+                    continue
+                seen_download_sources.add(source_key)
+                unique_download_sources.append(candidate_source)
+            for source in unique_download_sources:
+                if source.source in DOWNLOAD_FALLBACK_SOURCES:
+                    print(
+                        f"[{app.id}] trying download-only fallback {source.source} for selected version {candidate_version}",
+                        flush=True,
+                    )
+                candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
+                candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
+                clean_download_target(candidate_stock_apk)
+                print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
+                resolved = run_resolver(
+                    app.id,
+                    "download",
+                    [
+                        "bash",
+                        str(resolver),
+                        source.source,
+                        source.url,
+                        candidate_version,
+                        str(candidate_stock_apk),
+                        source.arch,
+                        source.dpi,
+                        " ".join(source.apk_types),
+                    ],
+                )
+                if resolved.returncode == 0 and candidate_stock_apk.exists():
+                    stock_apk = candidate_stock_apk
+                    output_apk = candidate_output_apk
+                    apk_file_type = apk_file_type_from_resolver_log(resolved.stdout + resolved.stderr, source.source, source.apk_types)
+                    print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}; skipping lower-priority sources", flush=True)
+                    break
+                source_log = resolved.stdout + resolved.stderr
+                print(f"[{app.id}] download did not work via {source.source}; trying next source", flush=True)
+                download_logs.append(f"[{source.source} {candidate_version}] {source_log}")
         if stock_apk is None or output_apk is None:
             if download_logs:
                 return BuildResult(app, False, None, "\n".join(download_logs), highest_candidate_version, failure_type="download")
@@ -159,6 +199,7 @@ def build_app(
         for source in sources:
             candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
             candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
+            clean_download_target(candidate_stock_apk)
             print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
             resolved = run_resolver(
                 app.id,
@@ -178,6 +219,7 @@ def build_app(
             if resolved.returncode == 0 and candidate_stock_apk.exists():
                 stock_apk = candidate_stock_apk
                 output_apk = candidate_output_apk
+                apk_file_type = apk_file_type_from_resolver_log(resolved.stdout + resolved.stderr, source.source, source.apk_types)
                 print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}; skipping lower-priority sources", flush=True)
                 break
             source_log = resolved.stdout + resolved.stderr
@@ -207,6 +249,7 @@ def build_app(
         f"Downloaded APK via {source.source}: {stock_apk}\n"
         f"APK source URL: {source.url}\n"
         f"APK source and type: {source.source} arch={source.arch} dpi={source.dpi} apk-types={' '.join(source.apk_types)}\n\n"
+        f"Tested ApkFileType: {apk_file_type or 'unknown'}\n\n"
     )
     if patcher_skipped_incompatible_patch(log):
         print(f"[{app.id}] released patch bundle skipped incompatible patches; rebuilding with {candidate_version}", flush=True)
@@ -218,6 +261,7 @@ def build_app(
             patches_repo=patches_repo,
             target_branch=target_branch,
             constants_path=constants_path,
+            apk_file_type=apk_file_type,
         )
         if candidate_patches_file is None:
             return BuildResult(
@@ -231,6 +275,7 @@ def build_app(
                 downloaded=True,
                 source_name=source.source,
                 source_url=source.url,
+                apk_file_type=apk_file_type,
             )
         candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}-candidate.apk"
         retry_args = ["java", "-jar", str(cli_jar), "patch", str(stock_apk), "-o", str(candidate_output_apk), "--patches", str(candidate_patches_file)]
@@ -265,6 +310,7 @@ def build_app(
                 constants_path=constants_path,
                 candidate_version=candidate_version,
                 version_code=version_code,
+                apk_file_type=apk_file_type,
                 failure_type=failure_type,
                 app_dir=app_dir,
                 cli_jar=cli_jar,
@@ -284,6 +330,7 @@ def build_app(
                     downloaded=True,
                     source_name=source.source,
                     source_url=source.url,
+                    apk_file_type=apk_file_type,
                     repair_repo_path=repair.repo_path,
                     repair_summary=repair.summary,
                 )
@@ -298,6 +345,7 @@ def build_app(
                 downloaded=True,
                 source_name=source.source,
                 source_url=source.url,
+                apk_file_type=apk_file_type,
             )
         print(f"[{app.id}] patched APK ready: {candidate_output_apk}", flush=True)
         return BuildResult(
@@ -311,6 +359,7 @@ def build_app(
             downloaded=True,
             source_name=source.source,
             source_url=source.url,
+            apk_file_type=apk_file_type,
         )
     if completed.returncode != 0 or not output_apk.exists() or patcher_failed_patch(log):
         print(f"[{app.id}] patch did not finish successfully: {log[-1000:]}", flush=True)
@@ -325,6 +374,7 @@ def build_app(
             constants_path=constants_path,
             candidate_version=candidate_version,
             version_code=version_code,
+            apk_file_type=apk_file_type,
             failure_type=failure_type,
             app_dir=app_dir,
             cli_jar=cli_jar,
@@ -344,6 +394,7 @@ def build_app(
                 downloaded=True,
                 source_name=source.source,
                 source_url=source.url,
+                apk_file_type=apk_file_type,
                 repair_repo_path=repair.repo_path,
                 repair_summary=repair.summary,
             )
@@ -358,6 +409,7 @@ def build_app(
             downloaded=True,
             source_name=source.source,
             source_url=source.url,
+            apk_file_type=apk_file_type,
         )
     print(f"[{app.id}] patched APK ready: {output_apk}", flush=True)
     return BuildResult(
@@ -371,6 +423,7 @@ def build_app(
         downloaded=True,
         source_name=source.source,
         source_url=source.url,
+        apk_file_type=apk_file_type,
     )
 
 
@@ -408,6 +461,7 @@ def download_current_version_apk(app: AppConfig, app_dir: Path, resolver: Path) 
         print(f"[{app.id}] using cached current-version APK for repair: {current_stock_apk}", flush=True)
         return current_stock_apk
     for source in app.resolved_sources():
+        clean_download_target(current_stock_apk)
         print(f"[{app.id}] downloading current version {app.current_version} via {source.source} for repair comparison", flush=True)
         resolved = run_resolver(
             app.id,
@@ -430,6 +484,29 @@ def download_current_version_apk(app: AppConfig, app_dir: Path, resolver: Path) 
         print(f"[{app.id}] current-version download did not work via {source.source}; trying next source", flush=True)
     print(f"[{app.id}] could not download current-version APK for repair comparison", flush=True)
     return None
+
+
+def clean_download_target(path: Path) -> None:
+    for candidate in [path, *path.parent.glob(path.name + ".*"), path.with_suffix(path.suffix + ".gplay")]:
+        try:
+            if candidate.is_dir():
+                shutil.rmtree(candidate)
+            else:
+                candidate.unlink()
+        except FileNotFoundError:
+            continue
+
+
+def apk_file_type_from_resolver_log(log: str, source_name: str, configured_types: list[str]) -> str:
+    matches = re.findall(r"APK file type:\s*(APK|APKM|APKS|XAPK)\b", log, re.IGNORECASE)
+    if matches:
+        return matches[-1].upper()
+    configured = [item.upper() for item in configured_types]
+    if len(configured) == 1 and configured[0] in {"APK", "APKM", "APKS", "XAPK"}:
+        return configured[0]
+    if source_name == "apkmirror" and any(item in configured for item in ("APKM", "APKS", "XAPK")):
+        return "APKM"
+    return "APK"
 
 
 def run_streamed_process(
@@ -510,6 +587,7 @@ def build_candidate_patches_bundle(
     patches_repo: str,
     target_branch: str,
     constants_path: str,
+    apk_file_type: str | None,
 ) -> tuple[Path | None, str]:
     repo_dir = work_dir / "candidate-patches" / app.id
     if repo_dir.exists():
@@ -524,7 +602,7 @@ def build_candidate_patches_bundle(
         return None, log
 
     constants_file = repo_dir / constants_path
-    if not update_app_target_version(constants_file, app.constant, candidate_version, version_code):
+    if not update_app_target_version(constants_file, app.constant, candidate_version, version_code, apk_file_type):
         return None, log + f"\nCould not update {app.constant} to {candidate_version} in {constants_path}\n"
 
     gradlew = repo_dir / "gradlew"
@@ -569,6 +647,7 @@ def attempt_fingerprint_repair(
     constants_path: str,
     candidate_version: str,
     version_code: str | None,
+    apk_file_type: str | None,
     failure_type: str,
     app_dir: Path,
     cli_jar: Path,
@@ -585,7 +664,7 @@ def attempt_fingerprint_repair(
         return RepairResult(enriched_log + "\nAuto-repair skipped: patches source was not available.\n")
 
     constants_file = repo_dir / constants_path
-    update_app_target_version(constants_file, app.constant, candidate_version, version_code)
+    update_app_target_version(constants_file, app.constant, candidate_version, version_code, apk_file_type)
 
     changed_repairs = []
     rejected_targets = set()

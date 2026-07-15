@@ -119,7 +119,13 @@ def main() -> int:
                 branch = f"tracker/repair-verified-versions-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
                 git(["checkout", "-b", branch], constants_repo)
                 constants_file = constants_repo / cfg.tracker.constants_path
-            if update_app_target_version(constants_file, result.app.constant, result.candidate_version, result.version_code):
+            if update_app_target_version(
+                constants_file,
+                result.app.constant,
+                result.candidate_version,
+                result.version_code,
+                result.apk_file_type,
+            ):
                 changed.append((target, result))
 
     if changed and constants_repo and constants_file:
@@ -130,6 +136,7 @@ def main() -> int:
         body = "\n".join(
             f"- `{result.app.name}`: `{result.app.current_version}` -> `{result.candidate_version}`"
             + (f" (`versionCode {result.version_code}`)" if result.version_code else "")
+            + (f", `ApkFileType.{result.apk_file_type}`" if result.apk_file_type else "")
             for _, result in changed
         )
         branch = git(["branch", "--show-current"], constants_repo)
