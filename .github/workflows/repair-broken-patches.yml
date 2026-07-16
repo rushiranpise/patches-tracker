@@ -107,6 +107,8 @@ jobs:
             repair-logs
             repair-status.json
             REPAIR_STATUS.md
+            .work/decompiled-repair
+            .work/morphe-cli-repair-runs
 
       - name: Upload repaired APK artifacts
         if: hashFiles('repair-artifacts/*') != ''

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-import json
 import os
 from pathlib import Path
 import queue
@@ -656,94 +655,214 @@ def attempt_fingerprint_repair(
 ) -> RepairResult:
     if failure_type != "fingerprint":
         return RepairResult(append_patch_failure_analysis(app, log, stock_apk, work_dir, failure_type))
-    analysis, repo_dir = analyze_fingerprint_failure(app, log, stock_apk, work_dir, patches_repo, target_branch, old_stock_apk=old_stock_apk)
-    if not analysis:
-        return RepairResult(log)
-    enriched_log = log + "\n\nFingerprint analysis JSON:\n" + analysis + "\n"
+    repo_dir = clone_repair_source(app, work_dir, patches_repo, target_branch)
     if repo_dir is None:
-        return RepairResult(enriched_log + "\nAuto-repair skipped: patches source was not available.\n")
+        return RepairResult(log + "\nAuto-repair skipped: patches source was not available.\n")
 
     constants_file = repo_dir / constants_path
     update_app_target_version(constants_file, app.constant, candidate_version, version_code, apk_file_type)
 
-    changed_repairs = []
-    rejected_targets = set()
-    max_attempts = 10
-    for attempt in range(1, max_attempts + 1):
-        try:
-            report = json.loads(analysis)
-        except json.JSONDecodeError:
-            return RepairResult(enriched_log)
-        plans = select_auto_repairs(report, max_repairs=max_attempts, rejected_targets=rejected_targets)
-        if not plans:
-            return RepairResult(enriched_log + f"\nAuto-repair stopped at attempt {attempt}: no repair plan.\n")
+    repair_log = run_decompiled_patch_repair(app, repo_dir, stock_apk, old_stock_apk, work_dir)
+    enriched_log = log + "\n\nDecompiled patch repair:\n" + repair_log + "\n"
+    if not repo_has_patch_changes(repo_dir, constants_path):
+        return RepairResult(enriched_log + "\nAuto-repair stopped: helper did not change patch files.\n")
 
-        repair_logs = []
-        for plan in plans:
-            repair_log = apply_repair_plan(repo_dir, plan)
-            repair_logs.append(repair_log)
-        changed_this_attempt = [repair_log for repair_log in repair_logs if repair_log["changed"]]
-        enriched_log += f"\nAuto-repair attempt {attempt} applied:\n" + json.dumps(repair_logs, indent=2, sort_keys=True) + "\n"
-        if not changed_this_attempt:
-            messages = "; ".join(repair_log["message"] for repair_log in repair_logs)
-            return RepairResult(enriched_log + f"\nAuto-repair stopped at attempt {attempt}: {messages}\n")
-        changed_repairs.extend(changed_this_attempt)
+    candidate_patches_file, build_log = build_patches_bundle_in_repo(repo_dir)
+    enriched_log += "\nAuto-repair build:\n" + build_log + "\n"
+    if candidate_patches_file is None:
+        return RepairResult(enriched_log)
 
-        candidate_patches_file, build_log = build_patches_bundle_in_repo(repo_dir)
-        enriched_log += f"\nAuto-repair attempt {attempt} build:\n" + build_log + "\n"
-        if candidate_patches_file is None:
-            return RepairResult(enriched_log)
+    verified_output, verify_log = verify_repaired_patch_with_runner(
+        app,
+        stock_apk,
+        candidate_patches_file,
+        cli_jar,
+        work_dir,
+        continue_on_error=continue_on_error,
+    )
+    enriched_log += "\nAuto-repair verification:\n" + verify_log + "\n"
+    if verified_output:
+        print(f"[{app.id}] decompiled auto-repair verified: {verified_output}", flush=True)
+        summary = summarize_repo_changes(repo_dir) or "decompiled fingerprint repair"
+        return RepairResult(enriched_log, verified_output, repo_dir, summary)
+    return RepairResult(enriched_log + "\nAuto-repair stopped: repaired bundle did not patch successfully.\n")
 
-        repaired_output_apk = app_dir / f"{app.id}-patched-{candidate_version}-fingerprint-repair-{attempt}.apk"
-        retry_args = ["java", "-jar", str(cli_jar), "patch", str(stock_apk), "-o", str(repaired_output_apk), "--patches", str(candidate_patches_file)]
-        for patch in app.included_patches:
-            retry_args.extend(["-e", patch])
-        for patch in app.excluded_patches:
-            retry_args.extend(["-d", patch])
-        retry_args.extend(app.patcher_args)
-        add_force_compatibility(retry_args)
-        if continue_on_error:
-            retry_args.append("--continue-on-error")
-        print(f"[{app.id}] auto-repair attempt {attempt} patch command: {shell_join(retry_args)}", flush=True)
-        retry = run_streamed_process(app.id, f"auto-repair attempt {attempt} patch", retry_args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
-        retry_log = retry.stdout + retry.stderr
-        enriched_log += f"\nAuto-repair attempt {attempt} patch retry:\n" + retry_log
-        if (
-            retry.returncode == 0
-            and repaired_output_apk.exists()
-            and not patcher_skipped_incompatible_patch(retry_log)
-            and not patcher_failed_patch(retry_log)
-        ):
-            print(f"[{app.id}] auto-repair verified: {repaired_output_apk}", flush=True)
-            summary = "; ".join(
-                f"{repair_log['plan']['fingerprint']}: `{repair_log['plan']['candidate']['class']}`/`{repair_log['plan']['candidate']['method']}`"
-                for repair_log in changed_repairs
-            )
-            return RepairResult(enriched_log, repaired_output_apk, repo_dir, summary)
 
-        if classify_failure(retry_log, "patch") != "fingerprint":
-            print(f"[{app.id}] auto-repair did not verify successfully", flush=True)
-            return RepairResult(enriched_log)
-        for repair_log in changed_this_attempt:
-            rejected_targets.add(candidate_target(repair_log["plan"]["candidate"]))
-        # Re-analyze only the latest failed patch retry. The accumulated log also
-        # contains older failures and JSON reports, which can point repair at the
-        # wrong fingerprint on later attempts.
-        analysis, _ = analyze_fingerprint_failure(
-            app,
-            retry_log,
-            stock_apk,
-            work_dir,
-            patches_repo,
-            target_branch,
-            repo_dir=repo_dir,
-            old_stock_apk=old_stock_apk,
+def clone_repair_source(app: AppConfig, work_dir: Path, patches_repo: str, target_branch: str) -> Path | None:
+    repo_dir = work_dir / "fingerprint-analysis-source" / app.id
+    if repo_dir.exists():
+        shutil.rmtree(repo_dir)
+    clone_url = f"https://github.com/{patches_repo}.git"
+    clone = run_plain_process(
+        ["git", "clone", "--depth", "1", "--branch", target_branch, clone_url, str(repo_dir)],
+        timeout_seconds=300,
+    )
+    if clone.returncode != 0:
+        return None
+    token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+    if token:
+        run_plain_process(
+            ["git", "remote", "set-url", "origin", f"https://x-access-token:{token}@github.com/{patches_repo}.git"],
+            cwd=repo_dir,
+            timeout_seconds=60,
         )
-        if not analysis:
-            return RepairResult(enriched_log)
-        enriched_log += f"\nFingerprint analysis JSON after auto-repair attempt {attempt}:\n" + analysis + "\n"
+    return repo_dir
 
-    return RepairResult(enriched_log + f"\nAuto-repair stopped after {max_attempts} attempts.\n")
+
+def run_decompiled_patch_repair(
+    app: AppConfig,
+    repo_dir: Path,
+    stock_apk: Path,
+    old_stock_apk: Path | None,
+    work_dir: Path,
+) -> str:
+    repair_root = work_dir / "decompiled-repair" / app.id
+    if repair_root.exists():
+        shutil.rmtree(repair_root)
+    repair_root.mkdir(parents=True, exist_ok=True)
+
+    new_tree = repair_root / "new"
+    old_tree = repair_root / "old"
+    logs: list[str] = []
+    logs.append(run_apktool_decode(app.id, stock_apk, new_tree, "new APK"))
+    if old_stock_apk:
+        logs.append(run_apktool_decode(app.id, old_stock_apk, old_tree, "old APK"))
+
+    patch_dir = find_patch_dir(repo_dir, app)
+    if patch_dir is None:
+        return "\n".join(logs) + "\nCould not find patch directory for app.\n"
+
+    report_dir = repair_root / "report"
+    args = [
+        "python",
+        str(Path("scripts") / "update_patch_from_decompiled.py"),
+        "--new-apktool",
+        str(new_tree),
+        "--patch-dir",
+        str(patch_dir),
+        "--out",
+        str(report_dir),
+        "--in-place",
+        "--update-version",
+        "--min-confidence",
+        "medium",
+    ]
+    if old_stock_apk and old_tree.exists():
+        args.extend(["--old-apktool", str(old_tree)])
+    completed = run_plain_process(args, timeout_seconds=1200)
+    logs.append("$ " + shell_join(args))
+    logs.append(completed.stdout + completed.stderr)
+    for report_name in ("patch_update_report.md", "patch_update_suggestions.json"):
+        report = report_dir / report_name
+        if report.exists():
+            logs.append(f"\n{report_name}:\n{report.read_text(encoding='utf-8', errors='replace')[-12000:]}")
+    return "\n".join(logs)
+
+
+def run_apktool_decode(app_id: str, apk: Path, out_dir: Path, label: str) -> str:
+    args = ["apktool", "d", "-f", "-o", str(out_dir), str(apk)]
+    print(f"[{app_id}] decompiling {label}: {shell_join(args)}", flush=True)
+    completed = run_plain_process(args, timeout_seconds=900)
+    return f"$ {shell_join(args)}\n{completed.stdout}{completed.stderr}"
+
+
+def find_patch_dir(repo_dir: Path, app: AppConfig) -> Path | None:
+    patches_root = repo_dir / "patches" / "src" / "main" / "kotlin" / "app" / "template" / "patches"
+    if not patches_root.exists():
+        return None
+    dirs = [path for path in patches_root.iterdir() if path.is_dir()]
+    app_tokens = {
+        normalize_for_match(app.id),
+        normalize_for_match(app.name),
+        normalize_for_match(app.package_name.rsplit(".", 1)[-1]),
+    }
+    for path in dirs:
+        if normalize_for_match(path.name) in app_tokens:
+            return path
+    probes = [app.constant, app.package_name, *app.included_patches]
+    scored: list[tuple[int, Path]] = []
+    for path in dirs:
+        score = 0
+        for kt in path.rglob("*.kt"):
+            try:
+                text = kt.read_text(encoding="utf-8", errors="ignore")
+            except OSError:
+                continue
+            for probe in probes:
+                if probe and probe in text:
+                    score += 1
+        if score:
+            scored.append((score, path))
+    if scored:
+        scored.sort(reverse=True, key=lambda item: item[0])
+        return scored[0][1]
+    return None
+
+
+def normalize_for_match(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", value.lower())
+
+
+def repo_has_patch_changes(repo_dir: Path, constants_path: str) -> bool:
+    diff = run_plain_process(["git", "diff", "--name-only"], cwd=repo_dir, timeout_seconds=60)
+    constants = constants_path.replace("\\", "/")
+    for line in diff.stdout.splitlines():
+        path = line.strip().replace("\\", "/")
+        if path and path != constants:
+            return True
+    return False
+
+
+def verify_repaired_patch_with_runner(
+    app: AppConfig,
+    stock_apk: Path,
+    patches_file: Path,
+    cli_jar: Path,
+    work_dir: Path,
+    *,
+    continue_on_error: bool,
+) -> tuple[Path | None, str]:
+    out_dir = work_dir / "morphe-cli-repair-runs" / app.id
+    args = [
+        "python",
+        str(Path("scripts") / "run_morphe_cli_patch.py"),
+        "--apk",
+        str(stock_apk),
+        "--patches-mpp",
+        str(patches_file),
+        "--cli-jar",
+        str(cli_jar),
+        "--out-dir",
+        str(out_dir),
+        "--force",
+        "--no-build-patches",
+        "--no-download-cli",
+        "--no-doctor-check",
+    ]
+    for patch in app.included_patches:
+        args.extend(["--patch", patch])
+    for patch in app.excluded_patches:
+        args.extend(["--disable", patch])
+    if continue_on_error:
+        args.append("--continue-on-error")
+    completed = run_plain_process(args, timeout_seconds=PATCHER_TIMEOUT_SECONDS)
+    log = "$ " + shell_join(args) + "\n" + completed.stdout + completed.stderr
+    output = newest_file("*-patched.apk", out_dir)
+    if completed.returncode == 0 and output and output.exists() and not patcher_failed_patch(log) and not patcher_skipped_incompatible_patch(log):
+        return output, log
+    return None, log
+
+
+def summarize_repo_changes(repo_dir: Path) -> str:
+    diff = run_plain_process(["git", "diff", "--stat"], cwd=repo_dir, timeout_seconds=60)
+    return diff.stdout.strip()
+
+
+def newest_file(pattern: str, root: Path) -> Path | None:
+    files = [path for path in root.glob(pattern) if path.is_file()]
+    if not files:
+        return None
+    return max(files, key=lambda path: path.stat().st_mtime)
 
 
 def append_patch_failure_analysis(
@@ -755,260 +874,10 @@ def append_patch_failure_analysis(
 ) -> str:
     if failure_type != "patch":
         return log
-    report_path = work_dir / "patch-failure-analysis" / app.id / "report.json"
     log_path = work_dir / "patch-failure-analysis" / app.id / "failure.log"
     log_path.parent.mkdir(parents=True, exist_ok=True)
     log_path.write_text(log[-12000:], encoding="utf-8")
-    script = Path("scripts") / "analyze-patch-failure.py"
-    analysis = run_plain_process(
-        [
-            "python",
-            str(script),
-            "--apk",
-            str(stock_apk),
-            "--log",
-            str(log_path),
-            "--out",
-            str(report_path),
-            "--work-dir",
-            str(work_dir / "patch-failure-analysis" / app.id / "decoded"),
-        ],
-        timeout_seconds=900,
-    )
-    if analysis.returncode != 0:
-        detail = (analysis.stdout + analysis.stderr)[-1000:].replace("\n", "\\n")
-        return log + "\n\nPatch analysis JSON:\n" + json.dumps(
-            {
-                "schema": "patches-tracker/patch-analysis/v1",
-                "notes": [f"Patch analysis failed: {detail}"],
-            },
-            indent=2,
-            sort_keys=True,
-        ) + "\n"
-    if not report_path.exists():
-        return log
-    return log + "\n\nPatch analysis JSON:\n" + report_path.read_text(encoding="utf-8").strip() + "\n"
-
-
-def analyze_fingerprint_failure(
-    app: AppConfig,
-    log: str,
-    stock_apk: Path,
-    work_dir: Path,
-    patches_repo: str,
-    target_branch: str,
-    *,
-    repo_dir: Path | None = None,
-    old_stock_apk: Path | None = None,
-) -> tuple[str, Path | None]:
-    if repo_dir is None:
-        repo_dir = work_dir / "fingerprint-analysis-source" / app.id
-        if repo_dir.exists():
-            shutil.rmtree(repo_dir)
-        clone_url = f"https://github.com/{patches_repo}.git"
-        clone = run_plain_process(
-            ["git", "clone", "--depth", "1", "--branch", target_branch, clone_url, str(repo_dir)],
-            timeout_seconds=300,
-        )
-        if clone.returncode != 0:
-            return '{"schema":"patches-tracker/fingerprint-analysis/v1","notes":["Could not clone patches source for analysis."]}', None
-        token = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
-        if token:
-            run_plain_process(
-                ["git", "remote", "set-url", "origin", f"https://x-access-token:{token}@github.com/{patches_repo}.git"],
-                cwd=repo_dir,
-                timeout_seconds=60,
-            )
-
-    report_path = work_dir / "fingerprint-analysis" / app.id / "report.json"
-    log_path = work_dir / "fingerprint-analysis" / app.id / "failure.log"
-    log_path.parent.mkdir(parents=True, exist_ok=True)
-    log_path.write_text(log, encoding="utf-8")
-    script = Path("scripts") / "analyze-fingerprint-failure.py"
-    analysis = run_plain_process(
-        [
-            "python",
-            str(script),
-            "--apk",
-            str(stock_apk),
-            *(["--old-apk", str(old_stock_apk)] if old_stock_apk else []),
-            "--patches-src",
-            str(repo_dir / "patches" / "src" / "main" / "kotlin"),
-            "--log",
-            str(log_path),
-            "--app-id",
-            app.id,
-            "--package-name",
-            app.package_name,
-            "--out",
-            str(report_path),
-            "--work-dir",
-            str(work_dir / "fingerprint-analysis" / app.id / "decoded"),
-        ],
-        timeout_seconds=900,
-    )
-    if analysis.returncode != 0:
-        detail = (analysis.stdout + analysis.stderr)[-1000:].replace('"', "'").replace("\n", "\\n")
-        return f'{{"schema":"patches-tracker/fingerprint-analysis/v1","notes":["Fingerprint analysis failed: {detail}"]}}', repo_dir
-    if not report_path.exists():
-        return '{"schema":"patches-tracker/fingerprint-analysis/v1","notes":["Fingerprint analysis did not create a report."]}', repo_dir
-    return report_path.read_text(encoding="utf-8").strip(), repo_dir
-
-
-def select_auto_repairs(
-    report: dict,
-    max_repairs: int = 10,
-    rejected_targets: set[tuple[str, str]] | None = None,
-) -> list[dict]:
-    plans = []
-    used_targets = set(rejected_targets or set())
-    for item in report.get("candidates", []):
-        candidates = item.get("top_candidates") or []
-        if not candidates:
-            return []
-        current = item.get("current") or {}
-        candidate = first_safe_repair_candidate(current, candidates, used_targets)
-        if not candidate:
-            return []
-        if not any((current.get("definingClass"), current.get("name"), candidate.get("class"), candidate.get("method"))):
-            return []
-        used_targets.add(candidate_target(candidate))
-        plans.append(
-            {
-                "fingerprint": item["fingerprint"],
-                "source_file": item["source_file"],
-                "current": current,
-                "candidate": candidate,
-            }
-        )
-    if not plans or len(plans) > max_repairs:
-        return []
-    return plans
-
-
-def first_safe_repair_candidate(current: dict, candidates: list[dict], used_targets: set[tuple[str, str]]) -> dict | None:
-    for candidate in candidates:
-        target = candidate_target(candidate)
-        if target in used_targets:
-            continue
-        if is_bad_framework_method_candidate(current, candidate):
-            continue
-        return candidate
-    return None
-
-
-def candidate_target(candidate: dict) -> tuple[str, str]:
-    return (candidate.get("class") or "", candidate.get("method") or "")
-
-
-def is_bad_framework_method_candidate(current: dict, candidate: dict) -> bool:
-    method_name = candidate.get("method") or ""
-    return method_name in {
-        "areAllItemsEnabled",
-        "getCount",
-        "getItem",
-        "getItemId",
-        "getItemViewType",
-        "getView",
-        "getViewTypeCount",
-        "hasStableIds",
-        "isEmpty",
-        "isEnabled",
-        "onBindViewHolder",
-        "onCreateViewHolder",
-    }
-
-
-def select_auto_repair(report: dict) -> dict | None:
-    plans = select_auto_repairs(report, max_repairs=1)
-    return plans[0] if plans else None
-
-
-def apply_repair_plan(repo_dir: Path, plan: dict) -> dict:
-    source_file = Path(plan["source_file"])
-    if source_file.is_absolute():
-        try:
-            source_file = Path(*source_file.parts[source_file.parts.index("patches") :])
-        except ValueError:
-            return {"changed": False, "message": "could not make source path relative", "plan": plan}
-    target_file = repo_dir / source_file
-    if not target_file.exists():
-        return {"changed": False, "message": f"source file not found: {target_file}", "plan": plan}
-    text = target_file.read_text(encoding="utf-8")
-    body_span = fingerprint_body_span(text, plan["fingerprint"])
-    if body_span is None:
-        return {"changed": False, "message": "fingerprint declaration not found", "plan": plan}
-    start, end = body_span
-    body = text[start:end]
-    updated = body
-    candidate = plan["candidate"]
-    current = plan["current"]
-    if current.get("definingClass") and candidate.get("class"):
-        updated = replace_string_arg(updated, "definingClass", candidate["class"])
-    if current.get("name") and candidate.get("method"):
-        updated = replace_string_arg(updated, "name", candidate["method"])
-    if updated == body:
-        updated = replace_custom_fingerprint_checks(updated, candidate)
-    if updated == body:
-        return {"changed": False, "message": "repair did not change fingerprint declaration", "plan": plan}
-    target_file.write_text(text[:start] + updated + text[end:], encoding="utf-8")
-    return {"changed": True, "message": "fingerprint declaration updated", "file": str(target_file), "plan": plan}
-
-
-def fingerprint_body_span(text: str, fingerprint_name: str) -> tuple[int, int] | None:
-    pattern = re.compile(
-        rf"(?:object\s+{re.escape(fingerprint_name)}\s*:\s*Fingerprint\s*\("
-        rf"|(?:internal\s+|private\s+)?val\s+{re.escape(fingerprint_name)}\s*(?::\s*Fingerprint)?\s*=\s*Fingerprint\()"
-    )
-    match = pattern.search(text)
-    if not match:
-        return None
-    open_paren = match.end() - 1
-    depth = 0
-    in_string = False
-    escaped = False
-    for index in range(open_paren, len(text)):
-        char = text[index]
-        if in_string:
-            if escaped:
-                escaped = False
-            elif char == "\\":
-                escaped = True
-            elif char == '"':
-                in_string = False
-            continue
-        if char == '"':
-            in_string = True
-        elif char == "(":
-            depth += 1
-        elif char == ")":
-            depth -= 1
-            if depth == 0:
-                return open_paren + 1, index
-    return None
-
-
-def replace_string_arg(body: str, name: str, value: str) -> str:
-    return re.sub(rf'(\b{name}\s*=\s*)"[^"]*"', rf'\1"{value}"', body, count=1)
-
-
-def replace_custom_fingerprint_checks(body: str, candidate: dict) -> str:
-    updated = body
-    if candidate.get("class"):
-        updated = re.sub(
-            r'(\bclassDef\s*\.\s*type\s*==\s*)"[^"]*"',
-            lambda match: f'{match.group(1)}"{candidate["class"]}"',
-            updated,
-            count=1,
-        )
-    if candidate.get("method"):
-        updated = re.sub(
-            r'(\bmethod\s*\.\s*name\s*==\s*)"[^"]*"',
-            lambda match: f'{match.group(1)}"{candidate["method"]}"',
-            updated,
-            count=1,
-        )
-    return updated
+    return log + "\n\nPatch analysis skipped: no generic patch analyzer is configured; raw log saved for artifacts.\n"
 
 
 def build_patches_bundle_in_repo(repo_dir: Path) -> tuple[Path | None, str]:
