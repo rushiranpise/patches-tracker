@@ -40,7 +40,6 @@ IMPLEMENTS_RE = re.compile(r"^\.implements\s+(?P<desc>L[^;]+;)", re.MULTILINE)
 METHOD_RE = re.compile(r"(?ms)^\.method\b(?P<decl>.*?)\n(?P<body>.*?)^\.end method")
 METHOD_DECL_LINE_RE = re.compile(r"^\.method\b(?P<decl>.*)$", re.MULTILINE)
 METHOD_SIG_RE = re.compile(r"(?P<name>[^\s(]+)\((?P<params>[^)]*)\)(?P<ret>\S+)\s*$")
-METHOD_FULL_RE = re.compile(r"(?P<class>L[^;]+;)->(?P<name>[^\s(]+)\((?P<params>[^)]*)\)(?P<ret>\S+)$")
 CONST_STRING_RE = re.compile(r'const-string(?:/jumbo)?\s+\S+,\s+"((?:\\.|[^"\\])*)"')
 INVOKE_RE = re.compile(r"invoke-\S+\s+\{[^}]*\},\s+(L[^;]+;)->([^\s(]+)\(([^)]*)\)(\S+)")
 FIELD_REF_RE = re.compile(r"(?:[is][gp]et|[is][gp]ut)(?:-\S+)?\s+[^,]+,\s+(L[^;]+;)->([^:\s]+):(\S+)")
@@ -54,6 +53,9 @@ METHOD_CALL_RE = re.compile(
     re.DOTALL,
 )
 APP_TARGET_RE = re.compile(r'AppTarget\s*\(\s*"([^"]+)"')
+TOP_LEVEL_DECL_RE = re.compile(
+    r"(?m)^\s*(?:@Suppress\s*\(|object\s+\w+|val\s+\w+|private\s+fun\s+\w+|fun\s+\w+)"
+)
 
 
 @dataclass
@@ -644,7 +646,9 @@ def extract_refs(path: Path) -> list[FingerprintRef]:
     refs: list[FingerprintRef] = []
 
     for match in FP_CLASS_RE.finditer(text):
-        window = text[match.start(): match.start() + 1800]
+        max_end = min(len(text), match.start() + 1800)
+        next_decl = TOP_LEVEL_DECL_RE.search(text, match.end(), max_end)
+        window = text[match.start(): next_decl.start() if next_decl else max_end]
         name_match = FP_NAME_RE.search(window)
         refs.append(
             FingerprintRef(
@@ -911,7 +915,6 @@ def analyze_refs(
 def apply_safe_updates(
     files: list[Path],
     class_maps: dict[str, ClassMap],
-    ref_rows: list[dict],
     new_manifest: ManifestInfo,
     out_dir: Path,
     in_place: bool,
@@ -919,10 +922,6 @@ def apply_safe_updates(
     update_version: bool,
 ) -> list[dict]:
     changed = []
-    rows_by_file: dict[Path, list[dict]] = defaultdict(list)
-    for row in ref_rows:
-        rows_by_file[Path(row["file"])].append(row)
-
     for path in files:
         original = read_text(path)
         text = original
@@ -936,9 +935,6 @@ def apply_safe_updates(
             if old_desc in text:
                 text = text.replace(old_desc, cmap.new_desc)
                 replacements.append({"old": old_desc, "new": cmap.new_desc, "confidence": cmap.confidence})
-
-        text, method_replacements = apply_method_updates(text, rows_by_file.get(path, []), min_conf)
-        replacements.extend(method_replacements)
 
         if update_version and new_manifest.version_name:
             text, count = APP_TARGET_RE.subn(f'AppTarget("{new_manifest.version_name}"', text)
@@ -954,116 +950,6 @@ def apply_safe_updates(
         changed.append({"source": str(path), "target": str(target), "replacements": replacements})
 
     return changed
-
-
-def apply_method_updates(text: str, rows: list[dict], min_conf: str) -> tuple[str, list[dict]]:
-    replacements = []
-    for row in sorted(rows, key=lambda item: int(item.get("line") or 0), reverse=True):
-        suggestion = row.get("method_suggestion") or {}
-        if rank_conf(suggestion.get("confidence", "none")) < rank_conf(min_conf):
-            continue
-        parsed = parse_full_method(suggestion.get("new_method", ""))
-        if not parsed:
-            continue
-        old_name = row.get("method_name") or ""
-        if not old_name:
-            continue
-
-        start, end = window_span_for_line(text, int(row.get("line") or 1))
-        window = text[start:end]
-        updated = window
-        row_replacements = []
-
-        if parsed["name"] != old_name:
-            updated, count = re.subn(
-                r'(\bname\s*=\s*)"([^"]*)"',
-                lambda match: f'{match.group(1)}"{parsed["name"]}"' if match.group(2) == old_name else match.group(0),
-                updated,
-                count=1,
-            )
-            if count:
-                row_replacements.append({"old": f"name={old_name}", "new": parsed["name"], "confidence": suggestion["confidence"]})
-
-        updated, return_count = re.subn(
-            r'(\breturnType\s*=\s*)"([^"]*)"',
-            lambda match: f'{match.group(1)}"{parsed["ret"]}"' if match.group(2) != parsed["ret"] else match.group(0),
-            updated,
-            count=1,
-        )
-        if return_count:
-            row_replacements.append({"old": "returnType", "new": parsed["ret"], "confidence": suggestion["confidence"]})
-
-        params = split_params(parsed["params"])
-        params_text = kotlin_parameter_list(params)
-        updated, params_count = re.subn(
-            r'\bparameters\s*=\s*(?:emptyList\s*\(\s*\)|listOf\s*\([^)]*\))',
-            f"parameters = {params_text}",
-            updated,
-            count=1,
-        )
-        if params_count:
-            row_replacements.append({"old": "parameters", "new": params_text, "confidence": suggestion["confidence"]})
-
-        if updated != window:
-            text = text[:start] + updated + text[end:]
-            replacements.extend(row_replacements)
-    return text, replacements
-
-
-def parse_full_method(value: str) -> dict[str, str] | None:
-    match = METHOD_FULL_RE.match(value)
-    return match.groupdict() if match else None
-
-
-def window_span_for_line(text: str, line: int) -> tuple[int, int]:
-    line = max(1, line)
-    pos = 0
-    for _ in range(line - 1):
-        next_pos = text.find("\n", pos)
-        if next_pos < 0:
-            break
-        pos = next_pos + 1
-    return max(0, pos - 900), min(len(text), pos + 1800)
-
-
-def split_params(params: str) -> list[str]:
-    out = []
-    index = 0
-    while index < len(params):
-        char = params[index]
-        if char == "L":
-            end = params.find(";", index)
-            if end < 0:
-                break
-            out.append(params[index:end + 1])
-            index = end + 1
-        elif char == "[":
-            start = index
-            while index < len(params) and params[index] == "[":
-                index += 1
-            if index < len(params) and params[index] == "L":
-                end = params.find(";", index)
-                if end < 0:
-                    break
-                out.append(params[start:end + 1])
-                index = end + 1
-            elif index < len(params):
-                out.append(params[start:index + 1])
-                index += 1
-        else:
-            out.append(char)
-            index += 1
-    return out
-
-
-def kotlin_parameter_list(params: list[str]) -> str:
-    if not params:
-        return "emptyList()"
-    return "listOf(" + ", ".join(kotlin_quote(param) for param in params) + ")"
-
-
-def kotlin_quote(value: str) -> str:
-    return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
 def write_report(
@@ -1242,7 +1128,6 @@ Examples:
         writes = apply_safe_updates(
             files=files,
             class_maps=class_maps,
-            ref_rows=ref_rows,
             new_manifest=new_index.manifest,
             out_dir=write_dir,
             in_place=args.in_place,

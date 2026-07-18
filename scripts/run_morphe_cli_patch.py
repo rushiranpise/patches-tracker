@@ -245,7 +245,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--no-download-cli", action="store_false", dest="download_cli")
     parser.add_argument("--sign", action="store_true", help="Sign output APK; default is unsigned")
     parser.add_argument("--doctor", action="store_true", help="Check local tools and exit")
-    parser.add_argument("--no-doctor-check", action="store_true", help="Skip environment doctor before patching")
     parser.add_argument("--bootstrap-tools", action="store_true", help="Attempt Windows winget installs for missing core APK tools")
     parser.add_argument("--bootstrap-python-tools", action="store_true", help="Install common Python APK libraries with pip --user")
     return parser.parse_args()
@@ -259,7 +258,7 @@ def main() -> int:
     if not args.apk:
         raise SystemExit("--apk is required unless --doctor is used")
 
-    if not args.no_doctor_check and doctor(args.bootstrap_tools, False) != 0:
+    if doctor(args.bootstrap_tools, False) != 0:
         raise SystemExit("missing required core tools; rerun with --doctor or --bootstrap-tools")
 
     apk = Path(args.apk).expanduser().resolve()
