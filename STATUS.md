@@ -177,13 +177,13 @@ Failed: 12
 /releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/apkmirror-installer/apkeditor.jar
 [+] Saved response: .work/resolver/apkmirror-installer/apkeditor.jar (7733037 bytes)
 [+] Merging XAPK splits with APKEditor
-[-] APKEditor m error: 00.001 I: [MERGE] Using: APKEditor version 1.4.9, ARSCLib version 1.3.9
+[-] APKEditor m error: 00.000 I: [MERGE] Using: APKEditor version 1.4.9, ARSCLib version 1.3.9
       -i = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk                                   
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.046 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.071 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -259,7 +259,7 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for app.simple.inure.play
@@ -282,7 +282,7 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.nexstreaming.app.kinemasterfree
@@ -529,7 +529,7 @@ ansit-app/transit---subway--bus-times-6-2-0-release/
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download (title=Transit - Subway &amp; Bus Times APK (Android App) - Free Download)
 [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.0-apk
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.0-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.0/5126280.72cd1723bc4c5fa5747d8b2e209e88b45a3e218a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.0_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260719T091740Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260719/auto/s3/aws4_request&X-Amz-Signature=cdb52bb2ea49fb0e7d03b047f886c3bc0586792dff60443ea4f4c7a108abfc50
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.0/5126280.72cd1723bc4c5fa5747d8b2e209e88b45a3e218a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.0_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260719T094744Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14399&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260719/auto/s3/aws4_request&X-Amz-Signature=0c00b5105110bf0b8ef85f5825cf815c807e23f4377bf0ca91917f98be8af2f8
 curl: (22) The requested URL returned error: 403
 
 [gplay 6.2.0] [+] Downloading from Google Play: com.thetransitapp.droid
