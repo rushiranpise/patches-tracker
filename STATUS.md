@@ -183,7 +183,7 @@ Failed: 12
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.071 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.041 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -199,7 +199,7 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.apkmirror.helper.prod
@@ -529,7 +529,7 @@ ansit-app/transit---subway--bus-times-6-2-0-release/
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download (title=Transit - Subway &amp; Bus Times APK (Android App) - Free Download)
 [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.0-apk
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.0-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.0/5126280.72cd1723bc4c5fa5747d8b2e209e88b45a3e218a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.0_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260719T094744Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14399&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260719/auto/s3/aws4_request&X-Amz-Signature=0c00b5105110bf0b8ef85f5825cf815c807e23f4377bf0ca91917f98be8af2f8
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.0/5126280.72cd1723bc4c5fa5747d8b2e209e88b45a3e218a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.0_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260719T103540Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260719/auto/s3/aws4_request&X-Amz-Signature=3fac0fceb102473e7a71d54b5dc79dfeb8cc6fdf5935eb3cfbd22b1ad9b8b1e1
 curl: (22) The requested URL returned error: 403
 
 [gplay 6.2.0] [+] Downloading from Google Play: com.thetransitapp.droid
@@ -537,7 +537,7 @@ curl: (22) The requested URL returned error: 403
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 7 cookies from FlareSolverr
+[+] Got 8 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.thetransitapp.droid
