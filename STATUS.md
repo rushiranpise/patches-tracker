@@ -183,7 +183,7 @@ Failed: 13
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.035 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.013 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -199,7 +199,7 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.apkmirror.helper.prod
@@ -317,7 +317,7 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for app.simple.inure.play
@@ -340,7 +340,7 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.nexstreaming.app.kinemasterfree
@@ -500,7 +500,7 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 7 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.truebill
@@ -512,21 +512,35 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
 <details><summary>SAI log excerpt</summary>
 
 ````text
-sai/SaiFingerprints.kt",
+
+      "line": 48,
+      "kind": "Fingerprint",
+      "old_class": "Lio3;",
+      "new_class": "Lio3;",
+      "class_confidence": "exact",
+      "method_name": "emit",
+      "status": "missing-method",
+      "missing_strings": [
+        "SubscriptionFragment"
+      ],
+      "method_suggestion": null
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/sai/patches/src/main/kotlin/app/template/patches/sai/SaiFingerprints.kt",
       "line": 64,
       "kind": "Fingerprint",
       "old_class": "La7;",
       "new_class": "La7;",
       "class_confidence": "exact",
       "method_name": "a",
-      "status": "check-method",
+      "status": "ok",
       "missing_strings": [],
       "method_suggestion": {
-        "old_method": "La7;->a()Z",
+        "old_method": "La7;->a",
         "new_method": "La7;->a(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;",
-        "score": 20.0,
+        "score": 24.0,
         "confidence": "low",
-        "reason": "proto=False strings=0 invokes=0 literals=0 margin=20.0"
+        "reason": "new-only method hint margin=24.0"
       }
     },
     {
@@ -537,17 +551,11 @@ sai/SaiFingerprints.kt",
       "new_class": "Lhw2;",
       "class_confidence": "exact",
       "method_name": "onClick",
-      "status": "check-method",
+      "status": "missing-method",
       "missing_strings": [
         "SubscriptionFragment"
       ],
-      "method_suggestion": {
-        "old_method": "Lhw2;->onClick(Landroid/view/View;)V",
-        "new_method": "Lhw2;-><init>()V",
-        "score": 0.0,
-        "confidence": "none",
-        "reason": "proto=False strings=0 invokes=0 literals=0 margin=0.0"
-      }
+      "method_suggestion": null
     },
     {
       "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/sai/patches/src/main/kotlin/app/template/patches/sai/SaiFingerprints.kt",
@@ -557,15 +565,9 @@ sai/SaiFingerprints.kt",
       "new_class": "Lpw2;",
       "class_confidence": "exact",
       "method_name": "emit",
-      "status": "check-method",
+      "status": "missing-method",
       "missing_strings": [],
-      "method_suggestion": {
-        "old_method": "Lpw2;->emit(Ljava/lang/Object;Lnu0;)Ljava/lang/Object;",
-        "new_method": "",
-        "score": 0.0,
-        "confidence": "none",
-        "reason": "no candidate"
-      }
+      "method_suggestion": null
     }
   ],
   "writes": []
@@ -587,7 +589,7 @@ ansit-app/transit---subway--bus-times-6-2-1-release/
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download (title=Transit - Subway &amp; Bus Times APK (Android App) - Free Download)
 [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.1/5126282.19416006a2ed10877e42d6fe9cb186adf6c66e8a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.1_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260721T052441Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260721/auto/s3/aws4_request&X-Amz-Signature=a02da92ad7bfbc10994ee138fb7118dedd9674384af6d89d61eab85299bfbb32
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.1/5126282.19416006a2ed10877e42d6fe9cb186adf6c66e8a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.1_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260721T062620Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260721/auto/s3/aws4_request&X-Amz-Signature=a3ba02793b3995385f7a9ea370697cbd46b6fc37b497e2d1a724d511ec94793e
 curl: (22) The requested URL returned error: 403
 
 [gplay 6.2.1] [+] Downloading from Google Play: com.thetransitapp.droid
@@ -595,7 +597,7 @@ curl: (22) The requested URL returned error: 403
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 7 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.thetransitapp.droid
