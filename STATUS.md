@@ -2,10 +2,10 @@
 
 Shard: 1/1
 Checked apps: 159
-Patched: 8
+Patched: 7
 No update: 123
-Skipped known broken: 15
-Failed: 13
+Skipped known broken: 14
+Failed: 15
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -26,15 +26,15 @@ Failed: 13
 | Block Blast! | `com.block.juggle` | `10.3.9` | `10.3.9` |  | NO_UPDATE |  |
 | BlockerHero | `com.blockerhero` | `1.5.0` | `1.5.0` |  | NO_UPDATE |  |
 | Block Puzzle | `game.puzzle.blockpuzzle` | `6.0` | `6.0` |  | NO_UPDATE |  |
-| Blurams | `com.blurams.ipc` | `5.1049.4.908` | `5.1049.4.921` | `1921` | FAILED | fingerprint |
+| Blurams | `com.blurams.ipc` | `5.1049.4.908` | `5.1049.4.921` |  | FAILED | download |
 | BlurWall | `apps.automan.blurwallpaper` | `2.9.2` | `2.9.2` |  | NO_UPDATE |  |
 | Box Box | `club.boxbox.android` | `5.4.13` | `5.4.13` |  | NO_UPDATE |  |
-| BuzzCast | `com.guochao.faceshow` | `3.2.80` | `3.2.81` | `3281` | PATCHED |  |
+| BuzzCast | `com.guochao.faceshow` | `3.2.80` | `3.2.80` |  | NO_UPDATE |  |
 | Cube ACR | `com.catalinagroup.callrecorder` | `2.4.281` | `2.4.281` |  | NO_UPDATE |  |
 | CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.21.5.2607100000` |  | SKIPPED_KNOWN_BROKEN |  |
-| Canva | `com.canva.editor` | `2.368.0` | `2.369.0` | `29633241` | PATCHED |  |
+| Canva | `com.canva.editor` | `2.368.0` | `2.369.0` |  | FAILED | download |
 | Carbon | `com.joincarbon.nutrition` | `2.76.5784` | `2.76.5905` | `1633629191` | FAILED | signing |
-| Carousell | `com.thecarousell.Carousell` | `2.461.8` | `2.463.9` |  | SKIPPED_KNOWN_BROKEN |  |
+| Carousell | `com.thecarousell.Carousell` | `2.461.8` | `2.463.8` | `10819` | FAILED | fingerprint |
 | Case Tracker | `com.saldous.casetracker` | `5.5.3` | `5.5.3` |  | NO_UPDATE |  |
 | Cashew | `com.budget.tracker_app` | `6.6.11` | `6.6.11` |  | NO_UPDATE |  |
 | Citizen | `sp0n.citizen` | `0.1301.0` | `0.1301.0` |  | NO_UPDATE |  |
@@ -56,7 +56,7 @@ Failed: 13
 | Flightsky | `com.live.flight.tracker` | `1.7.1` | `1.7.1` |  | NO_UPDATE |  |
 | Flud | `com.delphicoder.flud` | `2.0.13-beta02` | `2.0.13-beta02` |  | NO_UPDATE |  |
 | Genius Scan | `com.thegrizzlylabs.geniusscan.free` | `7.40.0` | `7.40.0` |  | NO_UPDATE |  |
-| Google Photos | `com.google.android.apps.photos` | `7.84.0.949657053` | `7.84.0.949657053` |  | NO_UPDATE |  |
+| Google Photos | `com.google.android.apps.photos` | `7.84.0.949657053` | `7.85.0.950510832` | `52095248` | PATCHED |  |
 | Greenify | `com.oasisfeng.greenify` | `5.1.1` | `5.1.1` |  | NO_UPDATE |  |
 | Hibernator | `com.tafayor.hibernator` | `2.56.10` | `2.56.10` |  | NO_UPDATE |  |
 | Historical Calendar | `com.alexandrucene.dayhistory` | `7.5.4` | `7.5.4` |  | NO_UPDATE |  |
@@ -183,7 +183,7 @@ Failed: 13
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.013 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.029 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -211,56 +211,67 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 <details><summary>Blurams log excerpt</summary>
 
 ````text
-,
-      "method_suggestion": {
-        "old_method": "Lcom/closeli/devicecomponents/model/a;->isExpired()Z",
-        "new_method": "Lcom/closeli/devicecomponents/model/a;->isExpired()Z",
-        "score": 999.0,
-        "confidence": "exact",
-        "reason": "same name and proto"
-      }
-    },
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/blurams/patches/src/main/kotlin/app/template/patches/blurams/Fingerprints.kt",
-      "line": 141,
-      "kind": "Fingerprint",
-      "old_class": "Lcom/blurams/common/util/b1;",
-      "new_class": "Lcom/blurams/common/util/b1;",
-      "class_confidence": "exact",
-      "method_name": "parseMealResult",
-      "status": "ok",
-      "missing_strings": [],
-      "method_suggestion": {
-        "old_method": "Lcom/blurams/common/util/b1;->parseMealResult(Lcom/nhe/clhttpclient/api/model/PurchaseMealResult;)Z",
-        "new_method": "Lcom/blurams/common/util/b1;->parseMealResult(Lcom/nhe/clhttpclient/api/model/PurchaseMealResult;)Z",
-        "score": 999.0,
-        "confidence": "exact",
-        "reason": "same name and proto"
-      }
-    },
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/blurams/patches/src/main/kotlin/app/template/patches/blurams/Fingerprints.kt",
-      "line": 150,
-      "kind": "Fingerprint",
-      "old_class": "Lcom/blurams/common/util/b1;",
-      "new_class": "Lcom/blurams/common/util/b1;",
-      "class_confidence": "exact",
-      "method_name": "filterPurchase",
-      "status": "ok",
-      "missing_strings": [],
-      "method_suggestion": {
-        "old_method": "Lcom/blurams/common/util/b1;->filterPurchase(Ljava/util/List;)V",
-        "new_method": "Lcom/blurams/common/util/b1;->filterPurchase(Ljava/util/List;)V",
-        "score": 999.0,
-        "confidence": "exact",
-        "reason": "same name and proto"
-      }
-    }
-  ],
-  "writes": []
-}
+[apkcombo 5.1049.4.921] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/com.blurams.ipc/download
+[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr attempt 2/3 failed for: https://apkcombo.com/search/com.blurams.ipc/download
+[+] FlareSolverr GET attempt 3/3: https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr attempt 3/3 failed for: https://apkcombo.com/search/com.blurams.ipc/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.blurams.ipc/download after 3 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.blurams.ipc/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/com.blurams.ipc/download
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.blurams.ipc/download
+[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/com.blurams.ipc/download
+[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/com.blurams.ipc/download
 
-Auto-repair stopped: helper did not change patch files.
+Timed out after 300s
+
+[gplay 5.1049.4.921] [+] Downloading from Google Play: com.blurams.ipc
+[+] Step 1: Getting dispenser credentials...
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.blurams.ipc
+
+````
+
+</details>
+
+<details><summary>Canva log excerpt</summary>
+
+````text
+/com.canva.editor/download
+[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/com.canva.editor/download
+[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/com.canva.editor/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.canva.editor/download
+[!] FlareSolverr attempt 2/3 failed for: https://apkcombo.com/search/com.canva.editor/download
+[+] FlareSolverr GET attempt 3/3: https://apkcombo.com/search/com.canva.editor/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.canva.editor/download
+[!] FlareSolverr attempt 3/3 failed for: https://apkcombo.com/search/com.canva.editor/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.canva.editor/download after 3 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.canva.editor/download -> -
+curl: (22) The requested URL returned error: 403
+[-] Request failed: https://apkcombo.com/search/com.canva.editor/download
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.canva.editor/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.canva.editor/download
+[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/com.canva.editor/download
+[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/com.canva.editor/download
+
+Timed out after 300s
+
+[gplay 2.369.0] [+] Downloading from Google Play: com.canva.editor
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.canva.editor
 
 ````
 
@@ -303,10 +314,66 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 
 </details>
 
+<details><summary>Carousell log excerpt</summary>
+
+````text
+": "none",
+        "reason": "proto=False strings=0 invokes=0 literals=0 margin=0.0"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/carousell/patches/src/main/kotlin/app/template/patches/carousell/CarousellFingerprints.kt",
+      "line": 36,
+      "kind": "Fingerprint",
+      "old_class": "Lij1/h;",
+      "new_class": "Lij1/h;",
+      "class_confidence": "exact",
+      "method_name": "d",
+      "status": "check-method",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lij1/h;->d(Lcom/thecarousell/data/external_ads/model/AdLoadConfigNew;Ljava/lang/Class;Lcom/thecarousell/data/external_ads/model/AdEventTrackingData;)Lio/reactivex/r;",
+        "new_method": "Lij1/h;-><init>(Lcom/thecarousell/feature/verticals/service_quotes/service_request_details/EnquiryDetailViewData;I)V",
+        "score": 0.0,
+        "confidence": "none",
+        "reason": "proto=False strings=0 invokes=0 literals=0 margin=0.0"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/carousell/patches/src/main/kotlin/app/template/patches/carousell/CarousellFingerprints.kt",
+      "line": 48,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/thecarousell/core/entity/ads/GetAdResponse;",
+      "new_class": "Lcom/thecarousell/core/entity/ads/GetAdResponse;",
+      "class_confidence": "exact",
+      "method_name": "getPromotedListingCards",
+      "status": "ok",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lcom/thecarousell/core/entity/ads/GetAdResponse;->getPromotedListingCards()Ljava/util/List;",
+        "new_method": "Lcom/thecarousell/core/entity/ads/GetAdResponse;->getPromotedListingCards()Ljava/util/List;",
+        "score": 999.0,
+        "confidence": "exact",
+        "reason": "same name and proto"
+      }
+    }
+  ],
+  "writes": []
+}
+
+Auto-repair stopped: helper did not change patch files.
+
+````
+
+</details>
+
 <details><summary>Inure App Manager log excerpt</summary>
 
 ````text
 [apkpure 107.1.0] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/
+[!] FlareSolverr status 'error' for https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/
+[!] FlareSolverr attempt 1/3 failed for: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/
+[+] FlareSolverr GET attempt 2/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/
 [+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/ (title=Download Inure App Manager (Trial) latest build10... Android APK)
 [+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.1.0
 [+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.1.0 (title=Free APK Downloader Online - Download Region Free APK)
@@ -512,35 +579,21 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
 <details><summary>SAI log excerpt</summary>
 
 ````text
-
-      "line": 48,
-      "kind": "Fingerprint",
-      "old_class": "Lio3;",
-      "new_class": "Lio3;",
-      "class_confidence": "exact",
-      "method_name": "emit",
-      "status": "missing-method",
-      "missing_strings": [
-        "SubscriptionFragment"
-      ],
-      "method_suggestion": null
-    },
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/sai/patches/src/main/kotlin/app/template/patches/sai/SaiFingerprints.kt",
+sai/SaiFingerprints.kt",
       "line": 64,
       "kind": "Fingerprint",
       "old_class": "La7;",
       "new_class": "La7;",
       "class_confidence": "exact",
       "method_name": "a",
-      "status": "ok",
+      "status": "check-method",
       "missing_strings": [],
       "method_suggestion": {
-        "old_method": "La7;->a",
+        "old_method": "La7;->a()Z",
         "new_method": "La7;->a(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;",
-        "score": 24.0,
+        "score": 20.0,
         "confidence": "low",
-        "reason": "new-only method hint margin=24.0"
+        "reason": "proto=False strings=0 invokes=0 literals=0 margin=20.0"
       }
     },
     {
@@ -551,11 +604,17 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
       "new_class": "Lhw2;",
       "class_confidence": "exact",
       "method_name": "onClick",
-      "status": "missing-method",
+      "status": "check-method",
       "missing_strings": [
         "SubscriptionFragment"
       ],
-      "method_suggestion": null
+      "method_suggestion": {
+        "old_method": "Lhw2;->onClick(Landroid/view/View;)V",
+        "new_method": "Lhw2;-><init>()V",
+        "score": 0.0,
+        "confidence": "none",
+        "reason": "proto=False strings=0 invokes=0 literals=0 margin=0.0"
+      }
     },
     {
       "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/sai/patches/src/main/kotlin/app/template/patches/sai/SaiFingerprints.kt",
@@ -565,9 +624,15 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
       "new_class": "Lpw2;",
       "class_confidence": "exact",
       "method_name": "emit",
-      "status": "missing-method",
+      "status": "check-method",
       "missing_strings": [],
-      "method_suggestion": null
+      "method_suggestion": {
+        "old_method": "Lpw2;->emit(Ljava/lang/Object;Lnu0;)Ljava/lang/Object;",
+        "new_method": "",
+        "score": 0.0,
+        "confidence": "none",
+        "reason": "no candidate"
+      }
     }
   ],
   "writes": []
@@ -589,7 +654,7 @@ ansit-app/transit---subway--bus-times-6-2-1-release/
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download (title=Transit - Subway &amp; Bus Times APK (Android App) - Free Download)
 [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.1/5126282.19416006a2ed10877e42d6fe9cb186adf6c66e8a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.1_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260721T062620Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260721/auto/s3/aws4_request&X-Amz-Signature=a3ba02793b3995385f7a9ea370697cbd46b6fc37b497e2d1a724d511ec94793e
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.1/5126282.19416006a2ed10877e42d6fe9cb186adf6c66e8a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.1_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260721T074630Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260721/auto/s3/aws4_request&X-Amz-Signature=22a61b26270715228be0970255e3d1465d27319584e8122d60a391f81b2f6bce
 curl: (22) The requested URL returned error: 403
 
 [gplay 6.2.1] [+] Downloading from Google Play: com.thetransitapp.droid
