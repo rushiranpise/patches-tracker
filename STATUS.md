@@ -2,10 +2,10 @@
 
 Shard: 1/1
 Checked apps: 159
-Patched: 0
-No update: 133
-Skipped known broken: 14
-Failed: 12
+Patched: 8
+No update: 123
+Skipped known broken: 13
+Failed: 15
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -16,7 +16,7 @@ Failed: 12
 | AiScore | `com.onesports.score` | `4.2.6` | `4.2.6` |  | NO_UPDATE |  |
 | All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `3.2.3` | `3.2.3` |  | NO_UPDATE |  |
 | Amazon India | `in.amazon.mShop.android.shopping` | `32.12.4.300` | `32.12.4.300` |  | NO_UPDATE |  |
-| Amazon Shopping | `com.amazon.mShop.android.shopping` | `32.13.0.100` | `32.13.0.100` |  | NO_UPDATE |  |
+| Amazon Shopping | `com.amazon.mShop.android.shopping` | `32.13.0.100` | `32.13.2.100` | `1241320216` | PATCHED |  |
 | AMBOSS | `com.amboss.medical.knowledge` | `2.115.1.4408` | `2.115.1.4408` |  | NO_UPDATE |  |
 | AmoledPix | `com.androholic.amoledpix` | `7.2` | `7.2` |  | NO_UPDATE |  |
 | Anatomy | `air.com.musclemotion.anatomy` | `3.2.1` | `3.2.1` |  | NO_UPDATE |  |
@@ -26,20 +26,20 @@ Failed: 12
 | Block Blast! | `com.block.juggle` | `10.3.9` | `10.3.9` |  | NO_UPDATE |  |
 | BlockerHero | `com.blockerhero` | `1.5.0` | `1.5.0` |  | NO_UPDATE |  |
 | Block Puzzle | `game.puzzle.blockpuzzle` | `6.0` | `6.0` |  | NO_UPDATE |  |
-| Blurams | `com.blurams.ipc` | `5.1049.4.908` | `5.1049.4.919` |  | SKIPPED_KNOWN_BROKEN |  |
+| Blurams | `com.blurams.ipc` | `5.1049.4.908` | `5.1049.4.921` | `1921` | FAILED | fingerprint |
 | BlurWall | `apps.automan.blurwallpaper` | `2.9.2` | `2.9.2` |  | NO_UPDATE |  |
 | Box Box | `club.boxbox.android` | `5.4.13` | `5.4.13` |  | NO_UPDATE |  |
-| BuzzCast | `com.guochao.faceshow` | `3.2.80` | `3.2.80` |  | NO_UPDATE |  |
+| BuzzCast | `com.guochao.faceshow` | `3.2.80` | `3.2.81` | `3281` | PATCHED |  |
 | Cube ACR | `com.catalinagroup.callrecorder` | `2.4.281` | `2.4.281` |  | NO_UPDATE |  |
 | CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.21.5.2607100000` |  | SKIPPED_KNOWN_BROKEN |  |
-| Canva | `com.canva.editor` | `2.368.0` | `2.368.0` |  | NO_UPDATE |  |
+| Canva | `com.canva.editor` | `2.368.0` | `2.369.0` | `29633241` | PATCHED |  |
 | Carbon | `com.joincarbon.nutrition` | `2.76.5784` | `2.76.5905` | `1633629191` | FAILED | signing |
 | Carousell | `com.thecarousell.Carousell` | `2.461.8` | `2.463.9` |  | SKIPPED_KNOWN_BROKEN |  |
 | Case Tracker | `com.saldous.casetracker` | `5.5.3` | `5.5.3` |  | NO_UPDATE |  |
 | Cashew | `com.budget.tracker_app` | `6.6.11` | `6.6.11` |  | NO_UPDATE |  |
 | Citizen | `sp0n.citizen` | `0.1301.0` | `0.1301.0` |  | NO_UPDATE |  |
 | Citymapper | `com.citymapper.app.release` | `11.55.2` | `11.55.2` |  | NO_UPDATE |  |
-| Clue Period & Cycle Tracker | `com.clue.android` | `261.0` | `261.0` |  | NO_UPDATE |  |
+| Clue Period & Cycle Tracker | `com.clue.android` | `261.0` | `262.0` | `3181` | PATCHED |  |
 | ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.6` | `4.8.6` |  | NO_UPDATE |  |
 | Countdown Widget | `me.gira.widget.countdown` | `3.2.0` | `3.2.0` |  | NO_UPDATE |  |
 | CPU-Z | `com.cpuid.cpu_z` | `1.59` | `1.59` |  | NO_UPDATE |  |
@@ -74,11 +74,11 @@ Failed: 12
 | komoot | `de.komoot.android` | `2026.28.2` | `2026.29.3` | `263715004` | FAILED | fingerprint |
 | Kyphosis | `air.com.musclemotion.kyphosis` | `1.4.9` | `1.4.9` |  | NO_UPDATE |  |
 | Lark Player | `com.dywx.larkplayer` | `2026.9.6` | `2026.10.5` |  | SKIPPED_KNOWN_BROKEN |  |
-| Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.7.1` | `6.7.1` |  | NO_UPDATE |  |
+| Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.7.1` | `6.7.2` | `536` | PATCHED |  |
 | Life360 | `com.life360.android.safetymapd` | `26.26.0` | `26.26.0` |  | NO_UPDATE |  |
 | LiveScore | `com.livescore` | `9.8` | `9.8` |  | NO_UPDATE |  |
 | Mapy | `cz.seznam.mapy` | `26.7.1` | `26.7.1` |  | NO_UPDATE |  |
-| MEGA | `mega.privacy.android.app` | `16.9(261881039)(3c7e30562a)` | `16.9(261881039)(3c7e30562a)` |  | NO_UPDATE |  |
+| MEGA | `mega.privacy.android.app` | `16.9(261881039)(3c7e30562a)` | `16.10(261970902)(8daeddaf4d)` | `261970902` | PATCHED |  |
 | MigraConnect | `com.tecso.MigraConnect` | `2.8.2` | `2.8.2` |  | NO_UPDATE |  |
 | m-Indicator | `com.mobond.mindicator` | `18.0.356` | `18.0.356` |  | NO_UPDATE |  |
 | Minimal Widgets | `com.jndapp.minimal.widgets` | `1.3.01` | `1.3.01` |  | NO_UPDATE |  |
@@ -95,7 +95,7 @@ Failed: 12
 | NetShare | `kha.prog.mikrotik` | `277` | `277` |  | NO_UPDATE |  |
 | NewsBreak | `com.particlenews.newsbreak` | `26.28.0` | `26.29.1` | `26290104` | FAILED | signing |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.7` |  | NO_UPDATE |  |
-| NYT Games | `com.nytimes.crossword` | `6.34.0` | `6.34.0` |  | NO_UPDATE |  |
+| NYT Games | `com.nytimes.crossword` | `6.34.0` | `6.35.0` | `6426547` | PATCHED |  |
 | nzb360 | `com.kevinforeman.nzb360` | `24` | `24` |  | NO_UPDATE |  |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.18` | `5.21` |  | FAILED | signing |
 | Parallel Space Pro | `com.parallel.space.pro` | `4.0.9123` | `4.0.9123` |  | NO_UPDATE |  |
@@ -109,7 +109,7 @@ Failed: 12
 | PLAYit | `com.playit.videoplayer` | `2.7.50.12` | `2.7.50.12` |  | NO_UPDATE |  |
 | Pocket Bard | `com.MojoFilterMediaLLC.RPGSoundSystem` | `3.1.16` | `3.1.16` |  | NO_UPDATE |  |
 | Pocket Casts | `au.com.shiftyjelly.pocketcasts` | `8.14` | `8.14` |  | NO_UPDATE |  |
-| Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.27.2` |  | NO_UPDATE |  |
+| Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.28.0` | `428` | FAILED | fingerprint |
 | Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `1.29.0-260420093` |  | NO_UPDATE |  |
 | Posture | `air.com.musclemotion.posture` | `3.2.1` | `3.2.1` |  | NO_UPDATE |  |
 | Proton VPN | `ch.protonvpn.android` | `5.19.43.0` | `5.19.43.0` |  | NO_UPDATE |  |
@@ -118,9 +118,9 @@ Failed: 12
 | RAR | `com.rarlab.rar` | `7.23.build133` | `7.23.build133` |  | NO_UPDATE |  |
 | RecipeBro | `com.recipebro.cookingbuddy` | `1.3.74` | `1.4.22` |  | SKIPPED_KNOWN_BROKEN |  |
 | Rename & Organize | `eu.duong.picturemanager` | `8.25.1` | `8.25.1` |  | NO_UPDATE |  |
-| Rocket Money | `com.truebill` | `13.15.0` | `15.1.0` |  | FAILED | download |
+| Rocket Money | `com.truebill` | `13.15.0` | `15.2.0` |  | FAILED | download |
 | RS File Manager | `com.rs.explorer.filemanager` | `2.3.0.4` | `2.3.0.4` |  | NO_UPDATE |  |
-| SAI | `com.mtv.sai` | `2.2.8` | `2.3.1` |  | FAILED | download |
+| SAI | `com.mtv.sai` | `2.2.8` | `2.3.1` | `43` | FAILED | fingerprint |
 | Scoopz | `com.localaiapp.scoops` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
 | SCRL | `com.appostrophe.scrl` | `1.22` | `1.22` |  | NO_UPDATE |  |
 | SHAREit Premium | `shareit.premium` | `1.1.98` | `1.1.98` |  | NO_UPDATE |  |
@@ -139,7 +139,7 @@ Failed: 12
 | Strength Training | `air.com.musclemotion.strength.mobile` | `3.5.1` | `3.5.1` |  | NO_UPDATE |  |
 | Subway Now | `io.goodservice.theweekendest` | `1.2.10` | `1.2.10` |  | NO_UPDATE |  |
 | Super File | `com.esuper.file.explorer` | `1.5.6.3` | `1.5.6.3` |  | NO_UPDATE |  |
-| Transit | `com.thetransitapp.droid` | `6.1.12` | `6.2.0` |  | FAILED | download |
+| Transit | `com.thetransitapp.droid` | `6.1.12` | `6.2.1` |  | FAILED | download |
 | The Weather Channel | `com.weather.Weather` | `16.13.0` | `16.13.0` |  | NO_UPDATE |  |
 | Today Weather | `mobi.lockdown.weather` | `2.5.0-5` | `2.5.0-6` |  | SKIPPED_KNOWN_BROKEN |  |
 | TomTom GO | `com.tomtom.gplay.navapp` | `3.6.316-beta` | `3.6.320` |  | SKIPPED_KNOWN_BROKEN |  |
@@ -152,13 +152,13 @@ Failed: 12
 | Moovit | `com.tranzmate` | `5.195.2.1792` | `5.196.0.1794` |  | SKIPPED_KNOWN_BROKEN |  |
 | TurboScan | `com.piksoft.turboscan.free` | `1.7.3` | `1.7.3` |  | NO_UPDATE |  |
 | Stargazing Hub | `com.twtapp` | `3.3.2` | `3.3.2` |  | NO_UPDATE |  |
-| UbikiTouch | `eu.toneiv.ubktouch` | `1.16.13` | `1.16.13` |  | NO_UPDATE |  |
+| UbikiTouch | `eu.toneiv.ubktouch` | `1.16.13` | `1.17.1` | `77093` | FAILED | fingerprint |
 | UDisc | `com.regasoftware.udisc` | `24.2.1` | `24.2.4` | `9936` | FAILED | fingerprint |
 | Unimote | `sensustech.universal.tv.remote.control` | `1.8.1` | `1.8.1` |  | NO_UPDATE |  |
 | Uptodown App Store | `com.uptodown` | `7.34` | `7.35` |  | SKIPPED_KNOWN_BROKEN |  |
 | VIZ Manga | `com.vizmanga.android` | `4.14.2` | `4.14.2` |  | NO_UPDATE |  |
 | 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.8` | `6.38.8` |  | NO_UPDATE |  |
-| Wavve Boating | `com.wavve.boating.gps` | `5.7.3` | `5.7.3` |  | NO_UPDATE |  |
+| Wavve Boating | `com.wavve.boating.gps` | `5.7.3` | `5.7.4` | `3183` | PATCHED |  |
 | Waze | `com.waze` | `5.21.90.800` | `5.21.90.800` |  | NO_UPDATE |  |
 | Weawow: Weather & Widget | `com.weawow` | `7.1.8` | `7.1.8` |  | NO_UPDATE |  |
 | Windscribe VPN | `com.windscribe.vpn` | `4.2.2328` | `4.2.2328` |  | NO_UPDATE |  |
@@ -183,7 +183,7 @@ Failed: 12
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.018 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.030 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -199,10 +199,68 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.apkmirror.helper.prod
+
+````
+
+</details>
+
+<details><summary>Blurams log excerpt</summary>
+
+````text
+,
+      "method_suggestion": {
+        "old_method": "Lcom/closeli/devicecomponents/model/a;->isExpired()Z",
+        "new_method": "Lcom/closeli/devicecomponents/model/a;->isExpired()Z",
+        "score": 999.0,
+        "confidence": "exact",
+        "reason": "same name and proto"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/blurams/patches/src/main/kotlin/app/template/patches/blurams/Fingerprints.kt",
+      "line": 141,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/blurams/common/util/b1;",
+      "new_class": "Lcom/blurams/common/util/b1;",
+      "class_confidence": "exact",
+      "method_name": "parseMealResult",
+      "status": "ok",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lcom/blurams/common/util/b1;->parseMealResult(Lcom/nhe/clhttpclient/api/model/PurchaseMealResult;)Z",
+        "new_method": "Lcom/blurams/common/util/b1;->parseMealResult(Lcom/nhe/clhttpclient/api/model/PurchaseMealResult;)Z",
+        "score": 999.0,
+        "confidence": "exact",
+        "reason": "same name and proto"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/blurams/patches/src/main/kotlin/app/template/patches/blurams/Fingerprints.kt",
+      "line": 150,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/blurams/common/util/b1;",
+      "new_class": "Lcom/blurams/common/util/b1;",
+      "class_confidence": "exact",
+      "method_name": "filterPurchase",
+      "status": "ok",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lcom/blurams/common/util/b1;->filterPurchase(Ljava/util/List;)V",
+        "new_method": "Lcom/blurams/common/util/b1;->filterPurchase(Ljava/util/List;)V",
+        "score": 999.0,
+        "confidence": "exact",
+        "reason": "same name and proto"
+      }
+    }
+  ],
+  "writes": []
+}
+
+Auto-repair stopped: helper did not change patch files.
 
 ````
 
@@ -259,7 +317,7 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for app.simple.inure.play
@@ -272,9 +330,6 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 
 ````text
 [apkpure 8.1.15.36566] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[!] FlareSolverr attempt 1/3 failed for: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[+] FlareSolverr GET attempt 2/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
 [+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/ (title=Download KineMaster - Video Editor latest 8.1.15.... Android APK)
 [+] FlareSolverr GET attempt 1/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.1.15.36566
 [+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.1.15.36566 (title=Free APK Downloader Online - Download Region Free APK)
@@ -430,22 +485,58 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
 
 </details>
 
+<details><summary>Pocket Prep log excerpt</summary>
+
+````text
+ individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 4m 47s
+30 actionable tasks: 30 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.6.1/userguide/configuration_cache_enabling.html
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+
+Auto-repair verification:
+$ python scripts/run_morphe_cli_patch.py --apk /home/runner/work/patches-tracker/patches-tracker/.work/pocket-prep/pocket-prep-3.28.0.apk --patches-mpp /home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/pocket-prep/patches/build/libs/patches-1.14.0.mpp --cli-jar /home/runner/work/patches-tracker/patches-tracker/.work/tools/cli.jar --out-dir /home/runner/work/patches-tracker/patches-tracker/.work/morphe-cli-repair-runs/pocket-prep --force --no-build-patches --no-download-cli --no-doctor-check
+usage: run_morphe_cli_patch.py [-h] [--apk APK] [--patch PATCH]
+                               [--disable DISABLE]
+                               [--options-file OPTIONS_FILE]
+                               [--patches-mpp PATCHES_MPP] [--cli-jar CLI_JAR]
+                               [--out-dir OUT_DIR] [--exclusive] [--force]
+                               [--continue-on-error]
+                               [--bytecode-mode {FULL,STRIP_SAFE,STRIP_FAST}]
+                               [--build-patches] [--no-build-patches]
+                               [--build-cli] [--download-cli]
+                               [--no-download-cli] [--sign] [--doctor]
+                               [--bootstrap-tools] [--bootstrap-python-tools]
+run_morphe_cli_patch.py: error: unrecognized arguments: --no-doctor-check
+
+
+Auto-repair stopped: repaired bundle did not patch successfully.
+
+````
+
+</details>
+
 <details><summary>Rocket Money log excerpt</summary>
 
 ````text
-[apkmirror 15.1.0] [+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/truebill/truebill/
+[apkmirror 15.2.0] [+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/truebill/truebill/
 [+] FlareSolverr OK: https://www.apkmirror.com/apk/truebill/truebill/ (title=Download Rocket Money - Bills &amp; Budgets APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-1-0-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-1-0-release/ (title=Rocket Money - Bills &amp; Budgets 15.1.0 APK Download by Rocket Money - Bills &amp; Budgets - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-1-0-release/
-[-] Could not find APKMirror variant for version=15.1.0 arch=all dpi=nodpi anydpi auto
+[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-2-0-release/
+[+] FlareSolverr OK: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-2-0-release/ (title=Rocket Money - Bills &amp; Budgets 15.2.0 APK Download by Rocket Money - Bills &amp; Budgets - APKMirror)
+[+] APKMirror release page: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-2-0-release/
+[-] Could not find APKMirror variant for version=15.2.0 arch=all dpi=nodpi anydpi auto
 
-[gplay 15.1.0] [+] Downloading from Google Play: com.truebill
+[gplay 15.2.0] [+] Downloading from Google Play: com.truebill
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.truebill
@@ -457,30 +548,66 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
 <details><summary>SAI log excerpt</summary>
 
 ````text
-rr could not fetch https://apkcombo.com/search/com.mtv.sai/download after 3 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/com.mtv.sai/download -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/search/com.mtv.sai/download
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.mtv.sai/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.mtv.sai/download (title=SAI: Split APKs Installer APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.mtv.sai/download/phone-2.3.1-xapk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.mtv.sai/download/phone-2.3.1-xapk (title=Download SAI: Split APKs Installer APK - Latest Version 2024)
-[+] HTTP GET: https://apkcombo.com/checkin -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkcombo.com/checkin
-[!] APKCombo checkin failed; decoding direct /d URL
-[+] Downloading from APKCombo: https://download.pureapk.com/b/XAPK/Y29tLm10di5zYWlfNDNfMmVhNjg5MmE?as2=4d0aeaff6e936344d01b8260e920a53b6c37c3a7&k=ef2076666197d023b8cc07cfb957ef126c37c3a7&_p=Y29tLm10di5zYWk&c=1%7CTOOLS%7Cb2lkPTkmZGV2PU1UViUyME1vYmlsZSZ0PXhhcGsmcz0xODI1MjIyOSZ2bj0yLjMuMSZ2Yz00Mw&_fn=U0FJJTNBK1NwbGl0K0FQS3MrSW5zdGFsbGVyXzIuMy4xX2Fwa2NvbWJvLmNvbS54YXBr
-curl: (22) The requested URL returned error: 403
+sai/SaiFingerprints.kt",
+      "line": 64,
+      "kind": "Fingerprint",
+      "old_class": "La7;",
+      "new_class": "La7;",
+      "class_confidence": "exact",
+      "method_name": "a",
+      "status": "check-method",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "La7;->a()Z",
+        "new_method": "La7;->a(Landroid/content/Context;Ljava/lang/Object;)Landroid/content/Intent;",
+        "score": 20.0,
+        "confidence": "low",
+        "reason": "proto=False strings=0 invokes=0 literals=0 margin=20.0"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/sai/patches/src/main/kotlin/app/template/patches/sai/SaiFingerprints.kt",
+      "line": 85,
+      "kind": "Fingerprint",
+      "old_class": "Lhw2;",
+      "new_class": "Lhw2;",
+      "class_confidence": "exact",
+      "method_name": "onClick",
+      "status": "check-method",
+      "missing_strings": [
+        "SubscriptionFragment"
+      ],
+      "method_suggestion": {
+        "old_method": "Lhw2;->onClick(Landroid/view/View;)V",
+        "new_method": "Lhw2;-><init>()V",
+        "score": 0.0,
+        "confidence": "none",
+        "reason": "proto=False strings=0 invokes=0 literals=0 margin=0.0"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/sai/patches/src/main/kotlin/app/template/patches/sai/SaiFingerprints.kt",
+      "line": 112,
+      "kind": "Fingerprint",
+      "old_class": "Lpw2;",
+      "new_class": "Lpw2;",
+      "class_confidence": "exact",
+      "method_name": "emit",
+      "status": "check-method",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lpw2;->emit(Ljava/lang/Object;Lnu0;)Ljava/lang/Object;",
+        "new_method": "",
+        "score": 0.0,
+        "confidence": "none",
+        "reason": "no candidate"
+      }
+    }
+  ],
+  "writes": []
+}
 
-[gplay 2.3.1] [+] Downloading from Google Play: com.mtv.sai
-[+] FlareSolverr detected at http://localhost:8191/v1
-[+] Step 1: Getting dispenser credentials...
-[!] Direct request blocked (403), trying FlareSolverr...
-[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
-[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
-{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.mtv.sai
+Auto-repair stopped: helper did not change patch files.
 
 ````
 
@@ -489,22 +616,22 @@ curl: (22) The requested URL returned error: 403
 <details><summary>Transit log excerpt</summary>
 
 ````text
-ansit-app/transit---subway--bus-times-6-2-0-release/
-[-] Could not find APKMirror variant for version=6.2.0 arch=all dpi=nodpi anydpi auto
+ansit-app/transit---subway--bus-times-6-2-1-release/
+[-] Could not find APKMirror variant for version=6.2.1 arch=all dpi=nodpi anydpi auto
 
-[apkcombo 6.2.0] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download
+[apkcombo 6.2.1] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download (title=Transit - Subway &amp; Bus Times APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.0-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.0-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.0/5126280.72cd1723bc4c5fa5747d8b2e209e88b45a3e218a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.0_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260719T194019Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260719/auto/s3/aws4_request&X-Amz-Signature=38cd0114e675dad64d6417b6dc6af0ae32e91de6ccf942009b4b6520e5798b44
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.1/5126282.19416006a2ed10877e42d6fe9cb186adf6c66e8a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.1_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260721T043518Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260721/auto/s3/aws4_request&X-Amz-Signature=26d3ffd485fc38f5d808b02a08cf9b5451a94c84ad87ff8e132d5831701c8ca7
 curl: (22) The requested URL returned error: 403
 
-[gplay 6.2.0] [+] Downloading from Google Play: com.thetransitapp.droid
+[gplay 6.2.1] [+] Downloading from Google Play: com.thetransitapp.droid
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.thetransitapp.droid
@@ -562,6 +689,81 @@ me": "<init>",
         "confidence": "none",
         "reason": "proto=False strings=0 invokes=0 literals=2 margin=1.7"
       }
+    }
+  ],
+  "writes": []
+}
+
+Auto-repair stopped: helper did not change patch files.
+
+````
+
+</details>
+
+<details><summary>UbikiTouch log excerpt</summary>
+
+````text
+` |  |
+
+
+patch_update_suggestions.json:
+{
+  "old_manifest": {
+    "package_name": "eu.toneiv.ubktouch",
+    "version_name": "1.16.13",
+    "version_code": "73441"
+  },
+  "new_manifest": {
+    "package_name": "eu.toneiv.ubktouch",
+    "version_name": "1.17.1",
+    "version_code": "77093"
+  },
+  "classes": [
+    {
+      "old_desc": "Leu/toneiv/ubktouch/util/xwzp;",
+      "new_desc": "Leu/toneiv/ubktouch/util/xwzp;",
+      "score": 999.0,
+      "confidence": "exact",
+      "reason": "descriptor still exists"
+    },
+    {
+      "old_desc": "Lgp1;",
+      "new_desc": "Lgp1;",
+      "score": 999.0,
+      "confidence": "exact",
+      "reason": "descriptor still exists"
+    }
+  ],
+  "fingerprints": [
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/ubikitouch/patches/src/main/kotlin/app/template/patches/ubikitouch/subscription/Fingerprints.kt",
+      "line": 25,
+      "kind": "Fingerprint",
+      "old_class": "Lgp1;",
+      "new_class": "Lgp1;",
+      "class_confidence": "exact",
+      "method_name": "y",
+      "status": "check-method",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lgp1;->y()Z",
+        "new_method": "Lgp1;->U(Ljava/lang/Object;Ljava/nio/ByteBuffer;IIZ)Z",
+        "score": 5.0,
+        "confidence": "none",
+        "reason": "proto=False strings=0 invokes=0 literals=1 margin=0.0"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/ubikitouch/patches/src/main/kotlin/app/template/patches/ubikitouch/subscription/Fingerprints.kt",
+      "line": 43,
+      "kind": "Fingerprint",
+      "old_class": "Leu/toneiv/ubktouch/util/xwzp;",
+      "new_class": "Leu/toneiv/ubktouch/util/xwzp;",
+      "class_confidence": "exact",
+      "method_name": "",
+      "status": "ok",
+      "missing_strings": [],
+      "method_suggestion": null
     }
   ],
   "writes": []
