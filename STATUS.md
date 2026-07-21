@@ -4,8 +4,8 @@ Shard: 1/1
 Checked apps: 159
 Patched: 8
 No update: 123
-Skipped known broken: 13
-Failed: 15
+Skipped known broken: 15
+Failed: 13
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -109,7 +109,7 @@ Failed: 15
 | PLAYit | `com.playit.videoplayer` | `2.7.50.12` | `2.7.50.12` |  | NO_UPDATE |  |
 | Pocket Bard | `com.MojoFilterMediaLLC.RPGSoundSystem` | `3.1.16` | `3.1.16` |  | NO_UPDATE |  |
 | Pocket Casts | `au.com.shiftyjelly.pocketcasts` | `8.14` | `8.14` |  | NO_UPDATE |  |
-| Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.28.0` | `428` | FAILED | fingerprint |
+| Pocket Prep | `com.pocketprep.android.itcybersecurity` | `3.27.2` | `3.28.0` |  | SKIPPED_KNOWN_BROKEN |  |
 | Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `1.29.0-260420093` |  | NO_UPDATE |  |
 | Posture | `air.com.musclemotion.posture` | `3.2.1` | `3.2.1` |  | NO_UPDATE |  |
 | Proton VPN | `ch.protonvpn.android` | `5.19.43.0` | `5.19.43.0` |  | NO_UPDATE |  |
@@ -152,7 +152,7 @@ Failed: 15
 | Moovit | `com.tranzmate` | `5.195.2.1792` | `5.196.0.1794` |  | SKIPPED_KNOWN_BROKEN |  |
 | TurboScan | `com.piksoft.turboscan.free` | `1.7.3` | `1.7.3` |  | NO_UPDATE |  |
 | Stargazing Hub | `com.twtapp` | `3.3.2` | `3.3.2` |  | NO_UPDATE |  |
-| UbikiTouch | `eu.toneiv.ubktouch` | `1.16.13` | `1.17.1` | `77093` | FAILED | fingerprint |
+| UbikiTouch | `eu.toneiv.ubktouch` | `1.16.13` | `1.17.1` |  | SKIPPED_KNOWN_BROKEN |  |
 | UDisc | `com.regasoftware.udisc` | `24.2.1` | `24.2.4` | `9936` | FAILED | fingerprint |
 | Unimote | `sensustech.universal.tv.remote.control` | `1.8.1` | `1.8.1` |  | NO_UPDATE |  |
 | Uptodown App Store | `com.uptodown` | `7.34` | `7.35` |  | SKIPPED_KNOWN_BROKEN |  |
@@ -183,7 +183,7 @@ Failed: 15
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.030 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.035 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -199,7 +199,7 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 7 cookies from FlareSolverr
+[+] Got 8 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.apkmirror.helper.prod
@@ -340,7 +340,7 @@ SEVERE: Patching aborted: FAILED: Unlock Premium
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 3 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.nexstreaming.app.kinemasterfree
@@ -485,42 +485,6 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
 
 </details>
 
-<details><summary>Pocket Prep log excerpt</summary>
-
-````text
- individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
-
-BUILD SUCCESSFUL in 4m 47s
-30 actionable tasks: 30 executed
-Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.6.1/userguide/configuration_cache_enabling.html
-Note: Some input files use or override a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
-
-
-Auto-repair verification:
-$ python scripts/run_morphe_cli_patch.py --apk /home/runner/work/patches-tracker/patches-tracker/.work/pocket-prep/pocket-prep-3.28.0.apk --patches-mpp /home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/pocket-prep/patches/build/libs/patches-1.14.0.mpp --cli-jar /home/runner/work/patches-tracker/patches-tracker/.work/tools/cli.jar --out-dir /home/runner/work/patches-tracker/patches-tracker/.work/morphe-cli-repair-runs/pocket-prep --force --no-build-patches --no-download-cli --no-doctor-check
-usage: run_morphe_cli_patch.py [-h] [--apk APK] [--patch PATCH]
-                               [--disable DISABLE]
-                               [--options-file OPTIONS_FILE]
-                               [--patches-mpp PATCHES_MPP] [--cli-jar CLI_JAR]
-                               [--out-dir OUT_DIR] [--exclusive] [--force]
-                               [--continue-on-error]
-                               [--bytecode-mode {FULL,STRIP_SAFE,STRIP_FAST}]
-                               [--build-patches] [--no-build-patches]
-                               [--build-cli] [--download-cli]
-                               [--no-download-cli] [--sign] [--doctor]
-                               [--bootstrap-tools] [--bootstrap-python-tools]
-run_morphe_cli_patch.py: error: unrecognized arguments: --no-doctor-check
-
-
-Auto-repair stopped: repaired bundle did not patch successfully.
-
-````
-
-</details>
-
 <details><summary>Rocket Money log excerpt</summary>
 
 ````text
@@ -536,7 +500,7 @@ Auto-repair stopped: repaired bundle did not patch successfully.
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.truebill
@@ -623,7 +587,7 @@ ansit-app/transit---subway--bus-times-6-2-1-release/
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download (title=Transit - Subway &amp; Bus Times APK (Android App) - Free Download)
 [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.1/5126282.19416006a2ed10877e42d6fe9cb186adf6c66e8a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.1_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260721T043518Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260721/auto/s3/aws4_request&X-Amz-Signature=26d3ffd485fc38f5d808b02a08cf9b5451a94c84ad87ff8e132d5831701c8ca7
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.1/5126282.19416006a2ed10877e42d6fe9cb186adf6c66e8a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.1_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260721T052441Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260721/auto/s3/aws4_request&X-Amz-Signature=a02da92ad7bfbc10994ee138fb7118dedd9674384af6d89d61eab85299bfbb32
 curl: (22) The requested URL returned error: 403
 
 [gplay 6.2.1] [+] Downloading from Google Play: com.thetransitapp.droid
@@ -689,81 +653,6 @@ me": "<init>",
         "confidence": "none",
         "reason": "proto=False strings=0 invokes=0 literals=2 margin=1.7"
       }
-    }
-  ],
-  "writes": []
-}
-
-Auto-repair stopped: helper did not change patch files.
-
-````
-
-</details>
-
-<details><summary>UbikiTouch log excerpt</summary>
-
-````text
-` |  |
-
-
-patch_update_suggestions.json:
-{
-  "old_manifest": {
-    "package_name": "eu.toneiv.ubktouch",
-    "version_name": "1.16.13",
-    "version_code": "73441"
-  },
-  "new_manifest": {
-    "package_name": "eu.toneiv.ubktouch",
-    "version_name": "1.17.1",
-    "version_code": "77093"
-  },
-  "classes": [
-    {
-      "old_desc": "Leu/toneiv/ubktouch/util/xwzp;",
-      "new_desc": "Leu/toneiv/ubktouch/util/xwzp;",
-      "score": 999.0,
-      "confidence": "exact",
-      "reason": "descriptor still exists"
-    },
-    {
-      "old_desc": "Lgp1;",
-      "new_desc": "Lgp1;",
-      "score": 999.0,
-      "confidence": "exact",
-      "reason": "descriptor still exists"
-    }
-  ],
-  "fingerprints": [
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/ubikitouch/patches/src/main/kotlin/app/template/patches/ubikitouch/subscription/Fingerprints.kt",
-      "line": 25,
-      "kind": "Fingerprint",
-      "old_class": "Lgp1;",
-      "new_class": "Lgp1;",
-      "class_confidence": "exact",
-      "method_name": "y",
-      "status": "check-method",
-      "missing_strings": [],
-      "method_suggestion": {
-        "old_method": "Lgp1;->y()Z",
-        "new_method": "Lgp1;->U(Ljava/lang/Object;Ljava/nio/ByteBuffer;IIZ)Z",
-        "score": 5.0,
-        "confidence": "none",
-        "reason": "proto=False strings=0 invokes=0 literals=1 margin=0.0"
-      }
-    },
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/ubikitouch/patches/src/main/kotlin/app/template/patches/ubikitouch/subscription/Fingerprints.kt",
-      "line": 43,
-      "kind": "Fingerprint",
-      "old_class": "Leu/toneiv/ubktouch/util/xwzp;",
-      "new_class": "Leu/toneiv/ubktouch/util/xwzp;",
-      "class_confidence": "exact",
-      "method_name": "",
-      "status": "ok",
-      "missing_strings": [],
-      "method_suggestion": null
     }
   ],
   "writes": []
