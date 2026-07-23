@@ -1329,20 +1329,6 @@ apkpure-dlurl = "https://apkpure.com/depth-wallpapers-live-clock/com.jndapp.dept
 apkcombo-dlurl = "https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.jndapp.depth.live.wallpaper"
 
-[devcheck-device-system-info]
-enabled = true
-app-name = "DevCheck - Device & System Info"
-package-name = "flar2.devcheck"
-constant = "DEVCHECK_COMPATIBILITY"
-current-version = "6.46"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://devcheck.en.uptodown.com/android"
-apkcombo-dlurl = "https://apkcombo.com/search/flar2.devcheck/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=flar2.devcheck"
-
 [dictionary-com]
 enabled = true
 app-name = "Dictionary.com"
