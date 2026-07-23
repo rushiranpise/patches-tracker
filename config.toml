@@ -18,6 +18,32 @@ repo = "rushiranpise/morphe-patches"
 asset_regex = ".*\\.(mpp|rvp|jar)$"
 prerelease = false
 
+[abrp-ev-trip-planner]
+enabled = true
+app-name = "ABRP - EV Trip Planner"
+package-name = "com.iternio.abrpapp"
+constant = "ABRP_COMPATIBILITY"
+current-version = "7.1.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.iternio.abrpapp/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.iternio.abrpapp"
+
+[accubattery]
+enabled = true
+app-name = "AccuBattery"
+package-name = "com.digibites.accubattery"
+constant = "ACCUBATTERY_COMPATIBILITY"
+current-version = "2.1.8"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.digibites.accubattery/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.digibites.accubattery"
+
 [accuweather]
 enabled = true
 app-name = "AccuWeather"
@@ -48,6 +74,19 @@ apkpure-dlurl = "https://apkpure.com/ex-file-manager/com.ace.ex.file.manager"
 apkcombo-dlurl = "https://apkcombo.com/search/com.ace.ex.file.manager/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.ace.ex.file.manager"
 
+[activity-launcher]
+enabled = true
+app-name = "Activity Launcher"
+package-name = "de.szalkowski.activitylauncher"
+constant = "ACTIVITYLAUNCHER_COMPATIBILITY"
+current-version = "2.2.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/de.szalkowski.activitylauncher/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=de.szalkowski.activitylauncher"
+
 [adguard-nightly]
 enabled = true
 app-name = "AdGuard Nightly"
@@ -62,6 +101,19 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/adguard-software-limited/adguar
 uptodown-dlurl = "https://adguard-for-android.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.adguard.android/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.adguard.android"
+
+[adguard-vpn]
+enabled = true
+app-name = "AdGuard VPN"
+package-name = "com.adguard.vpn"
+constant = "ADGUARD_VPN_COMPATIBILITY"
+current-version = "2.16.65"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.adguard.vpn/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.adguard.vpn"
 
 [aida64]
 enabled = true
@@ -78,6 +130,32 @@ uptodown-dlurl = "https://aida64.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.finalwire.aida64/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.finalwire.aida64"
 
+[aio-streamer]
+enabled = true
+app-name = "AIO Streamer"
+package-name = "com.streamdev.aiostreamer"
+constant = "AIO_STREAMER_COMPATIBILITY"
+current-version = "6.6.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.streamdev.aiostreamer/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.streamdev.aiostreamer"
+
+[aio-streamer-2]
+enabled = true
+app-name = "AIO Streamer"
+package-name = "com.streamdev.aiostreamer"
+constant = "AIOSTREAMER_COMPATIBILITY"
+current-version = "6.6.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.streamdev.aiostreamer/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.streamdev.aiostreamer"
+
 [aiscore]
 enabled = true
 app-name = "AiScore"
@@ -92,6 +170,19 @@ uptodown-dlurl = "https://aiscore-live-footaball-and-basketball.en.uptodown.com/
 apkpure-dlurl = "https://apkpure.com/aiscore-live-sports-scores/com.onesports.score"
 apkcombo-dlurl = "https://apkcombo.com/search/com.onesports.score/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.onesports.score"
+
+[alight-motion]
+enabled = true
+app-name = "Alight Motion"
+package-name = "com.alightcreative.motion"
+constant = "ALIGHT_MOTION_COMPATIBILITY"
+current-version = "5.0.273.1028425"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.alightcreative.motion/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.alightcreative.motion"
 
 [all-reader]
 enabled = true
@@ -122,12 +213,25 @@ apkpure-dlurl = "https://apkpure.com/amazon-india-shop-pay-minitv/in.amazon.mSho
 apkcombo-dlurl = "https://apkcombo.com/search/in.amazon.mShop.android.shopping/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=in.amazon.mShop.android.shopping"
 
+[amazon-music]
+enabled = true
+app-name = "Amazon Music"
+package-name = "com.amazon.mp3"
+constant = "AMAZON_MUSIC_COMPATIBILITY"
+current-version = "26.22.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.amazon.mp3/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.amazon.mp3"
+
 [amazon-shopping]
 enabled = true
 app-name = "Amazon Shopping"
 package-name = "com.amazon.mShop.android.shopping"
 constant = "AMAZON_SHOPPING_COMPATIBILITY"
-current-version = "32.13.0.100"
+current-version = "32.13.2.100"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -165,6 +269,32 @@ apkpure-dlurl = "https://apkpure.com/4k-wallpapers-amoledpix/com.androholic.amol
 apkcombo-dlurl = "https://apkcombo.com/search/com.androholic.amoledpix/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.androholic.amoledpix"
 
+[ampere]
+enabled = true
+app-name = "Ampere"
+package-name = "com.gombosdev.ampere"
+constant = "AMPERE_COMPATIBILITY"
+current-version = "v4.36.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.gombosdev.ampere/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.gombosdev.ampere"
+
+[ampereflow]
+enabled = true
+app-name = "AmpereFlow"
+package-name = "com.androxus.batterymeter"
+constant = "AMPEREFLOW_COMPATIBILITY"
+current-version = "2.0.8"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.androxus.batterymeter/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.androxus.batterymeter"
+
 [anatomy]
 enabled = true
 app-name = "Anatomy"
@@ -193,6 +323,19 @@ apkpure-dlurl = "https://apkpure.com/android-developer-verifier/com.google.andro
 apkcombo-dlurl = "https://apkcombo.com/search/com.google.android.verifier/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.google.android.verifier"
 
+[andropods]
+enabled = true
+app-name = "AndroPods"
+package-name = "pro.vitalii.andropods"
+constant = "ANDROPODS_COMPATIBILITY"
+current-version = "1.5.28"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/pro.vitalii.andropods/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=pro.vitalii.andropods"
+
 [anime-depth-wallpapers]
 enabled = true
 app-name = "Anime Depth Wallpapers"
@@ -206,6 +349,19 @@ apk-types = "apks"
 apkpure-dlurl = "https://apkpure.com/anime-depth-wallpapers/com.jndapp.anime.depth.live.wallpaper"
 apkcombo-dlurl = "https://apkcombo.com/search/com.jndapp.anime.depth.live.wallpaper/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.jndapp.anime.depth.live.wallpaper"
+
+[shareit-transfer-share-files]
+enabled = true
+app-name = "SHAREit- Transfer,Share Files"
+package-name = "com.lenovo.anyshare.gps"
+constant = "ANYSHARE_COMPATIBILITY"
+current-version = "6.26.88_ww"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.lenovo.anyshare.gps/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.lenovo.anyshare.gps"
 
 [apkmirror-installer]
 enabled = true
@@ -221,6 +377,162 @@ uptodown-dlurl = "https://apkmirror-installer-official.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/apkmirror-installer-official/com.apkmirror.helper.prod"
 apkcombo-dlurl = "https://apkcombo.com/search/com.apkmirror.helper.prod/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.apkmirror.helper.prod"
+
+[appcloner]
+enabled = true
+app-name = "AppCloner"
+package-name = "com.applisto.appcloner"
+constant = "APPCLONER_COMPATIBILITY"
+current-version = "3.6.8"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.applisto.appcloner/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.applisto.appcloner"
+
+[automate]
+enabled = true
+app-name = "Automate"
+package-name = "com.llamalab.automate"
+constant = "AUTOMATE_COMPATIBILITY"
+current-version = "1.53.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.llamalab.automate/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.llamalab.automate"
+
+[az-screen-recorder-no-root]
+enabled = true
+app-name = "AZ Screen Recorder - No Root"
+package-name = "com.hecorat.screenrecorder.free"
+constant = "AZRECORDER_COMPATIBILITY"
+current-version = "6.9.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.hecorat.screenrecorder.free/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.hecorat.screenrecorder.free"
+
+[balance-meditation-sleep]
+enabled = true
+app-name = "Balance: Meditation & Sleep"
+package-name = "com.elevatelabs.geonosis"
+constant = "BALANCE_COMPATIBILITY"
+current-version = "1.204.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.elevatelabs.geonosis/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.elevatelabs.geonosis"
+
+[battery-guru]
+enabled = true
+app-name = "Battery Guru"
+package-name = "com.paget96.batteryguru"
+constant = "BATTERYGURU_COMPATIBILITY"
+current-version = "2.5.0.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.paget96.batteryguru/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.paget96.batteryguru"
+
+[battery-one-battery-monitor]
+enabled = true
+app-name = "Battery One - Battery Monitor"
+package-name = "com.oneapps.batteryone"
+constant = "BATTERYONE_COMPATIBILITY"
+current-version = "2.5.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.oneapps.batteryone/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.oneapps.batteryone"
+
+[batterypods]
+enabled = true
+app-name = "BatteryPods"
+package-name = "com.sumyapplications.bluetooth.earphone"
+constant = "BATTERYPODS_COMPATIBILITY"
+current-version = "7.10"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.sumyapplications.bluetooth.earphone/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.sumyapplications.bluetooth.earphone"
+
+[bereal]
+enabled = true
+app-name = "BeReal."
+package-name = "com.bereal.ft"
+constant = "BEREAL_COMPATIBILITY"
+current-version = "3.87.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.bereal.ft/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.bereal.ft"
+
+[bettersleep-relax-and-sleep]
+enabled = true
+app-name = "BetterSleep: Relax and Sleep"
+package-name = "ipnossoft.rma.free"
+constant = "BETTERSLEEP_COMPATIBILITY"
+current-version = "26.9"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/ipnossoft.rma.free/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=ipnossoft.rma.free"
+
+[bigo-live]
+enabled = true
+app-name = "BIGO LIVE"
+package-name = "sg.bigo.live"
+constant = "BIGO_LIVE_COMPATIBILITY"
+current-version = "6.50.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/sg.bigo.live/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=sg.bigo.live"
+
+[black-screen]
+enabled = true
+app-name = "Black Screen"
+package-name = "io.japp.blackscreen"
+constant = "BLACK_SCREEN_COMPATIBILITY"
+current-version = "2.0.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/io.japp.blackscreen/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=io.japp.blackscreen"
+
+[blazar-vpn]
+enabled = true
+app-name = "Blazar VPN"
+package-name = "io.deveem.vpn.global"
+constant = "BLAZAR_VPN_COMPATIBILITY"
+current-version = "2.4.0(gl)"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/io.deveem.vpn.global/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=io.deveem.vpn.global"
 
 [block-blast]
 enabled = true
@@ -267,6 +579,45 @@ apkpure-dlurl = "https://apkpure.com/block-puzzle/game.puzzle.blockpuzzle"
 apkcombo-dlurl = "https://apkcombo.com/search/game.puzzle.blockpuzzle/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=game.puzzle.blockpuzzle"
 
+[blockwatch]
+enabled = true
+app-name = "BlockWatch"
+package-name = "com.blockwatch.blockwatchapp"
+constant = "BLOCKWATCH_COMPATIBILITY"
+current-version = "1.0.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.blockwatch.blockwatchapp/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.blockwatch.blockwatchapp"
+
+[bloomberg-the-financial-app]
+enabled = true
+app-name = "Bloomberg: The Financial App"
+package-name = "com.bloomberg.android.plus"
+constant = "BLOOMBERG_COMPATIBILITY"
+current-version = "6.61.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.bloomberg.android.plus/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.bloomberg.android.plus"
+
+[bluetooth-volume-manager]
+enabled = true
+app-name = "Bluetooth Volume Manager"
+package-name = "eu.darken.bluemusic"
+constant = "BLUETOOTH_VOLUME_MANAGER_COMPATIBILITY"
+current-version = "3.4.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/eu.darken.bluemusic/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=eu.darken.bluemusic"
+
 [blurams]
 enabled = true
 app-name = "Blurams"
@@ -296,6 +647,45 @@ apkpure-dlurl = "https://apkpure.com/blurwall-blur-wallpaper/apps.automan.blurwa
 apkcombo-dlurl = "https://apkcombo.com/search/apps.automan.blurwallpaper/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=apps.automan.blurwallpaper"
 
+[boldvoice-american-accent]
+enabled = true
+app-name = "BoldVoice: American Accent"
+package-name = "com.wellocution.androidapp"
+constant = "BOLDVOICE_COMPATIBILITY"
+current-version = "4.3.9"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.wellocution.androidapp/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.wellocution.androidapp"
+
+[boostcamp-workout-gym-plan]
+enabled = true
+app-name = "Boostcamp: Workout & Gym Plan"
+package-name = "com.bpmhealth.boostcamp"
+constant = "BOOSTCAMP_COMPATIBILITY"
+current-version = "262"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.bpmhealth.boostcamp/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.bpmhealth.boostcamp"
+
+[boultbox]
+enabled = true
+app-name = "BoultBox"
+package-name = "com.boultbox"
+constant = "BOULTBOX_COMPATIBILITY"
+current-version = "1.1.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.boultbox/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.boultbox"
+
 [box-box]
 enabled = true
 app-name = "Box Box"
@@ -311,20 +701,59 @@ apkpure-dlurl = "https://apkpure.com/box-box-club-formula-widgets/club.boxbox.an
 apkcombo-dlurl = "https://apkcombo.com/search/club.boxbox.android/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=club.boxbox.android"
 
+[brave-browser-nightly]
+enabled = true
+app-name = "Brave Browser Nightly"
+package-name = "com.brave.browser_nightly"
+constant = "BRAVE_COMPATIBILITY"
+current-version = "1.93.70"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.brave.browser_nightly/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.brave.browser_nightly"
+
 [buzzcast]
 enabled = true
 app-name = "BuzzCast"
 package-name = "com.guochao.faceshow"
 constant = "BUZZCAST_COMPATIBILITY"
-current-version = "3.2.80"
+current-version = "3.2.81"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apks"
+apk-types = "xapk"
 uptodown-dlurl = "https://buzzcast.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/buzzcast-live-video-chat-app/com.guochao.faceshow"
 apkcombo-dlurl = "https://apkcombo.com/search/com.guochao.faceshow/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.guochao.faceshow"
+
+[all-in-one-calculator]
+enabled = true
+app-name = "All-In-One Calculator"
+package-name = "all.in.one.calculator"
+constant = "CALCULATOR_COMPATIBILITY"
+current-version = "3.3.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/all.in.one.calculator/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=all.in.one.calculator"
+
+[calimoto]
+enabled = true
+app-name = "calimoto"
+package-name = "com.calimoto.calimoto"
+constant = "CALIMOTO_COMPATIBILITY"
+current-version = "2026.07.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.calimoto.calimoto/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.calimoto.calimoto"
 
 [cube-acr]
 enabled = true
@@ -340,6 +769,32 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/cube-systems/call-recorder-cube
 uptodown-dlurl = "https://cube-acr.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.catalinagroup.callrecorder/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.catalinagroup.callrecorder"
+
+[calm-sleep-meditation]
+enabled = true
+app-name = "Calm: Sleep & Meditation"
+package-name = "com.calm.android"
+constant = "CALM_COMPATIBILITY"
+current-version = "6.99.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.calm.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.calm.android"
+
+[calory-calorie-counter-diet]
+enabled = true
+app-name = "Calory - Calorie Counter & Diet"
+package-name = "com.funnmedia.calory"
+constant = "CALORY_COMPATIBILITY"
+current-version = "3.6.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.funnmedia.calory/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.funnmedia.calory"
 
 [camscanner]
 enabled = true
@@ -362,21 +817,60 @@ enabled = true
 app-name = "Canva"
 package-name = "com.canva.editor"
 constant = "CANVA_COMPATIBILITY"
-current-version = "2.368.0"
+current-version = "2.369.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apk xapk apks"
+apk-types = "apks"
 uptodown-dlurl = "https://canva.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.canva.editor/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.canva.editor"
+
+[capcut]
+enabled = true
+app-name = "CapCut"
+package-name = "com.lemon.lvoverseas"
+constant = "CAPCUT_COMPATIBILITY"
+current-version = "18.5.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.lemon.lvoverseas/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.lemon.lvoverseas"
+
+[capod]
+enabled = true
+app-name = "CAPod"
+package-name = "eu.darken.capod"
+constant = "CAPOD_COMPATIBILITY"
+current-version = "5.2.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/eu.darken.capod/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=eu.darken.capod"
+
+[carb-manager]
+enabled = true
+app-name = "Carb Manager"
+package-name = "com.wombatapps.carbmanager"
+constant = "CARBMANAGER_COMPATIBILITY"
+current-version = "13.2.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.wombatapps.carbmanager/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.wombatapps.carbmanager"
 
 [carbon]
 enabled = true
 app-name = "Carbon"
 package-name = "com.joincarbon.nutrition"
 constant = "CARBON_COMPATIBILITY"
-current-version = "2.76.5784"
+current-version = "2.76.5891"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -391,7 +885,7 @@ enabled = true
 app-name = "Carousell"
 package-name = "com.thecarousell.Carousell"
 constant = "CAROUSELL_COMPATIBILITY"
-current-version = "2.461.8"
+current-version = "2.463.9"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -431,6 +925,84 @@ uptodown-dlurl = "https://cashew.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.budget.tracker_app/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.budget.tracker_app"
 
+[castle-tv]
+enabled = true
+app-name = "Castle TV"
+package-name = "com.gxnet.castle.indiatv"
+constant = "CASTLETV_COMPATIBILITY"
+current-version = "1.1.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.gxnet.castle.indiatv/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.gxnet.castle.indiatv"
+
+[chamet-live-video-chat-meet]
+enabled = true
+app-name = "Chamet- Live Video Chat & Meet"
+package-name = "com.hkfuliao.chamet"
+constant = "CHAMET_COMPATIBILITY"
+current-version = "4.4.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.hkfuliao.chamet/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.hkfuliao.chamet"
+
+[charge-meter]
+enabled = true
+app-name = "Charge Meter"
+package-name = "dev.km.android.chargemeter"
+constant = "CHARGEMETER_COMPATIBILITY"
+current-version = "2.9.7"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/dev.km.android.chargemeter/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=dev.km.android.chargemeter"
+
+[chatgpt]
+enabled = true
+app-name = "ChatGPT"
+package-name = "com.openai.chatgpt"
+constant = "CHATGPT_COMPATIBILITY"
+current-version = "1.2026.181"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.openai.chatgpt/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.openai.chatgpt"
+
+[chefkoch]
+enabled = true
+app-name = "Chefkoch"
+package-name = "de.pixelhouse"
+constant = "CHEFKOCH_COMPATIBILITY"
+current-version = "7.7.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/de.pixelhouse/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=de.pixelhouse"
+
+[chegg-study]
+enabled = true
+app-name = "Chegg Study"
+package-name = "com.chegg"
+constant = "CHEGG_COMPATIBILITY"
+current-version = "15.37.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.chegg/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.chegg"
+
 [citizen]
 enabled = true
 app-name = "Citizen"
@@ -463,16 +1035,29 @@ apkpure-dlurl = "https://apkpure.com/citymapper/com.citymapper.app.release"
 apkcombo-dlurl = "https://apkcombo.com/search/com.citymapper.app.release/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.citymapper.app.release"
 
+[cloaked]
+enabled = true
+app-name = "Cloaked"
+package-name = "app.android.cloaked"
+constant = "CLOAKED_COMPATIBILITY"
+current-version = "2.88.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/app.android.cloaked/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=app.android.cloaked"
+
 [clue-period-cycle-tracker]
 enabled = true
 app-name = "Clue Period & Cycle Tracker"
 package-name = "com.clue.android"
 constant = "CLUE_COMPATIBILITY"
-current-version = "261.0"
+current-version = "262.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apks"
+apk-types = "xapk"
 uptodown-dlurl = "https://clue.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/clue-period-tracker-calendar/com.clue.android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.clue.android/"
@@ -492,6 +1077,32 @@ apkpure-dlurl = "https://apkpure.com/colornote-notepad-notes/com.socialnmobile.d
 apkcombo-dlurl = "https://apkcombo.com/search/com.socialnmobile.dictapps.notepad.color.note/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.socialnmobile.dictapps.notepad.color.note"
 
+[contacts-sync]
+enabled = true
+app-name = "Contacts Sync"
+package-name = "com.lb.contacts_sync"
+constant = "CONTACTS_SYNC_COMPATIBILITY"
+current-version = "3.73"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.lb.contacts_sync/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.lb.contacts_sync"
+
+[cooked]
+enabled = true
+app-name = "Cooked"
+package-name = "wiki.cooked"
+constant = "COOKED_COMPATIBILITY"
+current-version = "4.3.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/wiki.cooked/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=wiki.cooked"
+
 [countdown-widget]
 enabled = true
 app-name = "Countdown Widget"
@@ -506,6 +1117,19 @@ uptodown-dlurl = "https://countdown-widget.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/countdown-widget%E3%83%BBcountdown-app/me.gira.widget.countdown"
 apkcombo-dlurl = "https://apkcombo.com/search/me.gira.widget.countdown/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=me.gira.widget.countdown"
+
+[course-hero]
+enabled = true
+app-name = "Course Hero"
+package-name = "com.coursehero.coursehero"
+constant = "COURSEHERO_COMPATIBILITY"
+current-version = "4.11.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.coursehero.coursehero/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.coursehero.coursehero"
 
 [cpu-z]
 enabled = true
@@ -522,6 +1146,19 @@ uptodown-dlurl = "https://cpu-z.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.cpuid.cpu_z/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.cpuid.cpu_z"
 
+[cricheroes]
+enabled = true
+app-name = "CricHeroes"
+package-name = "com.cricheroes.cricheroes.alpha"
+constant = "CRICHEROES_COMPATIBILITY"
+current-version = "26.7.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.cricheroes.cricheroes.alpha/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.cricheroes.cricheroes.alpha"
+
 [crime-radar]
 enabled = true
 app-name = "Crime Radar"
@@ -536,6 +1173,32 @@ uptodown-dlurl = "https://crimeradar.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/crimeradar-dispatch-alerts/com.newsbreak.crimeradar"
 apkcombo-dlurl = "https://apkcombo.com/search/com.newsbreak.crimeradar/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.newsbreak.crimeradar"
+
+[camscanner-pdf]
+enabled = true
+app-name = "CamScanner PDF"
+package-name = "com.intsig.cspdf"
+constant = "CSPDF_COMPATIBILITY"
+current-version = "3.13.7.202604030000"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.intsig.cspdf/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.intsig.cspdf"
+
+[cx-file-explorer]
+enabled = true
+app-name = "CX File Explorer"
+package-name = "com.cxinventor.file.explorer"
+constant = "CXFILEEXPLORER_COMPATIBILITY"
+current-version = "2.7.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.cxinventor.file.explorer/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.cxinventor.file.explorer"
 
 [dailyhunt]
 enabled = true
@@ -552,6 +1215,45 @@ apkpure-dlurl = "https://apkpure.com/dailyhunt-news-magazines/com.eterno"
 apkcombo-dlurl = "https://apkcombo.com/search/com.eterno/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.eterno"
 
+[deepstash]
+enabled = true
+app-name = "Deepstash"
+package-name = "com.deepstash"
+constant = "DEEPSTASH_COMPATIBILITY"
+current-version = "30.2.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.deepstash/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.deepstash"
+
+[deezer]
+enabled = true
+app-name = "Deezer"
+package-name = "deezer.android.app"
+constant = "DEEZER_COMPATIBILITY"
+current-version = "9.0.17.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/deezer.android.app/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=deezer.android.app"
+
+[defit]
+enabled = true
+app-name = "DeFit"
+package-name = "com.fitness.debugger"
+constant = "DEFIT_COMPATIBILITY"
+current-version = "0.9.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.fitness.debugger/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.fitness.debugger"
+
 [depth-live-wallpaper]
 enabled = true
 app-name = "Depth Live Wallpaper"
@@ -565,6 +1267,45 @@ apk-types = "apks"
 apkpure-dlurl = "https://apkpure.com/depth-wallpapers-live-clock/com.jndapp.depth.live.wallpaper"
 apkcombo-dlurl = "https://apkcombo.com/search/com.jndapp.depth.live.wallpaper/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.jndapp.depth.live.wallpaper"
+
+[devcheck-device-system-info]
+enabled = true
+app-name = "DevCheck - Device & System Info"
+package-name = "flar2.devcheck"
+constant = "DEVCHECK_COMPATIBILITY"
+current-version = "6.44"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/flar2.devcheck/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=flar2.devcheck"
+
+[dictionary-com]
+enabled = true
+app-name = "Dictionary.com"
+package-name = "com.tfd.mobile.TfdSearch"
+constant = "DICTIONARY_COMPATIBILITY"
+current-version = "16.0.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.tfd.mobile.TfdSearch/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.tfd.mobile.TfdSearch"
+
+[diskwala]
+enabled = true
+app-name = "Diskwala"
+package-name = "com.diskwalaapp"
+constant = "DISKWALA_COMPATIBILITY"
+current-version = "22.9"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.diskwalaapp/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.diskwalaapp"
 
 [terabox]
 enabled = true
@@ -586,7 +1327,7 @@ enabled = true
 app-name = "Duolingo"
 package-name = "com.duolingo"
 constant = "DUOLINGO_COMPATIBILITY"
-current-version = "6.87.6"
+current-version = "6.88.2"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -595,6 +1336,45 @@ uptodown-dlurl = "https://duolingo.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/duolingo-language-chess/com.duolingo"
 apkcombo-dlurl = "https://apkcombo.com/search/com.duolingo/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.duolingo"
+
+[dynamic-spot]
+enabled = true
+app-name = "Dynamic Spot"
+package-name = "com.jamworks.dynamicspot"
+constant = "DYNAMICSPOT_COMPATIBILITY"
+current-version = "2.01"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.jamworks.dynamicspot/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.jamworks.dynamicspot"
+
+[eargasm]
+enabled = true
+app-name = "EarGasm"
+package-name = "com.eargasm.search"
+constant = "EARGASM_COMPATIBILITY"
+current-version = "1.1.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.eargasm.search/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.eargasm.search"
+
+[electron]
+enabled = true
+app-name = "Electron"
+package-name = "com.mahersafadi.electron"
+constant = "ELECTRON_COMPATIBILITY"
+current-version = "3.0.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.mahersafadi.electron/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.mahersafadi.electron"
 
 [es-file-explorer]
 enabled = true
@@ -611,6 +1391,32 @@ apkpure-dlurl = "https://apkpure.com/es-file-explorer-file-manager/com.estrongs.
 apkcombo-dlurl = "https://apkcombo.com/search/com.estrongs.android.pop/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.estrongs.android.pop"
 
+[ev-charging-stations-map]
+enabled = true
+app-name = "EV Charging Stations Map"
+package-name = "com.galsenstudio.teslasuperchargers"
+constant = "EV_CHARGING_COMPATIBILITY"
+current-version = "1.10.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.galsenstudio.teslasuperchargers/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.galsenstudio.teslasuperchargers"
+
+[everydollar]
+enabled = true
+app-name = "EveryDollar"
+package-name = "com.everydollar.android"
+constant = "EVERYDOLLAR_COMPATIBILITY"
+current-version = "2026.6.190"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.everydollar.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.everydollar.android"
+
 [excel]
 enabled = true
 app-name = "Excel"
@@ -626,6 +1432,45 @@ apkpure-dlurl = "https://apkpure.com/microsoft-excel-spreadsheets/com.microsoft.
 apkcombo-dlurl = "https://apkcombo.com/search/com.microsoft.office.excel/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.microsoft.office.excel"
 
+[facebook]
+enabled = true
+app-name = "Facebook"
+package-name = "com.facebook.katana"
+constant = "FACEBOOK_COMPATIBILITY"
+current-version = "558.0.0.70.72"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.facebook.katana/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.facebook.katana"
+
+[fake-gps-location]
+enabled = true
+app-name = "Fake GPS Location"
+package-name = "com.blogspot.newapphorizons.fakegps"
+constant = "FAKEGPS_COMPATIBILITY"
+current-version = "5.8.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.blogspot.newapphorizons.fakegps/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.blogspot.newapphorizons.fakegps"
+
+[feedly-smart-news-reader]
+enabled = true
+app-name = "Feedly - Smart News Reader"
+package-name = "com.devhd.feedly"
+constant = "FEEDLY_COMPATIBILITY"
+current-version = "90.0.45"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.devhd.feedly/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.devhd.feedly"
+
 [fitbod]
 enabled = true
 app-name = "Fitbod"
@@ -640,6 +1485,19 @@ uptodown-dlurl = "https://fitbod.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/fitbod-workout-fitness-plans/com.fitbod.fitbod"
 apkcombo-dlurl = "https://apkcombo.com/search/com.fitbod.fitbod/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.fitbod.fitbod"
+
+[franco-kernel-manager]
+enabled = true
+app-name = "Franco Kernel Manager"
+package-name = "com.franco.kernel"
+constant = "FKM_COMPATIBILITY"
+current-version = "7.0.48"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.franco.kernel/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.franco.kernel"
 
 [flightaware]
 enabled = true
@@ -701,6 +1559,45 @@ apkpure-dlurl = "https://apkpure.com/flud-torrent-downloader-app/com.delphicoder
 apkcombo-dlurl = "https://apkcombo.com/search/com.delphicoder.flud/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.delphicoder.flud"
 
+[freebie-alerts]
+enabled = true
+app-name = "Freebie Alerts"
+package-name = "com.rodolfogs.nextdooralerts"
+constant = "FREEBIEALERTS_COMPATIBILITY"
+current-version = "3.9.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.rodolfogs.nextdooralerts/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.rodolfogs.nextdooralerts"
+
+[freestufffinder]
+enabled = true
+app-name = "FreeStuffFinder"
+package-name = "com.freestufffinder.app"
+constant = "FREESTUFFFINDER_COMPATIBILITY"
+current-version = "6.3.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.freestufffinder.app/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.freestufffinder.app"
+
+[genius-fax-send-fax-from-phone]
+enabled = true
+app-name = "Genius Fax - Send Fax from Phone"
+package-name = "com.thegrizzlylabs.geniusfax"
+constant = "GENIUSFAX_COMPATIBILITY"
+current-version = "1.11.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.thegrizzlylabs.geniusfax/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.thegrizzlylabs.geniusfax"
+
 [genius-scan]
 enabled = true
 app-name = "Genius Scan"
@@ -715,6 +1612,45 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/the-grizzly-labs/genius-scan-pd
 uptodown-dlurl = "https://genius-scan.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.thegrizzlylabs.geniusscan.free/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.thegrizzlylabs.geniusscan.free"
+
+[glassify]
+enabled = true
+app-name = "Glassify"
+package-name = "com.mahmoudzadah.glassifywidgets"
+constant = "GLASSIFY_COMPATIBILITY"
+current-version = "1.4.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.mahmoudzadah.glassifywidgets/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.mahmoudzadah.glassifywidgets"
+
+[india-vpn-globalvpn]
+enabled = true
+app-name = "India VPN - GlobalVPN"
+package-name = "india.vpn.globalvpn"
+constant = "GLOBALVPN_COMPATIBILITY"
+current-version = "1.0.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/india.vpn.globalvpn/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=india.vpn.globalvpn"
+
+[phone-by-google]
+enabled = true
+app-name = "Phone by Google"
+package-name = "com.google.android.dialer"
+constant = "GOOGLE_DIALER_COMPATIBILITY"
+current-version = "227.0.932096130-downloadable"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.google.android.dialer/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.google.android.dialer"
 
 [google-photos]
 enabled = true
@@ -731,6 +1667,58 @@ apkpure-dlurl = "https://apkpure.com/google-photos/com.google.android.apps.photo
 apkcombo-dlurl = "https://apkcombo.com/search/com.google.android.apps.photos/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.google.android.apps.photos"
 
+[google-wallet]
+enabled = true
+app-name = "Google Wallet"
+package-name = "com.google.android.apps.walletnfcrel"
+constant = "GOOGLE_WALLET_COMPATIBILITY"
+current-version = "26.27.941270914"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.google.android.apps.walletnfcrel/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.google.android.apps.walletnfcrel"
+
+[gps-map-camera-geotag-photos]
+enabled = true
+app-name = "GPS Map Camera- Geotag Photos"
+package-name = "com.gpsmapcamera.geotagginglocationonphoto"
+constant = "GPS_MAP_CAMERA_COMPATIBILITY"
+current-version = "1.9.21"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.gpsmapcamera.geotagginglocationonphoto/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.gpsmapcamera.geotagginglocationonphoto"
+
+[gradient-weather]
+enabled = true
+app-name = "Gradient Weather"
+package-name = "com.subtlesignals.gradientweather"
+constant = "GRADIENT_WEATHER_COMPATIBILITY"
+current-version = "1.0.71"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.subtlesignals.gradientweather/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.subtlesignals.gradientweather"
+
+[grammarly]
+enabled = true
+app-name = "Grammarly"
+package-name = "com.grammarly.android.keyboard"
+constant = "GRAMMARLY_COMPATIBILITY"
+current-version = "2.110.100044"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.grammarly.android.keyboard/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.grammarly.android.keyboard"
+
 [greenify]
 enabled = true
 app-name = "Greenify"
@@ -745,6 +1733,32 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/oasis-feng/greenify/"
 uptodown-dlurl = "https://greenify.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.oasisfeng.greenify/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.oasisfeng.greenify"
+
+[habitify]
+enabled = true
+app-name = "Habitify"
+package-name = "co.unstatic.habitify"
+constant = "HABITIFY_COMPATIBILITY"
+current-version = "42.3.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/co.unstatic.habitify/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=co.unstatic.habitify"
+
+[health-sync]
+enabled = true
+app-name = "Health Sync"
+package-name = "nl.appyhapps.healthsync"
+constant = "HEALTHSYNC_COMPATIBILITY"
+current-version = "7.9.1.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/nl.appyhapps.healthsync/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=nl.appyhapps.healthsync"
 
 [hibernator]
 enabled = true
@@ -791,6 +1805,32 @@ apkpure-dlurl = "https://apkpure.com/hola-vpn-fast-free-vpn-proxy/org.hola.play"
 apkcombo-dlurl = "https://apkcombo.com/search/org.hola.play/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=org.hola.play"
 
+[home-workout-no-equipment]
+enabled = true
+app-name = "Home Workout - No Equipment"
+package-name = "homeworkout.homeworkouts.noequipment"
+constant = "HOME_WORKOUT_COMPATIBILITY"
+current-version = "1.7.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/homeworkout.homeworkouts.noequipment/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=homeworkout.homeworkouts.noequipment"
+
+[hotukdeals-deals-vouchers]
+enabled = true
+app-name = "hotukdeals - Deals & Vouchers"
+package-name = "com.tippingcanoe.hukd"
+constant = "HOTUKDEALS_COMPATIBILITY"
+current-version = "8.16.00"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.tippingcanoe.hukd/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.tippingcanoe.hukd"
+
 [http-sniffer]
 enabled = true
 app-name = "HTTP Sniffer"
@@ -804,6 +1844,19 @@ apk-types = "xapk"
 apkpure-dlurl = "https://apkpure.com/http-sniffer-mocker/com.anetcapture.mock"
 apkcombo-dlurl = "https://apkcombo.com/search/com.anetcapture.mock/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.anetcapture.mock"
+
+[i-am-sober]
+enabled = true
+app-name = "I Am Sober"
+package-name = "com.thehungrywasp.iamsober"
+constant = "IAMSOBER_COMPATIBILITY"
+current-version = "8.6.7"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.thehungrywasp.iamsober/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.thehungrywasp.iamsober"
 
 [image-video-date-fixer]
 enabled = true
@@ -819,6 +1872,19 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/jd-android-apps/image-and-video
 uptodown-dlurl = "https://image-and-video-date-fixer.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.duong.imagedatefixer/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=eu.duong.imagedatefixer"
+
+[implayer-iptv-player-streamer]
+enabled = true
+app-name = "iMPlayer- IPTV Player & Streamer"
+package-name = "com.myiptvonline.implayer"
+constant = "IMPLAYER_COMPATIBILITY"
+current-version = "4.0.1.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.myiptvonline.implayer/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.myiptvonline.implayer"
 
 [inmigreat]
 enabled = true
@@ -850,6 +1916,19 @@ apkpure-dlurl = "https://apkpure.com/clickmate-auto-clicker-macro/com.inscode.au
 apkcombo-dlurl = "https://apkcombo.com/search/com.inscode.autoclicker/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.inscode.autoclicker"
 
+[inspired-minds-early-childhood]
+enabled = true
+app-name = "Inspired Minds - Early Childhood"
+package-name = "com.iteachtinyhumans.inspired_minds"
+constant = "INSPIRED_MINDS_COMPATIBILITY"
+current-version = "5.6.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.iteachtinyhumans.inspired_minds/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.iteachtinyhumans.inspired_minds"
+
 [inure-app-manager]
 enabled = true
 app-name = "Inure App Manager"
@@ -865,6 +1944,19 @@ apkpure-dlurl = "https://apkpure.com/inure-app-manager/app.simple.inure.play"
 apkcombo-dlurl = "https://apkcombo.com/search/app.simple.inure.play/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=app.simple.inure.play"
 
+[iss-live-now-earth-space]
+enabled = true
+app-name = "ISS Live Now - Earth & Space"
+package-name = "com.nicedayapps.iss_free"
+constant = "ISS_LIVE_NOW_COMPATIBILITY"
+current-version = "8.5.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.nicedayapps.iss_free/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.nicedayapps.iss_free"
+
 [jefit]
 enabled = true
 app-name = "JEFIT"
@@ -879,6 +1971,19 @@ uptodown-dlurl = "https://jefit.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/jefit-gym-workout-tracker/je.fit"
 apkcombo-dlurl = "https://apkcombo.com/search/je.fit/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=je.fit"
+
+[joi-live-video-chat-dating]
+enabled = true
+app-name = "Joi - Live Video Chat & Dating"
+package-name = "video.chat.joi"
+constant = "JOI_COMPATIBILITY"
+current-version = "2.6.4.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/video.chat.joi/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=video.chat.joi"
 
 [kahoot]
 enabled = true
@@ -944,7 +2049,7 @@ enabled = true
 app-name = "komoot"
 package-name = "de.komoot.android"
 constant = "KOMOOT_COMPATIBILITY"
-current-version = "2026.28.2"
+current-version = "2026.29.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -953,6 +2058,19 @@ uptodown-dlurl = "https://komoot.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/komoot-hike-bike-run/de.komoot.android"
 apkcombo-dlurl = "https://apkcombo.com/search/de.komoot.android/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=de.komoot.android"
+
+[kwgt-kustom-widget-maker]
+enabled = true
+app-name = "KWGT Kustom Widget Maker"
+package-name = "org.kustom.widget"
+constant = "KUSTOM_WIDGET_COMPATIBILITY"
+current-version = "3.81b530915"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/org.kustom.widget/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=org.kustom.widget"
 
 [kyphosis]
 enabled = true
@@ -969,12 +2087,25 @@ apkpure-dlurl = "https://apkpure.com/muscle-motion-kyphosis/air.com.musclemotion
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.kyphosis/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=air.com.musclemotion.kyphosis"
 
+[labeless]
+enabled = true
+app-name = "Labeless"
+package-name = "com.bytes_and_pixels.food_buddy"
+constant = "LABELESS_COMPATIBILITY"
+current-version = "4.2.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.bytes_and_pixels.food_buddy/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.bytes_and_pixels.food_buddy"
+
 [lark-player]
 enabled = true
 app-name = "Lark Player"
 package-name = "com.dywx.larkplayer"
 constant = "LARK_PLAYER_COMPATIBILITY"
-current-version = "2026.9.6"
+current-version = "2026.10.5"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -989,11 +2120,11 @@ enabled = true
 app-name = "Lawfully"
 package-name = "com.lawfully.lawfully_ai_tracker"
 constant = "LAWFULLY_COMPATIBILITY"
-current-version = "6.7.1"
+current-version = "6.7.2"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apk xapk apks"
+apk-types = "xapk"
 uptodown-dlurl = "https://lawfully-case-tracker-usa.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/lawfully-uscis-case-tracker/com.lawfully.lawfully_ai_tracker"
 apkcombo-dlurl = "https://apkcombo.com/search/com.lawfully.lawfully_ai_tracker/"
@@ -1008,11 +2139,24 @@ current-version = "26.26.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "xapk"
+apk-types = "apks"
 uptodown-dlurl = "https://life360.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/life360-stay-connected-safe/com.life360.android.safetymapd"
 apkcombo-dlurl = "https://apkcombo.com/search/com.life360.android.safetymapd/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.life360.android.safetymapd"
+
+[linkedin]
+enabled = true
+app-name = "LinkedIn"
+package-name = "com.linkedin.android"
+constant = "LINKEDIN_COMPATIBILITY"
+current-version = "4.1.1214"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.linkedin.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.linkedin.android"
 
 [livescore]
 enabled = true
@@ -1029,6 +2173,58 @@ apkpure-dlurl = "https://apkpure.com/livescore-live-sports-scores/com.livescore"
 apkcombo-dlurl = "https://apkcombo.com/search/com.livescore/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.livescore"
 
+[loklok]
+enabled = true
+app-name = "Loklok"
+package-name = "com.woden.celestis"
+constant = "LOKLOK_COMPATIBILITY"
+current-version = "3.27.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.woden.celestis/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.woden.celestis"
+
+[lose-it-calorie-counter]
+enabled = true
+app-name = "Lose It! – Calorie Counter"
+package-name = "com.fitnow.loseit"
+constant = "LOSEIT_COMPATIBILITY"
+current-version = "18.3.701"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.fitnow.loseit/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.fitnow.loseit"
+
+[love8]
+enabled = true
+app-name = "Love8"
+package-name = "ltd.love8.couples.relationship"
+constant = "LOVE8_COMPATIBILITY"
+current-version = "3.5.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/ltd.love8.couples.relationship/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=ltd.love8.couples.relationship"
+
+[manga-plus-by-shueisha]
+enabled = true
+app-name = "MANGA Plus by SHUEISHA"
+package-name = "jp.co.shueisha.mangaplus"
+constant = "MANGA_PLUS_COMPATIBILITY"
+current-version = "2.5.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/jp.co.shueisha.mangaplus/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=jp.co.shueisha.mangaplus"
+
 [mapy]
 enabled = true
 app-name = "Mapy"
@@ -1044,20 +2240,72 @@ apkpure-dlurl = "https://apkpure.com/mapy-com-offline-outdoor-maps/cz.seznam.map
 apkcombo-dlurl = "https://apkcombo.com/search/cz.seznam.mapy/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=cz.seznam.mapy"
 
+[marinetraffic-ship-tracking]
+enabled = true
+app-name = "MarineTraffic: Ship Tracking"
+package-name = "com.kpler.marinetraffic"
+constant = "MARINETRAFFIC_COMPATIBILITY"
+current-version = "5.7.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.kpler.marinetraffic/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.kpler.marinetraffic"
+
+[material-capsule]
+enabled = true
+app-name = "Material Capsule"
+package-name = "com.pryshedko.mtisland"
+constant = "MATERIAL_CAPSULE_COMPATIBILITY"
+current-version = "15.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.pryshedko.mtisland/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pryshedko.mtisland"
+
+[materialpods]
+enabled = true
+app-name = "MaterialPods"
+package-name = "com.pryshedko.materialpods"
+constant = "MATERIAL_PODS_COMPATIBILITY"
+current-version = "6.70"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.pryshedko.materialpods/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pryshedko.materialpods"
+
 [mega]
 enabled = true
 app-name = "MEGA"
 package-name = "mega.privacy.android.app"
 constant = "MEGA_COMPATIBILITY"
-current-version = "16.9(261881039)(3c7e30562a)"
+current-version = "16.10(261970902)(8daeddaf4d)"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apks"
+apk-types = "apk"
 uptodown-dlurl = "https://mega.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/mega/mega.privacy.android.app"
 apkcombo-dlurl = "https://apkcombo.com/search/mega.privacy.android.app/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=mega.privacy.android.app"
+
+[meteoblue-weather]
+enabled = true
+app-name = "meteoblue Weather"
+package-name = "com.meteoblue.droid"
+constant = "METEOBLUE_COMPATIBILITY"
+current-version = "Cirrus Uncinus 3.0.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.meteoblue.droid/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.meteoblue.droid"
 
 [migraconnect]
 enabled = true
@@ -1133,6 +2381,71 @@ uptodown-dlurl = "https://ml-manager.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.javiersantos.mlmanager/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.javiersantos.mlmanager"
 
+[mobioffice-word-excel-slide]
+enabled = true
+app-name = "MobiOffice- Word, Excel, Slide"
+package-name = "com.mobisystems.office"
+constant = "MOBIOFFICE_COMPATIBILITY"
+current-version = "16.4.60095"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.mobisystems.office/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.mobisystems.office"
+
+[monarch-money]
+enabled = true
+app-name = "Monarch Money"
+package-name = "com.monarchmoney.mobile"
+constant = "MONARCH_COMPATIBILITY"
+current-version = "2.0.100"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.monarchmoney.mobile/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.monarchmoney.mobile"
+
+[moon-reader]
+enabled = true
+app-name = "Moon+ Reader"
+package-name = "com.flyersoft.moonreader"
+constant = "MOONREADER_COMPATIBILITY"
+current-version = "10.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.flyersoft.moonreader/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.flyersoft.moonreader"
+
+[motioncam-pro]
+enabled = true
+app-name = "MotionCam Pro"
+package-name = "com.motioncam"
+constant = "MOTIONCAM_COMPATIBILITY"
+current-version = "5.0.6-trial"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.motioncam/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.motioncam"
+
+[moviebase]
+enabled = true
+app-name = "Moviebase"
+package-name = "com.moviebase"
+constant = "MOVIEBASE_COMPATIBILITY"
+current-version = "6.12.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.moviebase/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.moviebase"
+
 [moviebox]
 enabled = true
 app-name = "MovieBox"
@@ -1177,6 +2490,110 @@ apkcombo-dlurl = "https://apkcombo.com/search/com.community.mbox.tv/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.community.mbox.tv"
 aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=MovieBoxTV"
 
+[mt-manager]
+enabled = true
+app-name = "MT Manager"
+package-name = "bin.mt.plus"
+constant = "MTMANAGER_COMPATIBILITY"
+current-version = "2.26.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/bin.mt.plus/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=bin.mt.plus"
+
+[mullvad-vpn]
+enabled = true
+app-name = "Mullvad VPN"
+package-name = "net.mullvad.mullvadvpn"
+constant = "MULLVAD_COMPATIBILITY"
+current-version = "2026.7"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/net.mullvad.mullvadvpn/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=net.mullvad.mullvadvpn"
+
+[musclewiki-gym-workout-fitness]
+enabled = true
+app-name = "MuscleWiki: Gym Workout & Fitness"
+package-name = "com.musclewiki.macro"
+constant = "MUSCLEWIKI_COMPATIBILITY"
+current-version = "3.1.8"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.musclewiki.macro/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.musclewiki.macro"
+
+[musescore-sheet-music-scores]
+enabled = true
+app-name = "MuseScore: Sheet Music & Scores"
+package-name = "com.musescore.playerlite"
+constant = "MUSESCORE_COMPATIBILITY"
+current-version = "2.14.36"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.musescore.playerlite/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.musescore.playerlite"
+
+[musixmatch-lyrics-finder]
+enabled = true
+app-name = "Musixmatch: lyrics finder"
+package-name = "com.musixmatch.android.lyrify"
+constant = "MUSIXMATCH_COMPATIBILITY"
+current-version = "8.4.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.musixmatch.android.lyrify/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.musixmatch.android.lyrify"
+
+[muswall]
+enabled = true
+app-name = "MusWall"
+package-name = "com.automan.albumwallpaper"
+constant = "MUSWALL_COMPATIBILITY"
+current-version = "1.8.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.automan.albumwallpaper/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.automan.albumwallpaper"
+
+[mx-player]
+enabled = true
+app-name = "MX Player"
+package-name = "com.mxtech.videoplayer.ad"
+constant = "MXPLAYER_COMPATIBILITY"
+current-version = "2.14.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.mxtech.videoplayer.ad/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.mxtech.videoplayer.ad"
+
+[mygate]
+enabled = true
+app-name = "MyGate"
+package-name = "com.mygate.user"
+constant = "MYGATE_COMPATIBILITY"
+current-version = "7.30.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.mygate.user/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.mygate.user"
+
 [permission-pilot]
 enabled = true
 app-name = "Permission Pilot"
@@ -1192,6 +2609,19 @@ uptodown-dlurl = "https://permission-pilot.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/permission-pilot/eu.darken.myperm"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.darken.myperm/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=eu.darken.myperm"
+
+[myplant-plant-identifier]
+enabled = true
+app-name = "MyPlant - Plant Identifier"
+package-name = "com.plant.identify.plantcare.identifier"
+constant = "MYPLANT_COMPATIBILITY"
+current-version = "4.4.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.plant.identify.plantcare.identifier/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.plant.identify.plantcare.identifier"
 
 [myradar]
 enabled = true
@@ -1268,6 +2698,19 @@ uptodown-dlurl = "https://netshare.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/kha.prog.mikrotik/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=kha.prog.mikrotik"
 
+[network-guru-net-analyzer]
+enabled = true
+app-name = "Network Guru - Net Analyzer"
+package-name = "com.paget96.netspeedindicator"
+constant = "NETWORKGURU_COMPATIBILITY"
+current-version = "1.9-beta5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.paget96.netspeedindicator/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.paget96.netspeedindicator"
+
 [newsbreak]
 enabled = true
 app-name = "NewsBreak"
@@ -1297,12 +2740,25 @@ uptodown-dlurl = "https://ninja-vpn.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/app.ninjavpn.android/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=app.ninjavpn.android"
 
+[notesnook-private-notes-app]
+enabled = true
+app-name = "Notesnook- Private Notes App"
+package-name = "com.streetwriters.notesnook"
+constant = "NOTESNOOK_COMPATIBILITY"
+current-version = "3.4.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.streetwriters.notesnook/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.streetwriters.notesnook"
+
 [nyt-games]
 enabled = true
 app-name = "NYT Games"
 package-name = "com.nytimes.crossword"
 constant = "NYT_GAMES_COMPATIBILITY"
-current-version = "6.34.0"
+current-version = "6.35.0"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -1328,20 +2784,189 @@ apkpure-dlurl = "https://apkpure.com/nzb360-sonarr-radarr-sab/com.kevinforeman.n
 apkcombo-dlurl = "https://apkcombo.com/search/com.kevinforeman.nzb360/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.kevinforeman.nzb360"
 
+[oasis]
+enabled = true
+app-name = "Oasis"
+package-name = "com.liveoasis.oasis"
+constant = "OASIS_COMPATIBILITY"
+current-version = "2.3.22"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.liveoasis.oasis/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.liveoasis.oasis"
+
+[obd-android]
+enabled = true
+app-name = "OBD Android"
+package-name = "ai.metaverselabs.obdandroid"
+constant = "OBD_ANDROID_COMPATIBILITY"
+current-version = "4.9"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/ai.metaverselabs.obdandroid/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=ai.metaverselabs.obdandroid"
+
+[octi]
+enabled = true
+app-name = "Octi"
+package-name = "eu.darken.octi"
+constant = "OCTI_COMPATIBILITY"
+current-version = "1.0.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/eu.darken.octi/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=eu.darken.octi"
+
+[odialer]
+enabled = true
+app-name = "ODialer"
+package-name = "com.oplus.dialer"
+constant = "ODIALER_COMPATIBILITY"
+current-version = "16.0.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.oplus.dialer/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.oplus.dialer"
+
+[offerup]
+enabled = true
+app-name = "OfferUp"
+package-name = "com.offerup"
+constant = "OFFERUP_COMPATIBILITY"
+current-version = "2026.24.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.offerup/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.offerup"
+
+[1dm-browser-downloader]
+enabled = true
+app-name = "1DM: Browser & Downloader"
+package-name = "idm.internet.download.manager"
+constant = "ONEDM_COMPATIBILITY"
+current-version = "18.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/idm.internet.download.manager/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=idm.internet.download.manager"
+
 [1tap-cleaner]
 enabled = true
 app-name = "1Tap Cleaner"
 package-name = "com.a0soft.gphone.acc.free"
 constant = "ONETAPCLEANER_COMPATIBILITY"
-current-version = "5.18"
+current-version = "5.21"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apk xapk apks"
+apk-types = "apks"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/azsoft-technology-inc/1tap-cleaner-clear-cache-and-history-log/"
 uptodown-dlurl = "https://1tap-cleaner.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.a0soft.gphone.acc.free/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.a0soft.gphone.acc.free"
+
+[on-rails]
+enabled = true
+app-name = "On Rails"
+package-name = "com.intsoftdev.nationalrail"
+constant = "ONRAILS_COMPATIBILITY"
+current-version = "5.1.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.intsoftdev.nationalrail/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.intsoftdev.nationalrail"
+
+[onx-offroad-gps-maps-trails]
+enabled = true
+app-name = "onX Offroad: GPS Maps & Trails"
+package-name = "onxmaps.offroad"
+constant = "ONX_OFFROAD_COMPATIBILITY"
+current-version = "26.24.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/onxmaps.offroad/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=onxmaps.offroad"
+
+[opennovel]
+enabled = true
+app-name = "OpenNovel"
+package-name = "co.opennovel.app"
+constant = "OPENNOVEL_COMPATIBILITY"
+current-version = "1.1.30"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/co.opennovel.app/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=co.opennovel.app"
+
+[opera-news-breaking-local]
+enabled = true
+app-name = "Opera News - Breaking & Local"
+package-name = "com.opera.app.news"
+constant = "OPERA_NEWS_COMPATIBILITY"
+current-version = "14.1.2254.83278"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.opera.app.news/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.opera.app.news"
+
+[oplus-mms]
+enabled = true
+app-name = "OPlus MMS"
+package-name = "com.android.mms"
+constant = "OPLUS_MMS_COMPATIBILITY"
+current-version = "16.40.30"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.android.mms/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.android.mms"
+
+[osmosis]
+enabled = true
+app-name = "Osmosis"
+package-name = "org.osmosis.med"
+constant = "OSMOSIS_COMPATIBILITY"
+current-version = "6.0.7-main"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/org.osmosis.med/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=org.osmosis.med"
+
+[paprika-3]
+enabled = true
+app-name = "Paprika 3"
+package-name = "com.hindsightlabs.paprika.android.v3"
+constant = "PAPRIKA_COMPATIBILITY"
+current-version = "3.3.10"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.hindsightlabs.paprika.android.v3/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.hindsightlabs.paprika.android.v3"
 
 [parallel-space-pro]
 enabled = true
@@ -1357,6 +2982,19 @@ uptodown-dlurl = "https://parallel-space-pro.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.parallel.space.pro/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.parallel.space.pro"
 
+[parcels-package-tracker]
+enabled = true
+app-name = "Parcels — Package Tracker"
+package-name = "com.brightstripe.parcels"
+constant = "PARCELS_COMPATIBILITY"
+current-version = "3.0.10"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.brightstripe.parcels/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.brightstripe.parcels"
+
 [pc-remote-desktop-phone]
 enabled = true
 app-name = "PC Remote - Desktop & Phone"
@@ -1371,6 +3009,19 @@ uptodown-dlurl = "https://monect-pc-remote.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/pc-remote/com.monect.portable"
 apkcombo-dlurl = "https://apkcombo.com/search/com.monect.portable/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.monect.portable"
+
+[pdffiller-pdf-editor-form]
+enabled = true
+app-name = "pdfFiller- PDF Editor & Form"
+package-name = "com.pdffiller"
+constant = "PDFFILLER_COMPATIBILITY"
+current-version = "10.53.22790"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.pdffiller/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pdffiller"
 
 [photo-editor]
 enabled = true
@@ -1400,6 +3051,19 @@ apk-types = "apk xapk apks"
 apkpure-dlurl = "https://apkpure.com/pialytic-julia-editor/verbosus.pialytic"
 apkcombo-dlurl = "https://apkcombo.com/search/verbosus.pialytic/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=verbosus.pialytic"
+
+[picsart]
+enabled = true
+app-name = "Picsart"
+package-name = "com.picsart.studio"
+constant = "PICSART_COMPATIBILITY"
+current-version = "30.2.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.picsart.studio/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.picsart.studio"
 
 [picture-mushroom-mushroom-id]
 enabled = true
@@ -1454,10 +3118,23 @@ current-version = "19.0.13"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apk xapk apks"
+apk-types = "apks"
 uptodown-dlurl = "https://package-tracker.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/net.pkge.pkge/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=net.pkge.pkge"
+
+[plamfy]
+enabled = true
+app-name = "Plamfy"
+package-name = "com.plamfy.platform"
+constant = "PLAMFY_COMPATIBILITY"
+current-version = "1.8.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.plamfy.platform/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.plamfy.platform"
 
 [playit]
 enabled = true
@@ -1473,6 +3150,19 @@ uptodown-dlurl = "https://playit-hd-video-player-all-format-video-player.en.upto
 apkpure-dlurl = "https://apkpure.com/playit-a-new-all-in-one-video-player-app/com.playit.videoplayer"
 apkcombo-dlurl = "https://apkcombo.com/search/com.playit.videoplayer/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.playit.videoplayer"
+
+[plugshare-ev-charging-app]
+enabled = true
+app-name = "PlugShare: EV Charging App"
+package-name = "com.xatori.Plugshare"
+constant = "PLUGSHARE_COMPATIBILITY"
+current-version = "4.50.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.xatori.Plugshare/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.xatori.Plugshare"
 
 [pocket-bard]
 enabled = true
@@ -1503,6 +3193,19 @@ uptodown-dlurl = "https://pocket-casts-podcast-player.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/au.com.shiftyjelly.pocketcasts/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts"
 
+[pocket-fm]
+enabled = true
+app-name = "Pocket FM"
+package-name = "com.radio.pocketfm"
+constant = "POCKETFM_COMPATIBILITY"
+current-version = "9.6.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.radio.pocketfm/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.radio.pocketfm"
+
 [pocket-prep]
 enabled = true
 app-name = "Pocket Prep"
@@ -1518,6 +3221,32 @@ apkpure-dlurl = "https://apkpure.com/it-cybersecurity-pocket-prep/com.pocketprep
 apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.itcybersecurity/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.itcybersecurity"
 
+[podslink]
+enabled = true
+app-name = "PodsLink"
+package-name = "net.podslink"
+constant = "PODSLINK_COMPATIBILITY"
+current-version = "1.3.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/net.podslink/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=net.podslink"
+
+[polarr]
+enabled = true
+app-name = "Polarr"
+package-name = "photo.editor.polarr"
+constant = "POLARR_COMPATIBILITY"
+current-version = "6.12.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/photo.editor.polarr/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=photo.editor.polarr"
+
 [police-scanner]
 enabled = true
 app-name = "Police Scanner"
@@ -1531,6 +3260,19 @@ apk-types = "apk xapk apks"
 apkpure-dlurl = "https://apkpure.com/police-scanner-live-radio/police.scanner.radio.broadcastify.citizen"
 apkcombo-dlurl = "https://apkcombo.com/search/police.scanner.radio.broadcastify.citizen/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=police.scanner.radio.broadcastify.citizen"
+
+[polychat]
+enabled = true
+app-name = "PolyChat"
+package-name = "ventures.appliedai.polychat"
+constant = "POLYCHAT_COMPATIBILITY"
+current-version = "5.0.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/ventures.appliedai.polychat/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=ventures.appliedai.polychat"
 
 [posture]
 enabled = true
@@ -1546,6 +3288,45 @@ uptodown-dlurl = "https://posture-by-muscle-and-motion.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/muscle-motion-posture/air.com.musclemotion.posture"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.posture/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=air.com.musclemotion.posture"
+
+[poweramp-music-player]
+enabled = true
+app-name = "Poweramp Music Player"
+package-name = "com.maxmpz.audioplayer"
+constant = "POWERAMP_COMPATIBILITY"
+current-version = "build-1025-bundle-play"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.maxmpz.audioplayer/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.maxmpz.audioplayer"
+
+[poweramp-equalizer]
+enabled = true
+app-name = "Poweramp Equalizer"
+package-name = "com.maxmpz.equalizer"
+constant = "POWERAMP_EQ_COMPATIBILITY"
+current-version = "build-1021-bundle-play"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.maxmpz.equalizer/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.maxmpz.equalizer"
+
+[microsoft-powerpoint]
+enabled = true
+app-name = "Microsoft PowerPoint"
+package-name = "com.microsoft.office.powerpoint"
+constant = "POWERPOINT_COMPATIBILITY"
+current-version = "16.0.20131.20080"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.microsoft.office.powerpoint/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.microsoft.office.powerpoint"
 
 [proton-vpn]
 enabled = true
@@ -1591,6 +3372,71 @@ uptodown-dlurl = "https://psiphon-pro.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.psiphon3.subscription/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.psiphon3.subscription"
 
+[pushbullet]
+enabled = true
+app-name = "Pushbullet"
+package-name = "com.pushbullet.android"
+constant = "PUSHBULLET_COMPATIBILITY"
+current-version = "18.12.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.pushbullet.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pushbullet.android"
+
+[qbitconnect]
+enabled = true
+app-name = "qBitConnect"
+package-name = "com.bluematter.qbitconnect"
+constant = "QBITCONNECT_COMPATIBILITY"
+current-version = "2.0.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.bluematter.qbitconnect/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.bluematter.qbitconnect"
+
+[quizai]
+enabled = true
+app-name = "QuizAI"
+package-name = "com.intsig.camexam"
+constant = "QUIZAI_COMPATIBILITY"
+current-version = "4.27.0.20260624"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.intsig.camexam/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.intsig.camexam"
+
+[radarbot]
+enabled = true
+app-name = "Radarbot"
+package-name = "com.vialsoft.radarbot_free"
+constant = "RADARBOT_COMPATIBILITY"
+current-version = "9.33.19"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.vialsoft.radarbot_free/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.vialsoft.radarbot_free"
+
+[radio-garden]
+enabled = true
+app-name = "Radio Garden"
+package-name = "com.jonathanpuckey.radiogarden"
+constant = "RADIOGARDEN_COMPATIBILITY"
+current-version = "4.0.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.jonathanpuckey.radiogarden/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.jonathanpuckey.radiogarden"
+
 [rar]
 enabled = true
 app-name = "RAR"
@@ -1611,11 +3457,11 @@ enabled = true
 app-name = "RecipeBro"
 package-name = "com.recipebro.cookingbuddy"
 constant = "RECIPEBRO_COMPATIBILITY"
-current-version = "1.3.74"
+current-version = "1.4.22"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apk xapk apks"
+apk-types = "apks"
 apkpure-dlurl = "https://apkpure.com/recipe-manager-recipe-bro/com.recipebro.cookingbuddy"
 apkcombo-dlurl = "https://apkcombo.com/search/com.recipebro.cookingbuddy/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.recipebro.cookingbuddy"
@@ -1634,6 +3480,32 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/jd-android-apps/picture-manager
 apkpure-dlurl = "https://apkpure.com/batch-rename-and-organize/eu.duong.picturemanager"
 apkcombo-dlurl = "https://apkcombo.com/search/eu.duong.picturemanager/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=eu.duong.picturemanager"
+
+[reuters-breaking-news-more]
+enabled = true
+app-name = "Reuters: Breaking News & More"
+package-name = "com.thomsonreuters.reuters"
+constant = "REUTERS_COMPATIBILITY"
+current-version = "7.42.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.thomsonreuters.reuters/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.thomsonreuters.reuters"
+
+[revpdf-pdf-editor-reader]
+enabled = true
+app-name = "RevPDF - PDF Editor & Reader"
+package-name = "com.revpdf.editor"
+constant = "REVPDF_COMPATIBILITY"
+current-version = "4.6.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.revpdf.editor/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.revpdf.editor"
 
 [rocket-money]
 enabled = true
@@ -1664,6 +3536,19 @@ apkpure-dlurl = "https://apkpure.com/rs-file/com.rs.explorer.filemanager"
 apkcombo-dlurl = "https://apkcombo.com/search/com.rs.explorer.filemanager/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.rs.explorer.filemanager"
 
+[runna]
+enabled = true
+app-name = "Runna"
+package-name = "com.runbuddy.prod"
+constant = "RUNNA_COMPATIBILITY"
+current-version = "8.44.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.runbuddy.prod/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.runbuddy.prod"
+
 [sai]
 enabled = true
 app-name = "SAI"
@@ -1673,10 +3558,36 @@ current-version = "2.2.8"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apk xapk apks"
+apk-types = "apks"
 apkpure-dlurl = "https://apkpure.com/sai-split-apks-installer/com.mtv.sai"
 apkcombo-dlurl = "https://apkcombo.com/search/com.mtv.sai/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.mtv.sai"
+
+[savvy-navvy]
+enabled = true
+app-name = "Savvy Navvy"
+package-name = "com.savvy.navvy.android.app"
+constant = "SAVVY_NAVVY_COMPATIBILITY"
+current-version = "2.2.22704"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.savvy.navvy.android.app/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.savvy.navvy.android.app"
+
+[sbs-on-demand]
+enabled = true
+app-name = "SBS On Demand"
+package-name = "com.sbs.ondemand.android"
+constant = "SBS_COMPATIBILITY"
+current-version = "6.2.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.sbs.ondemand.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.sbs.ondemand.android"
 
 [scoopz]
 enabled = true
@@ -1709,6 +3620,32 @@ apkpure-dlurl = "https://apkpure.com/scrl-photo-collage-maker/com.appostrophe.sc
 apkcombo-dlurl = "https://apkcombo.com/search/com.appostrophe.scrl/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.appostrophe.scrl"
 
+[sd-maid-se]
+enabled = true
+app-name = "SD Maid SE"
+package-name = "eu.darken.sdmse"
+constant = "SD_MAID_SE_COMPATIBILITY"
+current-version = "1.7.5-rc0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/eu.darken.sdmse/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
+
+[send-files-to-tv]
+enabled = true
+app-name = "Send Files To TV"
+package-name = "com.yablio.sendfilestotv"
+constant = "SEND_FILES_TO_TV_COMPATIBILITY"
+current-version = "1.4.22"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.yablio.sendfilestotv/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.yablio.sendfilestotv"
+
 [shareit-premium]
 enabled = true
 app-name = "SHAREit Premium"
@@ -1723,6 +3660,19 @@ uptodown-dlurl = "https://shareit-premium-pure-share.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/shareit-premium-pure-share/shareit.premium"
 apkcombo-dlurl = "https://apkcombo.com/search/shareit.premium/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=shareit.premium"
+
+[shark-tracker]
+enabled = true
+app-name = "Shark Tracker"
+package-name = "org.ocearch.SharkTrackerAndroid"
+constant = "SHARK_TRACKER_COMPATIBILITY"
+current-version = "3.1.20"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/org.ocearch.SharkTrackerAndroid/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=org.ocearch.SharkTrackerAndroid"
 
 [app-permission-manager]
 enabled = true
@@ -1739,6 +3689,45 @@ apkpure-dlurl = "https://apkpure.com/app-permission-manager/com.shexa.permission
 apkcombo-dlurl = "https://apkcombo.com/search/com.shexa.permissionmanager/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.shexa.permissionmanager"
 
+[shortwave-schedules]
+enabled = true
+app-name = "Shortwave Schedules"
+package-name = "com.msi.shortwave"
+constant = "SHORTWAVE_COMPATIBILITY"
+current-version = "7.6.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.msi.shortwave/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.msi.shortwave"
+
+[shout-tv-movies-tv-shows]
+enabled = true
+app-name = "Shout! TV - Movies & TV Shows"
+package-name = "com.shoutfactory.app"
+constant = "SHOUTTV_COMPATIBILITY"
+current-version = "10.2.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.shoutfactory.app/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.shoutfactory.app"
+
+[simplypiano]
+enabled = true
+app-name = "SimplyPiano"
+package-name = "com.joytunes.simplypiano"
+constant = "SIMPLYPIANO_COMPATIBILITY"
+current-version = "7.31.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.joytunes.simplypiano/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.joytunes.simplypiano"
+
 [skinsort]
 enabled = true
 app-name = "SkinSort"
@@ -1748,10 +3737,75 @@ current-version = "1.22"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "xapk"
+apk-types = "apks"
 apkpure-dlurl = "https://apkpure.com/skinsort-skincare-scanner/com.skinsort"
 apkcombo-dlurl = "https://apkcombo.com/search/com.skinsort/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.skinsort"
+
+[slopes]
+enabled = true
+app-name = "Slopes"
+package-name = "com.consumedbycode.slopes"
+constant = "SLOPES_COMPATIBILITY"
+current-version = "2026.14"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.consumedbycode.slopes/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.consumedbycode.slopes"
+
+[smartrss]
+enabled = true
+app-name = "SmartRSS"
+package-name = "com.vinsonguo.flutter_rss_reader"
+constant = "SMARTRSS_COMPATIBILITY"
+current-version = "1.2.33"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.vinsonguo.flutter_rss_reader/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.vinsonguo.flutter_rss_reader"
+
+[sms-backup-restore]
+enabled = true
+app-name = "SMS Backup & Restore"
+package-name = "com.riteshsahu.SMSBackupRestore"
+constant = "SMSBACKUPRESTORE_COMPATIBILITY"
+current-version = "10.25.005"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.riteshsahu.SMSBackupRestore/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.riteshsahu.SMSBackupRestore"
+
+[snake-engine]
+enabled = true
+app-name = "Snake Engine"
+package-name = "com.snake"
+constant = "SNAKEENGINE_COMPATIBILITY"
+current-version = "2.2.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.snake/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.snake"
+
+[snaptube]
+enabled = true
+app-name = "SnapTube"
+package-name = "com.snaptube.premium"
+constant = "SNAPTUBE_COMPATIBILITY"
+current-version = "7.62.0.76230110"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.snaptube.premium/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.snaptube.premium"
 
 [snipd]
 enabled = true
@@ -1842,6 +3896,19 @@ uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile"
 
+[sportzx-tv]
+enabled = true
+app-name = "SportzX TV"
+package-name = "com.sportzxtv.luvefootball"
+constant = "SPORTZX_COMPATIBILITY"
+current-version = "1.0.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.sportzxtv.luvefootball/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.sportzxtv.luvefootball"
+
 [spotangels]
 enabled = true
 app-name = "SpotAngels"
@@ -1856,6 +3923,19 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/spotangels/spotangels-parking-m
 uptodown-dlurl = "https://spotangels-live-parking-map.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.spotangels.android/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.spotangels.android"
+
+[spotify-music-and-podcasts]
+enabled = true
+app-name = "Spotify: Music and Podcasts"
+package-name = "com.spotify.music"
+constant = "SPOTIFY_COMPATIBILITY"
+current-version = "9.1.62.1591"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.spotify.music/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.spotify.music"
 
 [sticker-maker]
 enabled = true
@@ -1887,6 +3967,19 @@ apkpure-dlurl = "https://apkpure.com/sticker-ly-sticker-maker/com.snowcorp.stick
 apkcombo-dlurl = "https://apkcombo.com/search/com.snowcorp.stickerly.android/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.snowcorp.stickerly.android"
 
+[storygraph]
+enabled = true
+app-name = "StoryGraph"
+package-name = "com.thestorygraph.thestorygraph"
+constant = "STORYGRAPH_COMPATIBILITY"
+current-version = "1.29"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.thestorygraph.thestorygraph/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.thestorygraph.thestorygraph"
+
 [strava]
 enabled = true
 app-name = "Strava"
@@ -1902,6 +3995,19 @@ apkpure-dlurl = "https://apkpure.com/strava-run-hike-android-exercise-laugh/com.
 apkcombo-dlurl = "https://apkcombo.com/search/com.strava/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.strava"
 
+[streamfree]
+enabled = true
+app-name = "StreamFree"
+package-name = "com.streamfree.app"
+constant = "STREAMFREE_COMPATIBILITY"
+current-version = "1.0.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.streamfree.app/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.streamfree.app"
+
 [strength-training]
 enabled = true
 app-name = "Strength Training"
@@ -1916,6 +4022,32 @@ uptodown-dlurl = "https://strength-training.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/muscle-motion-strength/air.com.musclemotion.strength.mobile"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.strength.mobile/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=air.com.musclemotion.strength.mobile"
+
+[strong-workout-tracker]
+enabled = true
+app-name = "Strong - Workout Tracker"
+package-name = "io.strongapp.strong"
+constant = "STRONG_COMPATIBILITY"
+current-version = "v6.2.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/io.strongapp.strong/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=io.strongapp.strong"
+
+[studocu]
+enabled = true
+app-name = "Studocu"
+package-name = "com.studocu.app"
+constant = "STUDOCU_COMPATIBILITY"
+current-version = "7.149.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.studocu.app/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.studocu.app"
 
 [subway-now]
 enabled = true
@@ -1945,6 +4077,175 @@ uptodown-dlurl = "https://esuper-file-explorer.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/super-file-manager-explorer/com.esuper.file.explorer"
 apkcombo-dlurl = "https://apkcombo.com/search/com.esuper.file.explorer/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.esuper.file.explorer"
+
+[superchinese-learn-chinese]
+enabled = true
+app-name = "SuperChinese - Learn Chinese"
+package-name = "com.superchinese"
+constant = "SUPERCHINESE_COMPATIBILITY"
+current-version = "6.6.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.superchinese/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.superchinese"
+
+[surfline]
+enabled = true
+app-name = "Surfline"
+package-name = "com.surfline.android"
+constant = "SURFLINE_COMPATIBILITY"
+current-version = "12.7.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.surfline.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.surfline.android"
+
+[svplayer]
+enabled = true
+app-name = "SVPlayer"
+package-name = "com.svpteam.svp"
+constant = "SVPLAYER_COMPATIBILITY"
+current-version = "1.8.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.svpteam.svp/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.svpteam.svp"
+
+[tag-tracker-find-lost-items]
+enabled = true
+app-name = "Tag Tracker: Find Lost Items"
+package-name = "com.makeevapps.tagtracker"
+constant = "TAGTRACKER_COMPATIBILITY"
+current-version = "1.3.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.makeevapps.tagtracker/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.makeevapps.tagtracker"
+
+[tango-live-stream-video-chat]
+enabled = true
+app-name = "Tango- Live Stream Video Chat"
+package-name = "com.sgiggle.production"
+constant = "TANGO_COMPATIBILITY"
+current-version = "9.67.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.sgiggle.production/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.sgiggle.production"
+
+[india-vpn-tap2free]
+enabled = true
+app-name = "India VPN - Tap2Free"
+package-name = "india.vpn_tap2free"
+constant = "TAP2FREE_COMPATIBILITY"
+current-version = "1.164"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/india.vpn_tap2free/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=india.vpn_tap2free"
+
+[tasker]
+enabled = true
+app-name = "Tasker"
+package-name = "net.dinglisch.android.taskerm"
+constant = "TASKER_COMPATIBILITY"
+current-version = "6.6.20"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/net.dinglisch.android.taskerm/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm"
+
+[televizo]
+enabled = true
+app-name = "Televizo"
+package-name = "com.ottplay.ottplay"
+constant = "TELEVIZO_COMPATIBILITY"
+current-version = "1.9.9.31-g"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.ottplay.ottplay/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.ottplay.ottplay"
+
+[temp-number]
+enabled = true
+app-name = "Temp Number"
+package-name = "com.tempnumber.Temp_Number.Temp_Number"
+constant = "TEMPNUMBER_COMPATIBILITY"
+current-version = "2.0.10"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.tempnumber.Temp_Number.Temp_Number/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.tempnumber.Temp_Number.Temp_Number"
+
+[tetrd]
+enabled = true
+app-name = "Tetrd"
+package-name = "com.robskie.tether"
+constant = "TETRD_COMPATIBILITY"
+current-version = "1.3.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.robskie.tether/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.robskie.tether"
+
+[tfind]
+enabled = true
+app-name = "TFind"
+package-name = "com.dreamteammobile.tagtracker"
+constant = "TFIND_COMPATIBILITY"
+current-version = "1.7.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.dreamteammobile.tagtracker/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.dreamteammobile.tagtracker"
+
+[the-athletic]
+enabled = true
+app-name = "The Athletic"
+package-name = "com.theathletic"
+constant = "THE_ATHLETIC_COMPATIBILITY"
+current-version = "13.141.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.theathletic/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.theathletic"
+
+[the-budgeting-app]
+enabled = true
+app-name = "The Budgeting App"
+package-name = "com.thebudgetingapp.thebudgetingapp"
+constant = "THE_BUDGETING_APP_COMPATIBILITY"
+current-version = "6.3.9"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.thebudgetingapp.thebudgetingapp/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.thebudgetingapp.thebudgetingapp"
 
 [transit]
 enabled = true
@@ -1976,12 +4277,77 @@ uptodown-dlurl = "https://the-weather-channel.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.weather.Weather/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.weather.Weather"
 
+[tidal-music]
+enabled = true
+app-name = "TIDAL Music"
+package-name = "com.aspiro.tidal"
+constant = "TIDAL_COMPATIBILITY"
+current-version = "2.201.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.aspiro.tidal/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.aspiro.tidal"
+
+[time-squared-time-tracker]
+enabled = true
+app-name = "Time Squared: Time Tracker"
+package-name = "co.timesquared.timetracker"
+constant = "TIME_SQUARED_COMPATIBILITY"
+current-version = "3.4.1677"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/co.timesquared.timetracker/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=co.timesquared.timetracker"
+
+[time-until]
+enabled = true
+app-name = "Time Until"
+package-name = "com.brunoschalch.timeuntil"
+constant = "TIMEUNTIL_COMPATIBILITY"
+current-version = "5.3.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.brunoschalch.timeuntil/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.brunoschalch.timeuntil"
+
+[tinycam-monitor]
+enabled = true
+app-name = "tinyCam Monitor"
+package-name = "com.alexvas.dvr"
+constant = "TINYCAM_COMPATIBILITY"
+current-version = "18.1.1 - Google Play"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.alexvas.dvr/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.alexvas.dvr"
+
+[tivimate-iptv-player]
+enabled = true
+app-name = "TiviMate IPTV Player"
+package-name = "ar.tvplayer.tv"
+constant = "TIVIMATE_COMPATIBILITY"
+current-version = "5.3.3"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/ar.tvplayer.tv/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=ar.tvplayer.tv"
+
 [today-weather]
 enabled = true
 app-name = "Today Weather"
 package-name = "mobi.lockdown.weather"
 constant = "TODAYWEATHER_COMPATIBILITY"
-current-version = "2.5.0-5"
+current-version = "2.5.0-6"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -2034,12 +4400,25 @@ apkpure-dlurl = "https://apkpure.com/torrdroid-torrent-downloader/intelligems.to
 apkcombo-dlurl = "https://apkcombo.com/search/intelligems.torrdroid/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=intelligems.torrdroid"
 
+[torrent-search-revolution-v2]
+enabled = true
+app-name = "Torrent Search Revolution V2"
+package-name = "torrent.search.revolutionv2"
+constant = "TORRENTSEARCH_COMPATIBILITY"
+current-version = "2.3.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/torrent.search.revolutionv2/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=torrent.search.revolutionv2"
+
 [toxly]
 enabled = true
 app-name = "Toxly"
 package-name = "com.mindful.code.studio.toxly.scanner"
 constant = "TOXLY_COMPATIBILITY"
-current-version = "1.16.6"
+current-version = "1.17.1"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -2047,6 +4426,19 @@ apk-types = "apks"
 apkpure-dlurl = "https://apkpure.com/toxly-ingredient-scanner/com.mindful.code.studio.toxly.scanner"
 apkcombo-dlurl = "https://apkcombo.com/search/com.mindful.code.studio.toxly.scanner/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.mindful.code.studio.toxly.scanner"
+
+[17track-package-tracker]
+enabled = true
+app-name = "17TRACK- Package Tracker"
+package-name = "yqtrack.app"
+constant = "TRACK17_COMPATIBILITY"
+current-version = "3.1.6985"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/yqtrack.app/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=yqtrack.app"
 
 [trackchecker-mobile]
 enabled = true
@@ -2077,6 +4469,32 @@ apkpure-dlurl = "https://apkpure.com/tracked-%E2%80%A2-workout-nutrition/com.tra
 apkcombo-dlurl = "https://apkcombo.com/search/com.tracked.mobile/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.tracked.mobile"
 
+[tracker-detect]
+enabled = true
+app-name = "Tracker Detect"
+package-name = "com.apple.trackerdetect"
+constant = "TRACKERDETECT_COMPATIBILITY"
+current-version = "1.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.apple.trackerdetect/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.apple.trackerdetect"
+
+[tracker-detect-pro]
+enabled = true
+app-name = "Tracker Detect Pro"
+package-name = "com.dylan.airtag.detector.pro"
+constant = "TRACKERDETECTPRO_COMPATIBILITY"
+current-version = "9.9.5"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.dylan.airtag.detector.pro/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.dylan.airtag.detector.pro"
+
 [tradingview]
 enabled = true
 app-name = "TradingView"
@@ -2086,17 +4504,30 @@ current-version = "1.20.78.1.1002330"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "xapk"
+apk-types = "apks"
 uptodown-dlurl = "https://tradingview.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tradingview.tradingviewapp/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.tradingview.tradingviewapp"
+
+[transparent-clock-weather]
+enabled = true
+app-name = "Transparent clock & weather"
+package-name = "com.droid27.transparentclockweather"
+constant = "TRANSPARENT_CLOCK_WEATHER_COMPATIBILITY"
+current-version = "9.10.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.droid27.transparentclockweather/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.droid27.transparentclockweather"
 
 [moovit]
 enabled = true
 app-name = "Moovit"
 package-name = "com.tranzmate"
 constant = "TRANZMATE_COMPATIBILITY"
-current-version = "5.195.2.1792"
+current-version = "5.196.0.1794"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -2106,6 +4537,58 @@ uptodown-dlurl = "https://moovit.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/moovit-bus-train-schedules/com.tranzmate"
 apkcombo-dlurl = "https://apkcombo.com/search/com.tranzmate/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.tranzmate"
+
+[tripview-lite]
+enabled = true
+app-name = "TripView Lite"
+package-name = "com.grofsoft.tripview.lite"
+constant = "TRIPVIEW_LITE_COMPATIBILITY"
+current-version = "4.5.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.grofsoft.tripview.lite/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.grofsoft.tripview.lite"
+
+[true-phone-dialer-contacts]
+enabled = true
+app-name = "True Phone Dialer & Contacts"
+package-name = "com.hb.dialer.free"
+constant = "TRUEPHONE_COMPATIBILITY"
+current-version = "2.0.24-gp"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.hb.dialer.free/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.hb.dialer.free"
+
+[torrent-search-revolution-v2-2]
+enabled = true
+app-name = "Torrent Search Revolution V2"
+package-name = "torrent.search.revolutionv2"
+constant = "TSR_COMPATIBILITY"
+current-version = "2.3.2"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/torrent.search.revolutionv2/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=torrent.search.revolutionv2"
+
+[tunein-radio]
+enabled = true
+app-name = "TuneIn Radio"
+package-name = "tunein.player"
+constant = "TUNEIN_COMPATIBILITY"
+current-version = "41.9"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/tunein.player/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=tunein.player"
 
 [turboscan]
 enabled = true
@@ -2155,7 +4638,7 @@ enabled = true
 app-name = "UDisc"
 package-name = "com.regasoftware.udisc"
 constant = "UDISC_COMPATIBILITY"
-current-version = "24.2.1"
+current-version = "24.2.3"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
@@ -2179,6 +4662,19 @@ uptodown-dlurl = "https://unimote.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/universal-tv-remote-control/sensustech.universal.tv.remote.control"
 apkcombo-dlurl = "https://apkcombo.com/search/sensustech.universal.tv.remote.control/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=sensustech.universal.tv.remote.control"
+
+[upnote-notes-journal-diary]
+enabled = true
+app-name = "UpNote - Notes, Journal, Diary"
+package-name = "com.getupnote.android"
+constant = "UPNOTE_COMPATIBILITY"
+current-version = "9.18.10"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.getupnote.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.getupnote.android"
 
 [uptodown-app-store]
 enabled = true
@@ -2210,6 +4706,32 @@ apkpure-dlurl = "https://apkpure.com/viz-manga/com.vizmanga.android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.vizmanga.android/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.vizmanga.android"
 
+[vphonegaga]
+enabled = true
+app-name = "VPhoneGaga"
+package-name = "com.yoyo.snake.rush"
+constant = "VPHONEGAGA_COMPATIBILITY"
+current-version = "5.0.6"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.yoyo.snake.rush/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.yoyo.snake.rush"
+
+[vpnify]
+enabled = true
+app-name = "vpnify"
+package-name = "com.vpn.free.hotspot.secure.vpnify"
+constant = "VPNIFY_COMPATIBILITY"
+current-version = "2.2.9"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.vpn.free.hotspot.secure.vpnify/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.vpn.free.hotspot.secure.vpnify"
+
 [1-1-1-1]
 enabled = true
 app-name = "1.1.1.1"
@@ -2230,15 +4752,28 @@ enabled = true
 app-name = "Wavve Boating"
 package-name = "com.wavve.boating.gps"
 constant = "WAVVE_BOATING_COMPATIBILITY"
-current-version = "5.7.3"
+current-version = "5.7.4"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "xapk"
+apk-types = "apkm"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/wavve-boating/wavve-boating-marine-boat-gps/"
 apkpure-dlurl = "https://apkpure.com/wavve-boating-easy-marine-gps/com.wavve.boating.gps"
 apkcombo-dlurl = "https://apkcombo.com/search/com.wavve.boating.gps/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.wavve.boating.gps"
+
+[waypoint]
+enabled = true
+app-name = "Waypoint"
+package-name = "com.greycastel.waypoint"
+constant = "WAYPOINT_COMPATIBILITY"
+current-version = "1.5.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.greycastel.waypoint/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.greycastel.waypoint"
 
 [waze]
 enabled = true
@@ -2255,6 +4790,32 @@ uptodown-dlurl = "https://waze.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.waze/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.waze"
 
+[weatherbug-weather-forecasts]
+enabled = true
+app-name = "WeatherBug- Weather Forecasts"
+package-name = "com.aws.android"
+constant = "WEATHERBUG_COMPATIBILITY"
+current-version = "6.3.1-1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.aws.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.aws.android"
+
+[weatherwise]
+enabled = true
+app-name = "WeatherWise"
+package-name = "com.interactiveweather.weatherwise"
+constant = "WEATHERWISE_COMPATIBILITY"
+current-version = "1.8.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.interactiveweather.weatherwise/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.interactiveweather.weatherwise"
+
 [weawow-weather-widget]
 enabled = true
 app-name = "Weawow: Weather & Widget"
@@ -2270,6 +4831,19 @@ uptodown-dlurl = "https://weather-and-widget-weawow.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/weather-widget-weawow/com.weawow"
 apkcombo-dlurl = "https://apkcombo.com/search/com.weawow/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.weawow"
+
+[webnovel]
+enabled = true
+app-name = "WebNovel"
+package-name = "com.qidian.Int.reader"
+constant = "WEBNOVEL_COMPATIBILITY"
+current-version = "8.21.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/com.qidian.Int.reader/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.qidian.Int.reader"
 
 [windscribe-vpn]
 enabled = true
@@ -2300,6 +4874,19 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/windyty-se/windy-wind-waves-and
 uptodown-dlurl = "https://windy-wind-waves-and-hurricanes-forecast.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/com.windyty.android/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.windyty.android"
+
+[windy-weather-radar-forecast]
+enabled = true
+app-name = "Windy: Weather Radar & Forecast"
+package-name = "co.windyapp.android"
+constant = "WINDYAPP_COMPATIBILITY"
+current-version = "92.1.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/co.windyapp.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=co.windyapp.android"
 
 [wolframalpha]
 enabled = true
@@ -2345,6 +4932,45 @@ apkpure-dlurl = "https://apkpure.com/muscle-motion-workouts/air.com.musclemotion
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.workout/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=air.com.musclemotion.workout"
 
+[wps-office-word-docs-pdf]
+enabled = true
+app-name = "WPS Office- Word, Docs, PDF"
+package-name = "cn.wps.moffice_eng"
+constant = "WPS_OFFICE_COMPATIBILITY"
+current-version = "26.6.4"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/cn.wps.moffice_eng/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=cn.wps.moffice_eng"
+
+[wps]
+enabled = true
+app-name = "WPS 扫描"
+package-name = "cn.wps.scanhost"
+constant = "WPS_SCAN_COMPATIBILITY"
+current-version = "1.0.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/cn.wps.scanhost/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=cn.wps.scanhost"
+
+[yandex-maps]
+enabled = true
+app-name = "Yandex Maps"
+package-name = "ru.yandex.yandexmaps"
+constant = "YANDEX_MAPS_COMPATIBILITY"
+current-version = "29.7.0"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/ru.yandex.yandexmaps/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=ru.yandex.yandexmaps"
+
 [yatri]
 enabled = true
 app-name = "Yatri"
@@ -2374,3 +5000,29 @@ uptodown-dlurl = "https://yoga-by-muscle-and-motion.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/muscle-motion-yoga/air.com.musclemotion.yoga"
 apkcombo-dlurl = "https://apkcombo.com/search/air.com.musclemotion.yoga/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=air.com.musclemotion.yoga"
+
+[yuka]
+enabled = true
+app-name = "Yuka"
+package-name = "io.yuka.android"
+constant = "YUKA_COMPATIBILITY"
+current-version = "4.60.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk xapk apks"
+apkcombo-dlurl = "https://apkcombo.com/search/io.yuka.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=io.yuka.android"
+
+[zedge]
+enabled = true
+app-name = "Zedge"
+package-name = "net.zedge.android"
+constant = "ZEDGE_COMPATIBILITY"
+current-version = "9.28.1"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apks"
+apkcombo-dlurl = "https://apkcombo.com/search/net.zedge.android/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=net.zedge.android"
