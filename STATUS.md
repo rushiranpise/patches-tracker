@@ -2,10 +2,10 @@
 
 Shard: 1/1
 Checked apps: 188
-Patched: 1
-No update: 159
-Skipped known broken: 14
-Failed: 14
+Patched: 17
+No update: 141
+Skipped known broken: 12
+Failed: 18
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -15,7 +15,7 @@ Failed: 14
 | AdGuard Nightly | `com.adguard.android` | `4.14.68` | `4.14.68` |  | NO_UPDATE |  |
 | AIDA64 | `com.finalwire.aida64` | `2.21` | `2.21` |  | NO_UPDATE |  |
 | AiScore | `com.onesports.score` | `4.2.7` | `4.2.7` |  | NO_UPDATE |  |
-| All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `3.2.3` | `3.2.3` |  | NO_UPDATE |  |
+| All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `3.2.3` | `3.2.4` | `53` | FAILED | fingerprint |
 | Amazon India | `in.amazon.mShop.android.shopping` | `32.12.4.300` | `32.12.4.300` |  | NO_UPDATE |  |
 | Amazon Shopping | `com.amazon.mShop.android.shopping` | `32.13.2.100` | `32.13.2.100` |  | NO_UPDATE |  |
 | AmoledPix | `com.androholic.amoledpix` | `7.2` | `7.2` |  | NO_UPDATE |  |
@@ -25,21 +25,21 @@ Failed: 14
 | Anime Depth Wallpapers | `com.jndapp.anime.depth.live.wallpaper` | `1.0.4` | `1.0.4` |  | NO_UPDATE |  |
 | APKMirror Installer | `com.apkmirror.helper.prod` | `2.0.3 (41-d04e542)` | `998` |  | FAILED | download |
 | Battery Guru | `com.paget96.batteryguru` | `2.5.0.5` | `2.5.0.5` |  | NO_UPDATE |  |
-| BatteryPods | `com.sumyapplications.bluetooth.earphone` | `7.20` | `7.20` |  | NO_UPDATE |  |
-| Block Blast! | `com.block.juggle` | `10.4.3` | `10.4.3` |  | NO_UPDATE |  |
+| BatteryPods | `com.sumyapplications.bluetooth.earphone` | `7.20` | `7.21` | `7210` | PATCHED |  |
+| Block Blast! | `com.block.juggle` | `10.4.3` | `10.4.5` | `10450` | PATCHED |  |
 | BlockerHero | `com.blockerhero` | `1.5.0` | `1.5.0` |  | NO_UPDATE |  |
 | Block Puzzle | `game.puzzle.blockpuzzle` | `6.0` | `6.0` |  | NO_UPDATE |  |
 | Bluetooth Volume Manager | `eu.darken.bluemusic` | `3.4.3` | `3.4.3` |  | NO_UPDATE |  |
 | Blurams | `com.blurams.ipc` | `5.1049.4.908` | `5.1049.4.921` |  | SKIPPED_KNOWN_BROKEN |  |
 | BlurWall | `apps.automan.blurwallpaper` | `2.9.4` | `2.9.4` |  | NO_UPDATE |  |
-| Box Box | `club.boxbox.android` | `5.4.13` | `5.4.13` |  | NO_UPDATE |  |
-| BuzzCast | `com.guochao.faceshow` | `3.2.82` | `3.2.82` |  | NO_UPDATE |  |
+| Box Box | `club.boxbox.android` | `5.4.13` | `5.4.14` | `257` | FAILED | fingerprint |
+| BuzzCast | `com.guochao.faceshow` | `3.2.82` | `3.2.83` | `3283` | PATCHED |  |
 | calimoto | `com.calimoto.calimoto` | `2026.07.3` | `2026.07.3` |  | NO_UPDATE |  |
 | Cube ACR | `com.catalinagroup.callrecorder` | `2.4.281` | `2.4.281` |  | NO_UPDATE |  |
 | Calm: Sleep & Meditation | `com.calm.android` | `6.100.1` | `6.100.2` | `4120449` | PATCHED |  |
 | Calory | `com.funnmedia.calory` | `3.6.2` | `3.6.2` |  | NO_UPDATE |  |
-| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.22.0.2607220000` |  | SKIPPED_KNOWN_BROKEN |  |
-| Canva | `com.canva.editor` | `2.369.0` | `2.369.0` |  | NO_UPDATE |  |
+| CamScanner | `com.intsig.camscanner` | `7.20.5.2606250000` | `7.22.5.2607240000` | `72251` | FAILED | fingerprint |
+| Canva | `com.canva.editor` | `2.369.0` | `2.370.1` | `29646246` | PATCHED |  |
 | CAPod | `eu.darken.capod` | `5.2.1` | `5.2.1` |  | NO_UPDATE |  |
 | Carbon | `com.joincarbon.nutrition` | `2.76.5891` | `2.76.5930` |  | SKIPPED_KNOWN_BROKEN |  |
 | Case Tracker | `com.saldous.casetracker` | `5.5.4` | `5.5.4` |  | NO_UPDATE |  |
@@ -51,10 +51,10 @@ Failed: 14
 | ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.6` | `4.8.6` |  | NO_UPDATE |  |
 | Countdown Widget | `me.gira.widget.countdown` | `3.2.0` | `3.2.0` |  | NO_UPDATE |  |
 | CPU-Z | `com.cpuid.cpu_z` | `1.59` | `1.59` |  | NO_UPDATE |  |
-| Crime Radar | `com.newsbreak.crimeradar` | `26.29.0` | `26.29.0` |  | NO_UPDATE |  |
+| Crime Radar | `com.newsbreak.crimeradar` | `26.29.0` | `26.30.0` | `26300005` | PATCHED |  |
 | Dailyhunt | `com.eterno` | `34.0.4` | `34.0.4` |  | NO_UPDATE |  |
 | Depth Live Wallpaper | `com.jndapp.depth.live.wallpaper` | `2.1.06` | `2.1.06` |  | NO_UPDATE |  |
-| TeraBox | `com.dubox.drive` | `4.20.1` | `4.21.0` |  | SKIPPED_KNOWN_BROKEN |  |
+| TeraBox | `com.dubox.drive` | `4.20.1` | `4.22.0` | `624` | FAILED | fingerprint |
 | Duolingo | `com.duolingo` | `6.88.2` | `6.89.4` |  | SKIPPED_KNOWN_BROKEN |  |
 | Electron | `com.mahersafadi.electron` | `3.0.3` | `3.0.3` |  | NO_UPDATE |  |
 | ES File Explorer | `com.estrongs.android.pop` | `4.4.3.7` | `4.4.3.7` |  | NO_UPDATE |  |
@@ -67,25 +67,25 @@ Failed: 14
 | Genius Scan | `com.thegrizzlylabs.geniusscan.free` | `7.41.0` | `7.41.0` |  | NO_UPDATE |  |
 | Google Photos | `com.google.android.apps.photos` | `7.85.0.952162352` | `7.85.0.952162352` |  | NO_UPDATE |  |
 | Greenify | `com.oasisfeng.greenify` | `5.1.1` | `5.1.1` |  | NO_UPDATE |  |
-| Hibernator | `com.tafayor.hibernator` | `2.56.10` | `2.56.10` |  | NO_UPDATE |  |
+| Hibernator | `com.tafayor.hibernator` | `2.56.10` | `2.57.0` | `5230` | PATCHED |  |
 | Historical Calendar | `com.alexandrucene.dayhistory` | `7.5.4` | `7.5.4` |  | NO_UPDATE |  |
 | Hola VPN Proxy Plus | `org.hola.play` | `AARCH64_1.248.400` | `AARCH64_1.248.400` |  | NO_UPDATE |  |
 | HTTP Sniffer | `com.anetcapture.mock` | `2.11.7-ad_mob` | `2.11.7-ad_mob` |  | NO_UPDATE |  |
 | Image & Video Date Fixer | `eu.duong.imagedatefixer` | `3.7.1` | `3.7.1` |  | NO_UPDATE |  |
 | Inmigreat | `com.changayaf.inmigreat` | `2.3.4` | `2.3.4` |  | NO_UPDATE |  |
 | Clickmate | `com.inscode.autoclicker` | `7.1.4` | `7.1.4` |  | NO_UPDATE |  |
-| Inure App Manager | `app.simple.inure.play` | `build107.0.5` | `107.1.0` |  | FAILED | download |
-| JEFIT | `je.fit` | `17.2.9` | `17.2.9` |  | NO_UPDATE |  |
+| Inure App Manager | `app.simple.inure.play` | `build107.0.5` | `107.2.0` |  | FAILED | download |
+| JEFIT | `je.fit` | `17.2.9` | `17.2.10` | `2028` | PATCHED |  |
 | Kahoot! | `no.mobitroll.kahoot.android` | `6.6.7` | `6.6.8` |  | SKIPPED_KNOWN_BROKEN |  |
-| KillApps | `com.tafayor.killall` | `1.57.9` | `1.57.9` |  | NO_UPDATE |  |
+| KillApps | `com.tafayor.killall` | `1.57.9` | `1.58.0` | `1000` | PATCHED |  |
 | KineMaster | `com.nexstreaming.app.kinemasterfree` | `8.1.13.36552.GP` | `8.1.15.36566` |  | FAILED | download |
 | KineStop | `com.urbandroid.kinestop` | `5.1` | `5.1` |  | NO_UPDATE |  |
 | komoot | `de.komoot.android` | `2026.29.0` | `2026.30.3` | `263722005` | FAILED | fingerprint |
-| Lark Player | `com.dywx.larkplayer` | `2026.10.5` | `2026.11.5` | `2026110509` | FAILED | fingerprint |
+| Lark Player | `com.dywx.larkplayer` | `2026.10.5` | `2026.11.6` | `2026110609` | FAILED | fingerprint |
 | Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.7.2` | `6.7.2` |  | NO_UPDATE |  |
 | Life360 | `com.life360.android.safetymapd` | `26.27.0` | `26.27.0` |  | NO_UPDATE |  |
 | LiveScore | `com.livescore` | `9.8` | `9.8` |  | NO_UPDATE |  |
-| MANGA Plus by SHUEISHA | `jp.co.shueisha.mangaplus` | `2.6.0` | `2.6.0` |  | NO_UPDATE |  |
+| MANGA Plus by SHUEISHA | `jp.co.shueisha.mangaplus` | `2.6.0` | `2.6.1` | `261` | PATCHED |  |
 | Mapy | `cz.seznam.mapy` | `26.7.1` | `26.7.1` |  | NO_UPDATE |  |
 | Material Capsule | `com.pryshedko.mtisland` | `15.5` | `15.5` |  | NO_UPDATE |  |
 | MaterialPods | `com.pryshedko.materialpods` | `6.70` | `6.70` |  | NO_UPDATE |  |
@@ -95,13 +95,13 @@ Failed: 14
 | Minimal Widgets | `com.jndapp.minimal.widgets` | `1.3.01` | `1.3.01` |  | NO_UPDATE |  |
 | Beta Maniac | `it.mirko.beta` | `0.9.4` | `0.9.4` |  | NO_UPDATE |  |
 | ML Manager | `com.javiersantos.mlmanager` | `5.0` | `5.0` |  | NO_UPDATE |  |
-| MobiOffice- Word, Excel, Slide | `com.mobisystems.office` | `16.4.60095` | `16.5.60504` |  | SKIPPED_KNOWN_BROKEN |  |
-| MovieBox | `com.community.oneroom` | `3.0.16.0709.03` | `3.0.16.0723.03` |  | SKIPPED_KNOWN_BROKEN |  |
+| MobiOffice- Word, Excel, Slide | `com.mobisystems.office` | `16.4.60095` | `16.5.60515` | `60515` | FAILED | fingerprint |
+| MovieBox | `com.community.oneroom` | `3.0.16.0709.03` | `3.0.16.0709.03` |  | NO_UPDATE |  |
 | MovieBox (India) | `com.community.mbox.in` | `3.0.16.0707.03` | `3.0.16.0707.03` |  | NO_UPDATE |  |
-| MovieBox TV | `com.community.mbox.tv` | `1.1.5.0711.03` | `1.1.6.0723.03` | `50040011` | FAILED | signing |
+| MovieBox TV | `com.community.mbox.tv` | `1.1.5.0711.03` | `1.1.6.0723.03` |  | SKIPPED_KNOWN_BROKEN |  |
 | Permission Pilot | `eu.darken.myperm` | `2.2.0-rc0` | `2.2.0-rc0` |  | NO_UPDATE |  |
 | MyRadar | `com.acmeaom.android.myradar` | `8.71.3` | `8.71.3` |  | NO_UPDATE |  |
-| NAVITIME | `com.navitime.inbound.walk` | `12.0.5` | `12.0.5` |  | NO_UPDATE |  |
+| NAVITIME | `com.navitime.inbound.walk` | `12.0.5` | `12.0.6` | `369` | PATCHED |  |
 | NetGuard | `eu.faircode.netguard` | `2.335` | `2.335` |  | NO_UPDATE |  |
 | NetMonster | `cz.mroczis.netmonster` | `3.4.1` | `3.4.1` |  | NO_UPDATE |  |
 | NetShare | `kha.prog.mikrotik` | `277` | `277` |  | NO_UPDATE |  |
@@ -109,12 +109,12 @@ Failed: 14
 | NewsBreak | `com.particlenews.newsbreak` | `26.28.0` | `26.30.0` | `26300026` | FAILED | signing |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.7` |  | NO_UPDATE |  |
 | NYT Games | `com.nytimes.crossword` | `6.35.0` | `6.35.0` |  | NO_UPDATE |  |
-| nzb360 | `com.kevinforeman.nzb360` | `24.1` | `24.1` |  | NO_UPDATE |  |
+| nzb360 | `com.kevinforeman.nzb360` | `24.1` | `24.2` | `524` | PATCHED |  |
 | OBD Android | `ai.metaverselabs.obdandroid` | `4.9` | `4.9` |  | NO_UPDATE |  |
 | Octi | `eu.darken.octi` | `1.1.0-rc0` | `1.1.0-rc0` |  | NO_UPDATE |  |
 | 1Tap Cleaner | `com.a0soft.gphone.acc.free` | `5.21` | `5.21` |  | NO_UPDATE |  |
 | Opera News - Breaking & Local | `com.opera.app.news` | `14.1.2254.83278` | `14.1.2254.83278` |  | NO_UPDATE |  |
-| Parallel Space Pro | `com.parallel.space.pro` | `4.0.9123` | `4.0.9123` |  | NO_UPDATE |  |
+| Parallel Space Pro | `com.parallel.space.pro` | `4.0.9123` | `4.0.9132` | `10931` | PATCHED |  |
 | Parcels — Package Tracker | `com.brightstripe.parcels` | `3.0.11` | `3.0.11` |  | NO_UPDATE |  |
 | PC Remote - Desktop & Phone | `com.monect.portable` | `8.3.5` | `8.3.5` |  | NO_UPDATE |  |
 | Photo Editor | `com.iudesk.android.photo.editor` | `13.4` | `13.5` |  | SKIPPED_KNOWN_BROKEN |  |
@@ -141,15 +141,15 @@ Failed: 14
 | Proton VPN | `ch.protonvpn.android` | `5.19.61.0` | `5.19.61.0` |  | NO_UPDATE |  |
 | Proxyman | `com.proxyman.proxymanandroid` | `1.19.0` | `1.19.0` |  | NO_UPDATE |  |
 | Psiphon Pro | `com.psiphon3.subscription` | `479` | `479` |  | NO_UPDATE |  |
-| qBitConnect | `com.bluematter.qbitconnect` | `2.0.5` | `2.0.5` |  | NO_UPDATE |  |
-| RAR | `com.rarlab.rar` | `7.23.build133` | `7.23.build133` |  | NO_UPDATE |  |
+| qBitConnect | `com.bluematter.qbitconnect` | `2.0.5` | `2.0.6` | `66` | PATCHED |  |
+| RAR | `com.rarlab.rar` | `7.23.build133` | `7.23.build134` | `134` | PATCHED |  |
 | RecipeBro | `com.recipebro.cookingbuddy` | `1.4.22` | `1.6.7` |  | SKIPPED_KNOWN_BROKEN |  |
 | Rename & Organize | `eu.duong.picturemanager` | `8.25.1` | `8.25.1` |  | NO_UPDATE |  |
 | Rocket Money | `com.truebill` | `13.15.0` | `15.2.0` |  | FAILED | download |
 | RS File Manager | `com.rs.explorer.filemanager` | `2.3.0.4` | `2.3.0.4` |  | NO_UPDATE |  |
 | SAI | `com.mtv.sai` | `2.3.1` | `2.3.1` |  | NO_UPDATE |  |
 | Scoopz | `com.localaiapp.scoops` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| SCRL | `com.appostrophe.scrl` | `1.23.1` | `1.23.1` |  | NO_UPDATE |  |
+| SCRL | `com.appostrophe.scrl` | `1.23.1` | `1.24` | `262` | PATCHED |  |
 | SD Maid SE | `eu.darken.sdmse` | `1.7.5-rc0` | `1.7.5-rc0` |  | NO_UPDATE |  |
 | Send Files To TV | `com.yablio.sendfilestotv` | `1.4.22` | `1.4.22` |  | NO_UPDATE |  |
 | SHAREit Premium | `shareit.premium` | `1.1.98` | `1.1.98` |  | NO_UPDATE |  |
@@ -164,23 +164,23 @@ Failed: 14
 | SpotAngels | `com.spotangels.android` | `15.2.2` | `15.2.2` |  | NO_UPDATE |  |
 | Sticker Maker | `com.marsvard.stickermakerforwhatsapp` | `1.0.10-5` | `1.0.10-5` |  | NO_UPDATE |  |
 | Sticker.ly | `com.snowcorp.stickerly.android` | `3.35.0` | `3.35.0` |  | NO_UPDATE |  |
-| Strava | `com.strava` | `471.11` | `472.12` |  | SKIPPED_KNOWN_BROKEN |  |
+| Strava | `com.strava` | `471.11` | `473.11` | `12398817` | FAILED | fingerprint |
 | Subway Now | `io.goodservice.theweekendest` | `1.2.10` | `1.2.10` |  | NO_UPDATE |  |
 | Super File | `com.esuper.file.explorer` | `1.5.6.3` | `1.5.6.3` |  | NO_UPDATE |  |
 | Tag Tracker | `com.makeevapps.tagtracker` | `1.3.2` | `1.3.2` |  | NO_UPDATE |  |
-| The Athletic | `com.theathletic` | `13.142.0` | `13.142.0` |  | NO_UPDATE |  |
-| Transit | `com.thetransitapp.droid` | `6.1.12` | `6.2.1` |  | FAILED | download |
+| The Athletic | `com.theathletic` | `13.142.0` | `13.143.0` | `33625630` | FAILED | fingerprint |
+| Transit | `com.thetransitapp.droid` | `6.1.12` | `6.2.2` |  | FAILED | download |
 | The Weather Channel | `com.weather.Weather` | `16.14.1` | `16.14.1` |  | NO_UPDATE |  |
 | Today Weather | `mobi.lockdown.weather` | `2.5.0-6` | `2.5.0-6` |  | NO_UPDATE |  |
 | TomTom GO | `com.tomtom.gplay.navapp` | `3.6.316-beta` | `3.6.320` |  | SKIPPED_KNOWN_BROKEN |  |
 | Toomics | `com.toomics.global.google` | `1.6.7` | `1.6.7` |  | NO_UPDATE |  |
 | TorrDroid | `intelligems.torrdroid` | `2.0.0` | `2.0.0` |  | NO_UPDATE |  |
 | Torrent Search Revolution V2 | `torrent.search.revolutionv2` | `2.3.3` | `2.3.3` |  | NO_UPDATE |  |
-| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.17.1` | `1.18.5` | `88` | FAILED | fingerprint |
+| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.17.1` | `1.18.8` | `91` | FAILED | fingerprint |
 | TrackChecker Mobile | `com.metalsoft.trackchecker_mobile` | `2.29.3` | `2.29.3` |  | NO_UPDATE |  |
 | Tracker Detect | `com.apple.trackerdetect` | `1.2` | `1.2` |  | NO_UPDATE |  |
-| TradingView | `com.tradingview.tradingviewapp` | `1.20.78.1.1002330` | `1.20.79.0.1002355` | `1002355` | FAILED | fingerprint |
-| Moovit | `com.tranzmate` | `5.196.0.1794` | `5.196.2.1797` | `1797` | FAILED | fingerprint |
+| TradingView | `com.tradingview.tradingviewapp` | `1.20.78.1.1002330` | `1.20.79.0.1002355` |  | SKIPPED_KNOWN_BROKEN |  |
+| Moovit | `com.tranzmate` | `5.196.0.1794` | `5.196.2.1797` |  | SKIPPED_KNOWN_BROKEN |  |
 | TurboScan | `com.piksoft.turboscan.free` | `1.7.3` | `1.7.3` |  | NO_UPDATE |  |
 | Stargazing Hub | `com.twtapp` | `3.3.2` | `3.3.2` |  | NO_UPDATE |  |
 | UbikiTouch | `eu.toneiv.ubktouch` | `1.16.13` | `1.17.5` | `77379` | FAILED | fingerprint |
@@ -189,7 +189,7 @@ Failed: 14
 | Uptodown App Store | `com.uptodown` | `7.34` | `7.36` |  | SKIPPED_KNOWN_BROKEN |  |
 | VIZ Manga | `com.vizmanga.android` | `4.14.2` | `4.14.2` |  | NO_UPDATE |  |
 | 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.8` | `6.38.8` |  | NO_UPDATE |  |
-| Wavve Boating | `com.wavve.boating.gps` | `5.7.4` | `5.7.4` |  | NO_UPDATE |  |
+| Wavve Boating | `com.wavve.boating.gps` | `5.7.4` | `5.7.5` | `3185` | PATCHED |  |
 | Waze | `com.waze` | `5.21.90.800` | `5.21.90.800` |  | NO_UPDATE |  |
 | Weawow | `com.weawow` | `7.1.8` | `7.1.8` |  | NO_UPDATE |  |
 | Windscribe VPN | `com.windscribe.vpn` | `4.2.2328` | `4.2.2328` |  | NO_UPDATE |  |
@@ -200,19 +200,55 @@ Failed: 14
 
 ## Failure Logs
 
+<details><summary>All Reader log excerpt</summary>
+
+````text
+ow the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 3m 7s
+30 actionable tasks: 30 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.6.1/userguide/configuration_cache_enabling.html
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+
+Auto-repair verification:
+$ python scripts/run_morphe_cli_patch.py --apk /home/runner/work/patches-tracker/patches-tracker/.work/all-reader/all-reader-3.2.4.apk --patches-mpp /home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/all-reader/patches/build/libs/patches-1.15.1.mpp --cli-jar /home/runner/work/patches-tracker/patches-tracker/.work/tools/cli.jar --out-dir /home/runner/work/patches-tracker/patches-tracker/.work/morphe-cli-repair-runs/all-reader --force --no-build-patches --no-download-cli --no-doctor-check
+usage: run_morphe_cli_patch.py [-h] [--apk APK] [--patch PATCH]
+                               [--disable DISABLE]
+                               [--options-file OPTIONS_FILE]
+                               [--patches-mpp PATCHES_MPP] [--cli-jar CLI_JAR]
+                               [--out-dir OUT_DIR] [--exclusive] [--force]
+                               [--continue-on-error]
+                               [--bytecode-mode {FULL,STRIP_SAFE,STRIP_FAST}]
+                               [--build-patches] [--no-build-patches]
+                               [--build-cli] [--download-cli]
+                               [--no-download-cli] [--sign] [--doctor]
+                               [--bootstrap-tools] [--bootstrap-python-tools]
+run_morphe_cli_patch.py: error: unrecognized arguments: --no-doctor-check
+
+
+Auto-repair stopped: repaired bundle did not patch successfully.
+
+````
+
+</details>
+
 <details><summary>APKMirror Installer log excerpt</summary>
 
 ````text
 /releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/apkmirror-installer/apkeditor.jar
 [+] Saved response: .work/resolver/apkmirror-installer/apkeditor.jar (7733037 bytes)
 [+] Merging XAPK splits with APKEditor
-[-] APKEditor m error: 00.001 I: [MERGE] Using: APKEditor version 1.4.9, ARSCLib version 1.3.9
+[-] APKEditor m error: 00.000 I: [MERGE] Using: APKEditor version 1.4.9, ARSCLib version 1.3.9
       -i = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk                                   
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.064 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.022 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -228,7 +264,7 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.apkmirror.helper.prod
@@ -237,21 +273,207 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 
 </details>
 
+<details><summary>Box Box log excerpt</summary>
+
+````text
+ses: `3`
+- New smali classes: `3`
+- Class refs analyzed: `3`
+- Fingerprints analyzed: `1`
+
+## Class Remaps
+
+| Confidence | Score | Old | New | Reason |
+|---|---:|---|---|---|
+
+## Fingerprints To Check
+
+| Status | File | Line | Class | Method | Note |
+|---|---|---:|---|---|---|
+| check-method | `Fingerprints.kt` | 53 | `Lpd6;` -> `Lpd6;` | `b` | none -> `Lpd6;-><clinit>()V` (proto=False strings=0 invokes=0 literals=1 margin=0.0) |
+
+
+patch_update_suggestions.json:
+{
+  "old_manifest": {
+    "package_name": "club.boxbox.android",
+    "version_name": "5.4.13",
+    "version_code": "256"
+  },
+  "new_manifest": {
+    "package_name": "club.boxbox.android",
+    "version_name": "5.4.14",
+    "version_code": "257"
+  },
+  "classes": [
+    {
+      "old_desc": "Lnd8;",
+      "new_desc": "Lnd8;",
+      "score": 999.0,
+      "confidence": "exact",
+      "reason": "descriptor still exists"
+    },
+    {
+      "old_desc": "Lpd6;",
+      "new_desc": "Lpd6;",
+      "score": 999.0,
+      "confidence": "exact",
+      "reason": "descriptor still exists"
+    },
+    {
+      "old_desc": "Lrb8;",
+      "new_desc": "Lrb8;",
+      "score": 999.0,
+      "confidence": "exact",
+      "reason": "descriptor still exists"
+    }
+  ],
+  "fingerprints": [
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/box-box/patches/src/main/kotlin/app/template/patches/boxbox/Fingerprints.kt",
+      "line": 53,
+      "kind": "Fingerprint",
+      "old_class": "Lpd6;",
+      "new_class": "Lpd6;",
+      "class_confidence": "exact",
+      "method_name": "b",
+      "status": "check-method",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lpd6;->b(Lrb8;Lnd8;)Ljava/lang/Object;",
+        "new_method": "Lpd6;-><clinit>()V",
+        "score": 2.5,
+        "confidence": "none",
+        "reason": "proto=False strings=0 invokes=0 literals=1 margin=0.0"
+      }
+    }
+  ],
+  "writes": []
+}
+
+Auto-repair stopped: helper did not change patch files.
+
+````
+
+</details>
+
+<details><summary>CamScanner log excerpt</summary>
+
+````text
+erprints.kt",
+      "line": 45,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/intsig/log/LogAgentHelper;",
+      "new_class": "",
+      "class_confidence": "none",
+      "method_name": "",
+      "status": "missing-class",
+      "missing_strings": [],
+      "method_suggestion": null
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/camscanner/patches/src/main/kotlin/app/template/patches/camscanner/Fingerprints.kt",
+      "line": 51,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/intsig/camscanner/tsapp/sync/SyncUtil;",
+      "new_class": "",
+      "class_confidence": "none",
+      "method_name": "",
+      "status": "missing-class",
+      "missing_strings": [
+        "connectivity"
+      ],
+      "method_suggestion": null
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/camscanner/patches/src/main/kotlin/app/template/patches/camscanner/Fingerprints.kt",
+      "line": 59,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/intsig/camscanner/tsapp/sync/SyncThread;",
+      "new_class": "",
+      "class_confidence": "none",
+      "method_name": "",
+      "status": "missing-class",
+      "missing_strings": [
+        "ReLoginSyncThread:login error, need relogin, isPwdWrong = "
+      ],
+      "method_suggestion": null
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/camscanner/patches/src/main/kotlin/app/template/patches/camscanner/Fingerprints.kt",
+      "line": 67,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/intsig/camscanner/mainmenu/mainactivity/MainHomeLifecycleObserver;",
+      "new_class": "",
+      "class_confidence": "none",
+      "method_name": "",
+      "status": "missing-class",
+      "missing_strings": [
+        "is_pwd_wrong"
+      ],
+      "method_suggestion": null
+    }
+  ],
+  "writes": []
+}
+
+Auto-repair stopped: helper did not change patch files.
+
+````
+
+</details>
+
+<details><summary>TeraBox log excerpt</summary>
+
+````text
+s were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 1m 35s
+30 actionable tasks: 11 executed, 19 from cache
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.6.1/userguide/configuration_cache_enabling.html
+
+
+Auto-repair verification:
+$ python scripts/run_morphe_cli_patch.py --apk /home/runner/work/patches-tracker/patches-tracker/.work/terabox/terabox-4.22.0.apk --patches-mpp /home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/terabox/patches/build/libs/patches-1.15.1.mpp --cli-jar /home/runner/work/patches-tracker/patches-tracker/.work/tools/cli.jar --out-dir /home/runner/work/patches-tracker/patches-tracker/.work/morphe-cli-repair-runs/terabox --force --no-build-patches --no-download-cli --no-doctor-check
+usage: run_morphe_cli_patch.py [-h] [--apk APK] [--patch PATCH]
+                               [--disable DISABLE]
+                               [--options-file OPTIONS_FILE]
+                               [--patches-mpp PATCHES_MPP] [--cli-jar CLI_JAR]
+                               [--out-dir OUT_DIR] [--exclusive] [--force]
+                               [--continue-on-error]
+                               [--bytecode-mode {FULL,STRIP_SAFE,STRIP_FAST}]
+                               [--build-patches] [--no-build-patches]
+                               [--build-cli] [--download-cli]
+                               [--no-download-cli] [--sign] [--doctor]
+                               [--bootstrap-tools] [--bootstrap-python-tools]
+run_morphe_cli_patch.py: error: unrecognized arguments: --no-doctor-check
+
+
+Auto-repair stopped: repaired bundle did not patch successfully.
+
+````
+
+</details>
+
 <details><summary>Inure App Manager log excerpt</summary>
 
 ````text
-[apkpure 107.1.0] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/
+[apkpure 107.2.0] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/
 [+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/ (title=Download Inure App Manager (Trial) latest build10... Android APK)
-[+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.1.0
-[+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.1.0 (title=Free APK Downloader Online - Download Region Free APK)
+[+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.2.0
+[+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.2.0 (title=Free APK Downloader Online - Download Region Free APK)
 [-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
 
-[gplay 107.1.0] [+] Downloading from Google Play: app.simple.inure.play
+[gplay 107.2.0] [+] Downloading from Google Play: app.simple.inure.play
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for app.simple.inure.play
@@ -359,7 +581,7 @@ patch_update_report.md:
 # Patch Update Suggestions
 
 - Old package: `com.dywx.larkplayer` version `2026.10.5` code `2026100509`
-- New package: `com.dywx.larkplayer` version `2026.11.5` code `2026110509`
+- New package: `com.dywx.larkplayer` version `2026.11.6` code `2026110609`
 - Old smali classes: `2`
 - New smali classes: `2`
 - Class refs analyzed: `2`
@@ -385,8 +607,8 @@ patch_update_suggestions.json:
   },
   "new_manifest": {
     "package_name": "com.dywx.larkplayer",
-    "version_name": "2026.11.5",
-    "version_code": "2026110509"
+    "version_name": "2026.11.6",
+    "version_code": "2026110609"
   },
   "classes": [
     {
@@ -414,38 +636,63 @@ Auto-repair stopped: helper did not change patch files.
 
 </details>
 
-<details><summary>MovieBox TV log excerpt</summary>
+<details><summary>MobiOffice- Word, Excel, Slide log excerpt</summary>
 
 ````text
-$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:791)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
-	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
-	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
-	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
-	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
-	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
-	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:790)
-	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
-	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:787)
-	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:52)
-	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
-	at picocli.CommandLine.access$1500(CommandLine.java:148)
-	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
-	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
-	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
-	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
-	at picocli.CommandLine.execute(CommandLine.java:2174)
-	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:23)
- 
-SEVERE: Patching aborted: FAILED: Unlock VIP 
+7.dex...
+I: Baksmaling classes8.dex...
+I: Baksmaling classes9.dex...
+I: Baksmaling classes10.dex...
+I: Baksmaling assets/audience_network.dex...
+I: Copying assets and libs...
+I: Copying unknown files...
+I: Copying original files...
+I: Copying META-INF/services directory
+
+$ python scripts/update_patch_from_decompiled.py --new-apktool /home/runner/work/patches-tracker/patches-tracker/.work/decompiled-repair/mobioffice-word-excel-slide/new --patch-dir /home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/mobioffice-word-excel-slide/patches/src/main/kotlin/app/template/patches/shared --out /home/runner/work/patches-tracker/patches-tracker/.work/decompiled-repair/mobioffice-word-excel-slide/report --in-place --update-version --min-confidence medium --old-apktool /home/runner/work/patches-tracker/patches-tracker/.work/decompiled-repair/mobioffice-word-excel-slide/old
+reports=/home/runner/work/patches-tracker/patches-tracker/.work/decompiled-repair/mobioffice-word-excel-slide/report
+patch_files=16 class_refs=0 remap_suggestions=0 fingerprint_checks=0
+
+
+patch_update_report.md:
+# Patch Update Suggestions
+
+- Old package: `com.mobisystems.office` version `16.4.60095` code `60095`
+- New package: `com.mobisystems.office` version `16.5.60515` code `60515`
+- Old smali classes: `0`
+- New smali classes: `0`
+- Class refs analyzed: `0`
+- Fingerprints analyzed: `0`
+
+## Class Remaps
+
+| Confidence | Score | Old | New | Reason |
+|---|---:|---|---|---|
+
+## Fingerprints To Check
+
+| Status | File | Line | Class | Method | Note |
+|---|---|---:|---|---|---|
+
+
+patch_update_suggestions.json:
+{
+  "old_manifest": {
+    "package_name": "com.mobisystems.office",
+    "version_name": "16.4.60095",
+    "version_code": "60095"
+  },
+  "new_manifest": {
+    "package_name": "com.mobisystems.office",
+    "version_name": "16.5.60515",
+    "version_code": "60515"
+  },
+  "classes": [],
+  "fingerprints": [],
+  "writes": []
+}
+
+Auto-repair stopped: helper did not change patch files.
 
 ````
 
@@ -580,7 +827,7 @@ Auto-repair stopped: helper did not change patch files.
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 7 cookies from FlareSolverr
+[+] Got 3 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.truebill
@@ -589,20 +836,121 @@ Auto-repair stopped: helper did not change patch files.
 
 </details>
 
+<details><summary>Strava log excerpt</summary>
+
+````text
+  "confidence": "low",
+        "reason": "proto=False strings=0 invokes=2 literals=1 margin=24.5"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/strava/patches/src/main/kotlin/app/template/patches/strava/UnlockSubscriptionPatch.kt",
+      "line": 96,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/strava/authorization/data/RequestOtpLogInNetworkResponse;",
+      "new_class": "Lcom/strava/authorization/data/RequestOtpLogInNetworkResponse;",
+      "class_confidence": "exact",
+      "method_name": "getUsePassword",
+      "status": "ok",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lcom/strava/authorization/data/RequestOtpLogInNetworkResponse;->getUsePassword()Z",
+        "new_method": "Lcom/strava/authorization/data/RequestOtpLogInNetworkResponse;->getUsePassword()Z",
+        "score": 999.0,
+        "confidence": "exact",
+        "reason": "same name and proto"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/strava/patches/src/main/kotlin/app/template/patches/strava/UnlockSubscriptionPatch.kt",
+      "line": 106,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/strava/settings/data/RequestEmailChangeWithOtpOrPasswordResponse;",
+      "new_class": "Lcom/strava/settings/data/RequestEmailChangeWithOtpOrPasswordResponse;",
+      "class_confidence": "exact",
+      "method_name": "getUsePassword",
+      "status": "ok",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lcom/strava/settings/data/RequestEmailChangeWithOtpOrPasswordResponse;->getUsePassword()Z",
+        "new_method": "Lcom/strava/settings/data/RequestEmailChangeWithOtpOrPasswordResponse;->getUsePassword()Z",
+        "score": 999.0,
+        "confidence": "exact",
+        "reason": "same name and proto"
+      }
+    }
+  ],
+  "writes": []
+}
+
+Auto-repair stopped: helper did not change patch files.
+
+````
+
+</details>
+
+<details><summary>The Athletic log excerpt</summary>
+
+````text
+plate/patches/theathletic/premium/Fingerprints.kt",
+      "line": 129,
+      "kind": "Fingerprint",
+      "old_class": "Lcom/theathletic/analytics/newarch/AnalyticsExtensionsKt;",
+      "new_class": "Lcom/theathletic/analytics/newarch/AnalyticsExtensionsKt;",
+      "class_confidence": "exact",
+      "method_name": "F",
+      "status": "ok",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lcom/theathletic/analytics/newarch/AnalyticsExtensionsKt;->F(Lcom/theathletic/analytics/IAnalytics;Lcom/theathletic/analytics/newarch/Event$Article$LoadSuccess;)V",
+        "new_method": "Lcom/theathletic/analytics/newarch/AnalyticsExtensionsKt;->F(Lcom/theathletic/analytics/IAnalytics;Lcom/theathletic/analytics/newarch/Event$Article$LoadSuccess;)V",
+        "score": 999.0,
+        "confidence": "exact",
+        "reason": "same name and proto"
+      }
+    },
+    {
+      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/the-athletic/patches/src/main/kotlin/app/template/patches/theathletic/premium/Fingerprints.kt",
+      "line": 128,
+      "kind": "methodCall",
+      "old_class": "Lcom/theathletic/analytics/newarch/AnalyticsExtensionsKt;",
+      "new_class": "Lcom/theathletic/analytics/newarch/AnalyticsExtensionsKt;",
+      "class_confidence": "exact",
+      "method_name": "F",
+      "status": "ok",
+      "missing_strings": [],
+      "method_suggestion": {
+        "old_method": "Lcom/theathletic/analytics/newarch/AnalyticsExtensionsKt;->F(Lcom/theathletic/analytics/IAnalytics;Lcom/theathletic/analytics/newarch/Event$Article$LoadSuccess;)V",
+        "new_method": "Lcom/theathletic/analytics/newarch/AnalyticsExtensionsKt;->F(Lcom/theathletic/analytics/IAnalytics;Lcom/theathletic/analytics/newarch/Event$Article$LoadSuccess;)V",
+        "score": 999.0,
+        "confidence": "exact",
+        "reason": "same name and proto"
+      }
+    }
+  ],
+  "writes": []
+}
+
+Auto-repair stopped: helper did not change patch files.
+
+````
+
+</details>
+
 <details><summary>Transit log excerpt</summary>
 
 ````text
-ansit-app/transit---subway--bus-times-6-2-1-release/
-[-] Could not find APKMirror variant for version=6.2.1 arch=all dpi=nodpi anydpi auto
+ansit-app/transit---subway--bus-times-6-2-2-release/
+[-] Could not find APKMirror variant for version=6.2.2 arch=all dpi=nodpi anydpi auto
 
-[apkcombo 6.2.1] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download
+[apkcombo 6.2.2] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download
 [+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download (title=Transit - Subway &amp; Bus Times APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.1-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.1/5126282.19416006a2ed10877e42d6fe9cb186adf6c66e8a.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.1_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260723T181721Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260723/auto/s3/aws4_request&X-Amz-Signature=9f0fb07c526cc5be36e213af931cac3bd55dd2e4af6b7438dade13ed037c40db
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.2-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.thetransitapp.droid/download/phone-6.2.2-apk (title=Download Transit - Subway &amp; Bus Times APK - Latest Version 2024)
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.thetransitapp.droid/6.2.2/5126285.0c0790cde573344909aff0930b0f9306177de486.apks?response-content-disposition=attachment%3B+filename%3D%22Transit+-+Subway+&+Bus+Times_6.2.2_apkcombo.com.xapk%22=&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260726T100320Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260726/auto/s3/aws4_request&X-Amz-Signature=c97f59f29abad8a47bbe4ae8dfe31cd73f926b77ae3b8798a64f519a7ca37095
 curl: (22) The requested URL returned error: 403
 
-[gplay 6.2.1] [+] Downloading from Google Play: com.thetransitapp.droid
+[gplay 6.2.2] [+] Downloading from Google Play: com.thetransitapp.droid
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
@@ -662,112 +1010,6 @@ curl: (22) The requested URL returned error: 403
         "score": 2.1111111111111107,
         "confidence": "none",
         "reason": "proto=False strings=0 invokes=1 literals=1 margin=0.4"
-      }
-    }
-  ],
-  "writes": []
-}
-
-Auto-repair stopped: helper did not change patch files.
-
-````
-
-</details>
-
-<details><summary>TradingView log excerpt</summary>
-
-````text
-gviewapp/gopro/model/plan/Plan;",
-      "class_confidence": "exact",
-      "method_name": "isLitePlan2024Trial",
-      "status": "ok",
-      "missing_strings": [],
-      "method_suggestion": {
-        "old_method": "Lcom/tradingview/tradingviewapp/gopro/model/plan/Plan;->isLitePlan2024Trial()Z",
-        "new_method": "Lcom/tradingview/tradingviewapp/gopro/model/plan/Plan;->isLitePlan2024Trial()Z",
-        "score": 999.0,
-        "confidence": "exact",
-        "reason": "same name and proto"
-      }
-    },
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/tradingview/patches/src/main/kotlin/app/template/patches/tradingview/Fingerprints.kt",
-      "line": 405,
-      "kind": "Fingerprint",
-      "old_class": "Lcom/tradingview/tradingviewapp/gopro/model/plan/Plan;",
-      "new_class": "Lcom/tradingview/tradingviewapp/gopro/model/plan/Plan;",
-      "class_confidence": "exact",
-      "method_name": "isEarlyBirdOfferAvailable",
-      "status": "ok",
-      "missing_strings": [],
-      "method_suggestion": {
-        "old_method": "Lcom/tradingview/tradingviewapp/gopro/model/plan/Plan;->isEarlyBirdOfferAvailable()Z",
-        "new_method": "Lcom/tradingview/tradingviewapp/gopro/model/plan/Plan;->isEarlyBirdOfferAvailable()Z",
-        "score": 999.0,
-        "confidence": "exact",
-        "reason": "same name and proto"
-      }
-    },
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/tradingview/patches/src/main/kotlin/app/template/patches/tradingview/Fingerprints.kt",
-      "line": 413,
-      "kind": "Fingerprint",
-      "old_class": "Lcom/tradingview/tradingviewapp/gopro/model/plan/ProPlan\\$Companion;",
-      "new_class": "",
-      "class_confidence": "none",
-      "method_name": "isTrial",
-      "status": "missing-class",
-      "missing_strings": [],
-      "method_suggestion": null
-    }
-  ],
-  "writes": []
-}
-
-Auto-repair stopped: helper did not change patch files.
-
-````
-
-</details>
-
-<details><summary>Moovit log excerpt</summary>
-
-````text
-,
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/moovit/patches/src/main/kotlin/app/template/patches/tranzmate/Fingerprints.kt",
-      "line": 150,
-      "kind": "Fingerprint",
-      "old_class": "Lcom/moovit/app/plus/onboarding/MoovitPlusOnboardingPrePurchaseFragment;",
-      "new_class": "Lcom/moovit/app/plus/onboarding/MoovitPlusOnboardingPrePurchaseFragment;",
-      "class_confidence": "exact",
-      "method_name": "onViewCreated",
-      "status": "ok",
-      "missing_strings": [],
-      "method_suggestion": {
-        "old_method": "Lcom/moovit/app/plus/onboarding/MoovitPlusOnboardingPrePurchaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
-        "new_method": "Lcom/moovit/app/plus/onboarding/MoovitPlusOnboardingPrePurchaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
-        "score": 999.0,
-        "confidence": "exact",
-        "reason": "same name and proto"
-      }
-    },
-    {
-      "file": "/home/runner/work/patches-tracker/patches-tracker/.work/fingerprint-analysis-source/moovit/patches/src/main/kotlin/app/template/patches/tranzmate/Fingerprints.kt",
-      "line": 157,
-      "kind": "Fingerprint",
-      "old_class": "Lcom/moovit/app/feature/freemium/FreemiumPopupFragment;",
-      "new_class": "Lcom/moovit/app/feature/freemium/FreemiumPopupFragment;",
-      "class_confidence": "exact",
-      "method_name": "onViewCreated",
-      "status": "ok",
-      "missing_strings": [],
-      "method_suggestion": {
-        "old_method": "Lcom/moovit/app/feature/freemium/FreemiumPopupFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
-        "new_method": "Lcom/moovit/app/feature/freemium/FreemiumPopupFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V",
-        "score": 999.0,
-        "confidence": "exact",
-        "reason": "same name and proto"
       }
     }
   ],
