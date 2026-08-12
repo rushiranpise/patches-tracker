@@ -1024,6 +1024,19 @@ apkpure-dlurl = "https://apkpure.com/microsoft-excel-spreadsheets/com.microsoft.
 apkcombo-dlurl = "https://apkcombo.com/search/com.microsoft.office.excel/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.microsoft.office.excel"
 
+[facebook]
+enabled = true
+app-name = "Facebook"
+package-name = "com.facebook.katana"
+constant = "FACEBOOK_COMPATIBILITY"
+current-version = "558.0.0.70.72"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.facebook.katana/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.facebook.katana"
+
 [fitbod]
 enabled = true
 app-name = "Fitbod"
@@ -1562,6 +1575,19 @@ uptodown-dlurl = "https://mega.en.uptodown.com/android"
 apkpure-dlurl = "https://apkpure.com/mega/mega.privacy.android.app"
 apkcombo-dlurl = "https://apkcombo.com/search/mega.privacy.android.app/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=mega.privacy.android.app"
+
+[messenger]
+enabled = true
+app-name = "Messenger"
+package-name = "com.facebook.orca"
+constant = "MESSENGER_COMPATIBILITY"
+current-version = "573.0.0.44.88"
+version = "latest"
+arch = "all"
+dpi = "nodpi anydpi auto"
+apk-types = "apk"
+apkcombo-dlurl = "https://apkcombo.com/search/com.facebook.orca/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.facebook.orca"
 
 [migraconnect]
 enabled = true
