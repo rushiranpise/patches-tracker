@@ -1,0 +1,52 @@
+name: Reset Current Versions
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  reset-versions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Reset current versions
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path("config.toml")
+          text = path.read_text()
+
+          updated, count = re.subn(
+              r'(?m)^(\s*current-version\s*=\s*).*$',
+              r'\g<1>"0.0"',
+              text
+          )
+
+          path.write_text(updated)
+
+          print(f"Updated {count} current-version entries.")
+          PY
+
+      - name: Show changes
+        run: git diff -- config.toml
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet -- config.toml; then
+            echo "No changes needed."
+            exit 0
+          fi
+
+          git add config.toml
+          git commit -m "chore: reset current versions to 0.0"
+          git push
