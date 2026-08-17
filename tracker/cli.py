@@ -131,8 +131,6 @@ def main() -> int:
                 "source": r.source_name,
                 "source_url": r.source_url,
                 "apk_file_type": r.apk_file_type,
-                "repair": bool(r.repair_repo_path),
-                "repair_summary": r.repair_summary,
                 "log_excerpt": r.log[-2000:] if not r.ok else "",
                 "artifact": str(r.output) if r.output else None,
             }
@@ -147,7 +145,7 @@ def main() -> int:
         return 0
 
     changed = []
-    successful_results = [result for result in results if result.ok and result.output and not result.repair_repo_path]
+    successful_results = [result for result in results if result.ok and result.output]
     patches_repo_path = None
     branch = ""
     constants_file = None
@@ -164,9 +162,6 @@ def main() -> int:
         if result.ok:
             if result.output:
                 close_resolved_issues_for_success(app, result, cfg.tracker.patches_repo)
-            if result.repair_repo_path:
-                create_repair_pull_request(result, cfg.tracker.patches_repo, cfg.tracker.target_branch)
-                continue
             if not result.output:
                 print(f"[{app.id}] {result.status}; no patched APK artifact, leaving constants unchanged", flush=True)
                 continue
@@ -228,54 +223,12 @@ def main() -> int:
     return 0
 
 
-def create_repair_pull_request(result, patches_repo: str, target_branch: str) -> str:
-    repo_path = result.repair_repo_path
-    if repo_path is None:
-        return ""
-    app = result.app
-    branch = slug_branch(f"tracker/repair-{app.id}-{result.candidate_version}")
-    body = (
-        f"- `{app.name}`: verified `{result.candidate_version}`"
-        + (f" (`versionCode {result.version_code}`)" if result.version_code else "")
-        + "\n"
-        + f"- Auto-repair: {result.repair_summary or 'fingerprint target update'}\n"
-    )
-    try:
-        git(["config", "user.name", git_author_name()], repo_path)
-        git(["config", "user.email", git_author_email()], repo_path)
-        git(["checkout", "-B", branch], repo_path)
-        git(["add", "."], repo_path)
-        staged = subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=repo_path)
-        if staged.returncode == 0:
-            print(f"[{app.id}] auto-repair produced no git changes; skipping PR", flush=True)
-            return ""
-        git(["commit", "-m", f"fix: repair {app.name} for {result.candidate_version}"], repo_path)
-        git(["push", "origin", branch, "--force-with-lease"], repo_path)
-        return create_pull_request(
-            repo_path,
-            patches_repo,
-            branch,
-            target_branch,
-            f"fix: repair {app.name} for {result.candidate_version}",
-            body,
-        )
-    except subprocess.CalledProcessError as error:
-        print(f"warning: could not push or open auto-repair PR for {app.name}: {error}", flush=True)
-        return ""
-
-
 def git_author_name() -> str:
     return os.environ.get("GIT_AUTHOR_NAME") or os.environ.get("GITHUB_ACTOR") or "Rushi Ranpise"
 
 
 def git_author_email() -> str:
     return os.environ.get("GIT_AUTHOR_EMAIL") or "rushiranpise17@gmail.com"
-
-
-def slug_branch(value: str) -> str:
-    import re
-
-    return re.sub(r"[^A-Za-z0-9._/-]+", "-", value).strip("-")
 
 
 def close_resolved_source_issues(app, result) -> None:
