@@ -102,8 +102,9 @@ def _load_rvb_style_app(app_id: str, raw: dict) -> AppConfig:
     app = _normalize_keys(raw)
     apk_types = _list_value(app.get("apk_types", []))
     sources = []
-    for source in ("direct", "github", "archive", "aoneroom", "apkmirror", "uptodown", "apkpure", "apkcombo", "gplay"):
-        url = app.pop(f"{source}_dlurl", "")
+    for source in ("direct", "github", "github-release", "archive", "aoneroom", "apkmirror", "uptodown", "apkpure", "apkcombo", "gplay"):
+        # _normalize_keys converts dashes to underscores, so match that
+        url = app.pop(f"{source.replace('-', '_')}_dlurl", "")
         if url:
             sources.append(SourceConfig(source, url, app.get("arch", "all"), app.get("dpi", "nodpi anydpi auto"), apk_types))
 

@@ -1142,6 +1142,51 @@ get_github_pkg_name() {
     sed 's/-.*//' <<<"$__ARCHIVE_RESP__" | head -n 1
 }
 
+# -------------------- github-release (latest only) --------------------
+# Fetches the latest release from a GitHub repo and downloads APK assets.
+# Usage: github-release https://github.com/owner/repo
+# Only supports "latest" version — no arbitrary version pinning.
+# Version is taken from the release tag_name, not from filenames.
+get_github_release_resp() {
+    local repo resp
+    repo=$(cut -d/ -f4-5 <<<"$1")
+    resp=$(gh_req "https://api.github.com/repos/${repo}/releases/latest" -) || return 1
+    __GITHUB_RELEASE_TAG__=$(jq -r '.tag_name // empty' <<<"$resp")
+    [ -z "$__GITHUB_RELEASE_TAG__" ] && { epr "No tag_name in latest release for ${repo}"; return 1; }
+    # Extract only supported file extensions
+    __ARCHIVE_RESP__=$(jq -r '.assets[]? | select(.name | test("\\.(apk|apkm|xapk|apks)$")) | .name' <<<"$resp")
+    if [ -z "$__ARCHIVE_RESP__" ]; then { epr "No APK assets in latest release for ${repo}"; return 1; }
+    fi
+    __GITHUB_URL__="https://github.com/${repo}/releases/download/${__GITHUB_RELEASE_TAG__}"
+}
+
+dl_github_release() {
+    local url=$1 version=$2 output=$3 arch=$4 _dpi=$5
+    get_github_release_resp "$url" || return 1
+    # Pick the first APK/bundle asset — no filename-based version matching
+    local asset ext
+    asset=$(head -1 <<<"$__ARCHIVE_RESP__")
+    [ -z "$asset" ] && { epr "No APK assets found in latest release"; return 1; }
+    ext="${asset##*.}"
+    pr "github-release asset: $asset (tag: ${__GITHUB_RELEASE_TAG__})"
+    case "$ext" in
+        apk)
+            gh_dl "$output" "${__GITHUB_URL__}/${asset}"
+            mark_apk_file_type APK
+            ;;
+        apkm|xapk|apks)
+            local bundle="${output}.${ext}"
+            gh_dl "$bundle" "${__GITHUB_URL__}/${asset}" || return 1
+            merge_splits "$bundle" "$output"
+            mark_apk_file_type "$(tr '[:lower:]' '[:upper:]' <<<"$ext")"
+            ;;
+        *)
+            epr "Unsupported github-release file type: $asset"
+            return 1
+            ;;
+    esac
+}
+
 # -------------------- direct --------------------
 dl_direct() {
 	local url=$1 version=${2// /-} output=$3 arch=$4 _dpi=$5
@@ -1206,7 +1251,7 @@ Usage:
   resolve-apk.sh latest <source> <url>
 
 Sources:
-  direct github archive aoneroom apkmirror uptodown apkpure apkcombo gplay
+  direct github github-release archive aoneroom apkmirror uptodown apkpure apkcombo gplay
 EOF
 }
 
@@ -1220,6 +1265,11 @@ latest_version() {
 			command -v jq >/dev/null || { epr "jq is required for github source"; return 1; }
 			get_github_resp "$url" || return 1
 			get_github_vers | head -n 1
+			;;
+		github-release)
+			command -v jq >/dev/null || { epr "jq is required for github-release source"; return 1; }
+			get_github_release_resp "$url" || return 1
+			echo "$__GITHUB_RELEASE_TAG__"
 			;;
 		archive)
 			get_archive_resp "$url" || return 1
@@ -1288,6 +1338,10 @@ main() {
 			command -v jq >/dev/null || { epr "jq is required for github source"; return 1; }
 			get_github_resp "$url" || return 1
 			dl_github "$url" "$version" "$output" "$arch" "$dpi"
+			;;
+		github-release)
+			command -v jq >/dev/null || { epr "jq is required for github-release source"; return 1; }
+			dl_github_release "$url" "$version" "$output" "$arch" "$dpi"
 			;;
 		archive)
 			get_archive_resp "$url" || return 1
