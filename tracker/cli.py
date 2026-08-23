@@ -51,6 +51,7 @@ def clone_patches_repo(repo: str, dest: Path, branch: str, *, dry_run: bool = Fa
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default="config.toml")
+    parser.add_argument("--app", default="", help="Run only this app ID (comma-separated for multiple)")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--shard-total", type=int, default=1)
@@ -62,10 +63,18 @@ def main() -> int:
 
     cfg = load_config(args.config)
     all_apps = cfg.apps
-    cfg_apps = [app for index, app in enumerate(all_apps) if index % args.shard_total == args.shard_index]
-    print(
-        f"tracker batch {args.shard_index + 1}/{args.shard_total}: "
-        f"{len(cfg_apps)} of {len(all_apps)} apps",
+    if args.app:
+        wanted = {a.strip() for a in args.app.split(",") if a.strip()}
+        cfg_apps = [app for app in all_apps if app.id in wanted]
+        missing = wanted - {app.id for app in cfg_apps}
+        if missing:
+            parser.error(f"App ID(s) not found in config: {', '.join(sorted(missing))}")
+        print(f"tracker single-app: {len(cfg_apps)} of {len(all_apps)} apps", flush=True)
+    else:
+        cfg_apps = [app for index, app in enumerate(all_apps) if index % args.shard_total == args.shard_index]
+        print(
+            f"tracker batch {args.shard_index + 1}/{args.shard_total}: "
+            f"{len(cfg_apps)} of {len(all_apps)} apps",
         flush=True,
     )
     root = Path.cwd()
