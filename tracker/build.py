@@ -20,7 +20,7 @@ from .github import known_patch_failure_exists
 RESOLVER_RETRIES = int(os.environ.get("RESOLVER_RETRIES", "1"))
 RESOLVER_TIMEOUT_SECONDS = int(os.environ.get("RESOLVER_TIMEOUT_SECONDS", "300"))
 PATCHER_TIMEOUT_SECONDS = int(os.environ.get("PATCHER_TIMEOUT_SECONDS", "900"))
-COMPARABLE_LATEST_SOURCES = {"direct", "github", "archive", "aoneroom", "apkmirror", "uptodown", "apkpure", "apkcombo"}
+COMPARABLE_LATEST_SOURCES = {"direct", "github", "github-release", "archive", "aoneroom", "apkmirror", "uptodown", "apkpure", "apkcombo"}
 DOWNLOAD_FALLBACK_SOURCES = {"gplay"}
 
 
