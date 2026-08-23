@@ -1889,7 +1889,7 @@ arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk"
 uptodown-dlurl = "https://com-community-oneroom.en.uptodown.com/android"
-aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=MovieBoxTV"
+aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=moviebox&packageName=com.community.oneroom&channelType=CHANNEL_PLAMSTORE"
 
 [moviebox-tv]
 enabled = true
