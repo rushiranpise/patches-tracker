@@ -3563,6 +3563,7 @@ dpi = "nodpi anydpi auto"
 apk-types = "apk"
 apkcombo-dlurl = "https://apkcombo.com/search/com.vythera.vyxelapps/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.vythera.vyxelapps"
+github-release-dlurl = "https://github.com/NikhilKain/vyxel-apps/"
 
 [wallverse]
 enabled = true
