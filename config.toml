@@ -45,6 +45,7 @@ dpi = "nodpi anydpi auto"
 apk-types = "apk"
 apkcombo-dlurl = "https://apkcombo.com/search/com.aaenabler.app/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.aaenabler.app"
+github-release-dlurl = "https://github.com/malebuffy/AAEnabler"
 
 [accubattery]
 enabled = true
