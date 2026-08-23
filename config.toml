@@ -1888,9 +1888,8 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk"
-apkcombo-dlurl = "https://apkcombo.com/search/com.community.oneroom/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.community.oneroom"
-aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=moviebox&packageName=com.community.oneroom&channelType=CHANNEL_OWN"
+uptodown-dlurl = "https://com-community-oneroom.en.uptodown.com/android"
+aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=MovieBoxTV"
 
 [moviebox-tv]
 enabled = true
@@ -1902,10 +1901,6 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk"
-uptodown-dlurl = "https://com-community-mbox-tv.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/moviebox-tv-apk/com.community.mbox.tv"
-apkcombo-dlurl = "https://apkcombo.com/search/com.community.mbox.tv/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.community.mbox.tv"
 aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=MovieBoxTV"
 
 [moviebox-india]
@@ -1918,8 +1913,6 @@ version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
 apk-types = "apk"
-apkcombo-dlurl = "https://apkcombo.com/search/com.community.mbox.in/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.community.mbox.in"
 aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=moviebox&packageName=com.community.mbox.in&channelType=CHANNEL_PLAMSTORE"
 
 [myanimelist]
