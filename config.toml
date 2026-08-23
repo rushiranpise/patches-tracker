@@ -1890,6 +1890,7 @@ dpi = "nodpi anydpi auto"
 apk-types = "apk"
 apkcombo-dlurl = "https://apkcombo.com/search/com.community.oneroom/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.community.oneroom"
+aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=moviebox&packageName=com.community.oneroom&channelType=CHANNEL_OWN"
 
 [moviebox-tv]
 enabled = true
@@ -1919,6 +1920,7 @@ dpi = "nodpi anydpi auto"
 apk-types = "apk"
 apkcombo-dlurl = "https://apkcombo.com/search/com.community.mbox.in/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.community.mbox.in"
+aoneroom-dlurl = "https://h5-api.aoneroom.com/wefeed-h5api-bff/app/get-latest-app-pkgs?appName=moviebox&packageName=com.community.mbox.in&channelType=CHANNEL_PLAMSTORE"
 
 [myanimelist]
 enabled = true
