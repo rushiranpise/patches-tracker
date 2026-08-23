@@ -1,185 +1,237 @@
 # patches-tracker
 
-`patches-tracker` is a GitHub Actions workflow for checking Morphe patch compatibility. It finds newer upstream APKs, downloads the stock app, runs the Morphe/ReVanced-style patcher, publishes successful builds, and reports failures in the right place.
+Automated CI pipeline that tracks upstream app releases, downloads stock APKs, runs Morphe patches, and updates `morphe-patches` compatibility constants & reports failures.
 
-It has two main jobs:
+## How It Works
 
-- verify whether newer upstream app versions still patch successfully
-- update `morphe-patches` compatibility constants only after a real patched build succeeds
+```
+config.toml  →  resolve latest version  →  download APK  →  patch  →  PR / issue
+```
 
-## Pipeline
+1. Reads apps from `config.toml` (auto-generated from `Constants.kt` in `morphe-patches`).
+2. For each app, asks configured sources for the latest version.
+3. Skips anything not newer than the already-verified `current-version`.
+4. Downloads the stock APK from the first source that has the selected version.
+5. Merges split APKs (XAPK/APKS/APKM) into a single patchable APK when needed.
+6. Runs Morphe CLI patcher with `--force`.
+7. If patching succeeds: uploads artifact, creates a GitHub release, opens a PR to update `Constants.kt`.
+8. If patching fails: opens an issue (tracker repo for source errors, `morphe-patches` for patch breakage).
 
-The main workflow is `.github/workflows/track.yml`.
+All app checks run concurrently (`parallel_jobs = 4`) inside a single Actions job.
 
-1. Read apps from `config.toml`.
-2. Run app checks concurrently using `parallel_jobs`.
-3. Find the latest app version from the configured sources.
-4. Download the stock APK, APKM, XAPK, or APKS.
-5. Merge split packages into a patchable APK when needed.
-6. Run the patcher with Morphe CLI `--force` so newer versions are tested instead of skipped by compatibility metadata.
-7. Upload logs and patched APK artifacts.
-8. Create a release for successful artifacts.
-9. Open or update failure issues.
-10. Open a PR against `morphe-patches` when verified versions change.
+## Quick Start (Fork & Run)
 
-The workflow runs as one GitHub Actions job. App checks run inside that job with `parallel_jobs = 4`, which keeps one status branch, one release, and one PR while reducing total wall-clock time.
+### 1. Fork this repo
 
-## Configuration
+### 2. Set up your target patches repo
 
-Apps use rvb-style flat TOML tables:
+You need a `morphe-patches` (or equivalent) repo with:
+- A `Constants.kt` file listing your supported apps with `*_COMPATIBILITY` constants
+- A patcher CLI (JAR) that applies patches to APKs
+
+### 3. Configure `config.toml`
+
+The top section points to your repos:
 
 ```toml
-[splitwise]
+[tracker]
+patches_repo = "your-user/your-patches"
+constants_path = "patches/src/main/kotlin/app/template/patches/shared/Constants.kt"
+target_branch = "dev"
+
+[cli]
+repo = "MorpheApp/morphe-cli"
+asset_regex = ".*\\.jar$"
+
+[patches]
+repo = "your-user/your-patches"
+asset_regex = ".*\\.(mpp|rvp|jar)$"
+```
+
+### 4. Add apps
+
+Each app is a flat TOML table. You can auto-generate entries from `Constants.kt` (see [Generating Config](#generating-config)) or hand-write them:
+
+```toml
+[my-app]
 enabled = true
-app-name = "Splitwise"
-package-name = "com.Splitwise.SplitwiseMobile"
-constant = "SPLITWISE_COMPATIBILITY"
-current-version = "26.5.5"
+app-name = "My App"
+package-name = "com.example.myapp"
+constant = "MYAPP_COMPATIBILITY"
+current-version = "1.2.3"
 version = "latest"
 arch = "all"
 dpi = "nodpi anydpi auto"
-apk-types = "apk xapk apks"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/splitwise/splitwise"
-apkcombo-dlurl = "https://apkcombo.com/search/com.Splitwise.SplitwiseMobile/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.Splitwise.SplitwiseMobile"
-uptodown-dlurl = "https://splitwise.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/apk-info/com.Splitwise.SplitwiseMobile"
+apk-types = "apk"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/example/my-app"
+uptodown-dlurl = "https://my-app.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/my-app/com.example.myapp"
+apkcombo-dlurl = "https://apkcombo.com/search/com.example.myapp/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.example.myapp"
 ```
 
-Default patches do not need to be listed. Use `included-patches` only for patches that are off by default, and `excluded-patches` for patches you want to skip.
+### 5. Set secrets
 
-The legacy `[[apps]]` / `[[apps.sources]]` format is still accepted, but new entries should use flat tables.
+| Secret | Required | Purpose |
+|---|---|---|
+| `PATCHES_REPO_TOKEN` | Yes | Push branches and open PRs in your patches repo |
+| `GPLAY_DISPENSER_URL` | No | Google Play download dispenser (if using gplay source) |
 
-## Source Priority
+### 6. Run
 
-When an app has more than one source, the tracker tries them in this order:
+Go to **Actions → Track patches → Run workflow**. Or let the weekly cron handle it.
 
-```text
-direct -> github -> archive -> apkmirror -> uptodown -> apkpure -> apkcombo -> gplay
-```
+## Download Sources
 
-The same order is used when checking the latest version. The tracker stops at the first source that reports a newer version and produces a downloadable APK. If version lookup or download fails, it moves on to the next configured source. Once an APK downloads, patching is attempted from that APK and lower-priority sources are skipped.
+Sources are tried in this order. The tracker stops at the first one that provides a downloadable APK for the selected version:
 
-Successful builds only update `Constants.kt` when the tested version is newer than `current-version`. Fallback sources that report the current or an older version are skipped, so compatibility constants are never downgraded.
+| Priority | Source | Version lookup | Notes |
+|---|---|---|---|
+| 1 | `direct` | From filename | Direct APK URL |
+| 2 | `github` | From tagged release | Specific release tag |
+| 3 | `github-release` | From latest release | Latest release only, manual config |
+| 4 | `archive` | From directory listing | Static file server |
+| 5 | `aoneroom` | From API | MovieBox-specific API |
+| 6 | `apkmirror` | From uploads page | FlareSolverr may be needed |
+| 7 | `uptodown` | From versions page | Full version history |
+| 8 | `apkpure` | From downloading page | FlareSolverr may be needed |
+| 9 | `apkcombo` | From download page | Tries apk/xapk/apks |
+| 10 | `gplay` | None (fallback only) | Download-only, no version comparison |
 
-Supported package formats:
-
-- `apk`
-- `apkm`
-- `xapk`
-- `apks`
-
-APKCombo follows rvb behavior and tries `apk`, `xapk`, and `apks`. `apkm` is still supported for sources where it is a real file type, such as APKMirror, direct URLs, archives, and GitHub releases.
-
-## Generated Source Config
-
-`.github/workflows/sync-config-from-constants.yml` updates `config.toml` from `Constants.kt` without resolving APK source links. Use it when Morphe constants changed and the tracker config only needs the current app versions refreshed.
-
-`.github/workflows/generate-source-config.yml` does the heavier source discovery pass for APKMirror, Uptodown, and APKPure links. It also runs automatically after a successful constants sync.
-
-The generator extracts:
-
-- app name
-- package name
-- compatibility constant
-- current target version
-- preferred APK file type from `apkFileType`, when present
-
-It uses the package name to discover source links, then writes the first final app page URL found in source-priority order: APKMirror, then Uptodown, then APKPure. APKCombo keeps the package search URL because that is the downloader entrypoint. Existing final higher-priority source URLs are kept, so repeat runs do not keep checking lower-priority mirrors once a better source is available. If constants do not declare `apkFileType`, source discovery can infer a narrower `apk-types` value from the resolved source page. Manual patch options and disabled apps also survive regeneration:
+### Source config keys
 
 ```toml
-enabled = false
-included-patches = "'Some Patch'"
-excluded-patches = "'Other Patch'"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/developer/app-name"
+uptodown-dlurl = "https://app-name.en.uptodown.com/android"
+apkpure-dlurl = "https://apkpure.com/app-name/com.package.name"
+apkcombo-dlurl = "https://apkcombo.com/search/com.package.name/"
+gplay-dlurl = "https://play.google.com/store/apps/details?id=com.package.name"
+github-dlurl = "https://github.com/owner/repo/releases/tag/v1.0.0"
+github-release-dlurl = "https://github.com/owner/repo"
+direct-dlurl = "https://example.com/app-v1.0.0.apk"
+archive-dlurl = "https://example.com/archive/com.package.name"
+aoneroom-dlurl = "https://h5-api.aoneroom.com/..."
 ```
 
-Generated fields such as `app-name`, `package-name`, `constant`, `current-version`, `version`, `arch`, `dpi`, `apk-types`, `apkmirror-dlurl`, `uptodown-dlurl`, `apkpure-dlurl`, and `apkcombo-dlurl` are refreshed from the generator. Set `enabled = false` under an app table to keep it in config but skip it during tracker runs.
+`github-release-dlurl` is **manual-only** — the config generator does not auto-discover it. Set it by hand for repos where you want to track only the latest GitHub release.
 
-`apk-types` is derived from `apkFileType` in `Constants.kt` and guides which file formats each source should try. When a newer app version patches successfully, the tracker records the actual downloaded/tested input format and updates `apkFileType = ApkFileType.APK/APKM/APKS/XAPK` in the Morphe constants PR along with the version and versionCode. That makes Constants the record of the last format verified to patch.
-
-Generated source discovery starts from these package-name URLs:
+## App Config Reference
 
 ```toml
-apkmirror-dlurl = "https://www.apkmirror.com/?post_type=app_release&searchtype=app&sortby=date&sort=desc&s=com.whatsapp"
-uptodown-dlurl = "https://en.uptodown.com/android/search?query=com.whatsapp"
-apkpure-dlurl = "https://apkpure.com/apk-info/com.whatsapp"
-apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
+[app-id]
+enabled = true                          # false to skip this app
+app-name = "App Name"                   # display name
+package-name = "com.example.app"        # Android package name
+constant = "APP_COMPATIBILITY"          # Constants.kt constant name
+current-version = "1.2.3"               # last verified version
+version = "latest"                      # "latest" or a specific version
+arch = "all"                            # all, arm64-v8a, armeabi-v7a, etc.
+dpi = "nodpi anydpi auto"               # DPI filter
+apk-types = "apk xapk apks"            # accepted formats
+included-patches = "'Patch Name'"       # patches to enable (off by default)
+excluded-patches = "'Other Patch'"      # patches to skip
 ```
 
-For APKMirror and Uptodown, discovery checks the search results and keeps the app whose package name matches. APKPure uses the `apk-info/<package>` redirect when the app exists there.
-
-The generated `config.toml` stores the resolved final URLs, for example:
-
-```toml
-apkmirror-dlurl = "https://www.apkmirror.com/apk/whatsapp-inc/whatsapp-messenger/"
-uptodown-dlurl = "https://whatsapp-messenger.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/whatsapp-android/com.whatsapp"
-apkcombo-dlurl = "https://apkcombo.com/search/com.whatsapp/"
-```
-
-Source discovery runs gently because APKMirror and APKPure may need FlareSolverr. The workflow currently uses `--max-source-checks 0`, which means no source-check cap. Raise `--source-workers` carefully if the source sites become stable enough for more concurrency.
-
-## Failure Routing
-
-Download, version lookup, and config failures are tracker/source problems. These issues are created in the tracker repository.
-
-Patch, fingerprint, signing, and patcher failures are patch compatibility problems. These issues are created in `morphe-patches`.
-
-That keeps source-site breakage separate from real patch breakage.
-
-## Runtime Controls
-
-For `version = "latest"`, the tracker first asks comparable sources for their latest version, ignores anything not newer than `current-version`, selects the highest newer version, then downloads only from sources that reported that selected version. Google Play is download-only because it does not expose a comparable version name, so it is used as a fallback for the selected version instead of participating in latest-version sorting.
-
-The resolver is still bounded so one blocked source does not eat the whole CI budget, but the timeout is long enough for split APK merge work.
-
-Environment variables:
-
-```text
-RESOLVER_RETRIES=1
-RESOLVER_TIMEOUT_SECONDS=300
-APK_MERGE_TIMEOUT_SECONDS=240
-FETCH_RETRIES=3
-APKCOMBO_RETRIES=3
-PATCHER_TIMEOUT_SECONDS=900
-```
-
-The tracker streams resolver and patcher stdout/stderr live in Actions logs, including command lines, return codes, FlareSolverr fetches, HTTP requests, and timeout kills.
-
-## Local Commands
-
-Dry-run the whole config without downloading or patching:
+## CLI Usage
 
 ```bash
+# Dry-run the full config (no downloads, no patching)
 python -m tracker.cli --config config.toml --dry-run
+
+# Run a single app
+python -m tracker.cli --config config.toml --app my-app
+
+# Run multiple specific apps
+python -m tracker.cli --config config.toml --app my-app,other-app
+
+# Shard across CI jobs
+python -m tracker.cli --config config.toml --shard-index 0 --shard-total 4
 ```
 
-Dry-run one shard manually:
+## CI Workflows
 
-```bash
-python -m tracker.cli --config config.toml --dry-run --shard-index 0 --shard-total 2
-```
+| Workflow | Trigger | Purpose |
+|---|---|---|
+| `track.yml` | Weekly cron, manual, after config sync | Full tracker run |
+| `track-app.yml` | Manual (app ID input) | Run tracker for a single app |
+| `sync-config-from-constants.yml` | Manual, weekly cron | Refresh config from Constants.kt |
+| `generate-source-config.yml` | After sync | Discover APK source URLs |
+| `reset.yml` | Manual | Reset all versions to trigger re-testing |
 
-Regenerate source defaults from constants:
+## Generating Config
+
+Auto-generate `config.toml` from your patches repo's `Constants.kt`:
 
 ```bash
 python scripts/generate-config-from-constants.py \
   --constants /path/to/morphe-patches/patches/src/main/kotlin/app/template/patches/shared/Constants.kt \
   --output config.toml \
-  --patches-repo rushiranpise/morphe-patches \
+  --patches-repo your-user/your-patches \
   --target-branch dev
 ```
 
-## Required Secret
+The generator:
+- Extracts app name, package, constant, and version from each `*_COMPATIBILITY` entry
+- Discovers APK source URLs (APKMirror, Uptodown, APKPure) via search
+- Falls back to APKCombo (package search URL) and Google Play for all apps
+- Preserves manually-set keys like `enabled`, `included-patches`, `excluded-patches`, and `github-release-dlurl`
 
-`PATCHES_REPO_TOKEN` must have permission to push branches and open pull requests in `morphe-patches`.
+To skip source discovery (faster):
+
+```bash
+python scripts/generate-config-from-constants.py \
+  --constants Constants.kt \
+  --output config.toml \
+  --no-resolve-source-urls
+```
+
+## Failure Routing
+
+| Failure type | Issue created in |
+|---|---|
+| Download / version / config error | This tracker repo |
+| Patch / fingerprint / signing error | `morphe-patches` repo |
+
+This keeps source-site breakage (APKMirror down, Cloudflare block) separate from real patch breakage (app updated and patch no longer applies).
+
+## Environment Variables
+
+```bash
+RESOLVER_TIMEOUT_SECONDS=300     # per-source version lookup timeout
+APK_MERGE_TIMEOUT_SECONDS=240    # split APK merge timeout
+FETCH_RETRIES=3                  # FlareSolverr/plain request retries
+APKCOMBO_RETRIES=3               # APKCombo download retries
+FLARESOLVERR_URL=http://localhost:8191
+GPLAY_DISPENSER_URL=             # Google Play dispenser endpoint
+```
+
+## Local Setup
+
+```bash
+git clone https://github.com/your-user/patches-tracker.git
+cd patches-tracker
+pip install -r requirements.txt
+
+# System dependencies (Linux)
+sudo apt-get install -y jq wget curl unzip zip aapt apksigner
+# htmlq: https://github.com/mgdm/htmlq/releases
+
+# Dry-run
+python -m tracker.cli --config config.toml --dry-run
+```
+
+## Stale App Protection
+
+The tracker fetches `Constants.kt` from your patches repo before each run and skips any configured app whose `*_COMPATIBILITY` constant no longer exists. This prevents false "patch broken" issues for apps that were removed from the patches repo.
+
+The weekly `sync-config-from-constants.yml` cron regenerates `config.toml` from Constants.kt, automatically dropping removed apps from the config itself.
 
 ## Credits
 
 - Morphe patches and compatibility constants: `rushiranpise/morphe-patches`
 - Morphe/ReVanced-style patching tools and patch format: Morphe and ReVanced projects
-- Downloader behavior and rvb-style config conventions: `rvb` by j-hc and contributors
-- APKMirror/APKCombo/APKPure/Uptodown hardening and Google Play downloader references: `FiorenMas/Revanced-And-Revanced-Extended-Non-Root`
+- Downloader behavior and config conventions: `rvb` by j-hc and contributors
+- APKMirror/APKCombo/APKPure/Uptodown hardening: `FiorenMas/Revanced-And-Revanced-Extended-Non-Root`
 - Google Play helper lineage: Aurora Store / AuroraOSS, GPLv3
 - APK split merge support: REAndroid APKEditor
 - CI runtime: GitHub Actions, FlareSolverr, htmlq, jq, Android build tools
