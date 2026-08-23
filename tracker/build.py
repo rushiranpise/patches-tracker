@@ -12,6 +12,7 @@ import time
 
 import requests
 
+from .cache import cache_key, store, try_restore
 from .config import AppConfig
 from .constants import is_newer_version, update_app_target_version
 from .github import known_patch_failure_exists
@@ -63,6 +64,7 @@ def build_app(
     dry_run: bool = False,
     ignore_known_failures: bool = False,
     continue_on_error: bool = False,
+    cache_dir: Path | None = None,
 ) -> BuildResult:
     app_dir = work_dir / app.id
     app_dir.mkdir(parents=True, exist_ok=True)
@@ -146,6 +148,17 @@ def build_app(
                 candidate_stock_apk = app_dir / f"{app.id}-{candidate_version}.apk"
                 candidate_output_apk = app_dir / f"{app.id}-patched-{candidate_version}.apk"
                 clean_download_target(candidate_stock_apk)
+                # Try cache restore before downloading
+                ckey = cache_key(app.package_name, candidate_version, source.source, source.url, source.arch, source.dpi, source.apk_types)
+                cache_hit = False
+                if cache_dir is not None and not dry_run:
+                    cache_hit = try_restore(cache_dir, ckey, candidate_stock_apk, app.package_name)
+                if cache_hit:
+                    stock_apk = candidate_stock_apk
+                    output_apk = candidate_output_apk
+                    apk_file_type = "APK"  # cached APK is already merged
+                    print(f"[{app.id}] restored from cache via {source.source}; skipping lower-priority sources", flush=True)
+                    break
                 print(f"[{app.id}] downloading {candidate_version} via {source.source}: {source.url}", flush=True)
                 resolved = run_resolver(
                     app.id,
@@ -166,6 +179,17 @@ def build_app(
                     stock_apk = candidate_stock_apk
                     output_apk = candidate_output_apk
                     apk_file_type = apk_file_type_from_resolver_log(resolved.stdout + resolved.stderr, source.source, source.apk_types)
+                    # Store in cache for future runs
+                    if cache_dir is not None:
+                        store(cache_dir, ckey, candidate_stock_apk, {
+                            "package": app.package_name,
+                            "version": candidate_version,
+                            "source": source.source,
+                            "url": source.url,
+                            "arch": source.arch,
+                            "dpi": source.dpi,
+                            "apk_types": source.apk_types,
+                        })
                     print(f"[{app.id}] downloaded APK via {source.source}: {stock_apk}; skipping lower-priority sources", flush=True)
                     break
                 source_log = resolved.stdout + resolved.stderr

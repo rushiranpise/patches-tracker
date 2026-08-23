@@ -2,6 +2,7 @@
 .tools/
 artifacts/
 logs/
+.apk-cache/
 __pycache__/
 *.pyc
 STATUS.md

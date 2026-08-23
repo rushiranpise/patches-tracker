@@ -87,6 +87,7 @@ def main() -> int:
 
     cli_jar = resolve_tool(cfg.cli, work_dir / "tools" / "cli.jar", dry_run=args.dry_run)
     patches_file = resolve_tool(cfg.patches, work_dir / "tools" / "patches.mpp", dry_run=args.dry_run)
+    cache_dir = root / ".apk-cache"
 
     results_by_index = {}
     parallel_jobs = max(1, cfg.tracker.parallel_jobs)
@@ -103,6 +104,7 @@ def main() -> int:
                 target_branch=cfg.tracker.target_branch,
                 constants_path=cfg.tracker.constants_path,
                 dry_run=args.dry_run,
+                cache_dir=cache_dir,
             ): index
             for index, app in enumerate(cfg_apps)
         }
