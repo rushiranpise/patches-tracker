@@ -1,301 +1,365 @@
 # Patch Tracker Status
 
 Shard: 1/1
-Checked apps: 247
-Patched: 3
-No update: 196
-Skipped known broken: 25
-Failed: 23
+Checked apps: 249
+Patched: 180
+No update: 0
+Skipped known broken: 12
+Failed: 57
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
-| AAAD | `sksa.aa.customapps` | `2.8.5` | `2.8.5` |  | NO_UPDATE |  |
-| AAEnabler | `com.aaenabler.app` | `1.0.2` | `latest` |  | FAILED | version_resolve |
-| AccuBattery | `com.digibites.accubattery` | `2.1.8` | `2.1.8` |  | NO_UPDATE |  |
-| AccuWeather | `com.accuweather.android` | `21.1.15-3-rc` | `21.1.15-3-rc` |  | NO_UPDATE |  |
-| Ace Ex File Manager | `com.ace.ex.file.manager` | `1.6.0.4` | `1.6.0.4` |  | NO_UPDATE |  |
-| AdGuard | `com.adguard.android` | `4.14.68` | `4.14.68` |  | NO_UPDATE |  |
-| Adobe Acrobat | `com.adobe.reader` | `26.7.0.47169` | `26.7.0.47169` |  | NO_UPDATE |  |
-| Adobe Scan | `com.adobe.scan.android` | `26.08.01` | `26.08.01` |  | NO_UPDATE |  |
-| AIDA64 | `com.finalwire.aida64` | `2.21` | `2.22` |  | FAILED | download |
-| AiScore | `com.onesports.score` | `4.2.7` | `4.2.7` |  | NO_UPDATE |  |
-| All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `3.2.4` | `3.2.5` |  | SKIPPED_KNOWN_BROKEN |  |
-| Amazon India | `in.amazon.mShop.android.shopping` | `32.15.0.300` | `32.15.0.300` |  | NO_UPDATE |  |
-| Amazon Shopping | `com.amazon.mShop.android.shopping` | `32.13.2.100` | `32.13.2.100` |  | NO_UPDATE |  |
-| AmoledPix | `com.androholic.amoledpix` | `7.3` | `8.4` |  | SKIPPED_KNOWN_BROKEN |  |
-| Ampere | `com.gombosdev.ampere` | `v4.37.0` | `v4.37.0` |  | NO_UPDATE |  |
-| Android Developer Verifier | `com.google.android.verifier` | `1.0.958871038` | `1.0.958871038` |  | NO_UPDATE |  |
-| AndroPods | `pro.vitalii.andropods` | `1.5.28` | `1.5.28` |  | NO_UPDATE |  |
-| AnExplorer | `dev.dworks.apps.anexplorer` | `6.0.6` | `6.0.6` |  | NO_UPDATE |  |
-| Anime Depth Wallpapers | `com.jndapp.anime.depth.live.wallpaper` | `1.1.2` | `1.1.2` |  | NO_UPDATE |  |
-| APKMirror Installer | `com.apkmirror.helper.prod` | `2.0.3 (41-d04e542)` | `998` |  | FAILED | download |
-| AppLock Watcher | `com.domobile.applockwatcher` | `6.3.3` | `6.3.3` |  | NO_UPDATE |  |
-| Athena | `com.kin.athena` | `1.80` | `1.80` |  | NO_UPDATE |  |
-| Auto Cursor | `eu.toneiv.cursor` | `1.11.1` | `1.11.1` |  | NO_UPDATE |  |
-| Automate | `com.llamalab.automate` | `1.53.2` | `1.53.2` |  | NO_UPDATE |  |
-| Aviate | `me.highest.aviate` | `1.1.0-beta.1` | `1.1.0-beta.1` |  | NO_UPDATE |  |
-| Awake | `com.mk.awake` | `1.10.3` | `1.10.3` |  | NO_UPDATE |  |
-| Battery Guru | `com.paget96.batteryguru` | `2.5.0.7` | `2.5.0.7` |  | NO_UPDATE |  |
-| Battery Guru | `com.paget96.batteryguru` | `2.5.0.7` | `2.5.0.7` |  | NO_UPDATE |  |
-| BatteryPods | `com.sumyapplications.bluetooth.earphone` | `7.52` | `7.60` |  | SKIPPED_KNOWN_BROKEN |  |
-| Bluetooth Keyboard & Mouse | `io.appground.blek` | `6.23.1` | `6.23.2` |  | SKIPPED_KNOWN_BROKEN |  |
-| Block Blast! | `com.block.juggle` | `10.4.5` | `10.6.5` | `10650` | FAILED | signing |
-| BlockerHero | `com.blockerhero` | `1.5.0` | `1.5.0` |  | NO_UPDATE |  |
-| Blocking Sites | `com.blocking.sites` | `4.0.19` | `4.0.19` |  | NO_UPDATE |  |
-| Block Puzzle | `game.puzzle.blockpuzzle` | `6.0` | `6.0` |  | NO_UPDATE |  |
-| Bluetooth Volume Manager | `eu.darken.bluemusic` | `3.4.3` | `3.5.0-rc0` | `30500000` | FAILED | fingerprint |
-| Blurams | `com.blurams.ipc` | `5.1049.4.921` | `5.1049.4.939` |  | SKIPPED_KNOWN_BROKEN |  |
-| BlurWall | `apps.automan.blurwallpaper` | `2.9.6` | `2.9.6` |  | NO_UPDATE |  |
-| BoldVoice | `com.wellocution.androidapp` | `4.6.1` | `4.6.4` |  | SKIPPED_KNOWN_BROKEN |  |
-| Box Box | `club.boxbox.android` | `5.4.15` | `5.4.15` |  | NO_UPDATE |  |
-| BubbleUPnP | `com.bubblesoft.android.bubbleupnp` | `4.6.5.1` | `4.6.5.1` |  | NO_UPDATE |  |
-| BuzzCast | `com.guochao.faceshow` | `3.2.85` | `3.2.85` |  | NO_UPDATE |  |
-| calimoto | `com.calimoto.calimoto` | `2026.08.2` | `2026.08.2` |  | NO_UPDATE |  |
-| Cube ACR | `com.catalinagroup.callrecorder` | `2.4.281` | `2.4.281` |  | NO_UPDATE |  |
-| Calm | `com.calm.android` | `6.102` | `6.102` |  | NO_UPDATE |  |
-| Calory | `com.funnmedia.calory` | `3.8` | `3.8` |  | NO_UPDATE |  |
-| CamScanner | `com.intsig.camscanner` | `7.22.5.2607250000` | `7.24.0.2608130000` |  | FAILED | download |
-| Canva | `com.canva.editor` | `2.374.0` | `2.374.0` |  | NO_UPDATE |  |
-| CAPod | `eu.darken.capod` | `5.2.1` | `5.2.3-rc0` |  | SKIPPED_KNOWN_BROKEN |  |
-| Carbon | `com.joincarbon.nutrition` | `2.76.5966` | `2.77.6010` |  | SKIPPED_KNOWN_BROKEN |  |
-| Case Tracker | `com.saldous.casetracker` | `5.5.6` | `5.5.6` |  | NO_UPDATE |  |
-| Cashew | `com.budget.tracker_app` | `6.6.11` | `6.6.11` |  | NO_UPDATE |  |
-| Cast to TV | `cast.video.screenmirroring.casttotv` | `2.5.3.1` | `2.5.4` |  | FAILED | download |
-| Charge Meter | `dev.km.android.chargemeter` | `2.9.7` | `2.9.7` |  | NO_UPDATE |  |
-| Citizen | `sp0n.citizen` | `0.1303.2` | `0.1303.2` |  | NO_UPDATE |  |
-| Citymapper | `com.citymapper.app.release` | `11.57.1` | `11.57.1` |  | NO_UPDATE |  |
-| Clue Period & Cycle Tracker | `com.clue.android` | `266.0` | `266.0` |  | NO_UPDATE |  |
-| ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.6` | `4.8.8` |  | SKIPPED_KNOWN_BROKEN |  |
-| Countdown Widget | `me.gira.widget.countdown` | `3.2.0` | `3.2.0` |  | NO_UPDATE |  |
-| CPU-Z | `com.cpuid.cpu_z` | `1.60` | `1.60` |  | NO_UPDATE |  |
-| Crime Radar | `com.newsbreak.crimeradar` | `26.33.1` | `26.33.1` |  | NO_UPDATE |  |
-| Cube Solver | `com.jeffprod.cubesolver` | `5.0.4` | `5.0.4` |  | NO_UPDATE |  |
-| Dailyhunt | `com.eterno` | `34.0.4` | `34.0.4` |  | NO_UPDATE |  |
-| Depth Live Wallpaper | `com.jndapp.depth.live.wallpaper` | `2.1.06` | `2.1.06` |  | NO_UPDATE |  |
-| DramaBox | `com.storymatrix.drama` | `6.6.0` | `6.6.0` |  | NO_UPDATE |  |
-| Zutobi | `com.driverlicenseapp` | `4.5.78` | `4.5.78` |  | NO_UPDATE |  |
-| Drivvo | `br.com.ctncardoso.ctncar` | `9.6.1` | `10.1` |  | SKIPPED_KNOWN_BROKEN |  |
-| TeraBox | `com.dubox.drive` | `4.23.5` | `4.23.5` |  | NO_UPDATE |  |
-| Duolingo | `com.duolingo` | `6.90.3` | `6.93.6` |  | SKIPPED_KNOWN_BROKEN |  |
-| Electron | `com.mahersafadi.electron` | `3.0.3` | `3.0.4` |  | FAILED | download |
-| ES File Explorer | `com.estrongs.android.pop` | `4.4.3.5` | `4.4.3.5` |  | NO_UPDATE |  |
-| Excel | `com.microsoft.office.excel` | `16.0.20326.20034` | `16.0.20326.20034` |  | NO_UPDATE |  |
-| Feem | `com.feeperfect.airsend.android` | `6.10.0` | `6.10.0` |  | NO_UPDATE |  |
-| File Manager | `com.alphainventor.filemanager` | `3.8.2` | `3.8.3` |  | SKIPPED_KNOWN_BROKEN |  |
-| Fitbod | `com.fitbod.fitbod` | `8.30.0-0` | `8.30.0-0` |  | NO_UPDATE |  |
-| Fitia | `com.nutrition.technologies.Fitia` | `25.1.12` | `25.1.12` |  | NO_UPDATE |  |
-| FlightAware | `com.flightaware.android.liveFlightTracker` | `5.15.5` | `5.15.5` |  | NO_UPDATE |  |
-| Flightradar24 | `com.flightradar24free` | `11.9.0` | `11.9.0` |  | NO_UPDATE |  |
-| Flightsky | `com.live.flight.tracker` | `1.7.1` | `1.7.1` |  | NO_UPDATE |  |
-| Flud | `com.delphicoder.flud` | `2.0.15` | `2.0.15` |  | NO_UPDATE |  |
-| Fuelio | `com.kajda.fuelio` | `10.3.3` | `10.3.4` |  | SKIPPED_KNOWN_BROKEN |  |
-| Genius Scan | `com.thegrizzlylabs.geniusscan.free` | `7.41.0` | `7.41.0` |  | NO_UPDATE |  |
-| Getcontact | `app.source.getcontact` | `8.16.0` | `8.16.0` |  | NO_UPDATE |  |
-| Google Photos | `com.google.android.apps.photos` | `7.89.0.968035987` | `7.89.0.968035987` |  | NO_UPDATE |  |
-| Greenify | `com.oasisfeng.greenify` | `5.1.1` | `5.1.1` |  | NO_UPDATE |  |
-| Hibernator | `com.tafayor.hibernator` | `2.57.0` | `2.57.0` |  | NO_UPDATE |  |
-| Historical Calendar | `com.alexandrucene.dayhistory` | `7.5.4` | `7.5.5` |  | SKIPPED_KNOWN_BROKEN |  |
-| Hola VPN Proxy Plus | `org.hola.play` | `AARCH64_1.248.400` | `AARCH64_1.248.400` |  | NO_UPDATE |  |
-| HTTP Sniffer | `com.anetcapture.mock` | `2.3.6-ad_mob` | `2.3.6-ad_mob` |  | NO_UPDATE |  |
-| Hydro Coach | `com.codium.hydrocoach` | `5.1.9` | `5.1.9` |  | NO_UPDATE |  |
-| Image & Video Date Fixer | `eu.duong.imagedatefixer` | `3.7.1` | `3.7.1` |  | NO_UPDATE |  |
-| Inmigreat | `com.changayaf.inmigreat` | `2.3.50` | `2.3.50` |  | NO_UPDATE |  |
-| Clickmate | `com.inscode.autoclicker` | `7.1.4` | `7.1.5` |  | SKIPPED_KNOWN_BROKEN |  |
-| Inure App Manager | `app.simple.inure.play` | `build107.2.1` | `build107.2.1` |  | NO_UPDATE |  |
-| Inure App Manager (GitHub) | `app.simple.inure` | `build107.2.1` | `build107.2.1` |  | NO_UPDATE |  |
-| JEFIT | `je.fit` | `17.2.12` | `17.2.12` |  | NO_UPDATE |  |
-| Kahoot! | `no.mobitroll.kahoot.android` | `6.6.7` | `6.7.4` | `3342` | FAILED | fingerprint |
-| KillApps | `com.tafayor.killall` | `1.58.0` | `1.58.0` |  | NO_UPDATE |  |
-| KineMaster | `com.nexstreaming.app.kinemasterfree` | `8.1.13.36552.GP` | `8.1.15.36566` |  | FAILED | download |
-| KineStop | `com.urbandroid.kinestop` | `5.1` | `5.1` |  | NO_UPDATE |  |
-| komoot | `de.komoot.android` | `2026.32.2` | `2026.34.2` | `263821002` | PATCHED |  |
-| Lark Player | `com.dywx.larkplayer` | `2026.12.5` | `2026.13.5` |  | SKIPPED_KNOWN_BROKEN |  |
-| Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.8.1` | `6.8.1` |  | NO_UPDATE |  |
-| Women Workout | `women.workout.female.fitness` | `2.3.5` | `2.3.7` |  | FAILED | download |
-| Height Increase | `increaseheightworkout.heightincreaseexercise.tallerexercise` | `1.1.17` | `1.1.17` |  | NO_UPDATE |  |
-| Home Workout | `homeworkout.homeworkouts.noequipment` | `1.7.8` | `1.7.8` |  | NO_UPDATE |  |
-| Lose Weight App for Women | `loseweightapp.loseweightappforwomen.womenworkoutathome` | `2.4.0` | `latest` |  | FAILED | version_resolve |
-| Life360 | `com.life360.android.safetymapd` | `26.31.0` | `26.31.0` |  | NO_UPDATE |  |
-| LiveScore | `com.livescore` | `10.0` | `10.0` |  | NO_UPDATE |  |
-| MacroDroid | `com.arlosoft.macrodroid` | `5.66.9` | `5.66.9` |  | NO_UPDATE |  |
-| Malwarebytes Mobile Security | `org.malwarebytes.antimalware` | `5.27.0+564` | `5.28.0+570` |  | FAILED | download |
-| MANGA Plus by SHUEISHA | `jp.co.shueisha.mangaplus` | `2.6.2` | `2.6.2` |  | NO_UPDATE |  |
-| Mapy.com | `cz.seznam.mapy` | `26.8.0` | `26.8.0` |  | NO_UPDATE |  |
-| MaterialPods | `com.pryshedko.materialpods` | `6.70` | `6.70` |  | NO_UPDATE |  |
-| MEGA | `mega.privacy.android.app` | `16.11.1(262250408)(9a6c828835)` | `16.11.1(262250408)(9a6c828835)` |  | NO_UPDATE |  |
-| Money Manager | `com.glgjing.money.manager.bookkeeping.meow` | `1.9.9` | `latest` |  | FAILED | version_resolve |
-| Messenger | `com.facebook.orca` | `575.0.0.48.90` | `575.0.0.48.90` |  | NO_UPDATE |  |
-| meteoblue Weather | `com.meteoblue.droid` | `Cirrus Uncinus 3.0.4` | `Cirrus Uncinus 3.0.5` |  | FAILED | download |
-| MigraConnect | `com.tecso.MigraConnect` | `2.8.2` | `2.8.2` |  | NO_UPDATE |  |
-| MikroTik Network Tools | `kha.prog.mikrotik` | `279` | `279` |  | NO_UPDATE |  |
-| m-Indicator | `com.mobond.mindicator` | `18.0.364` | `18.0.364` |  | NO_UPDATE |  |
-| Minimal Widgets | `com.jndapp.minimal.widgets` | `2.1.02` | `2.1.02` |  | NO_UPDATE |  |
-| Beta Maniac | `it.mirko.beta` | `0.10.0` | `0.10.0` |  | NO_UPDATE |  |
-| ML Manager | `com.javiersantos.mlmanager` | `5.0` | `5.0` |  | NO_UPDATE |  |
-| MobiOffice | `com.mobisystems.office` | `16.5.60515` | `16.5.60515` |  | NO_UPDATE |  |
-| Monet | `com.klevico.monet` | `1.0.76` | `latest` |  | FAILED | version_resolve |
-| MovieBox TV | `com.community.mbox.tv` | `1.1.9.0820.03` | `1.1.9.0820.03` |  | NO_UPDATE |  |
-| MyAnimeList | `net.myanimelist.app` | `2.3.16` | `2.3.16` |  | NO_UPDATE |  |
-| MyRadar | `com.acmeaom.android.myradar` | `8.72.0` | `8.72.0` |  | NO_UPDATE |  |
-| NAVITIME | `com.navitime.inbound.walk` | `12.1.0` | `12.1.0` |  | NO_UPDATE |  |
-| NetGuard | `eu.faircode.netguard` | `2.337` | `2.337` |  | NO_UPDATE |  |
-| NetMonster | `cz.mroczis.netmonster` | `3.4.1` | `3.4.1` |  | NO_UPDATE |  |
-| Network Guru | `com.paget96.netspeedindicator` | `2.0` | `2.0` |  | NO_UPDATE |  |
-| NewsBreak | `com.particlenews.newsbreak` | `26.34.0` | `26.34.0` |  | NO_UPDATE |  |
-| NewsBreak Lite | `com.particlenews.newsbreaklite` | `26.33.0` | `26.33.0` |  | NO_UPDATE |  |
-| Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.7` |  | NO_UPDATE |  |
-| NYT Games | `com.nytimes.crossword` | `6.38.0` | `6.38.0` |  | NO_UPDATE |  |
-| nzb360 | `com.kevinforeman.nzb360` | `24.4.1` | `24.4.1` |  | NO_UPDATE |  |
-| OBD Android | `ai.metaverselabs.obdandroid` | `4.9` | `4.9` |  | NO_UPDATE |  |
-| Octi | `eu.darken.octi` | `1.2.1-rc0` | `1.2.1-rc0` |  | NO_UPDATE |  |
-| Octopi Launcher | `com.otp.octopilauncher` | `1.88` | `1.875` |  | FAILED | download |
-| Opera News | `com.opera.app.news` | `14.2.2254.84245` | `14.2.2254.84245` |  | NO_UPDATE |  |
-| Oxygen Updater | `com.arjanvlek.oxygenupdater` | `7.1.0` | `7.1.0` |  | NO_UPDATE |  |
-| Parallel Space Pro | `com.parallel.space.pro` | `4.0.9162` | `4.0.9162` |  | NO_UPDATE |  |
-| Parcels — Package Tracker | `com.brightstripe.parcels` | `3.0.11` | `3.0.11` |  | NO_UPDATE |  |
-| Park4Night | `fr.tramb.park4night` | `7.1.62` | `7.1.62` |  | NO_UPDATE |  |
-| PC Remote | `com.monect.portable` | `8.3.5` | `8.3.5` |  | NO_UPDATE |  |
-| Photo Editor | `com.iudesk.android.photo.editor` | `13.6` | `13.6` |  | NO_UPDATE |  |
-| Pialytic | `verbosus.pialytic` | `1.3.1` | `1.3.1` |  | NO_UPDATE |  |
-| PicsArt | `com.picsart.studio` | `30.5.5` | `30.5.5` |  | NO_UPDATE |  |
-| Picture Mushroom | `com.glority.picturemushroom` | `2.9.31` | `2.9.31` |  | NO_UPDATE |  |
-| PictureThis | `cn.danatech.xingseus` | `5.34.0` | `5.34.0` |  | NO_UPDATE |  |
-| pillo | `xyz.rtrvr.pillo` | `0.6.18` | `0.6.18` |  | NO_UPDATE |  |
-| Pixel Habit Tracker | `com.pixel.al.pixelhabittracker` | `2.3.1` | `2.3.1` |  | NO_UPDATE |  |
-| PLAYit | `com.playit.videoplayer` | `2.7.50.12` | `2.7.50.12` |  | NO_UPDATE |  |
-| Pocket Bard | `com.MojoFilterMediaLLC.RPGSoundSystem` | `3.1.17` | `3.1.17` |  | NO_UPDATE |  |
-| Pocket Casts | `au.com.shiftyjelly.pocketcasts` | `8.16` | `8.16` |  | NO_UPDATE |  |
-| Pocket Prep Behavioral Health | `com.pocketprep.android.behavioralhealth` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| Pocket Prep IT Cybersecurity | `com.pocketprep.android.itcybersecurity` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| Pocket Prep EMS | `com.pocketprep.android.ems` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| Pocket Prep Essentials | `com.pocketprep.android.essentials` | `3.28.1` | `3.28.1` |  | NO_UPDATE |  |
-| Pocket Prep Fitness | `com.pocketprep.android.fitness` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| Pocket Prep | `com.pocketprep.android.pocketprep` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| Pocket Prep Medical | `com.pocketprep.android.medical` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| Pocket Prep Nursing | `com.pocketprep.android.nursing` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| Pocket Prep Nursing School | `com.pocketprep.android.nursingschool` | `3.28.1` | `3.28.1` |  | NO_UPDATE |  |
-| Pocket Prep Professional | `com.pocketprep.android.professional` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| Pocket Prep Skilled Trades | `com.pocketprep.android.automotive` | `3.29.0` | `3.29.0` |  | NO_UPDATE |  |
-| PodsLink | `net.podslink` | `1.3.9` | `1.3.9` |  | NO_UPDATE |  |
-| Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `1.29.0-260420093` |  | NO_UPDATE |  |
-| PortDroid | `com.stealthcopter.portdroid` | `1.0.7` | `1.0.7` |  | NO_UPDATE |  |
-| Proton Pass | `proton.android.pass` | `1.40.3` | `1.40.3` |  | NO_UPDATE |  |
-| Proton Mail | `ch.protonmail.android` | `7.11.4` | `7.11.4` |  | NO_UPDATE |  |
-| Proton VPN | `ch.protonvpn.android` | `5.19.78.0` | `5.19.87.0` |  | FAILED | download |
-| Proxyman | `com.proxyman.proxymanandroid` | `1.21.0` | `1.23.0` |  | SKIPPED_KNOWN_BROKEN |  |
-| Psiphon Pro | `com.psiphon3.subscription` | `479` | `479` |  | NO_UPDATE |  |
-| qBitConnect | `com.bluematter.qbitconnect` | `2.0.6` | `2.0.7` |  | SKIPPED_KNOWN_BROKEN |  |
-| Rainbow Weather | `com.rainbowmeteo.weather.rainbow.ai` | `3.24.0` | `3.24.0` |  | NO_UPDATE |  |
-| RAR | `com.rarlab.rar` | `7.23.build134` | `7.23.build134` |  | NO_UPDATE |  |
-| RecipeBro | `com.recipebro.cookingbuddy` | `1.7.21` | `1.10.28` |  | SKIPPED_KNOWN_BROKEN |  |
-| Reddit | `com.reddit.frontpage` | `2026.34.0` | `2026.34.0` |  | NO_UPDATE |  |
-| Relane VPN | `xorsand.relane` | `2026073010.0.0` | `2026073010.0.0` |  | NO_UPDATE |  |
-| re-Link | `com.curiouscompany.relink` | `2.0.13` | `2.0.13` |  | NO_UPDATE |  |
-| Rename & Organize | `eu.duong.picturemanager` | `8.30.0` | `8.30.0` |  | NO_UPDATE |  |
-| Rocket Money | `com.truebill` | `13.15.0` | `15.5.0` |  | FAILED | download |
-| RS File Manager | `com.rs.explorer.filemanager` | `2.3.0.4` | `2.3.0.4` |  | NO_UPDATE |  |
-| SAI | `com.mtv.sai` | `2.3.3` | `2.4.0` |  | SKIPPED_KNOWN_BROKEN |  |
-| Scoopz | `com.localaiapp.scoops` | `3.34.0` | `3.34.0` |  | NO_UPDATE |  |
-| SCRL | `com.appostrophe.scrl` | `1.24.1` | `1.24.1` |  | NO_UPDATE |  |
-| SD Maid SE | `eu.darken.sdmse` | `2.0.3-rc0` | `2.0.3-rc0` |  | NO_UPDATE |  |
-| Send Files To TV | `com.yablio.sendfilestotv` | `1.4.22` | `1.4.22` |  | NO_UPDATE |  |
-| Server Auditor | `com.server.auditor.ssh.client` | `7.8.1` | `7.8.1` |  | NO_UPDATE |  |
-| SHAREit Premium | `shareit.premium` | `1.1.98` | `1.1.98` |  | NO_UPDATE |  |
-| App Permission Manager | `com.shexa.permissionmanager` | `3.4.6.2` | `3.4.6.2` |  | NO_UPDATE |  |
-| Slopes | `com.consumedbycode.slopes` | `2026.15` | `2026.15` |  | NO_UPDATE |  |
-| Snipd | `ai.topicfinder.podcastdiscovery` | `4.1.19` | `4.1.19` |  | NO_UPDATE |  |
-| Snow-Forecast.com | `com.snow_forecast.snowforecast` | `8.0.8` | `8.0.8` |  | NO_UPDATE |  |
-| Social Gamebox | `com.app.social_gamebox` | `1.1.3` | `1.1.3` |  | NO_UPDATE |  |
-| SocialLite | `com.sociallite.android` | `2.0.0.45` | `2.0.0.59` |  | SKIPPED_KNOWN_BROKEN |  |
-| Speedtest | `org.zwanoo.android.speedtest` | `7.0.7` | `7.0.7` |  | NO_UPDATE |  |
-| SPIN | `com.nationaledtech.spinbrowser` | `70.3.0` | `70.3.0` |  | NO_UPDATE |  |
-| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.7.3` | `26.8.2` |  | FAILED | download |
-| SpotAngels | `com.spotangels.android` | `15.2.2` | `15.2.2` |  | NO_UPDATE |  |
-| Sticker Maker | `com.marsvard.stickermakerforwhatsapp` | `1.0.10-5` | `1.0.10-5` |  | NO_UPDATE |  |
-| Sticker.ly | `com.snowcorp.stickerly.android` | `3.37.0` | `3.37.0` |  | NO_UPDATE |  |
-| Strava | `com.strava` | `477.14` | `477.14` |  | NO_UPDATE |  |
-| Subway Now | `io.goodservice.theweekendest` | `1.2.10` | `1.2.10` |  | NO_UPDATE |  |
-| Super File | `com.esuper.file.explorer` | `1.5.6.3` | `1.5.6.3` |  | NO_UPDATE |  |
-| Tag Tracker | `com.makeevapps.tagtracker` | `1.3.2` | `1.3.2` |  | NO_UPDATE |  |
-| Teams | `com.microsoft.teams` | `1416/1.0.0.2026152302` | `1416/1.0.0.2026152302` |  | NO_UPDATE |  |
-| Telegram | `org.telegram.messenger` | `12.10.0` | `12.10.0` |  | NO_UPDATE |  |
-| Telegram Plus | `org.telegram.plus` | `12.9.2.0` | `12.9.2.0` |  | NO_UPDATE |  |
-| Telegram Web | `org.telegram.messenger.web` | `12.9.2` | `12.9.2` |  | NO_UPDATE |  |
-| The Athletic | `com.theathletic` | `13.147.0` | `13.147.0` |  | NO_UPDATE |  |
-| Transit | `com.thetransitapp.droid` | `6.2.3` | `6.2.3` |  | NO_UPDATE |  |
-| The Weather Channel | `com.weather.Weather` | `16.18.1` | `16.18.1` |  | NO_UPDATE |  |
-| TikTok Lite | `com.tiktok.lite.go` | `44.9.52` | `45.0.57` |  | SKIPPED_KNOWN_BROKEN |  |
-| Today Weather | `mobi.lockdown.weather` | `2.5.0-6` | `2.5.0-6` |  | NO_UPDATE |  |
-| TomTom GO | `com.tomtom.gplay.navapp` | `3.6.320` | `3.6.320` |  | NO_UPDATE |  |
-| Toomics | `com.toomics.global.google` | `1.6.8` | `1.6.8` |  | NO_UPDATE |  |
-| HD UHD Live Wallpapers | `hd.uhd.live.wallpapers.topwallpapers` | `6.0.1` | `6.1` |  | SKIPPED_KNOWN_BROKEN |  |
-| TorrDroid | `intelligems.torrdroid` | `2.0.3` | `2.0.3` |  | NO_UPDATE |  |
-| Torrent Search Revolution V2 | `torrent.search.revolutionv2` | `2.3.3` | `2.3.3` |  | NO_UPDATE |  |
-| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.20.1` | `1.20.1` |  | NO_UPDATE |  |
-| TrackChecker Mobile | `com.metalsoft.trackchecker_mobile` | `2.29.3` | `2.29.3` |  | NO_UPDATE |  |
-| Tracker Detect | `com.apple.trackerdetect` | `1.2` | `1.2` |  | NO_UPDATE |  |
-| TradingView | `com.tradingview.tradingviewapp` | `1.20.80.0.1002385` | `1.20.81.0.1002415` |  | FAILED | download |
-| Moovit | `com.tranzmate` | `5.197.1.1801` | `5.198.0.1802` |  | SKIPPED_KNOWN_BROKEN |  |
-| TurboScan | `com.piksoft.turboscan.free` | `1.7.3` | `1.7.3` |  | NO_UPDATE |  |
-| Stargazing Hub | `com.twtapp` | `3.4.1` | `3.4.1` |  | NO_UPDATE |  |
-| UbikiTouch | `eu.toneiv.ubktouch` | `1.17.8` | `1.17.8` |  | NO_UPDATE |  |
-| UDisc | `com.regasoftware.udisc` | `24.2.9` | `24.2.10` | `20517` | PATCHED |  |
-| Unimote | `sensustech.universal.tv.remote.control` | `1.8.1` | `1.8.1` |  | NO_UPDATE |  |
-| Uptodown App Store | `com.uptodown` | `7.37` | `7.38` |  | SKIPPED_KNOWN_BROKEN |  |
-| USB Hotspot | `kha.prog.usbhotspot` | `1.6` | `1.6` |  | NO_UPDATE |  |
-| VIZ Manga | `com.vizmanga.android` | `4.14.3` | `4.14.5` |  | FAILED | download |
-| VRadio | `com.ilv.vradio` | `2.9.3` | `2.9.3` |  | NO_UPDATE |  |
-| Vyxel Apps | `com.vythera.vyxelapps` | `1.0.7` | `latest` |  | FAILED | version_resolve |
-| Wallverse | `com.wallverse.wallpapers` | `4.2` | `4.2` |  | NO_UPDATE |  |
-| 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.9` | `6.38.9` |  | NO_UPDATE |  |
-| Wavve Boating | `com.wavve.boating.gps` | `5.7.7` | `5.7.8` | `3189` | PATCHED |  |
-| Weawow | `com.weawow` | `7.1.8` | `7.1.8` |  | NO_UPDATE |  |
-| Widget 2026 | `com.remi.widget` | `85.1.4` | `85.1.4` |  | NO_UPDATE |  |
-| Windscribe VPN | `com.windscribe.vpn` | `4.2.2328` | `4.2.2328` |  | NO_UPDATE |  |
-| Windy | `com.windyty.android` | `51.0.1` | `51.0.1` |  | NO_UPDATE |  |
-| WolframAlpha | `com.wolfram.android.alphapro` | `1.0.8.20260601651` | `1.0.8.20260601651` |  | NO_UPDATE |  |
-| Word | `com.microsoft.office.word` | `16.0.20326.20034` | `16.0.20326.20034` |  | NO_UPDATE |  |
-| Yatri | `com.yatrirailways.yatri` | `5.0.6` | `5.0.6` |  | NO_UPDATE |  |
+| AAAD | `sksa.aa.customapps` | `0.0` | `2.8.5` | `47` | PATCHED |  |
+| AAEnabler | `com.aaenabler.app` | `0.0` | `v1.0.7` | `7` | PATCHED |  |
+| AccuBattery | `com.digibites.accubattery` | `0.0` | `2.1.8` | `201008` | PATCHED |  |
+| AccuWeather | `com.accuweather.android` | `0.0` | `21.1.15-3-rc` | `210115003` | PATCHED |  |
+| Ace Ex File Manager | `com.ace.ex.file.manager` | `0.0` | `1.6.0.4` | `48` | PATCHED |  |
+| AdGuard | `com.adguard.android` | `0.0` | `4.14.68` | `10330100` | PATCHED |  |
+| Adobe Acrobat | `com.adobe.reader` | `0.0` | `26.6.1.45942` |  | FAILED | download |
+| Adobe Scan | `com.adobe.scan.android` | `0.0` | `26.08.01` |  | FAILED | download |
+| AIDA64 | `com.finalwire.aida64` | `0.0` | `2.22` | `222` | PATCHED |  |
+| AiScore | `com.onesports.score` | `0.0` | `4.2.7` | `292` | PATCHED |  |
+| All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `0.0` | `3.2.5` |  | SKIPPED_KNOWN_BROKEN |  |
+| Amazon India | `in.amazon.mShop.android.shopping` | `0.0` | `32.15.0.300` | `1243210306` | PATCHED |  |
+| Amazon Shopping | `com.amazon.mShop.android.shopping` | `0.0` | `32.13.2.100` |  | FAILED | download |
+| AmoledPix | `com.androholic.amoledpix` | `0.0` | `8.4` |  | SKIPPED_KNOWN_BROKEN |  |
+| Ampere | `com.gombosdev.ampere` | `0.0` | `v4.37.0` |  | FAILED | download |
+| Android Developer Verifier | `com.google.android.verifier` | `0.0` | `1.0.958871038` |  | PATCHED |  |
+| AndroPods | `pro.vitalii.andropods` | `0.0` | `1.5.28` | `84` | PATCHED |  |
+| AnExplorer | `dev.dworks.apps.anexplorer` | `0.0` | `6.0.6` | `60604` | PATCHED |  |
+| Anime Depth Wallpapers | `com.jndapp.anime.depth.live.wallpaper` | `0.0` | `1.1.2` | `6` | PATCHED |  |
+| APKMirror Installer | `com.apkmirror.helper.prod` | `0.0` | `998` |  | FAILED | download |
+| AppLock Watcher | `com.domobile.applockwatcher` | `0.0` | `6.3.3` | `2026073001` | PATCHED |  |
+| Athena | `com.kin.athena` | `0.0` | `1.80` | `306` | PATCHED |  |
+| Auto Cursor | `eu.toneiv.cursor` | `0.0` | `1.11.1` | `23164` | PATCHED |  |
+| Automate | `com.llamalab.automate` | `0.0` | `1.53.2` | `266` | PATCHED |  |
+| Aviate | `me.highest.aviate` | `0.0` | `1.2.2` |  | FAILED | download |
+| Awake | `com.mk.awake` | `0.0` | `1.10.3` | `230020072` | PATCHED |  |
+| Battery Guru | `com.paget96.batteryguru` | `0.0` | `2.5.0.7` | `728` | PATCHED |  |
+| Battery Guru | `com.paget96.batteryguru` | `0.0` | `2.5.0.7` | `728` | PATCHED |  |
+| BatteryPods | `com.sumyapplications.bluetooth.earphone` | `0.0` | `7.61` | `7610` | FAILED | signing |
+| Bluetooth Keyboard & Mouse | `io.appground.blek` | `0.0` | `6.23.2` | `258` | FAILED | fingerprint |
+| Block Blast! | `com.block.juggle` | `0.0` | `10.6.6` | `10660` | FAILED | signing |
+| BlockerHero | `com.blockerhero` | `0.0` | `1.5.0` | `190` | PATCHED |  |
+| Blocking Sites | `com.blocking.sites` | `0.0` | `4.0.19` | `331` | PATCHED |  |
+| Block Puzzle | `game.puzzle.blockpuzzle` | `0.0` | `6.0` | `60` | PATCHED |  |
+| Bluetooth Volume Manager | `eu.darken.bluemusic` | `0.0` | `3.5.0-rc0` | `30500000` | FAILED | fingerprint |
+| Blurams | `com.blurams.ipc` | `0.0` | `5.1049.4.939` |  | SKIPPED_KNOWN_BROKEN |  |
+| BlurWall | `apps.automan.blurwallpaper` | `0.0` | `2.9.6` | `30` | PATCHED |  |
+| BoldVoice | `com.wellocution.androidapp` | `0.0` | `4.6.7` | `416` | FAILED | signing |
+| Box Box | `club.boxbox.android` | `0.0` | `5.4.15` | `258` | PATCHED |  |
+| BubbleUPnP | `com.bubblesoft.android.bubbleupnp` | `0.0` | `4.6.5.1` | `3000929` | PATCHED |  |
+| BuzzCast | `com.guochao.faceshow` | `0.0` | `3.2.85` | `3285` | PATCHED |  |
+| calimoto | `com.calimoto.calimoto` | `0.0` | `2026.08.3` |  | FAILED | download |
+| Cube ACR | `com.catalinagroup.callrecorder` | `0.0` | `2.4.281` | `281` | PATCHED |  |
+| Calm | `com.calm.android` | `0.0` | `6.102` | `4120456` | PATCHED |  |
+| Calory | `com.funnmedia.calory` | `0.0` | `3.8` | `208` | PATCHED |  |
+| CamScanner | `com.intsig.camscanner` | `0.0` | `7.24.5.2608210000` |  | FAILED | download |
+| Canva | `com.canva.editor` | `0.0` | `2.374.0` | `29682599` | PATCHED |  |
+| CAPod | `eu.darken.capod` | `0.0` | `5.2.3-rc0` | `50203000` | FAILED | fingerprint |
+| Carbon | `com.joincarbon.nutrition` | `0.0` | `2.77.6010` |  | SKIPPED_KNOWN_BROKEN |  |
+| Case Tracker | `com.saldous.casetracker` | `0.0` | `5.5.6` | `1059` | PATCHED |  |
+| Cashew | `com.budget.tracker_app` | `0.0` | `6.6.11` | `510` | PATCHED |  |
+| Cast to TV | `cast.video.screenmirroring.casttotv` | `0.0` | `2.5.4` |  | FAILED | download |
+| Charge Meter | `dev.km.android.chargemeter` | `0.0` | `2.9.7` | `77` | PATCHED |  |
+| Citizen | `sp0n.citizen` | `0.0` | `0.1303.2` | `1138` | PATCHED |  |
+| Citymapper | `com.citymapper.app.release` | `0.0` | `11.57.1` | `1157080` | PATCHED |  |
+| Clue Period & Cycle Tracker | `com.clue.android` | `0.0` | `267.0` | `3186` | PATCHED |  |
+| ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `0.0` | `4.8.8` |  | SKIPPED_KNOWN_BROKEN |  |
+| Countdown Widget | `me.gira.widget.countdown` | `0.0` | `3.2.0` | `306` | PATCHED |  |
+| CPU-Z | `com.cpuid.cpu_z` | `0.0` | `1.60` | `60` | PATCHED |  |
+| Crime Radar | `com.newsbreak.crimeradar` | `0.0` | `26.33.1` | `26330103` | PATCHED |  |
+| Cube Solver | `com.jeffprod.cubesolver` | `0.0` | `5.0.4` | `10170` | PATCHED |  |
+| Dailyhunt | `com.eterno` | `0.0` | `34.0.4` | `10314` | PATCHED |  |
+| Depth Live Wallpaper | `com.jndapp.depth.live.wallpaper` | `0.0` | `2.1.06` | `35` | PATCHED |  |
+| DramaBox | `com.storymatrix.drama` | `0.0` | `6.6.0` | `660` | FAILED | fingerprint |
+| Zutobi | `com.driverlicenseapp` | `0.0` | `4.5.79` | `102279` | FAILED | signing |
+| Drivvo | `br.com.ctncardoso.ctncar` | `0.0` | `10.1` |  | SKIPPED_KNOWN_BROKEN |  |
+| TeraBox | `com.dubox.drive` | `0.0` | `4.23.5` | `680` | PATCHED |  |
+| Duolingo | `com.duolingo` | `0.0` | `6.93.6` |  | SKIPPED_KNOWN_BROKEN |  |
+| Electron | `com.mahersafadi.electron` | `0.0` | `3.0.4` |  | FAILED | download |
+| ES File Explorer | `com.estrongs.android.pop` | `0.0` | `4.4.3.5` | `10351` | FAILED | fingerprint |
+| Excel | `com.microsoft.office.excel` | `0.0` | `16.0.20228.20090` | `2006247667` | PATCHED |  |
+| Feem | `com.feeperfect.airsend.android` | `0.0` | `6.10.0` | `6010000` | PATCHED |  |
+| File Manager | `com.alphainventor.filemanager` | `0.0` | `3.8.3` |  | SKIPPED_KNOWN_BROKEN |  |
+| Fitbod | `com.fitbod.fitbod` | `0.0` | `8.30.0-0` | `10830000` | PATCHED |  |
+| Fitia | `com.nutrition.technologies.Fitia` | `0.0` | `25.1.12` | `1493` | PATCHED |  |
+| FlightAware | `com.flightaware.android.liveFlightTracker` | `0.0` | `5.16.1` | `501600104` | PATCHED |  |
+| Flightradar24 | `com.flightradar24free` | `0.0` | `11.9.0` | `110900000` | PATCHED |  |
+| Flightsky | `com.live.flight.tracker` | `0.0` | `1.8` | `24` | FAILED | signing |
+| Flud | `com.delphicoder.flud` | `0.0` | `2.0.15` | `100015352` | PATCHED |  |
+| Fuelio | `com.kajda.fuelio` | `0.0` | `10.3.4` | `3438` | FAILED | fingerprint |
+| Genius Scan | `com.thegrizzlylabs.geniusscan.free` | `0.0` | `7.41.0` | `7555` | PATCHED |  |
+| Getcontact | `app.source.getcontact` | `0.0` | `8.16.0` | `16471` | PATCHED |  |
+| Google Photos | `com.google.android.apps.photos` | `0.0` | `7.90.0.970693120` | `52288652` | PATCHED |  |
+| Greenify | `com.oasisfeng.greenify` | `0.0` | `5.1.1` | `51100` | PATCHED |  |
+| Hibernator | `com.tafayor.hibernator` | `0.0` | `2.57.0` | `5230` | PATCHED |  |
+| Historical Calendar | `com.alexandrucene.dayhistory` | `0.0` | `7.5.5` | `377` | FAILED | signing |
+| Hola VPN Proxy Plus | `org.hola.play` | `0.0` | `TV_1.248.400` |  | FAILED | download |
+| HTTP Sniffer | `com.anetcapture.mock` | `0.0` | `2.3.7-ad_mob` | `155` | PATCHED |  |
+| Hydro Coach | `com.codium.hydrocoach` | `0.0` | `5.1.9` | `541` | PATCHED |  |
+| Image & Video Date Fixer | `eu.duong.imagedatefixer` | `0.0` | `3.7.1` | `30700100` | PATCHED |  |
+| Inmigreat | `com.changayaf.inmigreat` | `0.0` | `2.3.53` |  | FAILED | download |
+| Clickmate | `com.inscode.autoclicker` | `0.0` | `7.1.5` | `686` | FAILED | fingerprint |
+| Inure App Manager | `app.simple.inure.play` | `0.0` | `build107.2.1` |  | FAILED | download |
+| Inure App Manager (GitHub) | `app.simple.inure` | `0.0` | `build107.2.1` | `10721` | PATCHED |  |
+| JEFIT | `je.fit` | `0.0` | `17.4.0` | `2073` | PATCHED |  |
+| Kahoot! | `no.mobitroll.kahoot.android` | `0.0` | `6.7.4` | `3342` | FAILED | fingerprint |
+| KillApps | `com.tafayor.killall` | `0.0` | `1.58.0` | `1000` | PATCHED |  |
+| KineMaster | `com.nexstreaming.app.kinemasterfree` | `0.0` | `8.1.15.36566` |  | FAILED | download |
+| KineStop | `com.urbandroid.kinestop` | `0.0` | `5.1` | `101` | PATCHED |  |
+| komoot | `de.komoot.android` | `0.0` | `2026.34.2` | `263821002` | PATCHED |  |
+| Lark Player | `com.dywx.larkplayer` | `0.0` | `2026.13.5` |  | SKIPPED_KNOWN_BROKEN |  |
+| Lawfully | `com.lawfully.lawfully_ai_tracker` | `0.0` | `6.8.2` | `547` | PATCHED |  |
+| Women Workout | `women.workout.female.fitness` | `0.0` | `2.3.7` |  | FAILED | download |
+| Height Increase | `increaseheightworkout.heightincreaseexercise.tallerexercise` | `0.0` | `1.1.17` | `66` | PATCHED |  |
+| Home Workout | `homeworkout.homeworkouts.noequipment` | `0.0` | `1.7.8` | `152` | PATCHED |  |
+| Lose Weight App for Women | `loseweightapp.loseweightappforwomen.womenworkoutathome` | `0.0` | `latest` |  | FAILED | version_resolve |
+| Life360 | `com.life360.android.safetymapd` | `0.0` | `26.31.0` | `2914950` | PATCHED |  |
+| LiveScore | `com.livescore` | `0.0` | `10.0` | `2136` | PATCHED |  |
+| MacroDroid | `com.arlosoft.macrodroid` | `0.0` | `5.67.2` |  | FAILED | download |
+| Malwarebytes Mobile Security | `org.malwarebytes.antimalware` | `0.0` | `5.28.0+570` |  | FAILED | download |
+| MANGA Plus by SHUEISHA | `jp.co.shueisha.mangaplus` | `0.0` | `2.6.2` | `262` | PATCHED |  |
+| Mapy.com | `cz.seznam.mapy` | `0.0` | `26.8.0` | `26080001` | PATCHED |  |
+| MaterialPods | `com.pryshedko.materialpods` | `0.0` | `6.70` | `670` | PATCHED |  |
+| MEGA | `mega.privacy.android.app` | `0.0` | `16.11.1(262250408)(9a6c828835)` | `262250408` | PATCHED |  |
+| Money Manager | `com.glgjing.money.manager.bookkeeping.meow` | `0.0` | `latest` |  | FAILED | version_resolve |
+| Messenger | `com.facebook.orca` | `0.0` | `575.0.0.48.90` | `345012838` | PATCHED |  |
+| meteoblue Weather | `com.meteoblue.droid` | `0.0` | `Cirrus Uncinus 3.0.5` |  | FAILED | download |
+| MigraConnect | `com.tecso.MigraConnect` | `0.0` | `2.8.2` | `119` | PATCHED |  |
+| MikroTik Network Tools | `kha.prog.mikrotik` | `0.0` | `279` | `279` | PATCHED |  |
+| m-Indicator | `com.mobond.mindicator` | `0.0` | `18.0.364` | `364` | PATCHED |  |
+| Minimal Widgets | `com.jndapp.minimal.widgets` | `0.0` | `2.1.02` | `13` | PATCHED |  |
+| Beta Maniac | `it.mirko.beta` | `0.0` | `0.11.0` | `155` | PATCHED |  |
+| ML Manager | `com.javiersantos.mlmanager` | `0.0` | `5.0` | `120` | PATCHED |  |
+| MobiOffice | `com.mobisystems.office` | `0.0` | `16.5.60515` | `60515` | PATCHED |  |
+| Monet | `com.klevico.monet` | `0.0` | `v1.0.76` | `110` | PATCHED |  |
+| MovieBox | `com.community.oneroom` | `0.0` | `4.0.02.0825.03` |  | FAILED | download |
+| MovieBox TV | `com.community.mbox.tv` | `0.0` | `1.1.9.0820.03` | `50040014` | PATCHED |  |
+| MovieBox India | `com.community.mbox.in` | `0.0` | `3.0.13.0402.02` | `50020092` | PATCHED |  |
+| MyAnimeList | `net.myanimelist.app` | `0.0` | `2.3.16` | `2031623` | PATCHED |  |
+| MyRadar | `com.acmeaom.android.myradar` | `0.0` | `8.72.0` | `593` | PATCHED |  |
+| NAVITIME | `com.navitime.inbound.walk` | `0.0` | `12.1.1` | `375` | PATCHED |  |
+| NetGuard | `eu.faircode.netguard` | `0.0` | `2.337` | `2026080101` | PATCHED |  |
+| NetMonster | `cz.mroczis.netmonster` | `0.0` | `3.4.1` | `268` | PATCHED |  |
+| Network Guru | `com.paget96.netspeedindicator` | `0.0` | `2.0` | `159` | FAILED | fingerprint |
+| NewsBreak | `com.particlenews.newsbreak` | `0.0` | `26.35.0` | `26350019` | PATCHED |  |
+| NewsBreak Lite | `com.particlenews.newsbreaklite` | `0.0` | `26.34.0` | `26340001` | PATCHED |  |
+| Ninja VPN | `app.ninjavpn.android` | `0.0` | `1.4.7` | `44` | PATCHED |  |
+| Nova Launcher | `com.teslacoilsw.launcher` | `0.0` | `89000 (8.9.0)` |  | FAILED | download |
+| NYT Games | `com.nytimes.crossword` | `0.0` | `6.39.0` | `6427169` | PATCHED |  |
+| nzb360 | `com.kevinforeman.nzb360` | `0.0` | `24.4.1` | `528` | PATCHED |  |
+| OBD Android | `ai.metaverselabs.obdandroid` | `0.0` | `4.9` | `133` | PATCHED |  |
+| Octi | `eu.darken.octi` | `0.0` | `1.2.1-rc0` | `10201000` | PATCHED |  |
+| Octopi Launcher | `com.otp.octopilauncher` | `0.0` | `1.88` | `2161` | PATCHED |  |
+| Opera News | `com.opera.app.news` | `0.0` | `14.2.2254.84245` | `142084245` | PATCHED |  |
+| Oxygen Updater | `com.arjanvlek.oxygenupdater` | `0.0` | `7.1.0` | `135` | PATCHED |  |
+| Parallel Space Pro | `com.parallel.space.pro` | `0.0` | `4.0.9162` | `10934` | PATCHED |  |
+| Parcels — Package Tracker | `com.brightstripe.parcels` | `0.0` | `3.0.11` | `288` | PATCHED |  |
+| Park4Night | `fr.tramb.park4night` | `0.0` | `7.1.62` | `378` | PATCHED |  |
+| PC Remote | `com.monect.portable` | `0.0` | `8.3.5` | `144` | PATCHED |  |
+| Photo Editor | `com.iudesk.android.photo.editor` | `0.0` | `13.6` | `2026081100` | PATCHED |  |
+| Pialytic | `verbosus.pialytic` | `0.0` | `1.3.1` | `22` | PATCHED |  |
+| PicsArt | `com.picsart.studio` | `0.0` | `30.6.4` | `993830604` | PATCHED |  |
+| Picture Mushroom | `com.glority.picturemushroom` | `0.0` | `2.9.31` |  | FAILED | download |
+| PictureThis | `cn.danatech.xingseus` | `0.0` | `5.34.0` | `5091` | PATCHED |  |
+| pillo | `xyz.rtrvr.pillo` | `0.0` | `0.6.18` | `432` | PATCHED |  |
+| Pixel Habit Tracker | `com.pixel.al.pixelhabittracker` | `0.0` | `2.3.1` | `100083` | PATCHED |  |
+| PLAYit | `com.playit.videoplayer` | `0.0` | `2.7.50.12` | `20750012` | PATCHED |  |
+| Pocket Bard | `com.MojoFilterMediaLLC.RPGSoundSystem` | `0.0` | `3.1.17` | `236` | PATCHED |  |
+| Pocket Casts | `au.com.shiftyjelly.pocketcasts` | `0.0` | `8.14` |  | FAILED | download |
+| Pocket Prep Behavioral Health | `com.pocketprep.android.behavioralhealth` | `0.0` | `3.29.0` | `433` | PATCHED |  |
+| Pocket Prep IT Cybersecurity | `com.pocketprep.android.itcybersecurity` | `0.0` | `3.29.0` | `433` | PATCHED |  |
+| Pocket Prep EMS | `com.pocketprep.android.ems` | `0.0` | `3.29.1` | `434` | PATCHED |  |
+| Pocket Prep Essentials | `com.pocketprep.android.essentials` | `0.0` | `3.22.1` | `370` | FAILED | fingerprint |
+| Pocket Prep Fitness | `com.pocketprep.android.fitness` | `0.0` | `3.29.0` | `433` | PATCHED |  |
+| Pocket Prep | `com.pocketprep.android.pocketprep` | `0.0` | `3.29.0` | `433` | PATCHED |  |
+| Pocket Prep Medical | `com.pocketprep.android.medical` | `0.0` | `3.29.0` | `433` | PATCHED |  |
+| Pocket Prep Nursing | `com.pocketprep.android.nursing` | `0.0` | `3.29.0` | `433` | PATCHED |  |
+| Pocket Prep Nursing School | `com.pocketprep.android.nursingschool` | `0.0` | `3.28.1` | `429` | PATCHED |  |
+| Pocket Prep Professional | `com.pocketprep.android.professional` | `0.0` | `3.29.0` | `433` | PATCHED |  |
+| Pocket Prep Skilled Trades | `com.pocketprep.android.automotive` | `0.0` | `3.29.0` | `433` | PATCHED |  |
+| PodsLink | `net.podslink` | `0.0` | `1.3.9` | `86` | PATCHED |  |
+| Police Scanner | `police.scanner.radio.broadcastify.citizen` | `0.0` | `1.29.0-260420093` | `260420093` | PATCHED |  |
+| PortDroid | `com.stealthcopter.portdroid` | `0.0` | `1.0.7` | `113` | PATCHED |  |
+| Proton Pass | `proton.android.pass` | `0.0` | `1.40.3` | `14003373` | PATCHED |  |
+| Proton Mail | `ch.protonmail.android` | `0.0` | `7.11.4` | `18315` | PATCHED |  |
+| Proton VPN | `ch.protonvpn.android` | `0.0` | `5.20.8.0` |  | FAILED | download |
+| Proxyman | `com.proxyman.proxymanandroid` | `0.0` | `1.23.0` |  | SKIPPED_KNOWN_BROKEN |  |
+| Psiphon Pro | `com.psiphon3.subscription` | `0.0` | `479` | `479` | PATCHED |  |
+| qBitConnect | `com.bluematter.qbitconnect` | `0.0` | `2.0.7` |  | SKIPPED_KNOWN_BROKEN |  |
+| Rainbow Weather | `com.rainbowmeteo.weather.rainbow.ai` | `0.0` | `3.24.0` | `261` | PATCHED |  |
+| RAR | `com.rarlab.rar` | `0.0` | `7.23.build134` | `134` | PATCHED |  |
+| RecipeBro | `com.recipebro.cookingbuddy` | `0.0` | `26.8.6` | `1642` | FAILED | fingerprint |
+| Reddit | `com.reddit.frontpage` | `0.0` | `2026.34.0` | `2634001` | PATCHED |  |
+| Relane VPN | `xorsand.relane` | `0.0` | `2026073010.0.0` | `2026073010` | PATCHED |  |
+| re-Link | `com.curiouscompany.relink` | `0.0` | `2.0.13` | `34` | PATCHED |  |
+| Rename & Organize | `eu.duong.picturemanager` | `0.0` | `8.30.0` | `8300000` | PATCHED |  |
+| Rocket Money | `com.truebill` | `0.0` | `15.5.0` | `13751` | FAILED | signing |
+| RS File Manager | `com.rs.explorer.filemanager` | `0.0` | `2.3.0.4` | `239` | PATCHED |  |
+| Scoopz | `com.localaiapp.scoops` | `0.0` | `3.34.0` | `3340002` | PATCHED |  |
+| SCRL | `com.appostrophe.scrl` | `0.0` | `1.24.1` | `263` | PATCHED |  |
+| SD Maid SE | `eu.darken.sdmse` | `0.0` | `2.0.3-rc0` | `20003000` | PATCHED |  |
+| Send Files To TV | `com.yablio.sendfilestotv` | `0.0` | `1.4.22` | `69` | PATCHED |  |
+| Server Auditor | `com.server.auditor.ssh.client` | `0.0` | `7.8.2` | `935` | PATCHED |  |
+| SHAREit Premium | `shareit.premium` | `0.0` | `1.1.98` | `40101980` | PATCHED |  |
+| App Permission Manager | `com.shexa.permissionmanager` | `0.0` | `3.4.6.2` | `128` | PATCHED |  |
+| Slopes | `com.consumedbycode.slopes` | `0.0` | `2026.15` | `2559` | PATCHED |  |
+| Snipd | `ai.topicfinder.podcastdiscovery` | `0.0` | `4.1.19` | `4119` | PATCHED |  |
+| Snow-Forecast.com | `com.snow_forecast.snowforecast` | `0.0` | `8.0.8` | `2145` | PATCHED |  |
+| Social Gamebox | `com.app.social_gamebox` | `0.0` | `1.1.3` | `524` | PATCHED |  |
+| SocialLite | `com.sociallite.android` | `0.0` | `2.0.0.59` | `87` | FAILED | fingerprint |
+| Speedtest | `org.zwanoo.android.speedtest` | `0.0` | `7.0.7` | `258530` | PATCHED |  |
+| SPIN | `com.nationaledtech.spinbrowser` | `0.0` | `70.3.0` | `2025061004` | PATCHED |  |
+| Splitwise | `com.Splitwise.SplitwiseMobile` | `0.0` | `26.8.2` |  | FAILED | download |
+| SpotAngels | `com.spotangels.android` | `0.0` | `15.2.2` | `10323` | PATCHED |  |
+| Sticker Maker | `com.marsvard.stickermakerforwhatsapp` | `0.0` | `1.0.10-5` | `1001005` | PATCHED |  |
+| Sticker.ly | `com.snowcorp.stickerly.android` | `0.0` | `3.37.0` | `1033700` | PATCHED |  |
+| Strava | `com.strava` | `0.0` | `477.14` | `12399244` | PATCHED |  |
+| Subway Now | `io.goodservice.theweekendest` | `0.0` | `1.2.10` | `81` | PATCHED |  |
+| Super File | `com.esuper.file.explorer` | `0.0` | `1.5.6.3` | `77` | PATCHED |  |
+| Tag Tracker | `com.makeevapps.tagtracker` | `0.0` | `1.3.2` | `19` | PATCHED |  |
+| Teams | `com.microsoft.teams` | `0.0` | `1416/1.0.0.2026142702` |  | FAILED | download |
+| Telegram | `org.telegram.messenger` | `0.0` | `12.10.1` | `70382` | FAILED | fingerprint |
+| Telegram Plus | `org.telegram.plus` | `0.0` | `12.9.2.0` | `22460` | PATCHED |  |
+| Telegram Web | `org.telegram.messenger.web` | `0.0` | `12.10.1` |  | FAILED | download |
+| The Athletic | `com.theathletic` | `0.0` | `13.147.0` | `33625841` | PATCHED |  |
+| Transit | `com.thetransitapp.droid` | `0.0` | `6.3.0` | `5126991` | PATCHED |  |
+| The Weather Channel | `com.weather.Weather` | `0.0` | `16.19.1` | `1080014279` | PATCHED |  |
+| TikTok Lite | `com.tiktok.lite.go` | `0.0` | `45.0.57` | `450057` | FAILED | fingerprint |
+| Today Weather | `mobi.lockdown.weather` | `0.0` | `2.5.0-6` | `756` | PATCHED |  |
+| TomTom GO | `com.tomtom.gplay.navapp` | `0.0` | `3.6.322` | `1678707` | FAILED | fingerprint |
+| Toomics | `com.toomics.global.google` | `0.0` | `1.6.8` | `107` | PATCHED |  |
+| HD UHD Live Wallpapers | `hd.uhd.live.wallpapers.topwallpapers` | `0.0` | `6.1` |  | SKIPPED_KNOWN_BROKEN |  |
+| TorrDroid | `intelligems.torrdroid` | `0.0` | `2.0.3` | `10272` | PATCHED |  |
+| Torrent Search Revolution V2 | `torrent.search.revolutionv2` | `0.0` | `2.3.3` |  | FAILED | download |
+| Toxly | `com.mindful.code.studio.toxly.scanner` | `0.0` | `1.20.1` | `110` | PATCHED |  |
+| TrackChecker Mobile | `com.metalsoft.trackchecker_mobile` | `0.0` | `2.30.7` | `568` | FAILED | fingerprint |
+| Tracker Detect | `com.apple.trackerdetect` | `0.0` | `1.2` | `9` | PATCHED |  |
+| TradingView | `com.tradingview.tradingviewapp` | `0.0` | `1.20.81.0.1002415` |  | FAILED | download |
+| Moovit | `com.tranzmate` | `0.0` | `5.199.0.1803` | `1803` | FAILED | fingerprint |
+| TurboScan | `com.piksoft.turboscan.free` | `0.0` | `1.7.3` | `123` | PATCHED |  |
+| Stargazing Hub | `com.twtapp` | `0.0` | `3.4.2` | `3040200` | PATCHED |  |
+| UbikiTouch | `eu.toneiv.ubktouch` | `0.0` | `1.17.8` | `78135` | PATCHED |  |
+| UDisc | `com.regasoftware.udisc` | `0.0` | `24.2.10` | `20517` | PATCHED |  |
+| Unimote | `sensustech.universal.tv.remote.control` | `0.0` | `1.8.1` | `78` | PATCHED |  |
+| Uptodown App Store | `com.uptodown` | `0.0` | `7.39` |  | FAILED | download |
+| USB Hotspot | `kha.prog.usbhotspot` | `0.0` | `1.6` | `6` | PATCHED |  |
+| VIZ Manga | `com.vizmanga.android` | `0.0` | `4.14.5` | `243` | PATCHED |  |
+| VRadio | `com.ilv.vradio` | `0.0` | `2.9.3` | `90209003` | PATCHED |  |
+| Vyxel Apps | `com.vythera.vyxelapps` | `0.0` | `v1.0.9` | `9` | FAILED | fingerprint |
+| Wallverse | `com.wallverse.wallpapers` | `0.0` | `4.2` | `42` | PATCHED |  |
+| 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `0.0` | `6.38.9` | `5641` | PATCHED |  |
+| Wavve Boating | `com.wavve.boating.gps` | `0.0` | `5.7.8` | `3189` | PATCHED |  |
+| Weawow | `com.weawow` | `0.0` | `7.1.8` | `718` | PATCHED |  |
+| Widget 2026 | `com.remi.widget` | `0.0` | `85.1.4` | `116` | PATCHED |  |
+| Windscribe VPN | `com.windscribe.vpn` | `0.0` | `4.2.2328` | `2328` | PATCHED |  |
+| Windy | `com.windyty.android` | `0.0` | `51.0.1` | `5100010` | PATCHED |  |
+| WolframAlpha | `com.wolfram.android.alphapro` | `0.0` | `1.0.8.20260601651` | `117` | PATCHED |  |
+| Word | `com.microsoft.office.word` | `0.0` | `16.0.20228.20090` | `2006247667` | PATCHED |  |
+| Yatri | `com.yatrirailways.yatri` | `0.0` | `5.0.6` |  | FAILED | download |
 
 ## Failure Logs
 
-<details><summary>AAEnabler log excerpt</summary>
+<details><summary>Adobe Acrobat log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.aaenabler.app/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.aaenabler.app/download (title=com.aaenabler.app APK - Download (Android))
+[uptodown 26.6.1.45942] [+] HTTP GET: https://adobe-reader.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://adobe-reader.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://adobe-reader.en.uptodown.com/android/apps/25109/versions/1 -> -
+[+] HTTP GET: https://adobe-reader.en.uptodown.com/android/download/1187343047 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/adobe-acrobat/adobe-acrobat-26.6.1.45942.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 26.6.1.45942] [+] Downloading from Google Play: com.adobe.reader
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.adobe.reader
 
 ````
 
 </details>
 
-<details><summary>AIDA64 log excerpt</summary>
+<details><summary>Adobe Scan log excerpt</summary>
 
 ````text
-/android/download/1204905493 -> -
-[+] HTTP GET: https://aida64.en.uptodown.com/app/36697/version/13873418/files -> -
-[+] HTTP GET: https://aida64.en.uptodown.com/android/download/1203961895-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/aida64/aida64-2.22.apk.apkm
+[uptodown 26.08.01] [+] HTTP GET: https://adobe-scan.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://adobe-scan.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://adobe-scan.en.uptodown.com/android/apps/692375/versions/1 -> -
+[+] HTTP GET: https://adobe-scan.en.uptodown.com/android/download/1195191006 -> -
+[+] HTTP GET: https://adobe-scan.en.uptodown.com/app/692375/version/13714828/files -> -
+[+] HTTP GET: https://adobe-scan.en.uptodown.com/android/download/1195191006-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/adobe-scan/adobe-scan-26.08.01.apk.apkm
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[apkcombo 2.22] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.finalwire.aida64/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.finalwire.aida64/download (title=AIDA64 APK (Android App) - Free Download)
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.finalwire.aida64/download/phone-2.22-apk
-[+] FlareSolverr OK: https://apkcombo.com/search/com.finalwire.aida64/download/phone-2.22-apk (title=Download AIDA64 APK - Latest Version 2024)
-[+] HTTP GET: https://apkcombo.com/checkin -> -
-[+] Downloading from APKCombo: https://download.apkpure.com/b/APK/Y29tLmZpbmFsd2lyZS5haWRhNjRfMjIyXzgzNjJmOGUx?as2=5589b786e3fcb1344f8f1e0ebbf300666c642963&k=32561c4eb3bdd9d35f73803e0bee85c16c642963&_p=Y29tLmZpbmFsd2lyZS5haWRhNjQ&c=1|TOOLS|b2lkPTkmZGV2PUZpbmFsV2lyZSUyMEx0ZCZ0PWFwayZzPTEyMzA5MTgwJnZuPTIuMjImdmM9MjIy&_fn=QUlEQTY0XzIuMjJfYXBrY29tYm8uY29tLmFwaw==
-curl: (22) The requested URL returned error: 403
-
-[gplay 2.22] [+] Downloading from Google Play: com.finalwire.aida64
+[gplay 26.08.01] [+] Downloading from Google Play: com.adobe.scan.android
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.finalwire.aida64
+[-] Google Play helper failed for com.adobe.scan.android
+
+````
+
+</details>
+
+<details><summary>Amazon Shopping log excerpt</summary>
+
+````text
+[uptodown 32.13.2.100] [+] HTTP GET: https://amazon-shopping.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://amazon-shopping.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://amazon-shopping.en.uptodown.com/android/apps/32167/versions/1 -> -
+[+] HTTP GET: https://amazon-shopping.en.uptodown.com/android/download/1190228431 -> -
+[+] HTTP GET: https://amazon-shopping.en.uptodown.com/app/32167/version/13638521/files -> -
+[+] HTTP GET: https://amazon-shopping.en.uptodown.com/android/download/1190228431-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/amazon-shopping/amazon-shopping-32.13.2.100.apk.apkm
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 32.13.2.100] [+] Downloading from Google Play: com.amazon.mShop.android.shopping
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.amazon.mShop.android.shopping
+
+````
+
+</details>
+
+<details><summary>Ampere log excerpt</summary>
+
+````text
+[uptodown v4.37.0] [+] HTTP GET: https://ampere.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://ampere.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://ampere.en.uptodown.com/android/apps/36989/versions/1 -> -
+[+] HTTP GET: https://ampere.en.uptodown.com/android/download/1190895002 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/ampere/ampere-v4.37.0.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay v4.37.0] [+] Downloading from Google Play: com.gombosdev.ampere
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 3 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.gombosdev.ampere
 
 ````
 
@@ -313,7 +377,7 @@ curl: (22) The requested URL returned error: 403
       -o = /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-ins
          = taller/apkmirror-installer-998.apk.extracted-unsigned                
  ______________________________________________________________________________ 
-00.043 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
+00.025 I: [MERGE] Extracting to: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/tmp_958f468f
 
 ERROR:
 java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/patches-tracker/.work/apkmirror-installer/apkmirror-installer-998.apk
@@ -329,10 +393,107 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.apkmirror.helper.prod
+
+````
+
+</details>
+
+<details><summary>Aviate log excerpt</summary>
+
+````text
+[apkpure 1.2.2] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/aviate-flight-companion/me.highest.aviate/downloading/
+[+] FlareSolverr OK: https://apkpure.com/aviate-flight-companion/me.highest.aviate/downloading/ (title=Download Aviate: Flight Companion latest 1.2.2 (1) Android APK)
+[+] FlareSolverr GET attempt 1/3: https://apkpure.com/aviate-flight-companion/me.highest.aviate/downloading/1.2.2
+[+] FlareSolverr OK: https://apkpure.com/aviate-flight-companion/me.highest.aviate/downloading/1.2.2 (title=Free APK Downloader Online - Download Region Free APK)
+[-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
+
+[gplay 1.2.2] [+] Downloading from Google Play: me.highest.aviate
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 7 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for me.highest.aviate
+
+````
+
+</details>
+
+<details><summary>BatteryPods log excerpt</summary>
+
+````text
+
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+Caused by: java.lang.IllegalStateException: Mismatch between override type and Method return type
+	at app.template.patches.shared.BytecodeUtilsKt.returnEarly(BytecodeUtils.kt:1368)
+	at app.template.patches.batterypods.premium.BatteryPodsPremiumPatchKt.batteryPodsPremiumPatch$lambda$0$0(BatteryPodsPremiumPatch.kt:48)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:117)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:259)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:96)
+	... 29 more
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>Bluetooth Keyboard &amp; Mouse log excerpt</summary>
+
+````text
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
 
 ````
 
@@ -344,7 +505,7 @@ java.io.IOException: No *.apk files found on: /home/runner/work/patches-tracker/
 $1.invoke(Patcher.kt)
 	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
 	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:789)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
 	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
@@ -355,9 +516,9 @@ $1.invoke(Patcher.kt)
 	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
 	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
 	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:788)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
 	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
-	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:785)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
 	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
 	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
 	at picocli.CommandLine.access$1500(CommandLine.java:148)
@@ -381,7 +542,7 @@ SEVERE: Patching aborted: FAILED: Unlock VIP
 $1.invoke(Patcher.kt)
 	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
 	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:789)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
 	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
@@ -392,9 +553,9 @@ $1.invoke(Patcher.kt)
 	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
 	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
 	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:788)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
 	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
-	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:785)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
 	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
 	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
 	at picocli.CommandLine.access$1500(CommandLine.java:148)
@@ -412,28 +573,125 @@ SEVERE: Patching aborted: FAILED: Unlock Pro
 
 </details>
 
-<details><summary>CamScanner log excerpt</summary>
+<details><summary>BoldVoice log excerpt</summary>
 
 ````text
-[uptodown 7.24.0.2608130000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/apps/26217/versions/1 -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1202947601 -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/app/26217/version/13854602/files -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1202947601-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/camscanner/camscanner-7.24.0.2608130000.apk
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>calimoto log excerpt</summary>
+
+````text
+[uptodown 2026.08.3] [+] HTTP GET: https://calimoto.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://calimoto.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://calimoto.en.uptodown.com/android/apps/1073878/versions/1 -> -
+[+] HTTP GET: https://calimoto.en.uptodown.com/android/download/1205702288 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/calimoto/calimoto-2026.08.3.apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 7.24.0.2608130000] [+] Downloading from Google Play: com.intsig.camscanner
+[gplay 2026.08.3] [+] Downloading from Google Play: com.calimoto.calimoto
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 7 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.calimoto.calimoto
+
+````
+
+</details>
+
+<details><summary>CamScanner log excerpt</summary>
+
+````text
+[uptodown 7.24.5.2608210000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/apps/26217/versions/1 -> -
+[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1206048969 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/camscanner/camscanner-7.24.5.2608210000.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 7.24.5.2608210000] [+] Downloading from Google Play: com.intsig.camscanner
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.intsig.camscanner
+
+````
+
+</details>
+
+<details><summary>CAPod log excerpt</summary>
+
+````text
+$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Pro 
 
 ````
 
@@ -473,13 +731,87 @@ curl: (22) The requested URL returned error: 404
 
 </details>
 
+<details><summary>DramaBox log excerpt</summary>
+
+````text
+ke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Membership 
+
+````
+
+</details>
+
+<details><summary>Zutobi log excerpt</summary>
+
+````text
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
 <details><summary>Electron log excerpt</summary>
 
 ````text
 [uptodown 3.0.4] [+] HTTP GET: https://electron.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://electron.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://electron.en.uptodown.com/android/apps/1248038/versions/1 -> -
-[+] HTTP GET: https://electron.en.uptodown.com/android/download/1204907665 -> -
+[+] HTTP GET: https://electron.en.uptodown.com/android/download/1206822563 -> -
 [+] HTTP GET: https://electron.en.uptodown.com/app/1248038/version/13878110/files -> -
 [+] HTTP GET: https://electron.en.uptodown.com/android/download/1204798150-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/electron/electron-3.0.4.apk.apkm
@@ -491,10 +823,275 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.mahersafadi.electron
+
+````
+
+</details>
+
+<details><summary>ES File Explorer log excerpt</summary>
+
+````text
+(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock VIP Lifetime 
+
+````
+
+</details>
+
+<details><summary>Flightsky log excerpt</summary>
+
+````text
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>Fuelio log excerpt</summary>
+
+````text
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>Historical Calendar log excerpt</summary>
+
+````text
+rs_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+Caused by: java.lang.IndexOutOfBoundsException
+	at com.android.tools.smali.dexlib2.builder.MutableMethodImplementation.addInstruction(MutableMethodImplementation.java:292)
+	at app.morphe.patcher.extensions.InstructionExtensions.addInstructions(InstructionExtensions.kt:34)
+	at app.morphe.patcher.extensions.InstructionExtensions.addInstructions(InstructionExtensions.kt:145)
+	at app.template.patches.historicalcalendar.premium.UnlockPremiumPatchKt.unlockPremiumPatch$lambda$0$0(UnlockPremiumPatch.kt:46)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:117)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:259)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:96)
+	... 29 more
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>Hola VPN Proxy Plus log excerpt</summary>
+
+````text
+[uptodown TV_1.248.400] [+] HTTP GET: https://holavpn.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://holavpn.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://holavpn.en.uptodown.com/android/apps/1000254722/versions/1 -> -
+[+] HTTP GET: https://holavpn.en.uptodown.com/android/download/1171889211 -> -
+[+] HTTP GET: https://holavpn.en.uptodown.com/app/1000254722/version/12259666/files -> -
+[+] HTTP GET: https://holavpn.en.uptodown.com/android/download/1171889211-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/hola-vpn-proxy-plus/hola-vpn-proxy-plus-TV_1.248.400.apk.apkm
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay TV_1.248.400] [+] Downloading from Google Play: org.hola.play
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 3 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for org.hola.play
+
+````
+
+</details>
+
+<details><summary>Inmigreat log excerpt</summary>
+
+````text
+[uptodown 2.3.53] [+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/apps/1372864/versions/1 -> -
+[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/download/1206002307 -> -
+[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/app/1372864/version/13907165/files -> -
+[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/download/1206002265-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/inmigreat/inmigreat-2.3.53.apk.apkm
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 2.3.53] [+] Downloading from Google Play: com.changayaf.inmigreat
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.changayaf.inmigreat
+
+````
+
+</details>
+
+<details><summary>Clickmate log excerpt</summary>
+
+````text
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>Inure App Manager log excerpt</summary>
+
+````text
+[uptodown build107.2.1] [+] HTTP GET: https://inure.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://inure.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://inure.en.uptodown.com/android/apps/1000504243/versions/1 -> -
+[+] HTTP GET: https://inure.en.uptodown.com/android/download/1205479751 -> -
+[+] HTTP GET: https://inure.en.uptodown.com/app/1000504243/version/13825292/files -> -
+[+] HTTP GET: https://inure.en.uptodown.com/android/download/1200983440-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/inure-app-manager/inure-app-manager-build107.2.1.apk.apkm
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay build107.2.1] [+] Downloading from Google Play: app.simple.inure.play
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for app.simple.inure.play
 
 ````
 
@@ -506,7 +1103,7 @@ curl: (22) The requested URL returned error: 404
 1.invoke(Patcher.kt)
 	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
 	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:789)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
 	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
@@ -517,9 +1114,9 @@ curl: (22) The requested URL returned error: 404
 	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
 	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
 	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
-	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:788)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
 	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
-	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:785)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
 	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
 	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
 	at picocli.CommandLine.access$1500(CommandLine.java:148)
@@ -540,24 +1137,18 @@ SEVERE: Patching aborted: FAILED: Unlock Gold
 <details><summary>KineMaster log excerpt</summary>
 
 ````text
-p.kinemasterfree/downloading/
-[+] FlareSolverr GET attempt 2/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[!] FlareSolverr attempt 2/3 failed for: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[+] FlareSolverr GET attempt 3/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[!] FlareSolverr status 'error' for https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[!] FlareSolverr attempt 3/3 failed for: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[-] FlareSolverr could not fetch https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/ after 3 attempt(s); trying a plain request
-[+] HTTP GET: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/ -> -
-curl: (22) The requested URL returned error: 403
-[-] Request failed: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
+[apkpure 8.1.15.36566] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
+[+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/ (title=Download KineMaster - Video Editor latest 8.1.15.... Android APK)
+[+] FlareSolverr GET attempt 1/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.1.15.36566
+[+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.1.15.36566 (title=Free APK Downloader Online - Download Region Free APK)
+[-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
 
 [gplay 8.1.15.36566] [+] Downloading from Google Play: com.nexstreaming.app.kinemasterfree
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.nexstreaming.app.kinemasterfree
@@ -582,7 +1173,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 3 cookies from FlareSolverr
+[+] Got 8 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for women.workout.female.fitness
@@ -601,6 +1192,31 @@ curl: (22) The requested URL returned error: 404
 
 </details>
 
+<details><summary>MacroDroid log excerpt</summary>
+
+````text
+[uptodown 5.67.2] [+] HTTP GET: https://macrodroid.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://macrodroid.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://macrodroid.en.uptodown.com/android/apps/237577/versions/1 -> -
+[+] HTTP GET: https://macrodroid.en.uptodown.com/android/download/1206539105 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/macrodroid/macrodroid-5.67.2.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 5.67.2] [+] Downloading from Google Play: com.arlosoft.macrodroid
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.arlosoft.macrodroid
+
+````
+
+</details>
+
 <details><summary>Malwarebytes Mobile Security log excerpt</summary>
 
 ````text
@@ -612,7 +1228,7 @@ curl: (22) The requested URL returned error: 404
 [+] FlareSolverr OK: https://apkcombo.com/search/org.malwarebytes.antimalware/download (title=Malwarebytes APK (Android App) - Free Download)
 [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/org.malwarebytes.antimalware/download/phone-5.28.0+570-xapk
 [+] FlareSolverr OK: https://apkcombo.com/search/org.malwarebytes.antimalware/download/phone-5.28.0+570-xapk (title=Download Malwarebytes APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/org.malwarebytes.antimalware/5.28.0+570/52800570.474724987376473663fcc2bbd872272411b1fbba.apks?response-content-disposition=attachment%3B+filename%3D%22Malwarebytes_5.28.0+570_apkcombo.com.xapk%22&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260822T155703Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260822/auto/s3/aws4_request&X-Amz-Signature=d24d133cd13ee89ce0ed8dc8b256a89942814219cf39f9afe764bd09516d13d8
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/org.malwarebytes.antimalware/5.28.0+570/52800570.474724987376473663fcc2bbd872272411b1fbba.apks?response-content-disposition=attachment%3B+filename%3D%22Malwarebytes_5.28.0+570_apkcombo.com.xapk%22&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260826T105624Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260826/auto/s3/aws4_request&X-Amz-Signature=144a9ece917feb5a0c646749622dd2b0a1507f3e4bb4c8dd23e940348ea6b2c9
 curl: (22) The requested URL returned error: 403
 
 [gplay 5.28.0+570] [+] Downloading from Google Play: org.malwarebytes.antimalware
@@ -650,7 +1266,7 @@ curl: (22) The requested URL returned error: 404
 [+] FlareSolverr OK: https://apkcombo.com/search/com.meteoblue.droid/download (title=meteoblue APK (Android App) - Free Download)
 [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.meteoblue.droid/download/phone-Cirrus Uncinus 3.0.5-apks
 [+] FlareSolverr OK: https://apkcombo.com/search/com.meteoblue.droid/download/phone-Cirrus Uncinus 3.0.5-apks (title=Download meteoblue APK - Latest Version 2024)
-[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.meteoblue.droid/Cirrus Uncinus 3.0.5/27026.e3012463a89d070f6f0986515d1c2252c698e35e.apks?response-content-disposition=attachment%3B+filename%3D%22meteoblue_Cirrus+Uncinus+3.0.5_apkcombo.com.xapk%22&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260822T155829Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260822/auto/s3/aws4_request&X-Amz-Signature=c3c44ca5c7aa3fbcd5dfb7a7708910ab35f1d98faa94d1faf961fdb75c63db32
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.meteoblue.droid/Cirrus Uncinus 3.0.5/27026.e3012463a89d070f6f0986515d1c2252c698e35e.apks?response-content-disposition=attachment%3B+filename%3D%22meteoblue_Cirrus+Uncinus+3.0.5_apkcombo.com.xapk%22&response-content-type=application/xapk-package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260826T105905Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14399&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260826/auto/s3/aws4_request&X-Amz-Signature=da9aac5120100615725ce65acbf3af9b5b3f5fc044be2325ed05bfea7e68713d
 curl: (3) URL rejected: Malformed input to a URL function
 
 [gplay Cirrus Uncinus 3.0.5] [+] Downloading from Google Play: com.meteoblue.droid
@@ -658,7 +1274,7 @@ curl: (3) URL rejected: Malformed input to a URL function
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 3 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.meteoblue.droid
@@ -667,40 +1283,182 @@ curl: (3) URL rejected: Malformed input to a URL function
 
 </details>
 
-<details><summary>Monet log excerpt</summary>
+<details><summary>MovieBox log excerpt</summary>
 
 ````text
-[apkpure] 
-[+] FlareSolverr GET attempt 1/3: https://apkpure.com/monet-launcher-android-tv/com.klevico.monet/downloading/
-[+] FlareSolverr OK: https://apkpure.com/monet-launcher-android-tv/com.klevico.monet/downloading/ (title=Free APK Downloader Online - Download Region Free APK)
+[uptodown 4.0.02.0825.03] [+] HTTP GET: https://com-community-oneroom.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://com-community-oneroom.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://com-community-oneroom.en.uptodown.com/android/apps/1000728728/versions/1 -> -
+[+] HTTP GET: https://com-community-oneroom.en.uptodown.com/android/download/1206343409 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/moviebox/moviebox-4.0.02.0825.03.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
 
-[apkcombo] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.klevico.monet/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.klevico.monet/download (title=Monet Launcher APK (Android App) - Free Download)
+[gplay 4.0.02.0825.03] [+] Downloading from Google Play: com.community.oneroom
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.community.oneroom
 
 ````
 
 </details>
 
-<details><summary>Octopi Launcher log excerpt</summary>
+<details><summary>Network Guru log excerpt</summary>
 
 ````text
-[uptodown 1.875] [+] HTTP GET: https://octopi-launcher.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://octopi-launcher.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://octopi-launcher.en.uptodown.com/android/apps/1000635493/versions/1 -> -
-[+] HTTP GET: https://octopi-launcher.en.uptodown.com/android/download/1201271461 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/octopi-launcher/octopi-launcher-1.875.apk
-curl: (22) The requested URL returned error: 404
+$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Pro 
+
+````
+
+</details>
+
+<details><summary>Nova Launcher log excerpt</summary>
+
+````text
+requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 1.875] [+] Downloading from Google Play: com.otp.octopilauncher
+[apkcombo 89000 (8.9.0)] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.teslacoilsw.launcher/download
+[+] FlareSolverr OK: https://apkcombo.com/search/com.teslacoilsw.launcher/download (title=Nova Launcher: Home Screen APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.teslacoilsw.launcher/download/phone-89000 (8.9.0)-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.teslacoilsw.launcher/download/phone-89000 (8.9.0)-apk (title=Download Nova Launcher: Home Screen APK - Latest Version 2024)
+[+] Downloading from APKCombo: https://apks.39b7cb94d40914bac590886981b0ed6e.r2.cloudflarestorage.com/com.teslacoilsw.launcher/89000 (8.9.0)/89000.0c2a8e35143980cad63fa7b4c7d8d34e844895d2.apk?response-content-disposition=attachment%3B+filename%3D%22Nova+Launcher:+Home+Screen_89000+%288.9.0%29_apkcombo.com.apk%22&response-content-type=application/vnd.android.package-archive&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260826T110627Z&X-Amz-SignedHeaders=host&X-Amz-Expires=14400&X-Amz-Credential=3cb727b4cd4780c410b780ac7caa4da3/20260826/auto/s3/aws4_request&X-Amz-Signature=636d8c3a90f07f0a7f95c13e49b4963363ec2845b2df4df202d83d299d9fc9c0
+curl: (3) URL rejected: Malformed input to a URL function
+
+[gplay 89000 (8.9.0)] [+] Downloading from Google Play: com.teslacoilsw.launcher
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 7 cookies from FlareSolverr
+[+] Got 3 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.otp.octopilauncher
+[-] Google Play helper failed for com.teslacoilsw.launcher
+
+````
+
+</details>
+
+<details><summary>Picture Mushroom log excerpt</summary>
+
+````text
+/1052942931 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/picture-mushroom/picture-mushroom-2.9.31.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[apkcombo 2.9.31] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.glority.picturemushroom/download
+[+] FlareSolverr OK: https://apkcombo.com/search/com.glority.picturemushroom/download (title=Picture Mushroom - Mushroom ID APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.glority.picturemushroom/download/phone-2.9.31-apk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.glority.picturemushroom/download/phone-2.9.31-apk (title=Download Picture Mushroom - Mushroom ID APK - Latest Version 2024)
+[+] HTTP GET: https://apkcombo.com/checkin -> -
+[+] Downloading from APKCombo: https://download.apkpure.com/b/APK/Y29tLmdsb3JpdHkucGljdHVyZW11c2hyb29tXzkwX2IyYTk1OTA0?as2=efc981e797b3a66f80bb0dedc4c927e06c696630&k=be63423281dd81a4a49501f2543dabfa6c696630&_p=Y29tLmdsb3JpdHkucGljdHVyZW11c2hyb29t&c=1|EDUCATION|b2lkPTkmZGV2PU5leHQlMjBWaXNpb24lMjBMaW1pdGVkJnQ9YXBrJnM9NzY5OTE5NDEmdm49Mi45LjMxJnZjPTkw&_fn=UGljdHVyZStNdXNocm9vbSstK011c2hyb29tK0lEXzIuOS4zMV9hcGtjb21iby5jb20uYXBr
+curl: (22) The requested URL returned error: 403
+
+[gplay 2.9.31] [+] Downloading from Google Play: com.glority.picturemushroom
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.glority.picturemushroom
+
+````
+
+</details>
+
+<details><summary>Pocket Casts log excerpt</summary>
+
+````text
+[uptodown 8.14] [+] HTTP GET: https://pocket-casts-podcast-player.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://pocket-casts-podcast-player.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://pocket-casts-podcast-player.en.uptodown.com/android/apps/770146/versions/1 -> -
+[+] HTTP GET: https://pocket-casts-podcast-player.en.uptodown.com/android/download/1182588262 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/pocket-casts/pocket-casts-8.14.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 8.14] [+] Downloading from Google Play: au.com.shiftyjelly.pocketcasts
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 3 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for au.com.shiftyjelly.pocketcasts
+
+````
+
+</details>
+
+<details><summary>Pocket Prep Essentials log excerpt</summary>
+
+````text
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
 
 ````
 
@@ -709,17 +1467,17 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Proton VPN log excerpt</summary>
 
 ````text
-[uptodown 5.19.87.0] [+] HTTP GET: https://protonvpn.en.uptodown.com/android/versions -> -
+[uptodown 5.20.8.0] [+] HTTP GET: https://protonvpn.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://protonvpn.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://protonvpn.en.uptodown.com/android/apps/716494/versions/1 -> -
-[+] HTTP GET: https://protonvpn.en.uptodown.com/android/download/1203229170 -> -
-[+] HTTP GET: https://protonvpn.en.uptodown.com/app/716494/version/13799159/files -> -
-[+] HTTP GET: https://protonvpn.en.uptodown.com/android/download/1203229170-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/proton-vpn/proton-vpn-5.19.87.0.apk.apkm
+[+] HTTP GET: https://protonvpn.en.uptodown.com/android/download/1206768200 -> -
+[+] HTTP GET: https://protonvpn.en.uptodown.com/app/716494/version/13918606/files -> -
+[+] HTTP GET: https://protonvpn.en.uptodown.com/android/download/1206768200-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/proton-vpn/proton-vpn-5.20.8.0.apk.apkm
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 5.19.87.0] [+] Downloading from Google Play: ch.protonvpn.android
+[gplay 5.20.8.0] [+] Downloading from Google Play: ch.protonvpn.android
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
@@ -733,25 +1491,112 @@ curl: (22) The requested URL returned error: 404
 
 </details>
 
+<details><summary>RecipeBro log excerpt</summary>
+
+````text
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
 <details><summary>Rocket Money log excerpt</summary>
 
 ````text
-[apkmirror 15.5.0] [+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/truebill/truebill/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/truebill/truebill/ (title=Download Rocket Money - Bills &amp; Budgets APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-5-0-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-5-0-release/ (title=Rocket Money - Bills &amp; Budgets 15.5.0 APK Download by Rocket Money - Bills &amp; Budgets - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/truebill/truebill/rocket-money---bills--budgets-15-5-0-release/
-[-] Could not find APKMirror variant for version=15.5.0 arch=all dpi=nodpi anydpi auto
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
 
-[gplay 15.5.0] [+] Downloading from Google Play: com.truebill
-[+] FlareSolverr detected at http://localhost:8191/v1
-[+] Step 1: Getting dispenser credentials...
-[!] Direct request blocked (403), trying FlareSolverr...
-[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
-[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
-{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.truebill
+````
+
+</details>
+
+<details><summary>SocialLite log excerpt</summary>
+
+````text
+ke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Family Pro 
 
 ````
 
@@ -760,6 +1605,13 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Splitwise log excerpt</summary>
 
 ````text
+ise/splitwise-26-8-2-release/
+[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-8-2-release/ (title=Splitwise 26.8.2 APK Download by Splitwise - APKMirror)
+[+] APKMirror release page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-8-2-release/
+[+] APKMirror variant page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-8-2-release/splitwise-26-8-2-android-apk-download/
+[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-8-2-release/splitwise-26-8-2-android-apk-download/
+[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-8-2-release/splitwise-26-8-2-android-apk-download/ (title=Splitwise 26.8.2 (Android 9.0+) APK Download by Splitwise - APKMirror)
+
 [uptodown 26.8.2] [+] HTTP GET: https://splitwise.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://splitwise.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://splitwise.en.uptodown.com/android/apps/220505/versions/1 -> -
@@ -777,6 +1629,237 @@ curl: (22) The requested URL returned error: 404
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.Splitwise.SplitwiseMobile
+
+````
+
+</details>
+
+<details><summary>Teams log excerpt</summary>
+
+````text
+[uptodown 1416/1.0.0.2026142702] [+] HTTP GET: https://teams.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://teams.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://teams.en.uptodown.com/android/apps/731998/versions/1 -> -
+[+] HTTP GET: https://teams.en.uptodown.com/android/download/1204808560 -> -
+[+] HTTP GET: https://teams.en.uptodown.com/app/731998/version/13766770/files -> -
+[+] HTTP GET: https://teams.en.uptodown.com/android/download/1197569533-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/teams/teams-1416/1.0.0.2026142702.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 1416/1.0.0.2026142702] [+] Downloading from Google Play: com.microsoft.teams
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.microsoft.teams
+
+````
+
+</details>
+
+<details><summary>Telegram log excerpt</summary>
+
+````text
+.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Bypass channel restrictions 
+
+````
+
+</details>
+
+<details><summary>Telegram Web log excerpt</summary>
+
+````text
+[uptodown 12.10.1] [+] HTTP GET: https://telegram.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://telegram.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://telegram.en.uptodown.com/android/apps/25621/versions/1 -> -
+[+] HTTP GET: https://telegram.en.uptodown.com/android/download/1206435625 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/telegram-web/telegram-web-12.10.1.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 12.10.1] [+] Downloading from Google Play: org.telegram.messenger.web
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for org.telegram.messenger.web
+
+````
+
+</details>
+
+<details><summary>TikTok Lite log excerpt</summary>
+
+````text
+er.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Disable Login Requirement 
+
+````
+
+</details>
+
+<details><summary>TomTom GO log excerpt</summary>
+
+````text
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>Torrent Search Revolution V2 log excerpt</summary>
+
+````text
+oid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar -> .work/resolver/torrent-search-revolution-v2/apkeditor.jar
+[+] Saved response: .work/resolver/torrent-search-revolution-v2/apkeditor.jar (7733037 bytes)
+[+] Merging XAPK splits with APKEditor
+
+Timed out after 300s
+
+[apkcombo 2.3.3] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/torrent.search.revolutionv2/download
+[+] FlareSolverr OK: https://apkcombo.com/search/torrent.search.revolutionv2/download (title=Torrent Search Revolution APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/torrent.search.revolutionv2/download/phone-2.3.3-xapk
+[+] FlareSolverr OK: https://apkcombo.com/search/torrent.search.revolutionv2/download/phone-2.3.3-xapk (title=Download Torrent Search Revolution APK - Latest Version 2024)
+[+] HTTP GET: https://apkcombo.com/checkin -> -
+[+] Downloading from APKCombo: https://download.apkpure.com/b/XAPK/dG9ycmVudC5zZWFyY2gucmV2b2x1dGlvbnYyXzIzM19hNDlhNTJhZg?as2=bbdb0557d9a9a41c385f25a4c73887716c696e93&k=d2fb692eb4d51a360f1bb6ead5a648076c696e93&_p=dG9ycmVudC5zZWFyY2gucmV2b2x1dGlvbnYy&c=1|TOOLS|b2lkPTkmZGV2PVRNSyUyME1vYmlsZSUyMERldmVsb3BlcnMmdD14YXBrJnM9OTAwNzIzMDYmdm49Mi4zLjMmdmM9MjMz&_fn=VG9ycmVudCtTZWFyY2grUmV2b2x1dGlvbl8yLjMuM19hcGtjb21iby5jb20ueGFwaw==
+curl: (22) The requested URL returned error: 403
+
+[gplay 2.3.3] [+] Downloading from Google Play: torrent.search.revolutionv2
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for torrent.search.revolutionv2
+
+````
+
+</details>
+
+<details><summary>TrackChecker Mobile log excerpt</summary>
+
+````text
+$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Pro 
 
 ````
 
@@ -809,18 +1892,55 @@ curl: (22) The requested URL returned error: 404
 
 </details>
 
-<details><summary>VIZ Manga log excerpt</summary>
+<details><summary>Moovit log excerpt</summary>
 
 ````text
-[uptodown 4.14.5] [+] HTTP GET: https://viz-manga.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://viz-manga.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://viz-manga.en.uptodown.com/android/apps/273209/versions/1 -> -
-[+] HTTP GET: https://viz-manga.en.uptodown.com/android/download/1205051276 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/viz-manga/viz-manga-4.14.5.apk
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Moovit+ 
+
+````
+
+</details>
+
+<details><summary>Uptodown App Store log excerpt</summary>
+
+````text
+[uptodown 7.39] [+] HTTP GET: https://uptodown-android.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://uptodown-android.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://uptodown-android.en.uptodown.com/android/apps/18098/versions/1 -> -
+[+] HTTP GET: https://uptodown-android.en.uptodown.com/android/download/1206377920 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/uptodown-app-store/uptodown-app-store-7.39.apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 4.14.5] [+] Downloading from Google Play: com.vizmanga.android
+[gplay 7.39] [+] Downloading from Google Play: com.uptodown
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
@@ -828,7 +1948,7 @@ curl: (22) The requested URL returned error: 404
 [+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.vizmanga.android
+[-] Google Play helper failed for com.uptodown
 
 ````
 
@@ -837,8 +1957,64 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Vyxel Apps log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.vythera.vyxelapps/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.vythera.vyxelapps/download (title=com.vythera.vyxelapps APK - Download (Android))
+nvoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.desktop.command.PatchCommand$call$3$3$1.invokeSuspend(PatchCommand.kt:786)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:256)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:54)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlockingImpl(Builders.kt:30)
+	at kotlinx.coroutines.BuildersKt.runBlockingImpl(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK(Builders.concurrent.kt:172)
+	at kotlinx.coroutines.BuildersKt.runBlockingK(Unknown Source)
+	at kotlinx.coroutines.BuildersKt__Builders_concurrentKt.runBlockingK$default(Builders.concurrent.kt:157)
+	at kotlinx.coroutines.BuildersKt.runBlockingK$default(Unknown Source)
+	at app.morphe.desktop.command.PatchCommand.call$lambda$13$2(PatchCommand.kt:785)
+	at app.morphe.desktop.command.model.PatchingResultKt.addStepResult(PatchingResult.kt:29)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:784)
+	at app.morphe.desktop.command.PatchCommand.call(PatchCommand.kt:54)
+	at picocli.CommandLine.executeUserObject(CommandLine.java:2031)
+	at picocli.CommandLine.access$1500(CommandLine.java:148)
+	at picocli.CommandLine$RunLast.executeUserObjectOfLastSubcommandWithSameParent(CommandLine.java:2469)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2461)
+	at picocli.CommandLine$RunLast.handle(CommandLine.java:2423)
+	at picocli.CommandLine$AbstractParseResultHandler.execute(CommandLine.java:2277)
+	at picocli.CommandLine$RunLast.execute(CommandLine.java:2425)
+	at picocli.CommandLine.execute(CommandLine.java:2174)
+	at app.morphe.MorpheLauncherKt.main(MorpheLauncher.kt:81)
+ 
+SEVERE: Patching aborted: FAILED: Unlock Premium 
+
+````
+
+</details>
+
+<details><summary>Yatri log excerpt</summary>
+
+````text
+ocal &amp; Metro latest 5.0.6 Android APK)
+[+] Downloading from APKPure: https://d.apkpure.com/b/XAPK/com.yatrirailways.yatri?versionCode=1013
+[-] Downloaded XAPK is not a valid zip (Cloudflare block?): /home/runner/work/patches-tracker/patches-tracker/.work/yatri/yatri-5.0.6.apk.xapk
+
+[apkcombo 5.0.6] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.yatrirailways.yatri/download
+[+] FlareSolverr OK: https://apkcombo.com/search/com.yatrirailways.yatri/download (title=YATRI: Mumbai Local &amp; Metro APK (Android App) - Free Download)
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.yatrirailways.yatri/download/phone-5.0.6-xapk
+[+] FlareSolverr OK: https://apkcombo.com/search/com.yatrirailways.yatri/download/phone-5.0.6-xapk (title=Download YATRI: Mumbai Local &amp; Metro APK - Latest Version 2024)
+[+] HTTP GET: https://apkcombo.com/checkin -> -
+[+] Downloading from APKCombo: https://download.apkpure.com/b/XAPK/Y29tLnlhdHJpcmFpbHdheXMueWF0cmlfMTAxM19iNmU3ZjkzMQ?as2=7ffbc885f44556ea3e153eeb9926ed296c696ff4&k=eb9665807f1d648e5f70cdf95d80db646c696ff4&_p=Y29tLnlhdHJpcmFpbHdheXMueWF0cmk&c=1|TRAVEL_AND_LOCAL|b2lkPTkmZGV2PVlhdHJpJTIwUmFpbHdheXMmdD14YXBrJnM9MTMyODQ5NzA4JnZuPTUuMC42JnZjPTEwMTM&_fn=WUFUUkklM0ErTXVtYmFpK0xvY2FsKyUyNitNZXRyb181LjAuNl9hcGtjb21iby5jb20ueGFwaw==
+curl: (22) The requested URL returned error: 403
+
+[gplay 5.0.6] [+] Downloading from Google Play: com.yatrirailways.yatri
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 3 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.yatrirailways.yatri
 
 ````
 
