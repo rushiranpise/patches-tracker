@@ -1226,21 +1226,6 @@ apkpure-dlurl = "https://apkpure.com/genius-scan-pdf-scanner/com.thegrizzlylabs.
 apkcombo-dlurl = "https://apkcombo.com/search/com.thegrizzlylabs.geniusscan.free/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.thegrizzlylabs.geniusscan.free"
 
-[getcontact]
-enabled = true
-app-name = "Getcontact"
-package-name = "app.source.getcontact"
-constant = "GETCONTACT_COMPATIBILITY"
-current-version = "8.16.0"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://getcontact.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/getcontact/app.source.getcontact"
-apkcombo-dlurl = "https://apkcombo.com/search/app.source.getcontact/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=app.source.getcontact"
-
 [google-photos]
 enabled = true
 app-name = "Google Photos"
@@ -2387,165 +2372,6 @@ uptodown-dlurl = "https://pocket-casts-podcast-player.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/au.com.shiftyjelly.pocketcasts/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=au.com.shiftyjelly.pocketcasts"
 
-[pocket-prep-behavioral-health]
-enabled = true
-app-name = "Pocket Prep Behavioral Health"
-package-name = "com.pocketprep.android.behavioralhealth"
-constant = "POCKETPREP_BEHAVIORAL_HEALTH_COMPATIBILITY"
-current-version = "3.29.0"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-apkpure-dlurl = "https://apkpure.com/behavioral-health-pocket-prep/com.pocketprep.android.behavioralhealth"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.behavioralhealth/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.behavioralhealth"
-
-[pocket-prep-it-cybersecurity]
-enabled = true
-app-name = "Pocket Prep IT Cybersecurity"
-package-name = "com.pocketprep.android.itcybersecurity"
-constant = "POCKETPREP_COMPATIBILITY"
-current-version = "3.29.1"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://it-and-security.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/it-cybersecurity-pocket-prep/com.pocketprep.android.itcybersecurity"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.itcybersecurity/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.itcybersecurity"
-
-[pocket-prep-ems]
-enabled = true
-app-name = "Pocket Prep EMS"
-package-name = "com.pocketprep.android.ems"
-constant = "POCKETPREP_EMS_COMPATIBILITY"
-current-version = "3.29.1"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://com-pocketprep-android-ems.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/ems-pocket-prep/com.pocketprep.android.ems"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.ems/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.ems"
-
-[pocket-prep-essentials]
-enabled = true
-app-name = "Pocket Prep Essentials"
-package-name = "com.pocketprep.android.essentials"
-constant = "POCKETPREP_ESSENTIALS_COMPATIBILITY"
-current-version = "3.28.1"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "apks"
-apkpure-dlurl = "https://apkpure.com/pocket-prep-essentials-2025/com.pocketprep.android.essentials"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.essentials/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.essentials"
-
-[pocket-prep-fitness]
-enabled = true
-app-name = "Pocket Prep Fitness"
-package-name = "com.pocketprep.android.fitness"
-constant = "POCKETPREP_FITNESS_COMPATIBILITY"
-current-version = "3.29.0"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-apkpure-dlurl = "https://apkpure.com/pocket-prep-fitness-2026/com.pocketprep.android.fitness"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.fitness/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.fitness"
-
-[pocket-prep]
-enabled = true
-app-name = "Pocket Prep"
-package-name = "com.pocketprep.android.pocketprep"
-constant = "POCKETPREP_MAIN_COMPATIBILITY"
-current-version = "3.29.0"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://it-and-security.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/pocket-prep/com.pocketprep.android.pocketprep"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.pocketprep/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.pocketprep"
-
-[pocket-prep-medical]
-enabled = true
-app-name = "Pocket Prep Medical"
-package-name = "com.pocketprep.android.medical"
-constant = "POCKETPREP_MEDICAL_COMPATIBILITY"
-current-version = "3.29.0"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://com-pocketprep-android-medical.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/pocket-prep-medical-2026/com.pocketprep.android.medical"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.medical/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.medical"
-
-[pocket-prep-nursing]
-enabled = true
-app-name = "Pocket Prep Nursing"
-package-name = "com.pocketprep.android.nursing"
-constant = "POCKETPREP_NURSING_COMPATIBILITY"
-current-version = "3.29.0"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-apkpure-dlurl = "https://apkpure.com/pocket-prep-nursing-2026/com.pocketprep.android.nursing"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.nursing/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.nursing"
-
-[pocket-prep-nursing-school]
-enabled = true
-app-name = "Pocket Prep Nursing School"
-package-name = "com.pocketprep.android.nursingschool"
-constant = "POCKETPREP_NURSING_SCHOOL_COMPATIBILITY"
-current-version = "3.29.1"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-apkpure-dlurl = "https://apkpure.com/pocket-prep-nursing-school/com.pocketprep.android.nursingschool"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.nursingschool/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.nursingschool"
-
-[pocket-prep-professional]
-enabled = true
-app-name = "Pocket Prep Professional"
-package-name = "com.pocketprep.android.professional"
-constant = "POCKETPREP_PROFESSIONAL_COMPATIBILITY"
-current-version = "3.29.1"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://com-pocketprep-android-professional.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/pocket-prep-professional-2026/com.pocketprep.android.professional"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.professional/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.professional"
-
-[pocket-prep-skilled-trades]
-enabled = true
-app-name = "Pocket Prep Skilled Trades"
-package-name = "com.pocketprep.android.automotive"
-constant = "POCKETPREP_SKILLED_TRADES_COMPATIBILITY"
-current-version = "3.29.1"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-apkpure-dlurl = "https://apkpure.com/skilled-trades-pocket-prep/com.pocketprep.android.automotive"
-apkcombo-dlurl = "https://apkcombo.com/search/com.pocketprep.android.automotive/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.pocketprep.android.automotive"
-
 [podslink]
 enabled = true
 app-name = "PodsLink"
@@ -2720,21 +2546,6 @@ apk-types = "apks"
 apkpure-dlurl = "https://apkpure.com/recipe-manager-recipe-bro/com.recipebro.cookingbuddy"
 apkcombo-dlurl = "https://apkcombo.com/search/com.recipebro.cookingbuddy/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.recipebro.cookingbuddy"
-
-[reddit]
-enabled = true
-app-name = "Reddit"
-package-name = "com.reddit.frontpage"
-constant = "REDDIT_COMPATIBILITY"
-current-version = "2026.35.0"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://reddit-official-app.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/reddit-app/com.reddit.frontpage"
-apkcombo-dlurl = "https://apkcombo.com/search/com.reddit.frontpage/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.reddit.frontpage"
 
 [relane-vpn]
 enabled = true
