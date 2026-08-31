@@ -1000,21 +1000,6 @@ uptodown-dlurl = "https://drivvo.en.uptodown.com/android"
 apkcombo-dlurl = "https://apkcombo.com/search/br.com.ctncardoso.ctncar/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=br.com.ctncardoso.ctncar"
 
-[duolingo]
-enabled = true
-app-name = "Duolingo"
-package-name = "com.duolingo"
-constant = "DUOLINGO_COMPATIBILITY"
-current-version = "6.90.3"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "apks"
-uptodown-dlurl = "https://duolingo.en.uptodown.com/android"
-apkpure-dlurl = "https://apkpure.com/duolingo-language-chess/com.duolingo"
-apkcombo-dlurl = "https://apkcombo.com/search/com.duolingo/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.duolingo"
-
 [electron]
 enabled = true
 app-name = "Electron"
