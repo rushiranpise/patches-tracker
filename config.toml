@@ -3161,20 +3161,6 @@ apkpure-dlurl = "https://apkpure.com/tracker-detect/com.apple.trackerdetect"
 apkcombo-dlurl = "https://apkcombo.com/search/com.apple.trackerdetect/"
 gplay-dlurl = "https://play.google.com/store/apps/details?id=com.apple.trackerdetect"
 
-[tradingview]
-enabled = true
-app-name = "TradingView"
-package-name = "com.tradingview.tradingviewapp"
-constant = "TRADINGVIEW_COMPATIBILITY"
-current-version = "1.20.80.0.1002385"
-version = "latest"
-arch = "all"
-dpi = "nodpi anydpi auto"
-apk-types = "xapk"
-uptodown-dlurl = "https://tradingview.en.uptodown.com/android"
-apkcombo-dlurl = "https://apkcombo.com/search/com.tradingview.tradingviewapp/"
-gplay-dlurl = "https://play.google.com/store/apps/details?id=com.tradingview.tradingviewapp"
-
 [moovit]
 enabled = true
 app-name = "Moovit"
