@@ -2,17 +2,17 @@
 
 Shard: 1/1
 Checked apps: 224
-Patched: 31
-No update: 79
-Skipped known broken: 32
-Failed: 82
+Patched: 11
+No update: 99
+Skipped known broken: 30
+Failed: 84
 
 | App | Package | Known working | Tested | Version code | Status | Failure |
 | --- | --- | --- | --- | --- | --- | --- |
 | AAAD | `sksa.aa.customapps` | `2.8.5` | `2.8.5` |  | NO_UPDATE |  |
 | AAEnabler | `com.aaenabler.app` | `v1.0.14` | `v1.0.14` |  | NO_UPDATE |  |
 | AccuBattery | `com.digibites.accubattery` | `2.1.8` | `2.1.8` |  | NO_UPDATE |  |
-| AccuWeather | `com.accuweather.android` | `21.1.15-3-rc` | `21.2.1-1-rc` |  | FAILED | download |
+| AccuWeather | `com.accuweather.android` | `21.1.15-3-rc` | `21.2.1-1-rc` | `210201001` | FAILED | signing |
 | Ace Ex File Manager | `com.ace.ex.file.manager` | `1.6.0.4` | `1.6.2` |  | FAILED | fingerprint |
 | AdGuard | `com.adguard.android` | `4.14.68` | `4.16.0` |  | FAILED | download |
 | Adobe Acrobat | `com.adobe.reader` | `26.7.0.47169` | `26.7.0.47169` |  | NO_UPDATE |  |
@@ -20,8 +20,8 @@ Failed: 82
 | AIDA64 | `com.finalwire.aida64` | `2.22` | `2.22` |  | NO_UPDATE |  |
 | AiScore | `com.onesports.score` | `4.2.7` | `4.3.2` |  | SKIPPED_KNOWN_BROKEN |  |
 | All Reader | `alldocumentreader.office.viewer.filereader.pdfviewer` | `3.2.4` | `3.2.6` |  | SKIPPED_KNOWN_BROKEN |  |
-| Amazon India | `in.amazon.mShop.android.shopping` | `32.18.0.300` | `32.19.0.300` | `1243250306` | PATCHED |  |
-| Amazon Shopping | `com.amazon.mShop.android.shopping` | `32.18.0.100` | `32.19.0.100` | `1243250306` | PATCHED |  |
+| Amazon India | `in.amazon.mShop.android.shopping` | `32.19.0.300` | `32.19.0.300` |  | NO_UPDATE |  |
+| Amazon Shopping | `com.amazon.mShop.android.shopping` | `32.19.0.100` | `32.19.0.100` |  | NO_UPDATE |  |
 | AmoledPix | `com.androholic.amoledpix` | `7.3` | `9.2` |  | SKIPPED_KNOWN_BROKEN |  |
 | Ampere | `com.gombosdev.ampere` | `v4.37.0` | `v4.37.0` |  | NO_UPDATE |  |
 | AndroPods | `pro.vitalii.andropods` | `1.5.30` | `1.5.30` |  | NO_UPDATE |  |
@@ -36,89 +36,89 @@ Failed: 82
 | Awake | `com.mk.awake` | `1.10.3` | `1.10.3` |  | NO_UPDATE |  |
 | Battery Guru | `com.paget96.batteryguru` | `2.5.0.9` | `2.5.0.9` |  | NO_UPDATE |  |
 | Battery Guru | `com.paget96.batteryguru` | `2.5.0.9` | `2.5.0.9` |  | NO_UPDATE |  |
-| BatteryPods | `com.sumyapplications.bluetooth.earphone` | `8.32` | `8.34` | `8340` | FAILED | signing |
+| BatteryPods | `com.sumyapplications.bluetooth.earphone` | `8.32` | `8.35` | `8350` | FAILED | fingerprint |
 | Bluetooth Keyboard & Mouse | `io.appground.blek` | `6.23.1` | `6.25.2` | `263` | FAILED | fingerprint |
-| Block Blast! | `com.block.juggle` | `10.4.5` | `10.9.1` | `10910` | FAILED | signing |
+| Block Blast! | `com.block.juggle` | `10.4.5` | `10.9.2` | `10920` | FAILED | signing |
 | BlockerHero | `com.blockerhero` | `1.5.0` | `1.5.0` |  | NO_UPDATE |  |
-| Blocking Sites | `com.blocking.sites` | `4.0.19` | `4.2.16` | `359` | FAILED | fingerprint |
+| Blocking Sites | `com.blocking.sites` | `4.0.19` | `4.2.17` | `360` | FAILED | fingerprint |
 | Block Puzzle | `game.puzzle.blockpuzzle` | `6.1` | `6.1` |  | NO_UPDATE |  |
 | Bluetooth Volume Manager | `eu.darken.bluemusic` | `3.5.0-rc0` | `3.6.1-rc0` |  | FAILED | download |
-| Blurams | `com.blurams.ipc` | `5.1049.4.921` | `5.1049.4.959` |  | SKIPPED_KNOWN_BROKEN |  |
+| Blurams | `com.blurams.ipc` | `5.1049.4.921` | `5.1049.4.963` | `1963` | FAILED | fingerprint |
 | BlurWall | `apps.automan.blurwallpaper` | `3.0.0` | `3.0.0` |  | NO_UPDATE |  |
-| BoldVoice | `com.wellocution.androidapp` | `4.6.6` | `4.9.5` | `449` | FAILED | signing |
-| Box Box | `club.boxbox.android` | `5.4.17` | `5.4.18` | `262` | FAILED | fingerprint |
+| BoldVoice | `com.wellocution.androidapp` | `4.6.6` | `4.9.8` | `452` | FAILED | signing |
+| Box Box | `club.boxbox.android` | `5.4.17` | `5.4.18` |  | SKIPPED_KNOWN_BROKEN |  |
 | BubbleUPnP | `com.bubblesoft.android.bubbleupnp` | `4.6.7.1` | `4.6.7.1` |  | NO_UPDATE |  |
-| BuzzCast | `com.guochao.faceshow` | `3.2.91` | `3.2.97` | `3297` | PATCHED |  |
-| calimoto | `com.calimoto.calimoto` | `2026.10.2` | `2026.10.4` |  | FAILED | download |
+| BuzzCast | `com.guochao.faceshow` | `3.2.97` | `3.2.97` |  | NO_UPDATE |  |
+| calimoto | `com.calimoto.calimoto` | `2026.10.2` | `2026.10.4` | `637` | PATCHED |  |
 | Cube ACR | `com.catalinagroup.callrecorder` | `2.4.281` | `2.4.289` |  | SKIPPED_KNOWN_BROKEN |  |
 | Calm | `com.calm.android` | `6.102` | `7.4` | `4120473` | FAILED | fingerprint |
-| Calory | `com.funnmedia.calory` | `3.8.7` | `3.9` | `217` | PATCHED |  |
-| CamScanner | `com.intsig.camscanner` | `7.24.5.2608200000` | `7.27.5.2610150000` |  | FAILED | download |
-| Canva | `com.canva.editor` | `2.377.0` | `2.383.0` |  | FAILED | download |
+| Calory | `com.funnmedia.calory` | `3.9` | `3.9` |  | NO_UPDATE |  |
+| CamScanner | `com.intsig.camscanner` | `7.24.5.2608200000` | `7.28.0.2610220000` |  | FAILED | download |
+| Canva | `com.canva.editor` | `2.377.0` | `2.384.0` |  | FAILED | download |
 | CAPod | `eu.darken.capod` | `5.2.5-rc0` | `5.5.0-rc0` |  | SKIPPED_KNOWN_BROKEN |  |
 | Carbon | `com.joincarbon.nutrition` | `2.76.5966` | `2.77.6010` |  | SKIPPED_KNOWN_BROKEN |  |
-| Case Tracker | `com.saldous.casetracker` | `5.6.0` | `5.6.0` |  | NO_UPDATE |  |
+| Case Tracker | `com.saldous.casetracker` | `5.6.0` | `5.7.0` | `1070` | FAILED | fingerprint |
 | Cashew | `com.budget.tracker_app` | `6.7.2` | `6.7.5` |  | FAILED | download |
-| Cast to TV | `cast.video.screenmirroring.casttotv` | `2.5.4` | `2.5.5.2` |  | SKIPPED_KNOWN_BROKEN |  |
-| Charge Meter | `dev.km.android.chargemeter` | `3.0.1` | `3.0.5` | `86` | FAILED | fingerprint |
-| Citizen | `sp0n.citizen` | `0.1307.0` | `0.1315.2` | `1147` | FAILED | fingerprint |
+| Cast to TV | `cast.video.screenmirroring.casttotv` | `2.5.4` | `2.5.6` |  | FAILED | download |
+| Charge Meter | `dev.km.android.chargemeter` | `3.0.1` | `3.0.11` | `92` | FAILED | fingerprint |
+| Citizen | `sp0n.citizen` | `0.1307.0` | `0.1316.0` | `1148` | FAILED | fingerprint |
 | Citymapper | `com.citymapper.app.release` | `11.60` | `11.60.3` |  | FAILED | download |
-| Clue Period & Cycle Tracker | `com.clue.android` | `273.0` | `275.0` | `3195` | PATCHED |  |
-| ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.8` | `4.8.8` |  | NO_UPDATE |  |
+| Clue Period & Cycle Tracker | `com.clue.android` | `275.0` | `275.0` |  | NO_UPDATE |  |
+| ColorNote | `com.socialnmobile.dictapps.notepad.color.note` | `4.8.8` | `4.9.4` | `2104940` | PATCHED |  |
 | Countdown Widget | `me.gira.widget.countdown` | `3.2.0` | `3.2.0` |  | NO_UPDATE |  |
 | CPU-Z | `com.cpuid.cpu_z` | `1.60` | `1.60` |  | NO_UPDATE |  |
-| Crime Radar | `com.newsbreak.crimeradar` | `26.41.0` | `26.42.1` | `26420101` | PATCHED |  |
+| Crime Radar | `com.newsbreak.crimeradar` | `26.42.1` | `26.43.0` | `26430005` | PATCHED |  |
 | Cube Solver | `com.jeffprod.cubesolver` | `5.1.0` | `5.1.0` |  | NO_UPDATE |  |
 | Dailyhunt | `com.eterno` | `34.0.4` | `34.0.4` |  | NO_UPDATE |  |
-| Depth Live Wallpaper | `com.jndapp.depth.live.wallpaper` | `2.1.07` | `2.1.07` |  | NO_UPDATE |  |
+| Depth Live Wallpaper | `com.jndapp.depth.live.wallpaper` | `2.1.07` | `2.1.08` | `38` | PATCHED |  |
 | DramaBox | `com.storymatrix.drama` | `5.8.1` | `7.0.0` | `700` | FAILED | fingerprint |
 | Zutobi | `com.driverlicenseapp` | `4.5.78` | `4.5.85` |  | SKIPPED_KNOWN_BROKEN |  |
-| Electron | `com.mahersafadi.electron` | `3.0.3` | `3.1.5` | `113` | FAILED | fingerprint |
+| Electron | `com.mahersafadi.electron` | `3.0.3` | `3.1.5` |  | SKIPPED_KNOWN_BROKEN |  |
 | ES File Explorer | `com.estrongs.android.pop` | `4.4.3.7` | `4.4.3.7` |  | NO_UPDATE |  |
 | Excel | `com.microsoft.office.excel` | `16.0.20228.20090` | `16.0.20228.20090` |  | NO_UPDATE |  |
 | Feem | `com.feeperfect.airsend.android` | `6.10.0` | `6.10.0` |  | NO_UPDATE |  |
 | File Manager | `com.alphainventor.filemanager` | `3.8.2` | `3.8.4` |  | FAILED | download |
 | Fitbod | `com.fitbod.fitbod` | `8.33.0-0` | `8.37.0-2` | `10837002` | FAILED | fingerprint |
-| Fitia | `com.nutrition.technologies.Fitia` | `26.0.1` | `26.2.1` | `1520` | FAILED | signing |
-| FlightAware | `com.flightaware.android.liveFlightTracker` | `5.16.1` | `5.16.3` | `501600300` | PATCHED |  |
-| Flightradar24 | `com.flightradar24free` | `11.12.0` | `11.13.0` | `111300000` | PATCHED |  |
-| Flud | `com.delphicoder.flud` | `2.1.2` | `2.2.2` | `100202352` | PATCHED |  |
+| Fitia | `com.nutrition.technologies.Fitia` | `26.0.1` | `26.2.1` |  | SKIPPED_KNOWN_BROKEN |  |
+| FlightAware | `com.flightaware.android.liveFlightTracker` | `5.16.3` | `5.16.3` |  | NO_UPDATE |  |
+| Flightradar24 | `com.flightradar24free` | `11.13.0` | `11.13.0` |  | NO_UPDATE |  |
+| Flud | `com.delphicoder.flud` | `2.2.2` | `2.2.2` |  | NO_UPDATE |  |
 | Fuelio | `com.kajda.fuelio` | `10.3.4` | `10.6.8` | `3492` | FAILED | fingerprint |
 | Genius Scan | `com.thegrizzlylabs.geniusscan.free` | `7.41.0` | `7.44.0` | `7777` | FAILED | fingerprint |
-| Google Photos | `com.google.android.apps.photos` | `7.97.0.997578476` | `7.98.0.1001971222` | `52589059` | PATCHED |  |
+| Google Photos | `com.google.android.apps.photos` | `7.98.0.1001971222` | `7.98.0.1007591100` | `52591199` | PATCHED |  |
 | Greenify | `com.oasisfeng.greenify` | `5.1.1` | `5.1.1` |  | NO_UPDATE |  |
 | Hibernator | `com.tafayor.hibernator` | `2.57.0` | `2.57.0` |  | NO_UPDATE |  |
 | Historical Calendar | `com.alexandrucene.dayhistory` | `7.6.0` | `7.6.0` |  | NO_UPDATE |  |
 | Hola VPN Proxy Plus | `org.hola.play` | `AARCH64_1.248.400` | `AARCH64_1.258.961` |  | FAILED | download |
-| HTTP Sniffer | `com.anetcapture.mock` | `2.5.0-ad_mob` | `2.5.2-ad_mob` | `170` | PATCHED |  |
-| Hydro Coach | `com.codium.hydrocoach` | `5.1.13` | `6.0.3` | `603` | PATCHED |  |
+| HTTP Sniffer | `com.anetcapture.mock` | `2.5.2-ad_mob` | `2.5.2-ad_mob` |  | NO_UPDATE |  |
+| Hydro Coach | `com.codium.hydrocoach` | `6.0.3` | `6.0.3` |  | NO_UPDATE |  |
 | Image & Video Date Fixer | `eu.duong.imagedatefixer` | `3.7.1` | `3.10.1` |  | SKIPPED_KNOWN_BROKEN |  |
-| Inmigreat | `com.changayaf.inmigreat` | `2.3.87` | `2.3.97` |  | FAILED | download |
+| Inmigreat | `com.changayaf.inmigreat` | `2.3.87` | `2.3.97` | `790` | PATCHED |  |
 | Clickmate | `com.inscode.autoclicker` | `7.1.6` | `7.1.6` |  | NO_UPDATE |  |
-| Inure App Manager | `app.simple.inure.play` | `build107.2.1` | `107.3.0` |  | FAILED | download |
-| Inure App Manager (GitHub) | `app.simple.inure` | `build107.2.4` | `build107.3.0` | `10730` | PATCHED |  |
-| JEFIT | `je.fit` | `17.4.5` | `17.6.0` | `2109` | PATCHED |  |
+| Inure App Manager | `app.simple.inure.play` | `build107.2.1` | `build107.3.0` |  | FAILED | download |
+| Inure App Manager (GitHub) | `app.simple.inure` | `build107.3.0` | `build107.3.0` |  | NO_UPDATE |  |
+| JEFIT | `je.fit` | `17.6.0` | `17.6.0` |  | NO_UPDATE |  |
 | Kahoot! | `no.mobitroll.kahoot.android` | `6.6.7` | `6.7.7` | `3417` | FAILED | fingerprint |
 | KillApps | `com.tafayor.killall` | `1.58.0` | `1.58.0` |  | NO_UPDATE |  |
-| KineMaster | `com.nexstreaming.app.kinemasterfree` | `8.1.13.36552.GP` | `8.2.14.37398` |  | FAILED | download |
+| KineMaster | `com.nexstreaming.app.kinemasterfree` | `8.1.13.36552.GP` | `8.2.15.37436` |  | FAILED | download |
 | KineStop | `com.urbandroid.kinestop` | `5.6` | `5.6` |  | NO_UPDATE |  |
 | komoot | `de.komoot.android` | `2026.37.5` | `2026.43.1` | `264023002` | FAILED | fingerprint |
-| Lark Player | `com.dywx.larkplayer` | `2026.12.5` | `2027.1.5` | `2027010509` | FAILED | fingerprint |
-| Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.8.2` | `6.10.1` | `559` | FAILED | signing |
-| Women Workout | `women.workout.female.fitness` | `2.3.5` | `2.3.9` |  | FAILED | download |
+| Lark Player | `com.dywx.larkplayer` | `2026.12.5` | `2027.1.7` | `2027010709` | FAILED | fingerprint |
+| Lawfully | `com.lawfully.lawfully_ai_tracker` | `6.8.2` | `6.10.2` |  | FAILED | download |
+| Women Workout | `women.workout.female.fitness` | `2.3.5` | `2.4.0` |  | FAILED | download |
 | Height Increase | `increaseheightworkout.heightincreaseexercise.tallerexercise` | `1.1.17` | `latest` |  | FAILED | version_resolve |
 | Home Workout | `homeworkout.homeworkouts.noequipment` | `1.7.9` | `1.8.0` |  | FAILED | download |
 | Lose Weight App for Women | `loseweightapp.loseweightappforwomen.womenworkoutathome` | `2.4.0` | `latest` |  | FAILED | version_resolve |
 | Life360 | `com.life360.android.safetymapd` | `26.31.6` | `26.40.0` | `2931510` | FAILED | fingerprint |
-| LiveScore | `com.livescore` | `10.3.1` | `10.3.2` | `2230` | PATCHED |  |
-| MacroDroid | `com.arlosoft.macrodroid` | `5.66.9` | `6.1.3` |  | FAILED | download |
+| LiveScore | `com.livescore` | `10.3.2` | `10.4` |  | FAILED | download |
+| MacroDroid | `com.arlosoft.macrodroid` | `5.66.9` | `6.1.5` |  | FAILED | download |
 | Malwarebytes Mobile Security | `org.malwarebytes.antimalware` | `5.27.0+564` | `5.32.0+582` |  | FAILED | download |
 | MANGA Plus by SHUEISHA | `jp.co.shueisha.mangaplus` | `2.7.0` | `2.7.0` |  | NO_UPDATE |  |
 | Mapy.com | `cz.seznam.mapy` | `26.8.0` | `26.10.0` |  | SKIPPED_KNOWN_BROKEN |  |
 | MaterialPods | `com.pryshedko.materialpods` | `6.72` | `6.72` |  | NO_UPDATE |  |
 | MEGA | `mega.privacy.android.app` | `16.12(262370820)(dcdf0a7f27)` | `16.14(262890140)(d38471f7bb)` |  | FAILED | download |
 | Money Manager | `com.glgjing.money.manager.bookkeeping.meow` | `1.9.9` | `latest` |  | FAILED | version_resolve |
-| Messenger | `com.facebook.orca` | `576.0.0.47.92` | `584.0.0.49.98` |  | FAILED | download |
+| Messenger | `com.facebook.orca` | `576.0.0.47.92` | `584.1.0.61.98` |  | FAILED | download |
 | meteoblue Weather | `com.meteoblue.droid` | `Cirrus Uncinus 3.0.4` | `Cirrus Uncinus 3.1.7` |  | FAILED | download |
 | MigraConnect | `com.tecso.MigraConnect` | `2.8.4` | `2.8.4` |  | NO_UPDATE |  |
 | MikroTik Network Tools | `kha.prog.mikrotik` | `279` | `279` |  | NO_UPDATE |  |
@@ -130,16 +130,16 @@ Failed: 82
 | Monet | `com.klevico.monet` | `v1.0.76` | `v1.1.0` | `134` | FAILED | fingerprint |
 | MyAnimeList | `net.myanimelist.app` | `2.3.16` | `2.3.16` |  | NO_UPDATE |  |
 | MyRadar | `com.acmeaom.android.myradar` | `8.73.1` | `8.73.1` |  | NO_UPDATE |  |
-| NAVITIME | `com.navitime.inbound.walk` | `12.2.5` | `12.3.0` | `383` | PATCHED |  |
+| NAVITIME | `com.navitime.inbound.walk` | `12.3.0` | `12.3.0` |  | NO_UPDATE |  |
 | NetGuard | `eu.faircode.netguard` | `2.337` | `2.337` |  | NO_UPDATE |  |
-| NetMonster | `cz.mroczis.netmonster` | `4.0.5` | `5.0.2` | `282` | PATCHED |  |
+| NetMonster | `cz.mroczis.netmonster` | `5.0.2` | `5.0.2` |  | NO_UPDATE |  |
 | Network Guru | `com.paget96.netspeedindicator` | `2.0` | `2.1` |  | SKIPPED_KNOWN_BROKEN |  |
-| NewsBreak | `com.particlenews.newsbreak` | `26.41.0` | `26.43.0` | `26430027` | PATCHED |  |
-| NewsBreak Lite | `com.particlenews.newsbreaklite` | `26.34.0` | `26.39.0` | `26390001` | PATCHED |  |
+| NewsBreak | `com.particlenews.newsbreak` | `26.43.0` | `26.43.1` | `26430103` | PATCHED |  |
+| NewsBreak Lite | `com.particlenews.newsbreaklite` | `26.39.0` | `26.39.0` |  | NO_UPDATE |  |
 | Ninja VPN | `app.ninjavpn.android` | `1.4.7` | `1.4.12` |  | FAILED | download |
-| Nova Launcher | `com.teslacoilsw.launcher` | `8.8.8` | `89500 (8.9.5)` |  | FAILED | download |
-| NYT Games | `com.nytimes.crossword` | `6.41.0` | `6.47.1` | `6428160` | FAILED | fingerprint |
-| nzb360 | `com.kevinforeman.nzb360` | `25.2` | `25.2.1` | `534` | PATCHED |  |
+| Nova Launcher | `com.teslacoilsw.launcher` | `8.8.8` | `89600 (8.9.6)` |  | FAILED | download |
+| NYT Games | `com.nytimes.crossword` | `6.41.0` | `6.48.0` | `6428192` | FAILED | fingerprint |
+| nzb360 | `com.kevinforeman.nzb360` | `25.2.1` | `25.2.2` | `535` | PATCHED |  |
 | OBD Android | `ai.metaverselabs.obdandroid` | `4.9` | `5.0` |  | SKIPPED_KNOWN_BROKEN |  |
 | Octi | `eu.darken.octi` | `1.3.0-rc0` | `1.3.0-rc0` |  | NO_UPDATE |  |
 | Octopi Launcher | `com.otp.octopilauncher` | `1.88` | `1.936` | `2377` | FAILED | fingerprint |
@@ -153,16 +153,16 @@ Failed: 82
 | Pialytic | `verbosus.pialytic` | `1.3.5` | `1.3.5` |  | NO_UPDATE |  |
 | PicsArt | `com.picsart.studio` | `30.7.8` | `30.9.5` |  | FAILED | download |
 | Picture Mushroom | `com.glority.picturemushroom` | `2.9.31` | `2.10.0` |  | FAILED | download |
-| PictureThis | `cn.danatech.xingseus` | `5.36.0` | `5.38.0` | `5096` | PATCHED |  |
-| pillo | `xyz.rtrvr.pillo` | `0.6.24` | `0.6.25` | `462` | FAILED | fingerprint |
-| Pixel Habit Tracker | `com.pixel.al.pixelhabittracker` | `2.5.0` | `2.5.2` |  | SKIPPED_KNOWN_BROKEN |  |
+| PictureThis | `cn.danatech.xingseus` | `5.38.0` | `5.38.0` |  | NO_UPDATE |  |
+| pillo | `xyz.rtrvr.pillo` | `0.6.24` | `0.6.25` |  | SKIPPED_KNOWN_BROKEN |  |
+| Pixel Habit Tracker | `com.pixel.al.pixelhabittracker` | `2.5.0` | `2.5.3` |  | FAILED | download |
 | PLAYit | `com.playit.videoplayer` | `2.7.50.12` | `2.7.53.16` | `20753016` | FAILED | fingerprint |
 | Pocket Bard | `com.MojoFilterMediaLLC.RPGSoundSystem` | `3.1.17` | `3.2.0` |  | SKIPPED_KNOWN_BROKEN |  |
 | Pocket Casts | `au.com.shiftyjelly.pocketcasts` | `8.16` | `8.21t` |  | FAILED | download |
 | PodsLink | `net.podslink` | `1.4.0` | `1.4.4` | `93` | FAILED | fingerprint |
 | Police Scanner | `police.scanner.radio.broadcastify.citizen` | `1.29.0-260420093` | `1.30.0-261010060` |  | SKIPPED_KNOWN_BROKEN |  |
 | PortDroid | `com.stealthcopter.portdroid` | `1.0.7` | `1.0.7` |  | NO_UPDATE |  |
-| Proton Pass | `proton.android.pass` | `1.41.3` | `1.41.5` | `14105409` | PATCHED |  |
+| Proton Pass | `proton.android.pass` | `1.41.5` | `1.41.5` |  | NO_UPDATE |  |
 | Proton VPN | `ch.protonvpn.android` | `5.19.78.0` | `5.20.98.0` |  | FAILED | download |
 | Proxyman | `com.proxyman.proxymanandroid` | `1.21.0` | `1.31.0` | `65` | FAILED | fingerprint |
 | Psiphon Pro | `com.psiphon3.subscription` | `486` | `486` |  | NO_UPDATE |  |
@@ -171,11 +171,11 @@ Failed: 82
 | RAR | `com.rarlab.rar` | `7.23.build134` | `7.23.build134` |  | NO_UPDATE |  |
 | RecipeBro | `com.recipebro.cookingbuddy` | `1.7.21` | `26.10.86` | `1863` | FAILED | fingerprint |
 | re-Link | `com.curiouscompany.relink` | `2.0.13` | `2.0.14` |  | SKIPPED_KNOWN_BROKEN |  |
-| Rename & Organize | `eu.duong.picturemanager` | `8.30.2` | `8.30.3` | `8300300` | PATCHED |  |
+| Rename & Organize | `eu.duong.picturemanager` | `8.30.3` | `8.30.3` |  | NO_UPDATE |  |
 | Rocket Money | `com.truebill` | `13.15.0` | `16.5.0` |  | FAILED | download |
 | RS File Manager | `com.rs.explorer.filemanager` | `2.3.0.4` | `2.3.1.3` |  | SKIPPED_KNOWN_BROKEN |  |
 | Scoopz | `com.localaiapp.scoops` | `3.36.0` | `3.41.0` | `3410002` | FAILED | signing |
-| SCRL | `com.appostrophe.scrl` | `1.31` | `1.32.1` | `300` | PATCHED |  |
+| SCRL | `com.appostrophe.scrl` | `1.32.1` | `1.33` | `303` | PATCHED |  |
 | SD Maid SE | `eu.darken.sdmse` | `2.0.3-rc0` | `2.2.2-rc0` |  | FAILED | fingerprint |
 | Send Files To TV | `com.yablio.sendfilestotv` | `1.4.22` | `1.4.22` |  | NO_UPDATE |  |
 | Server Auditor | `com.server.auditor.ssh.client` | `7.11.2` | `7.11.2` |  | NO_UPDATE |  |
@@ -184,47 +184,47 @@ Failed: 82
 | Slopes | `com.consumedbycode.slopes` | `2026.16` | `2026.16` |  | NO_UPDATE |  |
 | Snipd | `ai.topicfinder.podcastdiscovery` | `4.3.11` | `4.3.11` |  | NO_UPDATE |  |
 | Snow-Forecast.com | `com.snow_forecast.snowforecast` | `8.0.8` | `8.0.8` |  | NO_UPDATE |  |
-| Social Gamebox | `com.app.social_gamebox` | `1.4.3` | `1.4.9` | `1044` | FAILED | fingerprint |
-| SocialLite | `com.sociallite.android` | `2.0.0.59` | `3.0.0` |  | SKIPPED_KNOWN_BROKEN |  |
+| Social Gamebox | `com.app.social_gamebox` | `1.4.3` | `1.4.11` | `1046` | FAILED | fingerprint |
+| SocialLite | `com.sociallite.android` | `2.0.0.59` | `3.0.1` | `258` | FAILED | fingerprint |
 | Speedtest | `org.zwanoo.android.speedtest` | `7.1.2` | `7.1.2` |  | NO_UPDATE |  |
 | SPIN | `com.nationaledtech.spinbrowser` | `70.3.0` | `70.3.0` |  | NO_UPDATE |  |
-| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.7.3` | `26.10.1` |  | FAILED | download |
+| Splitwise | `com.Splitwise.SplitwiseMobile` | `26.7.3` | `26.10.2` |  | FAILED | download |
 | SpotAngels | `com.spotangels.android` | `15.2.2` | `15.2.2` |  | NO_UPDATE |  |
 | Sticker Maker | `com.marsvard.stickermakerforwhatsapp` | `1.0.12-7` | `1.0.12-7` |  | NO_UPDATE |  |
-| Sticker.ly | `com.snowcorp.stickerly.android` | `3.40.0` | `3.40.1` | `1034001` | PATCHED |  |
-| Strava | `com.strava` | `480.15` | `486.9` |  | FAILED | download |
+| Sticker.ly | `com.snowcorp.stickerly.android` | `3.40.1` | `3.40.1` |  | NO_UPDATE |  |
+| Strava | `com.strava` | `480.15` | `487.11` |  | FAILED | download |
 | Subway Now | `io.goodservice.theweekendest` | `1.2.10` | `2.0.5` | `94` | FAILED | fingerprint |
 | Super File | `com.esuper.file.explorer` | `1.5.6.3` | `1.5.8` | `79` | FAILED | fingerprint |
-| Tag Tracker | `com.makeevapps.tagtracker` | `1.3.2` | `1.3.2` |  | NO_UPDATE |  |
+| Tag Tracker | `com.makeevapps.tagtracker` | `1.3.2` | `1.3.5` | `22` | PATCHED |  |
 | Teams | `com.microsoft.teams` | `1416/1.0.0.2026152302` | `1416/1.0.0.2026152302` |  | NO_UPDATE |  |
 | Telegram | `org.telegram.messenger` | `12.10.1` | `13.1.1` |  | FAILED | download |
-| Telegram Plus | `org.telegram.plus` | `12.10.1.1` | `13.0.3.0` |  | FAILED | download |
+| Telegram Plus | `org.telegram.plus` | `12.10.1.1` | `13.1.1.0` | `22620` | FAILED | fingerprint |
 | Telegram Web | `org.telegram.messenger.web` | `12.10.1` | `13.1.1` |  | FAILED | download |
-| The Athletic | `com.theathletic` | `13.153.0` | `13.155.0` | `33626400` | FAILED | fingerprint |
+| The Athletic | `com.theathletic` | `13.153.0` | `13.156.0` | `33626458` | FAILED | fingerprint |
 | Transit | `com.thetransitapp.droid` | `6.3.5` | `6.3.5` |  | NO_UPDATE |  |
-| The Weather Channel | `com.weather.Weather` | `16.25.0` | `16.26.0` | `1080015726` | PATCHED |  |
+| The Weather Channel | `com.weather.Weather` | `16.26.0` | `16.26.0` |  | NO_UPDATE |  |
 | Today Weather | `mobi.lockdown.weather` | `2.5.0-6` | `2.5.2-2` |  | SKIPPED_KNOWN_BROKEN |  |
 | TomTom GO | `com.tomtom.gplay.navapp` | `3.6.320` | `3.6.326` |  | FAILED | download |
 | Toomics | `com.toomics.global.google` | `1.6.9` | `1.6.9` |  | NO_UPDATE |  |
-| HD UHD Live Wallpapers | `hd.uhd.live.wallpapers.topwallpapers` | `6.1.1` | `7.0.1` | `117` | PATCHED |  |
+| HD UHD Live Wallpapers | `hd.uhd.live.wallpapers.topwallpapers` | `7.0.1` | `7.0.1` |  | NO_UPDATE |  |
 | TorrDroid | `intelligems.torrdroid` | `2.0.3` | `2.0.3` |  | NO_UPDATE |  |
 | Torrent Search Revolution V2 | `torrent.search.revolutionv2` | `2.3.3` | `2.3.3` |  | NO_UPDATE |  |
-| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.20.1` | `1.27.3` | `142` | FAILED | fingerprint |
+| Toxly | `com.mindful.code.studio.toxly.scanner` | `1.20.1` | `1.28.0` | `143` | FAILED | fingerprint |
 | TrackChecker Mobile | `com.metalsoft.trackchecker_mobile` | `2.29.3` | `2.30.7` |  | SKIPPED_KNOWN_BROKEN |  |
 | Tracker Detect | `com.apple.trackerdetect` | `1.2` | `1.2` |  | NO_UPDATE |  |
-| Moovit | `com.tranzmate` | `5.197.1.1801` | `5.203.0.1812` |  | FAILED | download |
+| Moovit | `com.tranzmate` | `5.197.1.1801` | `5.203.0.1812` | `1812` | FAILED | fingerprint |
 | TurboScan | `com.piksoft.turboscan.free` | `1.7.3` | `1.7.3` |  | NO_UPDATE |  |
-| Stargazing Hub | `com.twtapp` | `3.5.3` | `3.5.4` | `3050406` | PATCHED |  |
-| UbikiTouch | `eu.toneiv.ubktouch` | `1.17.10` | `1.17.11` | `80453` | PATCHED |  |
-| UDisc | `com.regasoftware.udisc` | `24.3.2` | `24.3.4` | `21586` | PATCHED |  |
+| Stargazing Hub | `com.twtapp` | `3.5.4` | `3.6.0` | `3060000` | PATCHED |  |
+| UbikiTouch | `eu.toneiv.ubktouch` | `1.17.11` | `1.17.11` |  | NO_UPDATE |  |
+| UDisc | `com.regasoftware.udisc` | `24.3.4` | `24.3.4` |  | NO_UPDATE |  |
 | Unimote | `sensustech.universal.tv.remote.control` | `1.8.1` | `1.8.1` |  | NO_UPDATE |  |
-| Uptodown App Store | `com.uptodown` | `7.37` | `7.41` |  | FAILED | download |
+| Uptodown App Store | `com.uptodown` | `7.37` | `7.42` |  | FAILED | download |
 | USB Hotspot | `kha.prog.usbhotspot` | `1.7` | `1.7` |  | NO_UPDATE |  |
 | VIZ Manga | `com.vizmanga.android` | `4.14.6` | `4.14.6` |  | NO_UPDATE |  |
 | VRadio | `com.ilv.vradio` | `2.9.4` | `2.9.4` |  | NO_UPDATE |  |
-| Vyxel Apps | `com.vythera.vyxelapps` | `1.0.7` | `v1.1.4` |  | SKIPPED_KNOWN_BROKEN |  |
+| Vyxel Apps | `com.vythera.vyxelapps` | `1.0.7` | `v1.1.5` | `18` | FAILED | fingerprint |
 | Wallverse | `com.wallverse.wallpapers` | `4.2` | `4.3` |  | SKIPPED_KNOWN_BROKEN |  |
-| 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.9` | `6.38.11` | `5703` | PATCHED |  |
+| 1.1.1.1 | `com.cloudflare.onedotonedotonedotone` | `6.38.11` | `6.38.11` |  | NO_UPDATE |  |
 | Wavve Boating | `com.wavve.boating.gps` | `5.7.8` | `5.8.3` |  | SKIPPED_KNOWN_BROKEN |  |
 | Weawow | `com.weawow` | `7.1.9` | `7.2.0` |  | SKIPPED_KNOWN_BROKEN |  |
 | Widget 2026 | `com.remi.widget` | `85.1.4` | `85.1.8` |  | FAILED | download |
@@ -232,32 +232,38 @@ Failed: 82
 | Windy | `com.windyty.android` | `51.0.1` | `51.3.2` |  | SKIPPED_KNOWN_BROKEN |  |
 | WolframAlpha | `com.wolfram.android.alphapro` | `1.0.8.20260601651` | `1.0.8.20260601651` |  | NO_UPDATE |  |
 | Word | `com.microsoft.office.word` | `16.0.20228.20090` | `16.0.20228.20090` |  | NO_UPDATE |  |
-| Yatri | `com.yatrirailways.yatri` | `5.0.6` | `7.0.2` |  | SKIPPED_KNOWN_BROKEN |  |
+| Yatri | `com.yatrirailways.yatri` | `5.0.6` | `7.0.3` | `1022` | FAILED | signing |
 
 ## Failure Logs
 
 <details><summary>AccuWeather log excerpt</summary>
 
 ````text
-[uptodown 21.2.1-1-rc] [+] HTTP GET: https://accuweather.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://accuweather.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://accuweather.en.uptodown.com/android/apps/20240/versions/1 -> -
-[+] HTTP GET: https://accuweather.en.uptodown.com/android/download/1231119230 -> -
-[+] HTTP GET: https://accuweather.en.uptodown.com/app/20240/version/14368319/files -> -
-[+] HTTP GET: https://accuweather.en.uptodown.com/android/download/1231119230-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/accuweather/accuweather-21.2.1-1-rc.apk.apkm
-curl: (22) The requested URL returned error: 404
-[-] Request failed: https://dw.uptodown.com/dwn/
+xes for 19064 classes...
+INFO: Patching took 3.3 seconds
+INFO: Use --continue-on-error to skip failed patches and continue patching
+ERROR: FAILED: Unlock Premium+
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium+" failed: AccuWeather [SubFlowClass]: not found. Expected one class containing all of: "loginManager", "Bearer ", "uploadSubscriptionsToStorefrontUseCase".
+ERROR: app.morphe.patcher.patch.PatchException: AccuWeather [SubFlowClass]: not found. Expected one class containing all of: "loginManager", "Bearer ", "uploadSubscriptionsToStorefrontUseCase".
+	at app.template.patches.accuweather.premium.UnlockPremiumPlusPatchKt.unlockPremiumPlusPatch$lambda$0$0(UnlockPremiumPlusPatch.kt:62)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
 
-[gplay 21.2.1-1-rc] [+] Downloading from Google Play: com.accuweather.android
-[+] FlareSolverr detected at http://localhost:8191/v1
-[+] Step 1: Getting dispenser credentials...
-[!] Direct request blocked (403), trying FlareSolverr...
-[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
-[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
-{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.accuweather.android
 
 ````
 
@@ -303,7 +309,9 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 [uptodown 4.16.0] [+] HTTP GET: https://adguard-for-android.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://adguard-for-android.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://adguard-for-android.en.uptodown.com/android/apps/110507/versions/1 -> -
-[+] HTTP GET: https://adguard-for-android.en.uptodown.com/android/download/1230333419 -> -
+[+] HTTP GET: https://adguard-for-android.en.uptodown.com/android/download/1232182197 -> -
+[+] HTTP GET: https://adguard-for-android.en.uptodown.com/app/110507/version/14359628/files -> -
+[+] HTTP GET: https://adguard-for-android.en.uptodown.com/android/download/1230333419-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/adguard/adguard-4.16.0.apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
@@ -313,7 +321,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 5 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.adguard.android
@@ -340,7 +348,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 7 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.adobe.scan.android
@@ -365,7 +373,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.llamalab.automate
@@ -388,7 +396,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for me.highest.aviate
@@ -400,11 +408,16 @@ curl: (22) The requested URL returned error: 404
 <details><summary>BatteryPods log excerpt</summary>
 
 ````text
- skip failed patches and continue patching
-ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Mismatch between override type and Method return type
-ERROR: app.morphe.patcher.patch.PatchException: Mismatch between override type and Method return type
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:132)
+ Unlock Premium
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.batterypods.premium.BatteryPodsAdEligibilityFingerprint@30fd2266
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.batterypods.premium.BatteryPodsAdEligibilityFingerprint@30fd2266
+	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
+	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
+	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
+	at app.template.patches.batterypods.premium.BatteryPodsPremiumPatchKt.batteryPodsPremiumPatch$lambda$0$0(BatteryPodsPremiumPatch.kt:53)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
 	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
 	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
 	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
@@ -419,13 +432,6 @@ ERROR: app.morphe.patcher.patch.PatchException: Mismatch between override type a
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-Caused by: java.lang.IllegalStateException: Mismatch between override type and Method return type
-	at app.template.patches.shared.BytecodeUtilsKt.returnEarly(BytecodeUtils.kt:1368)
-	at app.template.patches.batterypods.premium.BatteryPodsPremiumPatchKt.batteryPodsPremiumPatch$lambda$0$0(BatteryPodsPremiumPatch.kt:48)
-	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
-	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
-	... 14 more
 
 
 ````
@@ -437,8 +443,8 @@ Caused by: java.lang.IllegalStateException: Mismatch between override type and M
 ````text
 ip failed patches and continue patching
 ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.blek.premium.SkuStateInitFingerprint@6c52b263
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.blek.premium.SkuStateInitFingerprint@6c52b263
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.blek.premium.SkuStateInitFingerprint@40c32e21
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.blek.premium.SkuStateInitFingerprint@40c32e21
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getInstructionMatches(Fingerprint.kt:1644)
@@ -473,7 +479,7 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 INFO: Skipping disabled: Spoof app signature (default)
 INFO: Applying 1 patches...
 INFO: Executing patches
-INFO: Patching took 1.5 seconds
+INFO: Patching took 1.7 seconds
 INFO: Use --continue-on-error to skip failed patches and continue patching
 ERROR: FAILED: Unlock VIP
 ERROR: Patching aborted: Patching failed: Patch "Unlock VIP" failed: Could not find class: Lwf/j;
@@ -507,8 +513,8 @@ ERROR: app.morphe.patcher.patch.PatchException: Could not find class: Lwf/j;
 <details><summary>Blocking Sites log excerpt</summary>
 
 ````text
-ROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.blockingsites.premium.PairipCheckLicenseFingerprint@20089020
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.blockingsites.premium.PairipCheckLicenseFingerprint@20089020
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.blockingsites.premium.PairipCheckLicenseFingerprint@ffb6546
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.blockingsites.premium.PairipCheckLicenseFingerprint@ffb6546
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
@@ -561,6 +567,39 @@ curl: (22) The requested URL returned error: 404
 
 </details>
 
+<details><summary>Blurams log excerpt</summary>
+
+````text
+lock Cloud Service
+ERROR: Patching aborted: Patching failed: Patch "Unlock Cloud Service" failed: Failed to match the fingerprint: Fingerprint(definingClass=Ljk/a;, name=getHasMoneyPkg, returnType=Z, parameters=[])
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: Fingerprint(definingClass=Ljk/a;, name=getHasMoneyPkg, returnType=Z, parameters=[])
+	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
+	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
+	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
+	at app.template.patches.blurams.UnlockCloudServicePatchKt.bluramsUnlockCloudServicePatch$lambda$0$0(UnlockCloudServicePatch.kt:39)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+
+````
+
+</details>
+
 <details><summary>BoldVoice log excerpt</summary>
 
 ````text
@@ -568,7 +607,7 @@ lying 1 patches...
 INFO: Deleting existing temporary files directory
 INFO: Decoding resources in raw mode
 INFO: Executing patches
-INFO: Patching took 2.0 seconds
+INFO: Patching took 3.0 seconds
 INFO: Use --continue-on-error to skip failed patches and continue patching
 ERROR: FAILED: Unlock Premium
 ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: BoldVoice isSubscriber selector pattern not found.
@@ -598,72 +637,13 @@ ERROR: app.morphe.patcher.patch.PatchException: BoldVoice isSubscriber selector 
 
 </details>
 
-<details><summary>Box Box log excerpt</summary>
-
-````text
- --continue-on-error to skip failed patches and continue patching
-ERROR: FAILED: Unlock Pro
-ERROR: Patching aborted: Patching failed: Patch "Unlock Pro" failed: Failed to match the fingerprint: app.template.patches.boxbox.PlanDataStoreReaderFingerprint@ca2b4ce
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.boxbox.PlanDataStoreReaderFingerprint@ca2b4ce
-	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
-	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
-	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
-	at app.template.patches.boxbox.UnlockProPatchKt.boxBoxUnlockProPatch$lambda$0$0(UnlockProPatch.kt:47)
-	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
-	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-
-
-````
-
-</details>
-
-<details><summary>calimoto log excerpt</summary>
-
-````text
-[uptodown 2026.10.4] [+] HTTP GET: https://calimoto.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://calimoto.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://calimoto.en.uptodown.com/android/apps/1073878/versions/1 -> -
-[+] HTTP GET: https://calimoto.en.uptodown.com/android/download/1230511065 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/calimoto/calimoto-2026.10.4.apk
-curl: (22) The requested URL returned error: 404
-[-] Request failed: https://dw.uptodown.com/dwn/
-
-[gplay 2026.10.4] [+] Downloading from Google Play: com.calimoto.calimoto
-[+] FlareSolverr detected at http://localhost:8191/v1
-[+] Step 1: Getting dispenser credentials...
-[!] Direct request blocked (403), trying FlareSolverr...
-[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
-[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
-{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.calimoto.calimoto
-
-````
-
-</details>
-
 <details><summary>Calm log excerpt</summary>
 
 ````text
 ching
 ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.calm.premium.SubscriptionRefreshResponseGetValidFingerprint@3b7ae297
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.calm.premium.SubscriptionRefreshResponseGetValidFingerprint@3b7ae297
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.calm.premium.SubscriptionRefreshResponseGetValidFingerprint@4a6b014a
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.calm.premium.SubscriptionRefreshResponseGetValidFingerprint@4a6b014a
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
@@ -694,22 +674,20 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 <details><summary>CamScanner log excerpt</summary>
 
 ````text
-[uptodown 7.27.5.2610150000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -
+[uptodown 7.28.0.2610220000] [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/apps/26217/versions/1 -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1229880845 -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/app/26217/version/14332949/files -> -
-[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1229208857-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/camscanner/camscanner-7.27.5.2610150000.apk
+[+] HTTP GET: https://camscanner-pdf-creator.en.uptodown.com/android/download/1231487000 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/camscanner/camscanner-7.28.0.2610220000.apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 7.27.5.2610150000] [+] Downloading from Google Play: com.intsig.camscanner
+[gplay 7.28.0.2610220000] [+] Downloading from Google Play: com.intsig.camscanner
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.intsig.camscanner
@@ -721,22 +699,53 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Canva log excerpt</summary>
 
 ````text
-[uptodown 2.383.0] [+] HTTP GET: https://canva.en.uptodown.com/android/versions -> -
+[uptodown 2.384.0] [+] HTTP GET: https://canva.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://canva.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://canva.en.uptodown.com/android/apps/712532/versions/1 -> -
-[+] HTTP GET: https://canva.en.uptodown.com/android/download/1231114730 -> -
+[+] HTTP GET: https://canva.en.uptodown.com/android/download/1232259022 -> -
 curl: (22) The requested URL returned error: 404
-[-] Request failed: https://canva.en.uptodown.com/android/download/1231114730
+[-] Request failed: https://canva.en.uptodown.com/android/download/1232259022
 
-[gplay 2.383.0] [+] Downloading from Google Play: com.canva.editor
+[gplay 2.384.0] [+] Downloading from Google Play: com.canva.editor
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.canva.editor
+
+````
+
+</details>
+
+<details><summary>Case Tracker log excerpt</summary>
+
+````text
+ing failed: Patch "Unlock Pro" failed: Failed to match the fingerprint: Fingerprint(definingClass=Lcom/saldous/casetracker/data/c;, name=a, accessFlags=public static, returnType=Z, parameters=[Ljava/lang/String;, Z])
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: Fingerprint(definingClass=Lcom/saldous/casetracker/data/c;, name=a, accessFlags=public static, returnType=Z, parameters=[Ljava/lang/String;, Z])
+	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
+	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1454)
+	at app.template.patches.casetracker.CaseTrackerUnlockProPatchKt.caseTrackerUnlockProPatch$lambda$0$0(CaseTrackerUnlockProPatch.kt:55)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
 
 ````
 
@@ -748,7 +757,7 @@ curl: (22) The requested URL returned error: 404
 [uptodown 6.7.5] [+] HTTP GET: https://cashew.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://cashew.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://cashew.en.uptodown.com/android/apps/1000172700/versions/1 -> -
-[+] HTTP GET: https://cashew.en.uptodown.com/android/download/1230926139 -> -
+[+] HTTP GET: https://cashew.en.uptodown.com/android/download/1232499279 -> -
 [+] HTTP GET: https://cashew.en.uptodown.com/app/1000172700/version/14355273/files -> -
 [+] HTTP GET: https://cashew.en.uptodown.com/android/download/1230170673-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/cashew/cashew-6.7.5.apk.apkm
@@ -769,17 +778,42 @@ curl: (22) The requested URL returned error: 404
 
 </details>
 
+<details><summary>Cast to TV log excerpt</summary>
+
+````text
+[uptodown 2.5.6] [+] HTTP GET: https://cast-to-tv.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://cast-to-tv.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://cast-to-tv.en.uptodown.com/android/apps/748241/versions/1 -> -
+[+] HTTP GET: https://cast-to-tv.en.uptodown.com/android/download/1232544276 -> -
+[+] HTTP GET: https://cast-to-tv.en.uptodown.com/app/748241/version/14398301/files -> -
+[+] HTTP GET: https://cast-to-tv.en.uptodown.com/android/download/1232544276-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/cast-to-tv/cast-to-tv-2.5.6.apk.apkm
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 2.5.6] [+] Downloading from Google Play: cast.video.screenmirroring.casttotv
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 6 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for cast.video.screenmirroring.casttotv
+
+````
+
+</details>
+
 <details><summary>Charge Meter log excerpt</summary>
 
 ````text
-inue patching
-ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.chargemeter.premium.SetPremiumFingerprint@58897923
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.chargemeter.premium.SetPremiumFingerprint@58897923
+ching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.chargemeter.premium.SettingsActivityOnResumePremiumFingerprint@18b5a89b
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.chargemeter.premium.SettingsActivityOnResumePremiumFingerprint@18b5a89b
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
-	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
-	at app.template.patches.chargemeter.premium.ChargeMeterPremiumPatchKt.chargeMeterPremiumPatch$lambda$0$0(ChargeMeterPremiumPatch.kt:75)
+	at app.morphe.patcher.Fingerprint.getInstructionMatches(Fingerprint.kt:1644)
+	at app.template.patches.chargemeter.premium.ChargeMeterPremiumPatchKt.chargeMeterPremiumPatch$lambda$0$0(ChargeMeterPremiumPatch.kt:68)
 	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
 	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
 	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
@@ -841,9 +875,9 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 [uptodown 11.60.3] [+] HTTP GET: https://citymapper.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://citymapper.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://citymapper.en.uptodown.com/android/apps/28359/versions/1 -> -
-[+] HTTP GET: https://citymapper.en.uptodown.com/android/download/1228921341 -> -
+[+] HTTP GET: https://citymapper.en.uptodown.com/android/download/1232075589 -> -
 [+] HTTP GET: https://citymapper.en.uptodown.com/app/28359/version/14318673/files -> -
-[+] HTTP GET: https://citymapper.en.uptodown.com/android/download/1228921341-x -> -
+[+] HTTP GET: https://citymapper.en.uptodown.com/android/download/1232075589-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/citymapper/citymapper-11.60.3.apk.apkm
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
@@ -866,46 +900,12 @@ curl: (22) The requested URL returned error: 404
 
 ````text
 ILED: Unlock Membership
-ERROR: Patching aborted: Patching failed: Patch "Unlock Membership" failed: Failed to match the fingerprint: app.template.patches.dramabox.membership.SplashLockOnCreateFingerprint@2fb276f8
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.dramabox.membership.SplashLockOnCreateFingerprint@2fb276f8
+ERROR: Patching aborted: Patching failed: Patch "Unlock Membership" failed: Failed to match the fingerprint: app.template.patches.dramabox.membership.SplashLockOnCreateFingerprint@4a7c2524
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.dramabox.membership.SplashLockOnCreateFingerprint@4a7c2524
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
 	at app.template.patches.dramabox.membership.DramaBoxMembershipPatchKt.dramaBoxMembershipPatch$lambda$0$0(DramaBoxMembershipPatch.kt:109)
-	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
-	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-
-
-````
-
-</details>
-
-<details><summary>Electron log excerpt</summary>
-
-````text
-inue patching
-ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.electron.premium.EntitlementObserverFingerprint@32d107c1
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.electron.premium.EntitlementObserverFingerprint@32d107c1
-	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
-	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
-	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
-	at app.template.patches.electron.premium.ElectronPremiumPatchKt.electronPremiumPatch$lambda$0$0(ElectronPremiumPatch.kt:44)
 	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
 	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
 	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
@@ -936,16 +936,14 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 [+] HTTP GET: https://flashlight-clock-file-manager.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://flashlight-clock-file-manager.en.uptodown.com/android/apps/357387/versions/1 -> -
 [+] HTTP GET: https://flashlight-clock-file-manager.en.uptodown.com/android/download/1229123765 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/file-manager/file-manager-3.8.4.apk
-curl: (22) The requested URL returned error: 404
-[-] Request failed: https://dw.uptodown.com/dwn/
+[+] HTTP GET: https://flashlight-clock-file-manager.en.uptodown.com/app/357387/version/14331122/files -> -
 
 [gplay 3.8.4] [+] Downloading from Google Play: com.alphainventor.filemanager
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 9 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.alphainventor.filemanager
@@ -959,8 +957,8 @@ curl: (22) The requested URL returned error: 404
 ````text
 d patches and continue patching
 ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.fitbod.premium.IsUserSubscribedFingerprint@141d0413
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.fitbod.premium.IsUserSubscribedFingerprint@141d0413
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.fitbod.premium.IsUserSubscribedFingerprint@3a6d5fef
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.fitbod.premium.IsUserSubscribedFingerprint@3a6d5fef
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
@@ -988,50 +986,13 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 
 </details>
 
-<details><summary>Fitia log excerpt</summary>
-
-````text
-: Applying 1 patches...
-INFO: Executing patches
-INFO: Patching took 1.8 seconds
-INFO: Use --continue-on-error to skip failed patches and continue patching
-ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Fitia: R8/c.a([B)String cert hex encoder not found.
-ERROR: app.morphe.patcher.patch.PatchException: Fitia: R8/c.a([B)String cert hex encoder not found.
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:132)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-Caused by: java.lang.IllegalStateException: Fitia: R8/c.a([B)String cert hex encoder not found.
-	at app.template.patches.fitia.premium.FitiaPremiumPatchKt.fitiaPremiumPatch$lambda$0$0(FitiaPremiumPatch.kt:108)
-	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
-	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
-	... 14 more
-
-
-````
-
-</details>
-
 <details><summary>Fuelio log excerpt</summary>
 
 ````text
 ror to skip failed patches and continue patching
 ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.fuelio.billing.IsPremiumFingerprint@2e9a40a8
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.fuelio.billing.IsPremiumFingerprint@2e9a40a8
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.fuelio.billing.IsPremiumFingerprint@544ae7cf
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.fuelio.billing.IsPremiumFingerprint@544ae7cf
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
@@ -1109,7 +1070,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for org.hola.play
@@ -1118,48 +1079,23 @@ curl: (22) The requested URL returned error: 404
 
 </details>
 
-<details><summary>Inmigreat log excerpt</summary>
-
-````text
-[uptodown 2.3.97] [+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/apps/1372864/versions/1 -> -
-[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/download/1230995135 -> -
-[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/app/1372864/version/14368365/files -> -
-[+] HTTP GET: https://inmigreat-case-tracker.en.uptodown.com/android/download/1230924309-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/inmigreat/inmigreat-2.3.97.apk.apkm
-curl: (22) The requested URL returned error: 404
-[-] Request failed: https://dw.uptodown.com/dwn/
-
-[gplay 2.3.97] [+] Downloading from Google Play: com.changayaf.inmigreat
-[+] FlareSolverr detected at http://localhost:8191/v1
-[+] Step 1: Getting dispenser credentials...
-[!] Direct request blocked (403), trying FlareSolverr...
-[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
-[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
-{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.changayaf.inmigreat
-
-````
-
-</details>
-
 <details><summary>Inure App Manager log excerpt</summary>
 
 ````text
-[apkpure 107.3.0] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/
-[+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/ (title=Download Inure App Manager (Trial) latest build10... Android APK)
-[+] FlareSolverr GET attempt 1/3: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.3.0
-[+] FlareSolverr OK: https://apkpure.com/inure-app-manager/app.simple.inure.play/downloading/107.3.0 (title=Free APK Downloader Online - Download Region Free APK)
-[-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
+[uptodown build107.3.0] [+] HTTP GET: https://inure.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://inure.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://inure.en.uptodown.com/android/apps/1000504243/versions/1 -> -
+[+] HTTP GET: https://inure.en.uptodown.com/android/download/1231629996 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/inure-app-manager/inure-app-manager-build107.3.0.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 107.3.0] [+] Downloading from Google Play: app.simple.inure.play
+[gplay build107.3.0] [+] Downloading from Google Play: app.simple.inure.play
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for app.simple.inure.play
@@ -1203,13 +1139,13 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 <details><summary>KineMaster log excerpt</summary>
 
 ````text
-[apkpure 8.2.14.37398] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
-[+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/ (title=Download KineMaster - AI Video Editor latest 8.2.14.... Android APK)
-[+] FlareSolverr GET attempt 1/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.2.14.37398
-[+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.2.14.37398 (title=Free APK Downloader Online - Download Region Free APK)
+[apkpure 8.2.15.37436] [+] FlareSolverr GET attempt 1/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/
+[+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/ (title=Download KineMaster - AI Video Editor latest 8.2.15.... Android APK)
+[+] FlareSolverr GET attempt 1/3: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.2.15.37436
+[+] FlareSolverr OK: https://apkpure.com/kinemaster-video-editor-free-app/com.nexstreaming.app.kinemasterfree/downloading/8.2.15.37436 (title=Free APK Downloader Online - Download Region Free APK)
 [-] Could not find download link on APKPure (title=Free APK Downloader Online - Download Region Free APK)
 
-[gplay 8.2.14.37398] [+] Downloading from Google Play: com.nexstreaming.app.kinemasterfree
+[gplay 8.2.15.37436] [+] Downloading from Google Play: com.nexstreaming.app.kinemasterfree
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
@@ -1291,34 +1227,25 @@ fingerprint: Fingerprint(classFingerprint=Fingerprint(returnType=Lcom/dywx/larkp
 <details><summary>Lawfully log excerpt</summary>
 
 ````text
-ollectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+[uptodown 6.10.2] [+] HTTP GET: https://lawfully-case-tracker-usa.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://lawfully-case-tracker-usa.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://lawfully-case-tracker-usa.en.uptodown.com/android/apps/1440963/versions/1 -> -
+[+] HTTP GET: https://lawfully-case-tracker-usa.en.uptodown.com/android/download/1232020969 -> -
+[+] HTTP GET: https://lawfully-case-tracker-usa.en.uptodown.com/app/1440963/version/14375129/files -> -
+[+] HTTP GET: https://lawfully-case-tracker-usa.en.uptodown.com/android/download/1231431155-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/lawfully/lawfully-6.10.2.apk.apkm
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
 
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:103)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
-
+[gplay 6.10.2] [+] Downloading from Google Play: com.lawfully.lawfully_ai_tracker
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.lawfully.lawfully_ai_tracker
 
 ````
 
@@ -1327,20 +1254,20 @@ ollectSafely(Builders.kt:57)
 <details><summary>Women Workout log excerpt</summary>
 
 ````text
-[uptodown 2.3.9] [+] HTTP GET: https://female-fitness-women-workout.en.uptodown.com/android/versions -> -
+[uptodown 2.4.0] [+] HTTP GET: https://female-fitness-women-workout.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://female-fitness-women-workout.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://female-fitness-women-workout.en.uptodown.com/android/apps/745148/versions/1 -> -
-[+] HTTP GET: https://female-fitness-women-workout.en.uptodown.com/android/download/1230070587 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/women-workout/women-workout-2.3.9.apk
+[+] HTTP GET: https://female-fitness-women-workout.en.uptodown.com/android/download/1232513025 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/women-workout/women-workout-2.4.0.apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 2.3.9] [+] Downloading from Google Play: women.workout.female.fitness
+[gplay 2.4.0] [+] Downloading from Google Play: women.workout.female.fitness
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for women.workout.female.fitness
@@ -1352,23 +1279,10 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Height Increase log excerpt</summary>
 
 ````text
-heightworkout.heightincreaseexercise.tallerexercise/download
+[apkcombo] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
 [!] FlareSolverr status 'error' for https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
 [!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
 [+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
-[!] FlareSolverr attempt 2/3 failed for: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
-[+] FlareSolverr GET attempt 3/3: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
-[!] FlareSolverr attempt 3/3 failed for: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
-[-] FlareSolverr could not fetch https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download after 3 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download -> -
-curl: (6) Could not resolve host: apkcombo.com
-curl: (6) Could not resolve host: apkcombo.com
-curl: (6) Could not resolve host: apkcombo.com
-curl: (6) Could not resolve host: apkcombo.com
-[-] Request failed: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
-[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download
 [+] FlareSolverr OK: https://apkcombo.com/search/increaseheightworkout.heightincreaseexercise.tallerexercise/download (title=apkcombo.com)
 
 ````
@@ -1393,7 +1307,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for homeworkout.homeworkouts.noequipment
@@ -1405,28 +1319,25 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Lose Weight App for Women log excerpt</summary>
 
 ````text
-oseweightapp.loseweightappforwomen.womenworkoutathome/download -> -
+utathome/download
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[!] FlareSolverr attempt 2/3 failed for: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[+] FlareSolverr GET attempt 3/3: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[!] FlareSolverr attempt 3/3 failed for: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
+[-] FlareSolverr could not fetch https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download after 3 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download -> -
 curl: (6) Could not resolve host: apkcombo.com
 curl: (6) Could not resolve host: apkcombo.com
 curl: (6) Could not resolve host: apkcombo.com
 curl: (6) Could not resolve host: apkcombo.com
 [-] Request failed: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome/download
 [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[!] FlareSolverr attempt 2/3 failed for: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[+] FlareSolverr GET attempt 3/3: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[!] FlareSolverr attempt 3/3 failed for: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
-[-] FlareSolverr could not fetch https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome after 3 attempt(s); trying a plain request
-[+] HTTP GET: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome -> -
-curl: (6) Could not resolve host: apkcombo.com
-curl: (6) Could not resolve host: apkcombo.com
-curl: (6) Could not resolve host: apkcombo.com
-curl: (6) Could not resolve host: apkcombo.com
-[-] Request failed: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome
+[+] FlareSolverr OK: https://apkcombo.com/search/loseweightapp.loseweightappforwomen.womenworkoutathome (title=apkcombo.com)
 
 ````
 
@@ -1464,23 +1375,48 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 
 </details>
 
-<details><summary>MacroDroid log excerpt</summary>
+<details><summary>LiveScore log excerpt</summary>
 
 ````text
-[uptodown 6.1.3] [+] HTTP GET: https://macrodroid.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://macrodroid.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://macrodroid.en.uptodown.com/android/apps/237577/versions/1 -> -
-[+] HTTP GET: https://macrodroid.en.uptodown.com/android/download/1230321917 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/macrodroid/macrodroid-6.1.3.apk
+[uptodown 10.4] [+] HTTP GET: https://livescore.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://livescore.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://livescore.en.uptodown.com/android/apps/31543/versions/1 -> -
+[+] HTTP GET: https://livescore.en.uptodown.com/android/download/1232484425 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/livescore/livescore-10.4.apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 6.1.3] [+] Downloading from Google Play: com.arlosoft.macrodroid
+[gplay 10.4] [+] Downloading from Google Play: com.livescore
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.livescore
+
+````
+
+</details>
+
+<details><summary>MacroDroid log excerpt</summary>
+
+````text
+[uptodown 6.1.5] [+] HTTP GET: https://macrodroid.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://macrodroid.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://macrodroid.en.uptodown.com/android/apps/237577/versions/1 -> -
+[+] HTTP GET: https://macrodroid.en.uptodown.com/android/download/1232395833 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/macrodroid/macrodroid-6.1.5.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
+
+[gplay 6.1.5] [+] Downloading from Google Play: com.arlosoft.macrodroid
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.arlosoft.macrodroid
@@ -1495,7 +1431,7 @@ curl: (22) The requested URL returned error: 404
 [uptodown 5.32.0+582] [+] HTTP GET: https://malwarebytes-anti-malware.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://malwarebytes-anti-malware.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://malwarebytes-anti-malware.en.uptodown.com/android/apps/24586/versions/1 -> -
-[+] HTTP GET: https://malwarebytes-anti-malware.en.uptodown.com/android/download/1231060694 -> -
+[+] HTTP GET: https://malwarebytes-anti-malware.en.uptodown.com/android/download/1232260839 -> -
 [+] HTTP GET: https://malwarebytes-anti-malware.en.uptodown.com/app/24586/version/14271449/files -> -
 [+] HTTP GET: https://malwarebytes-anti-malware.en.uptodown.com/android/download/1230373241-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/malwarebytes-mobile-security/malwarebytes-mobile-security-5.32.0+582.apk.apkm
@@ -1507,7 +1443,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for org.malwarebytes.antimalware
@@ -1534,7 +1470,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 9 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for mega.privacy.android.app
@@ -1546,11 +1482,29 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Money Manager log excerpt</summary>
 
 ````text
-[apkcombo] [+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow/download
-[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow/download
-[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow/download
-[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow/download
-[+] FlareSolverr OK: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow/download (title=apkcombo.com)
+h https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow/download after 3 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow/download -> -
+curl: (6) Could not resolve host: apkcombo.com
+curl: (6) Could not resolve host: apkcombo.com
+curl: (6) Could not resolve host: apkcombo.com
+curl: (6) Could not resolve host: apkcombo.com
+[-] Request failed: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow/download
+[+] FlareSolverr GET attempt 1/3: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[!] FlareSolverr attempt 1/3 failed for: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[+] FlareSolverr GET attempt 2/3: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[!] FlareSolverr attempt 2/3 failed for: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[+] FlareSolverr GET attempt 3/3: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[!] FlareSolverr status 'error' for https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[!] FlareSolverr attempt 3/3 failed for: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
+[-] FlareSolverr could not fetch https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow after 3 attempt(s); trying a plain request
+[+] HTTP GET: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow -> -
+curl: (6) Could not resolve host: apkcombo.com
+curl: (6) Could not resolve host: apkcombo.com
+curl: (6) Could not resolve host: apkcombo.com
+curl: (6) Could not resolve host: apkcombo.com
+[-] Request failed: https://apkcombo.com/search/com.glgjing.money.manager.bookkeeping.meow
 
 ````
 
@@ -1559,15 +1513,15 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Messenger log excerpt</summary>
 
 ````text
-[uptodown 584.0.0.49.98] [+] HTTP GET: https://facebook-messenger.en.uptodown.com/android/versions -> -
+[uptodown 584.1.0.61.98] [+] HTTP GET: https://facebook-messenger.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://facebook-messenger.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://facebook-messenger.en.uptodown.com/android/apps/18495/versions/1 -> -
-[+] HTTP GET: https://facebook-messenger.en.uptodown.com/android/download/1229409405 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/messenger/messenger-584.0.0.49.98.apk
+[+] HTTP GET: https://facebook-messenger.en.uptodown.com/android/download/1232360223 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/messenger/messenger-584.1.0.61.98.apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 584.0.0.49.98] [+] Downloading from Google Play: com.facebook.orca
+[gplay 584.1.0.61.98] [+] Downloading from Google Play: com.facebook.orca
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
@@ -1587,9 +1541,9 @@ curl: (22) The requested URL returned error: 404
 [uptodown Cirrus Uncinus 3.1.7] [+] HTTP GET: https://meteoblue.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://meteoblue.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://meteoblue.en.uptodown.com/android/apps/781384/versions/1 -> -
-[+] HTTP GET: https://meteoblue.en.uptodown.com/android/download/1230802014 -> -
+[+] HTTP GET: https://meteoblue.en.uptodown.com/android/download/1232547162 -> -
 [+] HTTP GET: https://meteoblue.en.uptodown.com/app/781384/version/14354519/files -> -
-[+] HTTP GET: https://meteoblue.en.uptodown.com/android/download/1230492636-x -> -
+[+] HTTP GET: https://meteoblue.en.uptodown.com/android/download/1231575434-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/meteoblue-weather/meteoblue-weather-Cirrus Uncinus 3.1.7.apk.apkm
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
@@ -1599,7 +1553,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 5 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.meteoblue.droid
@@ -1678,8 +1632,8 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 ````text
  skip failed patches and continue patching
 ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.monet.premium.BillingCallbackFingerprint@1c384feb
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.monet.premium.BillingCallbackFingerprint@1c384feb
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.monet.premium.BillingCallbackFingerprint@5cd31f59
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.monet.premium.BillingCallbackFingerprint@5cd31f59
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
@@ -1713,9 +1667,9 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 [uptodown 1.4.12] [+] HTTP GET: https://ninja-vpn.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://ninja-vpn.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://ninja-vpn.en.uptodown.com/android/apps/1000517221/versions/1 -> -
-[+] HTTP GET: https://ninja-vpn.en.uptodown.com/android/download/1230850625 -> -
+[+] HTTP GET: https://ninja-vpn.en.uptodown.com/android/download/1232515518 -> -
 [+] HTTP GET: https://ninja-vpn.en.uptodown.com/app/1000517221/version/14277765/files -> -
-[+] HTTP GET: https://ninja-vpn.en.uptodown.com/android/download/1230615059-x -> -
+[+] HTTP GET: https://ninja-vpn.en.uptodown.com/android/download/1232487578-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/ninja-vpn/ninja-vpn-1.4.12.apk.apkm
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
@@ -1725,7 +1679,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for app.ninjavpn.android
@@ -1737,20 +1691,20 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Nova Launcher log excerpt</summary>
 
 ````text
-[uptodown 89500 (8.9.5)] [+] HTTP GET: https://nova-launcher.en.uptodown.com/android/versions -> -
+[uptodown 89600 (8.9.6)] [+] HTTP GET: https://nova-launcher.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://nova-launcher.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://nova-launcher.en.uptodown.com/android/apps/19252/versions/1 -> -
-[+] HTTP GET: https://nova-launcher.en.uptodown.com/android/download/1231039449 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/nova-launcher/nova-launcher-89500 (8.9.5).apk
+[+] HTTP GET: https://nova-launcher.en.uptodown.com/android/download/1232412183 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/nova-launcher/nova-launcher-89600 (8.9.6).apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 89500 (8.9.5)] [+] Downloading from Google Play: com.teslacoilsw.launcher
+[gplay 89600 (8.9.6)] [+] Downloading from Google Play: com.teslacoilsw.launcher
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 9 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.teslacoilsw.launcher
@@ -1764,8 +1718,8 @@ curl: (22) The requested URL returned error: 404
 ````text
 es and continue patching
 ERROR: FAILED: Unlock subscription
-ERROR: Patching aborted: Patching failed: Patch "Unlock subscription" failed: Failed to match the fingerprint: app.template.patches.nytgames.IsSubscribedFingerprint@46f6070f
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.nytgames.IsSubscribedFingerprint@46f6070f
+ERROR: Patching aborted: Patching failed: Patch "Unlock subscription" failed: Failed to match the fingerprint: app.template.patches.nytgames.IsSubscribedFingerprint@5837dab0
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.nytgames.IsSubscribedFingerprint@5837dab0
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
@@ -1798,7 +1752,7 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 ````text
  patches
 INFO: Building instruction indexes for 7305 classes...
-INFO: Patching took 2.6 seconds
+INFO: Patching took 1.3 seconds
 INFO: Use --continue-on-error to skip failed patches and continue patching
 ERROR: FAILED: Unlock Pro
 ERROR: Patching aborted: Patching failed: Patch "Unlock Pro" failed: Octopi Launcher: could not resolve yq5 class — Lyq5;->s:Lzo4; iget-object not found in ProSnackCoroutineFingerprint method.
@@ -1832,7 +1786,7 @@ ERROR: app.morphe.patcher.patch.PatchException: Octopi Launcher: could not resol
 ````text
 hes...
 INFO: Executing patches
-INFO: Patching took 0.8 seconds
+INFO: Patching took 0.9 seconds
 INFO: Use --continue-on-error to skip failed patches and continue patching
 ERROR: FAILED: Unlock Premium
 ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Could not find class: Lcom/monect/core/data/model/LoggedInUser;
@@ -1906,7 +1860,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.glority.picturemushroom
@@ -1915,35 +1869,28 @@ curl: (22) The requested URL returned error: 404
 
 </details>
 
-<details><summary>pillo log excerpt</summary>
+<details><summary>Pixel Habit Tracker log excerpt</summary>
 
 ````text
-ailed patches and continue patching
-ERROR: FAILED: Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.pillo.premium.SetIsPremiumStateFingerprint@3a3ae54b
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.pillo.premium.SetIsPremiumStateFingerprint@3a3ae54b
-	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
-	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
-	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
-	at app.template.patches.pillo.premium.PilloPremiumPatchKt.pilloPremiumPatch$lambda$0$0(PilloPremiumPatch.kt:49)
-	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
-	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
-	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
-	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
-	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
-	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
-	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
-	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
-	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
-	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
-	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+[uptodown 2.5.3] [+] HTTP GET: https://pixel-habit-tracker.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://pixel-habit-tracker.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://pixel-habit-tracker.en.uptodown.com/android/apps/1000846516/versions/1 -> -
+[+] HTTP GET: https://pixel-habit-tracker.en.uptodown.com/android/download/1232454539 -> -
+[+] HTTP GET: https://pixel-habit-tracker.en.uptodown.com/app/1000846516/version/14395965/files -> -
+[+] HTTP GET: https://pixel-habit-tracker.en.uptodown.com/android/download/1232454522-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/pixel-habit-tracker/pixel-habit-tracker-2.5.3.apk.apkm
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
 
+[gplay 2.5.3] [+] Downloading from Google Play: com.pixel.al.pixelhabittracker
+[+] FlareSolverr detected at http://localhost:8191/v1
+[+] Step 1: Getting dispenser credentials...
+[!] Direct request blocked (403), trying FlareSolverr...
+[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
+[+] Got 4 cookies from FlareSolverr
+[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
+{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
+[-] Google Play helper failed for com.pixel.al.pixelhabittracker
 
 ````
 
@@ -1953,7 +1900,7 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 
 ````text
 or 44660 classes...
-INFO: Patching took 3.6 seconds
+INFO: Patching took 3.7 seconds
 INFO: Use --continue-on-error to skip failed patches and continue patching
 ERROR: FAILED: Unlock VIP
 ERROR: Patching aborted: Patching failed: Patch "Unlock VIP" failed: Failed to match the fingerprint: Fingerprint(returnType=Z, strings=[_expire_time, vip], custom)
@@ -2002,7 +1949,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for au.com.shiftyjelly.pocketcasts
@@ -2063,7 +2010,7 @@ y Proton AG - APKMirror)
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for ch.protonvpn.android
@@ -2182,7 +2129,7 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.truebill
@@ -2195,7 +2142,7 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 
 ````text
 O: Executing patches
-INFO: Patching took 1.8 seconds
+INFO: Patching took 1.9 seconds
 INFO: Use --continue-on-error to skip failed patches and continue patching
 ERROR: FAILED: Unlock Drama Episodes
 ERROR: Patching aborted: Patching failed: Patch "Unlock Drama Episodes" failed: Could not find class: Lcom/particlemedia/video/stream/onboarding/a;
@@ -2290,19 +2237,52 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 
 </details>
 
+<details><summary>SocialLite log excerpt</summary>
+
+````text
+ntinue patching
+ERROR: FAILED: Unlock Premium
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.sociallite.unlock.IsPremiumActiveFingerprint@6045a3aa
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.sociallite.unlock.IsPremiumActiveFingerprint@6045a3aa
+	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
+	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
+	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
+	at app.template.patches.sociallite.unlock.SocialLiteUnlockPatchKt.socialLiteUnlockPatch$lambda$0$0(SocialLiteUnlockPatch.kt:85)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
+
+````
+
+</details>
+
 <details><summary>Splitwise log excerpt</summary>
 
 ````text
-[apkmirror 26.10.1] [+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/splitwise/splitwise/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/ (title=Download Splitwise APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-10-1-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-10-1-release/ (title=Splitwise 26.10.1 APK Download by Splitwise - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-10-1-release/
-[+] APKMirror variant page: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-10-1-release/splitwise-26-10-1-android-apk-download/
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-10-1-release/splitwise-26-10-1-android-apk-download/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/splitwise/splitwise/splitwise-26-10-1-release/splitwise-26-10-1-android-apk-download/ (title=Splitwise 26.10.1 (Android 9.0+) APK Download by Splitwise - APKMirror)
+[uptodown 26.10.2] [+] HTTP GET: https://splitwise.en.uptodown.com/android/versions -> -
+[+] HTTP GET: https://splitwise.en.uptodown.com/android/download -> -
+[+] HTTP GET: https://splitwise.en.uptodown.com/android/apps/220505/versions/1 -> -
+[+] HTTP GET: https://splitwise.en.uptodown.com/android/download/1232559575 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/splitwise/splitwise-26.10.2.apk
+curl: (22) The requested URL returned error: 404
+[-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 26.10.1] [+] Downloading from Google Play: com.Splitwise.SplitwiseMobile
+[gplay 26.10.2] [+] Downloading from Google Play: com.Splitwise.SplitwiseMobile
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
@@ -2319,22 +2299,22 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 <details><summary>Strava log excerpt</summary>
 
 ````text
-[uptodown 486.9] [+] HTTP GET: https://strava.en.uptodown.com/android/versions -> -
+[uptodown 487.11] [+] HTTP GET: https://strava.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://strava.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://strava.en.uptodown.com/android/apps/32291/versions/1 -> -
-[+] HTTP GET: https://strava.en.uptodown.com/android/download/1230748227 -> -
-[+] HTTP GET: https://strava.en.uptodown.com/app/32291/version/14329800/files -> -
-[+] HTTP GET: https://strava.en.uptodown.com/android/download/1230505052-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/strava/strava-486.9.apk.apkm
+[+] HTTP GET: https://strava.en.uptodown.com/android/download/1232528573 -> -
+[+] HTTP GET: https://strava.en.uptodown.com/app/32291/version/14393861/files -> -
+[+] HTTP GET: https://strava.en.uptodown.com/android/download/1232528573-x -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/strava/strava-487.11.apk.apkm
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 486.9] [+] Downloading from Google Play: com.strava
+[gplay 487.11] [+] Downloading from Google Play: com.strava
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.strava
@@ -2415,7 +2395,7 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 [uptodown 13.1.1] [+] HTTP GET: https://telegram-google-play-version.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://telegram-google-play-version.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://telegram-google-play-version.en.uptodown.com/android/apps/1298037/versions/1 -> -
-[+] HTTP GET: https://telegram-google-play-version.en.uptodown.com/android/download/1230348770 -> -
+[+] HTTP GET: https://telegram-google-play-version.en.uptodown.com/android/download/1232275462 -> -
 [+] HTTP GET: https://telegram-google-play-version.en.uptodown.com/app/1298037/version/14354271/files -> -
 [+] HTTP GET: https://telegram-google-play-version.en.uptodown.com/android/download/1230106347-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/telegram/telegram-13.1.1.apk.apkm
@@ -2427,7 +2407,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 9 cookies from FlareSolverr
+[+] Got 5 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for org.telegram.messenger
@@ -2439,25 +2419,30 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Telegram Plus log excerpt</summary>
 
 ````text
-[uptodown 13.0.3.0] [+] HTTP GET: https://telegram-plus.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://telegram-plus.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://telegram-plus.en.uptodown.com/android/apps/34441/versions/1 -> -
-[+] HTTP GET: https://telegram-plus.en.uptodown.com/android/download/1229505479 -> -
-[+] HTTP GET: https://telegram-plus.en.uptodown.com/app/34441/version/14339468/files -> -
-[+] HTTP GET: https://telegram-plus.en.uptodown.com/android/download/1229505479-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/telegram-plus/telegram-plus-13.0.3.0.apk
-curl: (22) The requested URL returned error: 404
-[-] Request failed: https://dw.uptodown.com/dwn/
+moveDeletedMessagesFromNotifications, returnType=V, parameters=[Landroidx/collection/LongSparseArray;, Z])
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: Fingerprint(definingClass=Lorg/telegram/messenger/NotificationsController;, name=removeDeletedMessagesFromNotifications, returnType=V, parameters=[Landroidx/collection/LongSparseArray;, Z])
+	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
+	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
+	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
+	at app.template.patches.telegram.content.TelegramAntiDeletePatchKt.telegramAntiDeletePatch$lambda$0$0(TelegramAntiDeletePatch.kt:47)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
 
-[gplay 13.0.3.0] [+] Downloading from Google Play: org.telegram.plus
-[+] FlareSolverr detected at http://localhost:8191/v1
-[+] Step 1: Getting dispenser credentials...
-[!] Direct request blocked (403), trying FlareSolverr...
-[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
-[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
-{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for org.telegram.plus
 
 ````
 
@@ -2479,7 +2464,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for org.telegram.messenger.web
@@ -2491,9 +2476,9 @@ curl: (22) The requested URL returned error: 404
 <details><summary>The Athletic log excerpt</summary>
 
 ````text
- Unlock Premium
-ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.theathletic.premium.ArticleLoadPaywallTriggerFingerprint@712aa19
-ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.theathletic.premium.ArticleLoadPaywallTriggerFingerprint@712aa19
+nlock Premium
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.theathletic.premium.ArticleLoadPaywallTriggerFingerprint@602458cd
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.theathletic.premium.ArticleLoadPaywallTriggerFingerprint@602458cd
 	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
 	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
 	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
@@ -2527,9 +2512,9 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 [uptodown 3.6.326] [+] HTTP GET: https://tomtom-gps-navigation-traffic.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://tomtom-gps-navigation-traffic.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://tomtom-gps-navigation-traffic.en.uptodown.com/android/apps/44103/versions/1 -> -
-[+] HTTP GET: https://tomtom-gps-navigation-traffic.en.uptodown.com/android/download/1231020260 -> -
+[+] HTTP GET: https://tomtom-gps-navigation-traffic.en.uptodown.com/android/download/1232211574 -> -
 [+] HTTP GET: https://tomtom-gps-navigation-traffic.en.uptodown.com/app/44103/version/14337486/files -> -
-[+] HTTP GET: https://tomtom-gps-navigation-traffic.en.uptodown.com/android/download/1231020260-x -> -
+[+] HTTP GET: https://tomtom-gps-navigation-traffic.en.uptodown.com/android/download/1232211574-x -> -
 [+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/tomtom-go/tomtom-go-3.6.326.apk.apkm
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
@@ -2539,7 +2524,7 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
+[+] Got 6 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.tomtom.gplay.navapp
@@ -2585,31 +2570,30 @@ ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint:
 <details><summary>Moovit log excerpt</summary>
 
 ````text
-Moovit: Your Transit Tracker APKs for Android - APKMirror)
-[+] FlareSolverr GET attempt 1/3: https://www.apkmirror.com/apk/moovit/moovit-bus-train-live-info/moovit-your-transit-tracker-5-203-0-1812-release/
-[+] FlareSolverr OK: https://www.apkmirror.com/apk/moovit/moovit-bus-train-live-info/moovit-your-transit-tracker-5-203-0-1812-release/ (title=Moovit: Your Transit Tracker 5.203.0.1812 APK Download by Moovit - APKMirror)
-[+] APKMirror release page: https://www.apkmirror.com/apk/moovit/moovit-bus-train-live-info/moovit-your-transit-tracker-5-203-0-1812-release/
-[-] Could not find APKMirror variant for version=5.203.0.1812 arch=all dpi=nodpi anydpi auto
+atch the fingerprint: Fingerprint(accessFlags=public final, returnType=Ljava/lang/String;, parameters=[Lcom/moovit/app/ads/AdSource;], strings=[is_ads_free_version])
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: Fingerprint(accessFlags=public final, returnType=Ljava/lang/String;, parameters=[Lcom/moovit/app/ads/AdSource;], strings=[is_ads_free_version])
+	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
+	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
+	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
+	at app.template.patches.tranzmate.TranzmatePremiumPatchKt.tranzmatePremiumPatch$lambda$0$0(TranzmatePremiumPatch.kt:86)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
 
-[uptodown 5.203.0.1812] [+] HTTP GET: https://moovit.en.uptodown.com/android/versions -> -
-[+] HTTP GET: https://moovit.en.uptodown.com/android/download -> -
-[+] HTTP GET: https://moovit.en.uptodown.com/android/apps/29953/versions/1 -> -
-[+] HTTP GET: https://moovit.en.uptodown.com/android/download/1231157856 -> -
-[+] HTTP GET: https://moovit.en.uptodown.com/app/29953/version/14371352/files -> -
-[+] HTTP GET: https://moovit.en.uptodown.com/android/download/1231157856-x -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/moovit/moovit-5.203.0.1812.apk.apkm
-curl: (22) The requested URL returned error: 404
-[-] Request failed: https://dw.uptodown.com/dwn/
-
-[gplay 5.203.0.1812] [+] Downloading from Google Play: com.tranzmate
-[+] FlareSolverr detected at http://localhost:8191/v1
-[+] Step 1: Getting dispenser credentials...
-[!] Direct request blocked (403), trying FlareSolverr...
-[!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 8 cookies from FlareSolverr
-[-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
-{"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
-[-] Google Play helper failed for com.tranzmate
 
 ````
 
@@ -2618,23 +2602,57 @@ curl: (22) The requested URL returned error: 404
 <details><summary>Uptodown App Store log excerpt</summary>
 
 ````text
-[uptodown 7.41] [+] HTTP GET: https://uptodown-android.en.uptodown.com/android/versions -> -
+[uptodown 7.42] [+] HTTP GET: https://uptodown-android.en.uptodown.com/android/versions -> -
 [+] HTTP GET: https://uptodown-android.en.uptodown.com/android/download -> -
 [+] HTTP GET: https://uptodown-android.en.uptodown.com/android/apps/18098/versions/1 -> -
-[+] HTTP GET: https://uptodown-android.en.uptodown.com/android/download/1226718585 -> -
-[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/uptodown-app-store/uptodown-app-store-7.41.apk
+[+] HTTP GET: https://uptodown-android.en.uptodown.com/android/download/1232507681 -> -
+[+] HTTP GET: https://dw.uptodown.com/dwn/ -> /home/runner/work/patches-tracker/patches-tracker/.work/uptodown-app-store/uptodown-app-store-7.42.apk
 curl: (22) The requested URL returned error: 404
 [-] Request failed: https://dw.uptodown.com/dwn/
 
-[gplay 7.41] [+] Downloading from Google Play: com.uptodown
+[gplay 7.42] [+] Downloading from Google Play: com.uptodown
 [+] FlareSolverr detected at http://localhost:8191/v1
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 4 cookies from FlareSolverr
+[+] Got 5 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.uptodown
+
+````
+
+</details>
+
+<details><summary>Vyxel Apps log excerpt</summary>
+
+````text
+s and continue patching
+ERROR: FAILED: Unlock Premium
+ERROR: Patching aborted: Patching failed: Patch "Unlock Premium" failed: Failed to match the fingerprint: app.template.patches.vyxel.premium.LoadLiquidGlassUnlockedFingerprint@768ac600
+ERROR: app.morphe.patcher.patch.PatchException: Failed to match the fingerprint: app.template.patches.vyxel.premium.LoadLiquidGlassUnlockedFingerprint@768ac600
+	at app.morphe.patcher.Fingerprint.patchException(Fingerprint.kt:1407)
+	at app.morphe.patcher.Fingerprint.match(Fingerprint.kt:1442)
+	at app.morphe.patcher.Fingerprint.getMethod(Fingerprint.kt:1635)
+	at app.template.patches.vyxel.premium.VyxelPremiumPatchKt.vyxelPremiumPatch$lambda$0$0(VyxelPremiumPatch.kt:34)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
 
 ````
 
@@ -2658,10 +2676,45 @@ curl: (22) The requested URL returned error: 404
 [+] Step 1: Getting dispenser credentials...
 [!] Direct request blocked (403), trying FlareSolverr...
 [!] FlareSolverr failed for https://auroraoss.com/api/auth: 500 Server Error: Internal Server Error for url: http://localhost:8191/v1
-[+] Got 5 cookies from FlareSolverr
+[+] Got 4 cookies from FlareSolverr
 [-] Error: 403 Client Error: Forbidden for url: https://auroraoss.com/api/auth
 {"success": false, "error": "403 Client Error: Forbidden for url: https://auroraoss.com/api/auth"}
 [-] Google Play helper failed for com.remi.widget
+
+````
+
+</details>
+
+<details><summary>Yatri log excerpt</summary>
+
+````text
+xecuting patches
+INFO: Patching took 1.2 seconds
+INFO: Use --continue-on-error to skip failed patches and continue patching
+ERROR: FAILED: Unlock VIP
+ERROR: Patching aborted: Patching failed: Patch "Unlock VIP" failed: Could not find class: Lcom/yatrirailways/yatri/utils/preference/UserSharedPreference;
+ERROR: app.morphe.patcher.patch.PatchException: Could not find class: Lcom/yatrirailways/yatri/utils/preference/UserSharedPreference;
+	at app.morphe.patcher.util.PatchClasses.classBy(PatchClasses.kt:1023)
+	at app.morphe.patcher.patch.BytecodePatchContext.classDefBy(BytecodePatchContext.kt:224)
+	at app.template.patches.yatri.YatriUnlockVipPatchKt.yatriUnlockVipPatch$lambda$0$0(YatriUnlockVipPatch.kt:17)
+	at app.morphe.patcher.patch.Patch.execute(Patch.kt:141)
+	at app.morphe.patcher.patch.BytecodePatch.execute$morphe_patcher(Patch.kt:292)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend$execute(Patcher.kt:125)
+	at app.morphe.patcher.Patcher$invoke$1.invokeSuspend(Patcher.kt:151)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at app.morphe.patcher.Patcher$invoke$1.invoke(Patcher.kt)
+	at kotlinx.coroutines.flow.SafeFlow.collectSafely(Builders.kt:57)
+	at kotlinx.coroutines.flow.AbstractFlow.collect(Flow.kt:226)
+	at app.morphe.engine.PatchEngine$patch$3.invokeSuspend(PatchEngine.kt:491)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+
 
 ````
 
